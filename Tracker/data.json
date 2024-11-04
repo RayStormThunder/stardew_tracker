@@ -594,7 +594,9 @@
         ],
         [
             "Sweet Gem Berry",
-            [],
+            [
+                "Fall"
+            ],
             "",
             "Harvest Sweet Gem Berry",
             0
@@ -1362,323 +1364,413 @@
     "Questsanity": [
         [
             "A Dark Reagent",
-            [],
-            "",
+            ["Winter"],
+            "Mail, Winter 12",
             "A Dark Reagent",
             0
         ],
         [
             "A Favor For Clint",
-            [],
-            "",
+            ["Winter"],
+            "Mail, Winter 17",
             "A Favor For Clint",
             0
         ],
         [
             "A Soldier's Star",
-            [],
-            "",
+            ["Summer"],
+            "Mail, Summer 15, Year 2",
             "A Soldier's Star",
             0
         ],
         [
             "A Winter Mystery",
-            [],
-            "",
+            ["Winter"],
+            "Trigger the cutscene by entering the Bus Stop from the Farm between 6am and 4pm",
             "A Winter Mystery",
             0
         ],
         [
             "Advancement",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "Complete 'Getting Started'",
             "Advancement",
             0
         ],
         [
             "Aquatic Research",
-            [],
-            "",
+            ["Summer"],
+            "Mail, Summer 6, Year 2",
             "Aquatic Research",
             0
         ],
         [
             "Archaeology",
-            [],
-            "",
+            ["Spring, Summer, Fall, Winter"],
+            "Enter the Museum with a mineral or artifact in inventory.",
             "Archaeology",
             0
         ],
         [
             "Blackberry Basket",
-            [],
-            "",
+            ["Fall"],
+            "Mail, Fall 8",
             "Blackberry Basket",
             0
         ],
         [
             "Carving Pumpkins",
-            [],
-            "",
+            ["Fall"],
+            "Mail, Fall 19",
             "Carving Pumpkins",
             0
         ],
         [
             "Catch a Lingcod",
-            [],
-            "",
+            ["Winter"],
+            "Mail, Winter 13, Year 2",
             "Catch a Lingcod",
             0
         ],
         [
             "Catch a Squid",
-            [],
-            "",
+            ["Winter"],
+            "Mail, Winter 2",
             "Catch a Squid",
             0
         ],
         [
             "Clint's Attempt",
-            [],
-            "",
+            ["Winter"],
+            "Mail, Winter 6",
             "Clint's Attempt",
             0
         ],
         [
             "Cow's Delight",
-            [],
-            "",
+            ["Fall"],
+            "Mail, Fall 3",
             "Cow's Delight",
             0
         ],
         [
             "Crop Research",
-            [],
-            "",
+            ["Summer"],
+            "Mail, Summer 20",
             "Crop Research",
             0
         ],
         [
             "Cryptic Note",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "Reading Secret Note #10",
             "Cryptic Note",
             0
         ],
         [
             "Dark Talisman",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "Railroad cutscene",
             "Dark Talisman",
             0
         ],
         [
             "Exotic Spirits",
-            [],
-            "",
+            ["Winter"],
+            "Mail, Winter 19, Year 2",
             "Exotic Spirits",
             0
         ],
         [
             "Fish Casserole",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "Jodi 4 hearts cutescene",
             "Fish Casserole",
             0
         ],
         [
             "Fish Stew",
-            [],
-            "",
+            ["Winter"],
+            "Mail, Winter 26",
             "Fish Stew",
             0
         ],
         [
             "Forging Ahead",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "Collect Copper Ore, Clint visits and gives the player the Furnace blueprints.",
             "Forging Ahead",
             0
         ],
         [
             "Fresh Fruit",
-            [],
-            "",
+            ["Spring"],
+            "Mail, Spring 6, Year 2",
             "Fresh Fruit",
             0
         ],
         [
             "Goblin Problem",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "Through the cave by the Railroad after completing the Dark Talisman quest.",
             "Goblin Problem",
             0
         ],
         [
             "Getting Started",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "Package in room at start",
             "Getting Started",
             0
         ],
         [
             "Granny's Gift",
-            [],
-            "",
+            ["Spring"],
+            "Mail, Spring 15, Year 2",
             "Granny's Gift",
             0
         ],
         [
             "How to Win Friends",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "Complete 'Introductions'",
             "How to Win Friends",
             0
         ],
         [
             "Initiation",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "Mailbox, morning after reaching floor 5 in the Mines.",
             "Initiation",
             0
         ],
         [
             "Introductions",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "Introductory quest",
             "Introductions",
             0
         ],
         [
             "Jodi's Request",
-            [],
-            "",
+            ["Spring"],
+            "Mail, Spring 19",
             "Jodi's Request",
             0
         ],
         [
             "Knee Therapy",
-            [],
-            "",
+            ["Summer"],
+            "Mail, Summer 25",
             "Knee Therapy",
             0
         ],
         [
             "Marnie's Request",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "She visits the farm house after the player is at 3 Friendship hearts with her.",
             "Marnie's Request",
             0
         ],
         [
             "Mayor's 'Shorts'",
-            [],
-            "",
+            ["Summer"],
+            "Mail, Summer 3",
             "Mayor's 'Shorts'",
             0
         ],
         [
             "Mayor's Need",
-            [],
-            "",
+            ["Summer"],
+            "Mail, Summer 21, Year 2",
             "Mayor's Need",
             0
         ],
         [
             "Meet The Wizard",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "After exploring the community center",
             "Meet The Wizard",
             0
         ],
         [
             "Pam Is Thirsty",
-            [],
-            "",
+            ["Summer"],
+            "Mail, Summer 14",
             "Pam Is Thirsty",
             0
         ],
         [
             "Pam Needs Juice",
-            [],
-            "",
+            ["Fall"],
+            "Mail, Fall 19, Year 2",
             "Pam Needs Juice",
             0
         ],
         [
             "Pierre's Notice",
-            [],
-            "",
+            ["Spring"],
+            "Mail, Spring 21, Year 2",
             "Pierre's Notice",
             0
         ],
         [
             "Qi's Challenge",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "Received by mail the day after entering the Skull Cavern",
             "Qi's Challenge",
             0
         ],
         [
             "Raising Animals",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "Complete 'Getting Started'",
             "Raising Animals",
             0
         ],
         [
             "Robin's Lost Axe",
-            [],
-            "",
+            ["Spring"],
+            "Mail, Spring 11",
             "Robin's Lost Axe",
             0
         ],
         [
             "Robin's Request",
-            [],
-            "",
+            ["Winter"],
+            "Mail, Winter 21",
             "Robin's Request",
             0
         ],
         [
             "Smelting",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "Complete 'Forging Ahead'.",
             "Smelting",
             0
         ],
         [
             "Staff of Power",
-            [],
-            "",
+            ["Winter"],
+            "Mail, Winter 5, Year 2",
             "Staff of Power",
             0
         ],
         [
             "Strange Note",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "After reading Secret Note #23",
             "Strange Note",
             0
         ],
         [
             "The Mysterious Qi",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "Put a Battery Pack in the lock-box in the tunnel next to the bus stop.",
             "The Mysterious Qi",
             0
         ],
         [
             "The Skull Key",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "Reach the bottom floor of the Mines.",
             "The Skull Key",
             0
         ],
         [
             "Wanted: Lobster",
-            [],
-            "",
+            ["Fall"],
+            "Mail, Fall 6, Year 2",
             "Wanted: Lobster",
             0
         ]
@@ -1774,28 +1866,48 @@
         ],
         [
             "Clam",
-            [],
+            [
+                "Spring",
+                "Summer",
+                "Fall",
+                "Winter"
+            ],
             "(Anytime) (Any Weather) (Beach)",
             "Fishsanity: Clam",
             0
         ],
         [
             "Cockle",
-            [],
+            [
+                "Spring",
+                "Summer",
+                "Fall",
+                "Winter"
+            ],
             "(Anytime) (Any Weather) (Beach)",
             "Fishsanity: Cockle",
             0
         ],
         [
             "Crab",
-            [],
+            [
+                "Spring",
+                "Summer",
+                "Fall",
+                "Winter"
+            ],
             "(Anytime) (Any Weather) (Beach)",
             "Fishsanity: Crab",
             0
         ],
         [
             "Crayfish",
-            [],
+            [
+                "Spring",
+                "Summer",
+                "Fall",
+                "Winter"
+            ],
             "(Anytime) (Any Weather) (Freshwater Crab Pot)",
             "Fishsanity: Crayfish",
             0
@@ -1909,7 +2021,12 @@
         ],
         [
             "Lobster",
-            [],
+            [
+                "Spring",
+                "Summer",
+                "Fall",
+                "Winter"
+            ],
             "(Anytime) (Any Weather) (Ocean Crab Pot)",
             "Fishsanity: Lobster",
             0
@@ -1935,7 +2052,12 @@
         ],
         [
             "Mussel",
-            [],
+            [
+                "Spring",
+                "Summer",
+                "Fall",
+                "Winter"
+            ],
             "(Anytime) (Any Weather) (Beach)",
             "Fishsanity: Mussel",
             0
@@ -1951,7 +2073,12 @@
         ],
         [
             "Oyster",
-            [],
+            [
+                "Spring",
+                "Summer",
+                "Fall",
+                "Winter"
+            ],
             "(Anytime) (Any Weather) (Beach)",
             "Fishsanity: Oyster",
             0
@@ -1967,7 +2094,12 @@
         ],
         [
             "Periwinkle",
-            [],
+            [
+                "Spring",
+                "Summer",
+                "Fall",
+                "Winter"
+            ],
             "(Anytime) (Any Weather) (Freshwater Crab Pot)",
             "Fishsanity: Periwinkle",
             0
@@ -2088,7 +2220,12 @@
         ],
         [
             "Shrimp",
-            [],
+            [
+                "Spring",
+                "Summer",
+                "Fall",
+                "Winter"
+            ],
             "(Anytime) (Any Weather) (Ocean Crab Pot)",
             "Fishsanity: Shrimp",
             0
@@ -2117,7 +2254,12 @@
         ],
         [
             "Snail",
-            [],
+            [
+                "Spring",
+                "Summer",
+                "Fall",
+                "Winter"
+            ],
             "(Anytime) (Any Weather) (Freshwater Crab Pot)",
             "Fishsanity: Snail",
             0
@@ -3221,323 +3363,416 @@
     "Misc": [
         [
             "Beach Bridge Repair",
-            [],
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
             "",
             "Beach Bridge Repair",
             0
         ],
         [
             "Collect All Rarecrows",
-            [],
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
             "",
             "Collect All Rarecrows",
             0
         ],
         [
             "Dance of the Moonlight Jellies",
-            [],
-            "",
+            ["Summer"],
+            "Summer 28",
             "Dance of the Moonlight Jellies",
             0
         ],
         [
             "Dance with someone",
-            [],
-            "",
+            ["Spring"],
+            "Spring 24",
             "Dance with someone",
             0
         ],
         [
             "Dark Talisman",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "???",
             "Dark Talisman",
             0
         ],
         [
             "Deluxe Pack",
-            [],
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
             "",
             "Deluxe Pack",
             0
         ],
         [
             "Demetrius's Breakthrough",
-            [],
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
             "",
             "Demetrius's Breakthrough",
             0
         ],
         [
             "Egg Festival: Strawberry Seeds",
-            [],
-            "",
+            ["Spring"],
+            "Spring 13",
             "Egg Festival: Strawberry Seeds",
             0
         ],
         [
             "Egg Hunt Victory",
-            [],
-            "",
+            ["Spring"],
+            "Spring 13",
             "Egg Hunt Victory",
             0
         ],
         [
             "Fair Stardrop",
-            [],
-            "",
+            ["Fall"],
+            "Fall 24",
             "Fair Stardrop",
             0
         ],
         [
             "Galaxy Sword Shrine",
-            [],
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
             "",
             "Galaxy Sword Shrine",
             0
         ],
         [
             "Grange Display",
-            [],
-            "",
+            ["Fall"],
+            "Fall 24",
             "Grange Display",
             0
         ],
         [
             "Grim Reaper statue",
-            [],
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
             "",
             "Grim Reaper statue",
             0
         ],
         [
             "Have a Baby",
-            [],
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
             "",
             "Have a Baby",
             0
         ],
         [
             "Have Another Baby",
-            [],
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
             "",
             "Have Another Baby",
             0
         ],
         [
             "Jack-O-Lantern Recipe",
-            [],
-            "",
+            ["Fall"],
+            "Fall 27",
             "Jack-O-Lantern Recipe",
             0
         ],
         [
             "Krobus Stardrop",
-            [],
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
             "",
             "Krobus Stardrop",
             0
         ],
         [
             "Large Pack",
-            [],
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
             "",
             "Large Pack",
             0
         ],
         [
             "Luau Soup",
-            [],
-            "",
+            ["Summer"],
+            "Summer 11",
             "Luau Soup",
             0
         ],
         [
-            "Lupini: Portrait Of A Mermaid",
-            [],
-            "",
-            "Lupini: Portrait Of A Mermaid",
+            "Lupini: Red Eagle",
+            ["Winter"],
+            "Winter 15",
+            "Lupini: Red Eagle",
             0
         ],
         [
-            "Lupini: Red Eagle",
-            [],
-            "",
-            "Lupini: Red Eagle",
+            "Lupini: Portrait Of A Mermaid",
+            ["Winter"],
+            "Winter 16",
+            "Lupini: Portrait Of A Mermaid",
             0
         ],
         [
             "Lupini: Solar Kingdom",
-            [],
-            "",
+            ["Winter"],
+            "Winter 17",
             "Lupini: Solar Kingdom",
             0
         ],
         [
             "Mermaid Pearl",
-            [],
-            "",
+            ["Winter"],
+            "Winter 15 to 17",
             "Mermaid Pearl",
             0
         ],
         [
             "Moonlight Jellies Banner",
-            [],
-            "",
+            ["Summer"],
+            "Summer 28",
             "Moonlight Jellies Banner",
             0
         ],
         [
             "Old Master Cannoli",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "Requires a fall only item: Sweet Gem Berry",
             "Old Master Cannoli",
-            0
-        ],
-        [
-            "Prismatic Jelly",
-            [],
-            "",
-            "Prismatic Jelly",
             0
         ],
         [
             "Purchase Fiberglass Rod",
-            [],
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
             "",
             "Purchase Fiberglass Rod",
             0
         ],
         [
             "Purchase Iridium Rod",
-            [],
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
             "",
             "Purchase Iridium Rod",
             0
         ],
         [
             "Purchase Training Rod",
-            [],
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
             "",
             "Purchase Training Rod",
             0
         ],
         [
             "Rarecrow #1 (Turnip Head)",
-            [],
-            "",
+            ["Fall"],
+            "Fall 24",
             "Rarecrow #1 (Turnip Head)",
             0
         ],
         [
             "Rarecrow #2 (Witch)",
-            [],
-            "",
+            ["Fall"],
+            "Fall 27",
             "Rarecrow #2 (Witch)",
             0
         ],
         [
             "Rarecrow #3 (Alien)",
-            [],
-            "",
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
+            "Casino item",
             "Rarecrow #3 (Alien)",
             0
         ],
         [
             "Rarecrow #4 (Snowman)",
-            [],
-            "",
+            ["Winter"],
+            "Winter 8",
             "Rarecrow #4 (Snowman)",
             0
         ],
         [
             "Rarecrow #5 (Woman)",
-            [],
-            "",
+            ["Spring"],
+            "Spring 24",
             "Rarecrow #5 (Woman)",
             0
         ],
         [
             "Rarecrow #7 (Tanuki)",
-            [],
-            "",
+            ["Winter"],
+            "Winter 15 to 17",
             "Rarecrow #7 (Tanuki)",
             0
         ],
         [
             "Rarecrow #8 (Tribal Mask)",
-            [],
-            "",
+            ["Winter"],
+            "Winter 15 to 17",
             "Rarecrow #8 (Tribal Mask)",
             0
         ],
         [
             "Secret Santa",
-            [],
-            "",
+            ["Winter"],
+            "Winter 25",
             "Secret Santa",
             0
         ],
         [
             "Smashing Stone",
-            [],
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
             "",
             "Smashing Stone",
             0
         ],
         [
             "Smelting",
-            [],
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
             "",
             "Smelting",
             0
         ],
         [
             "Spirit's Eve Maze",
-            [],
-            "",
+            ["Fall"],
+            "Fall 27",
             "Spirit's Eve Maze",
             0
         ],
         [
             "Spouse Stardrop",
-            [],
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
             "",
             "Spouse Stardrop",
             0
         ],
         [
             "Starport Decal",
-            [],
-            "",
+            ["Summer"],
+            "Summer 28",
             "Starport Decal",
             0
         ],
         [
             "The Legend of the Winter Star",
-            [],
-            "",
+            ["Winter"],
+            "Winter 25",
             "The Legend of the Winter Star",
             0
         ],
         [
             "The Missing Bundle",
-            [],
+            [
+             "Spring",
+             "Summer", 
+             "Fall", 
+             "Winter"
+            ],
             "",
             "The Missing Bundle",
             0
         ],
         [
             "Win Fishing Competition",
-            [],
-            "",
+            ["Winter"],
+            "Winter 8",
             "Win Fishing Competition",
             0
         ],
         [
             "Tub o' Flowers Recipe",
-            [],
-            "",
+            ["Spring"],
+            "Spring 24",
             "Tub o' Flowers Recipe",
             0
         ]
