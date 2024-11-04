@@ -43,9 +43,9 @@ async def send_initial_connect(websocket, player_name):
     }
 
     # Convert to JSON string and send
-    packet_str = json.dumps(connect_packet)
-    await websocket.send(encode(packet_str))
-    print("Sent initial Connect packet to the server:", packet_str)
+    await websocket.send(encode(connect_packet))
+    print("Sent initial Connect packet to the server:", connect_packet)
+    print("Sent encoded Connect packet to the server:", encode(connect_packet))
 
     # Start listening to the server for incoming messages
     await listen_to_server(websocket)
