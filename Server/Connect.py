@@ -4,6 +4,7 @@ import json
 import uuid
 import os
 from NetUtils import encode
+import Utils
 
 # Constants
 SERVER_URI = "wss://archipelago.gg"  # Fixed server URI
@@ -34,7 +35,7 @@ async def send_initial_connect(websocket, player_name):
         'cmd': 'Connect',
         'password': None,
         'name': player_name,
-        'version': 'Version(major=0, minor=5, build=0)',
+        'version': Utils.version_tuple,
         'tags': ['AP', 'TextOnly'],
         'items_handling': 7,
         'uuid': str(uuid.uuid4()),
