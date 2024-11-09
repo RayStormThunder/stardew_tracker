@@ -11,7 +11,7 @@ Features:
   Add requirements that will make the checkbox line red if you can't get it.
   Have an overlay appear when hovering over a check giving the requirements of the check.
   Allow Wind Waker and Hollow Knight checks to be displayed.
-  Have tracker automatically add checks based on what archipelago says.
+  Have tracker automatically add checks based on what archipelago says instead of being hardcoded (This will remove the Bundles Button).
   Add new Notes tab (1 for my Checks and 1 for others).
   Add comma seperated searching.
   Better naming for hint tabs.
