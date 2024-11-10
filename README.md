@@ -2,6 +2,8 @@ This is a tracker specifically designed for Stardew Valley archipelago but on on
 
 Currently the tracker is implemented and sever connection works. 
 
+POG
+
 There are tons of bugs in this version, and there are a lot of improvements I want to make.
 
 Things being worked on for the 1.1 release:
