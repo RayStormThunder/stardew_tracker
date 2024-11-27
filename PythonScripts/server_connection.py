@@ -15,7 +15,20 @@ item_file_path = "../JSONPull/stardew_valley_item_table.json"
 location_file_path = "../JSONPull/stardew_valley_location_table.json"
 player_table_path = "../JSONStore/player_table.json"
 checked_location_path = "../JSONStore/checked_location.json"
+all_locations_path = "../JSONStore/all_locations.json"
+current_items_path = "../JSONStore/current_items.json"
+all_data_path = "../JSONPull/all_data.json"
+data_path = "../JSONStore/data.json"
 log_file_path = "../serverlog.txt"
+hollow_knight_item_file_path = "../JSONPull/hollow_knight_item_table.json"
+hollow_knight_location_file_path = "../JSONPull/hollow_knight_location_table.json"
+
+# Load the Hollow Knight item and location data
+with open(hollow_knight_item_file_path, 'r') as hk_item_file:
+    hollow_knight_item_data = json.load(hk_item_file)["items"]
+
+with open(hollow_knight_location_file_path, 'r') as hk_location_file:
+    hollow_knight_location_data = json.load(hk_location_file)["locations"]
 
 # Define a global websocket variable
 global_websocket = None
@@ -122,17 +135,10 @@ def get_player_name_by_slot(slot, players):
 def parse_server_response(response=None):
     """Parse the server response and perform actions based on the 'cmd' field."""
 
-    # Test Both Correct
-    #test_response = '[{"cmd":"PrintJSON","data":[{"text":"1","type":"player_id"},{"text":" found their "},{"text":"722215","player":1,"flags":2,"type":"item_id"},{"text":" ("},{"text":"719339","player":1,"type":"location_id"},{"text":")"}],"type":"ItemSend","receiving":1,"item":{"item":722215,"location":719339,"player":1,"flags":2,"class":"NetworkItem"}}]'
-    # Test Item Only Correct
-    #test_response = '[{"cmd":"PrintJSON","data":[{"text":"1","type":"player_id"},{"text":" found their "},{"text":"722215","player":1,"flags":2,"type":"item_id"},{"text":" ("},{"text":"339","player":1,"type":"location_id"},{"text":")"}],"type":"ItemSend","receiving":1,"item":{"item":722215,"location":719339,"player":1,"flags":2,"class":"NetworkItem"}}]'
-    # Test Location Only Correct
-    #test_response = '[{"cmd":"PrintJSON","data":[{"text":"1","type":"player_id"},{"text":" found their "},{"text":"215","player":1,"flags":2,"type":"item_id"},{"text":" ("},{"text":"719339","player":1,"type":"location_id"},{"text":")"}],"type":"ItemSend","receiving":1,"item":{"item":722215,"location":719339,"player":1,"flags":2,"class":"NetworkItem"}}]'
-    # Test Neither Correct
-    test_response = '[{"cmd":"PrintJSON","data":[{"text":"1","type":"player_id"},{"text":" found their "},{"text":"215","player":1,"flags":2,"type":"item_id"},{"text":" ("},{"text":"339","player":1,"type":"location_id"},{"text":")"}],"type":"ItemSend","receiving":1,"item":{"item":722215,"location":719339,"player":1,"flags":2,"class":"NetworkItem"}}]'
+    #test_response = '[{"cmd":"PrintJSON","data":[{"text":"1","type":"player_id"},{"text":" found their "},{"text":"16777216","player":1,"flags":2,"type":"item_id"},{"text":" ("},{"text":"717001","player":1,"type":"location_id"},{"text":")"}],"type":"ItemSend","receiving":1,"item":{"item":722215,"location":719339,"player":1,"flags":2,"class":"NetworkItem"}}]'
     
     is_test = response is None  # Track if we’re using the test response
-    response = response or test_response  # Use actual response if provided, else use test_response
+    #response = response or test_response  # Use actual response if provided, else use test_response
 
     try:
         data = json.loads(response)
@@ -147,6 +153,8 @@ def parse_server_response(response=None):
                     handle_print_json(entry)
                 elif cmd_type == "Connected":
                     asyncio.create_task(handle_connected(entry))
+                elif cmd_type == "ReceivedItems":
+                    asyncio.create_task(handle_ReceivedItems(entry))
                 else:
                     print(f"Unknown command: {cmd_type}")
 
@@ -161,6 +169,47 @@ def parse_server_response(response=None):
     # Only call the function with the test response if it's actually a test
     if not is_test:
         parse_server_response()
+
+async def handle_ReceivedItems(entry):
+    """Process 'ReceivedItems' command to retrieve item names based on item codes and update current_items.json."""
+    received_items = entry.get("items", [])
+    index = entry.get("index", 0)  # Default to 0 if index is not provided
+    item_names = []
+
+    # Retrieve names for each received item based on item code
+    for item in received_items:
+        item_id = item.get("item")
+        item_name = get_item_name(item_id)
+        if item_name:
+            item_names.append(item_name)
+            print(f"Found item: {item_name} (ID: {item_id})")  # Log successful lookup
+        else:
+            item_names.append("Unknown Item")
+            print(f"Warning: Item ID {item_id} not found in item table.")  # Log missing item
+
+    # Load existing items from current_items.json
+    try:
+        with open(current_items_path, 'r') as current_items_file:
+            current_items_data = json.load(current_items_file)
+            current_items = current_items_data.get("current_items", [])
+    except (FileNotFoundError, json.JSONDecodeError):
+        # If the file doesn't exist or has errors, start with an empty list
+        current_items = []
+
+    # Decide whether to replace or add based on the index value
+    if index == 0:
+        # Replace the entire list
+        current_items = item_names
+    elif index > 0:
+        # Add items to the existing list
+        current_items.extend(item_names)
+
+    # Update current_items.json with the modified list
+    with open(current_items_path, 'w') as current_items_file:
+        json.dump({"current_items": current_items}, current_items_file, indent=4)
+
+    # Print or store the list of received item names
+    print_to_server_console("Updated Current Items", 1)
 
 def handle_print_json(entry):
     """Process 'PrintJSON' command to interpret and display text fields."""
@@ -193,20 +242,29 @@ def handle_print_json(entry):
                 player_name = get_player_name_by_slot(int(text), players)
                 text = player_name if player_name else "Unknown Player"
             elif item_type == "item_id":
+                print(f"Item ID: {int(text)}")
+                id = int(text)
                 item_name = get_item_name(int(text))
                 true_state = 0
                 print("true_state = 0(Item)")
                 if item_name:
                     text = item_name
+                    if id > 10000000:
+                        true_state = 3
+
                 else:
                     text = "Otherworldly Item"
                     item_unknown = True
             elif item_type == "location_id":
+                print(f"Location ID: {int(text)}")
+                id = int(text)
                 location_name = get_location_name(int(text))
                 true_state = 0
                 print("true_state = 0(Location)")
                 if location_name:
                     text = location_name
+                    if id > 10000000:
+                        true_state = 2
                     # Only update checked_location.json if it's not a hint message
                     if not is_hint_message and location_name not in checked_locations_data["checked_locations"]:
                         checked_locations_data["checked_locations"].append(location_name)
@@ -237,7 +295,7 @@ def handle_print_json(entry):
             print_to_server_console(full_message, true_state)
 
 async def handle_connected(entry):
-    """Process 'Connected' command to save player and location information."""
+    """Process 'Connected' command to save player and location information, and update all_locations.json."""
     # Extract and save player data to 'player_table.json'
     player_info = entry.get("players", [])
     player_table = [
@@ -254,16 +312,139 @@ async def handle_connected(entry):
     with open(player_table_path, 'w') as player_file:
         json.dump({"players": player_table}, player_file, indent=4)
 
-    # Extract, convert to names, and sort checked locations alphabetically
+    # Process checked and missing locations
     game_checked_locations = entry.get("checked_locations", [])
-    checked_locations = sorted(
-        [get_location_name(loc) for loc in game_checked_locations if get_location_name(loc)]
-    )
+    missing_locations = entry.get("missing_locations", [])  # Retrieve missing locations
 
-    with open(checked_location_path, 'w') as location_file:
-        json.dump({"checked_locations": checked_locations}, location_file, indent=4)
+    # Combined all locations with converted names, and track failed conversions
+    all_locations = []
+    failed_locations = []
 
-    print_to_server_console("Updated Checked Locations", 3)
+    # Process checked locations
+    for loc in game_checked_locations + missing_locations:
+        location_name = get_location_name(loc)
+        if location_name:
+            all_locations.append(location_name)
+        else:
+            failed_locations.append(loc)
+
+    # Save combined all_locations and failed_locations to all_locations.json
+    all_locations_data = {
+        "all_locations": sorted(all_locations),        # Sort alphabetically
+    }
+
+    with open(all_locations_path, 'w') as all_locations_file:
+        json.dump(all_locations_data, all_locations_file, indent=4)
+
+    update_data_with_all_locations()
+
+def update_data_with_all_locations():
+
+    # Load all_data.json
+    try:
+        with open(all_data_path, 'r') as all_data_file:
+            all_data = json.load(all_data_file)
+    except FileNotFoundError:
+        print("Error: all_data.json file not found.")
+        return
+    except json.JSONDecodeError:
+        print("Error: Could not decode all_data.json.")
+        return
+
+    # Load data.json
+    try:
+        with open(data_path, 'r') as data_file:
+            data = json.load(data_file)
+    except FileNotFoundError:
+        print("Error: data.json file not found.")
+        return
+    except json.JSONDecodeError:
+        print("Error: Could not decode data.json.")
+        return
+
+    # Load all_locations.json to get the list of valid locations
+    try:
+        with open(all_locations_path, 'r') as all_locations_file:
+            all_locations_data = json.load(all_locations_file)
+            all_locations = set(all_locations_data["all_locations"])  # Convert to set for fast lookups
+    except FileNotFoundError:
+        print("Error: all_locations.json file not found.")
+        return
+    except json.JSONDecodeError:
+        print("Error: Could not decode all_locations.json.")
+        return
+
+    # Track missing locations in both directions
+    missing_locations_from_data = []
+    missing_locations_from_locations = []
+
+    # Forward Check: Loop through each section in all_data.json
+    for key, entries in all_data.items():
+        # Ensure the section exists in data.json
+        if key not in data:
+            data[key] = []
+
+        # Append entries that match locations in all_locations
+        for entry in entries:
+            location_name = entry[3]  # The 4th field is the location name
+            if location_name in all_locations:
+                # Check if an entry with the same location name already exists in data[key]
+                if any(existing_entry[3] == location_name for existing_entry in data[key]):
+                    print(f"Duplicate entry for '{location_name}' found in '{key}', skipping.")
+                else:
+                    data[key].append(entry)
+            else:
+                if location_name not in missing_locations_from_data:
+                    missing_locations_from_data.append(location_name)
+                    print(f"Location '{location_name}' not found in all_locations.json, adding to missing list.")
+
+    # Reverse Check: Ensure all_locations are in all_data
+    all_data_locations = {entry[3] for entries in all_data.values() for entry in entries}
+    for location in all_locations:
+        if location not in all_data_locations:
+            missing_locations_from_locations.append(location)
+            print(f"Location '{location}' is in all_locations.json but missing from all_data.json.")
+
+
+    # Print out the entire `data` structure for inspection before saving
+    print("\nData structure before saving to data.json:")
+    print(json.dumps(data, indent=4))
+
+    # Check if the data.json file has write permissions
+    if os.access(data_path, os.W_OK):
+        print("data.json has write permissions.")
+    else:
+        print("data.json does NOT have write permissions.")
+
+    # Write the updated data.json safely
+    try:
+        with open(data_path, 'w') as data_file:
+            json.dump(data, data_file, indent=4)
+            data_file.flush()  # Ensure data is written to the file
+            os.fsync(data_file.fileno())  # Ensure data is written to disk
+    except Exception as e:
+        print(f"Error occurred while saving data.json: {e}")
+        return
+
+    # Confirm changes by reloading data.json
+    try:
+        with open(data_path, 'r') as data_file:
+            saved_data = json.load(data_file)
+            print(json.dumps(saved_data, indent=4))
+            if saved_data == data:
+                print("Changes confirmed in data.json.")
+            else:
+                print("Warning: Changes not reflected in reloaded data.json.")
+    except Exception as e:
+        print(f"Error occurred while reloading data.json for confirmation: {e}")
+
+    # Print missing locations
+    if missing_locations:
+        for location in missing_locations:
+            print(f" - {location}")
+
+    print_to_server_console("Updated All Locations", 4)
+        
 
 def print_to_server_console(text, state):
     """Emit the parsed text to the server console output in Tracker.py."""
