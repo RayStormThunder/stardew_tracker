@@ -1,8 +1,7 @@
 This is a tracker specifically designed for Stardew Valley archipelago but on one specific setting.
+More work has been done to make other settings possible. Other people could add checks themselves via the jsons.
 
 Currently the tracker is implemented and sever connection works. 
-
-POG
 
 There are tons of bugs in this version, and there are a lot of improvements I want to make.
 
