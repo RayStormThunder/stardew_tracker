@@ -1,0 +1,2964 @@
+{
+    "locations": {
+        "'Sly_1'": {
+            "code": 16777216,
+            "classification": "Unknown"
+        },
+        "'Sly_2'": {
+            "code": 16777217,
+            "classification": "Unknown"
+        },
+        "'Sly_3'": {
+            "code": 16777218,
+            "classification": "Unknown"
+        },
+        "'Sly_4'": {
+            "code": 16777219,
+            "classification": "Unknown"
+        },
+        "'Sly_5'": {
+            "code": 16777220,
+            "classification": "Unknown"
+        },
+        "'Sly_6'": {
+            "code": 16777221,
+            "classification": "Unknown"
+        },
+        "'Sly_7'": {
+            "code": 16777222,
+            "classification": "Unknown"
+        },
+        "'Sly_8'": {
+            "code": 16777223,
+            "classification": "Unknown"
+        },
+        "'Sly_9'": {
+            "code": 16777224,
+            "classification": "Unknown"
+        },
+        "'Sly_10'": {
+            "code": 16777225,
+            "classification": "Unknown"
+        },
+        "'Sly_11'": {
+            "code": 16777226,
+            "classification": "Unknown"
+        },
+        "'Sly_12'": {
+            "code": 16777227,
+            "classification": "Unknown"
+        },
+        "'Sly_13'": {
+            "code": 16777228,
+            "classification": "Unknown"
+        },
+        "'Sly_14'": {
+            "code": 16777229,
+            "classification": "Unknown"
+        },
+        "'Sly_15'": {
+            "code": 16777230,
+            "classification": "Unknown"
+        },
+        "'Sly_16'": {
+            "code": 16777231,
+            "classification": "Unknown"
+        },
+        "'Sly_(Key)_1'": {
+            "code": 16777232,
+            "classification": "Unknown"
+        },
+        "'Sly_(Key)_2'": {
+            "code": 16777233,
+            "classification": "Unknown"
+        },
+        "'Sly_(Key)_3'": {
+            "code": 16777234,
+            "classification": "Unknown"
+        },
+        "'Sly_(Key)_4'": {
+            "code": 16777235,
+            "classification": "Unknown"
+        },
+        "'Sly_(Key)_5'": {
+            "code": 16777236,
+            "classification": "Unknown"
+        },
+        "'Sly_(Key)_6'": {
+            "code": 16777237,
+            "classification": "Unknown"
+        },
+        "'Sly_(Key)_7'": {
+            "code": 16777238,
+            "classification": "Unknown"
+        },
+        "'Sly_(Key)_8'": {
+            "code": 16777239,
+            "classification": "Unknown"
+        },
+        "'Sly_(Key)_9'": {
+            "code": 16777240,
+            "classification": "Unknown"
+        },
+        "'Sly_(Key)_10'": {
+            "code": 16777241,
+            "classification": "Unknown"
+        },
+        "'Sly_(Key)_11'": {
+            "code": 16777242,
+            "classification": "Unknown"
+        },
+        "'Sly_(Key)_12'": {
+            "code": 16777243,
+            "classification": "Unknown"
+        },
+        "'Sly_(Key)_13'": {
+            "code": 16777244,
+            "classification": "Unknown"
+        },
+        "'Sly_(Key)_14'": {
+            "code": 16777245,
+            "classification": "Unknown"
+        },
+        "'Sly_(Key)_15'": {
+            "code": 16777246,
+            "classification": "Unknown"
+        },
+        "'Sly_(Key)_16'": {
+            "code": 16777247,
+            "classification": "Unknown"
+        },
+        "'Iselda_1'": {
+            "code": 16777248,
+            "classification": "Unknown"
+        },
+        "'Iselda_2'": {
+            "code": 16777249,
+            "classification": "Unknown"
+        },
+        "'Iselda_3'": {
+            "code": 16777250,
+            "classification": "Unknown"
+        },
+        "'Iselda_4'": {
+            "code": 16777251,
+            "classification": "Unknown"
+        },
+        "'Iselda_5'": {
+            "code": 16777252,
+            "classification": "Unknown"
+        },
+        "'Iselda_6'": {
+            "code": 16777253,
+            "classification": "Unknown"
+        },
+        "'Iselda_7'": {
+            "code": 16777254,
+            "classification": "Unknown"
+        },
+        "'Iselda_8'": {
+            "code": 16777255,
+            "classification": "Unknown"
+        },
+        "'Iselda_9'": {
+            "code": 16777256,
+            "classification": "Unknown"
+        },
+        "'Iselda_10'": {
+            "code": 16777257,
+            "classification": "Unknown"
+        },
+        "'Iselda_11'": {
+            "code": 16777258,
+            "classification": "Unknown"
+        },
+        "'Iselda_12'": {
+            "code": 16777259,
+            "classification": "Unknown"
+        },
+        "'Iselda_13'": {
+            "code": 16777260,
+            "classification": "Unknown"
+        },
+        "'Iselda_14'": {
+            "code": 16777261,
+            "classification": "Unknown"
+        },
+        "'Iselda_15'": {
+            "code": 16777262,
+            "classification": "Unknown"
+        },
+        "'Iselda_16'": {
+            "code": 16777263,
+            "classification": "Unknown"
+        },
+        "'Salubra_1'": {
+            "code": 16777264,
+            "classification": "Unknown"
+        },
+        "'Salubra_2'": {
+            "code": 16777265,
+            "classification": "Unknown"
+        },
+        "'Salubra_3'": {
+            "code": 16777266,
+            "classification": "Unknown"
+        },
+        "'Salubra_4'": {
+            "code": 16777267,
+            "classification": "Unknown"
+        },
+        "'Salubra_5'": {
+            "code": 16777268,
+            "classification": "Unknown"
+        },
+        "'Salubra_6'": {
+            "code": 16777269,
+            "classification": "Unknown"
+        },
+        "'Salubra_7'": {
+            "code": 16777270,
+            "classification": "Unknown"
+        },
+        "'Salubra_8'": {
+            "code": 16777271,
+            "classification": "Unknown"
+        },
+        "'Salubra_9'": {
+            "code": 16777272,
+            "classification": "Unknown"
+        },
+        "'Salubra_10'": {
+            "code": 16777273,
+            "classification": "Unknown"
+        },
+        "'Salubra_11'": {
+            "code": 16777274,
+            "classification": "Unknown"
+        },
+        "'Salubra_12'": {
+            "code": 16777275,
+            "classification": "Unknown"
+        },
+        "'Salubra_13'": {
+            "code": 16777276,
+            "classification": "Unknown"
+        },
+        "'Salubra_14'": {
+            "code": 16777277,
+            "classification": "Unknown"
+        },
+        "'Salubra_15'": {
+            "code": 16777278,
+            "classification": "Unknown"
+        },
+        "'Salubra_16'": {
+            "code": 16777279,
+            "classification": "Unknown"
+        },
+        "'Salubra_(Requires_Charms)_1'": {
+            "code": 16777280,
+            "classification": "Unknown"
+        },
+        "'Salubra_(Requires_Charms)_2'": {
+            "code": 16777281,
+            "classification": "Unknown"
+        },
+        "'Salubra_(Requires_Charms)_3'": {
+            "code": 16777282,
+            "classification": "Unknown"
+        },
+        "'Salubra_(Requires_Charms)_4'": {
+            "code": 16777283,
+            "classification": "Unknown"
+        },
+        "'Salubra_(Requires_Charms)_5'": {
+            "code": 16777284,
+            "classification": "Unknown"
+        },
+        "'Salubra_(Requires_Charms)_6'": {
+            "code": 16777285,
+            "classification": "Unknown"
+        },
+        "'Salubra_(Requires_Charms)_7'": {
+            "code": 16777286,
+            "classification": "Unknown"
+        },
+        "'Salubra_(Requires_Charms)_8'": {
+            "code": 16777287,
+            "classification": "Unknown"
+        },
+        "'Salubra_(Requires_Charms)_9'": {
+            "code": 16777288,
+            "classification": "Unknown"
+        },
+        "'Salubra_(Requires_Charms)_10'": {
+            "code": 16777289,
+            "classification": "Unknown"
+        },
+        "'Salubra_(Requires_Charms)_11'": {
+            "code": 16777290,
+            "classification": "Unknown"
+        },
+        "'Salubra_(Requires_Charms)_12'": {
+            "code": 16777291,
+            "classification": "Unknown"
+        },
+        "'Salubra_(Requires_Charms)_13'": {
+            "code": 16777292,
+            "classification": "Unknown"
+        },
+        "'Salubra_(Requires_Charms)_14'": {
+            "code": 16777293,
+            "classification": "Unknown"
+        },
+        "'Salubra_(Requires_Charms)_15'": {
+            "code": 16777294,
+            "classification": "Unknown"
+        },
+        "'Salubra_(Requires_Charms)_16'": {
+            "code": 16777295,
+            "classification": "Unknown"
+        },
+        "'Leg_Eater_1'": {
+            "code": 16777296,
+            "classification": "Unknown"
+        },
+        "'Leg_Eater_2'": {
+            "code": 16777297,
+            "classification": "Unknown"
+        },
+        "'Leg_Eater_3'": {
+            "code": 16777298,
+            "classification": "Unknown"
+        },
+        "'Leg_Eater_4'": {
+            "code": 16777299,
+            "classification": "Unknown"
+        },
+        "'Leg_Eater_5'": {
+            "code": 16777300,
+            "classification": "Unknown"
+        },
+        "'Leg_Eater_6'": {
+            "code": 16777301,
+            "classification": "Unknown"
+        },
+        "'Leg_Eater_7'": {
+            "code": 16777302,
+            "classification": "Unknown"
+        },
+        "'Leg_Eater_8'": {
+            "code": 16777303,
+            "classification": "Unknown"
+        },
+        "'Leg_Eater_9'": {
+            "code": 16777304,
+            "classification": "Unknown"
+        },
+        "'Leg_Eater_10'": {
+            "code": 16777305,
+            "classification": "Unknown"
+        },
+        "'Leg_Eater_11'": {
+            "code": 16777306,
+            "classification": "Unknown"
+        },
+        "'Leg_Eater_12'": {
+            "code": 16777307,
+            "classification": "Unknown"
+        },
+        "'Leg_Eater_13'": {
+            "code": 16777308,
+            "classification": "Unknown"
+        },
+        "'Leg_Eater_14'": {
+            "code": 16777309,
+            "classification": "Unknown"
+        },
+        "'Leg_Eater_15'": {
+            "code": 16777310,
+            "classification": "Unknown"
+        },
+        "'Leg_Eater_16'": {
+            "code": 16777311,
+            "classification": "Unknown"
+        },
+        "'Grubfather_1'": {
+            "code": 16777312,
+            "classification": "Unknown"
+        },
+        "'Grubfather_2'": {
+            "code": 16777313,
+            "classification": "Unknown"
+        },
+        "'Grubfather_3'": {
+            "code": 16777314,
+            "classification": "Unknown"
+        },
+        "'Grubfather_4'": {
+            "code": 16777315,
+            "classification": "Unknown"
+        },
+        "'Grubfather_5'": {
+            "code": 16777316,
+            "classification": "Unknown"
+        },
+        "'Grubfather_6'": {
+            "code": 16777317,
+            "classification": "Unknown"
+        },
+        "'Grubfather_7'": {
+            "code": 16777318,
+            "classification": "Unknown"
+        },
+        "'Grubfather_8'": {
+            "code": 16777319,
+            "classification": "Unknown"
+        },
+        "'Grubfather_9'": {
+            "code": 16777320,
+            "classification": "Unknown"
+        },
+        "'Grubfather_10'": {
+            "code": 16777321,
+            "classification": "Unknown"
+        },
+        "'Grubfather_11'": {
+            "code": 16777322,
+            "classification": "Unknown"
+        },
+        "'Grubfather_12'": {
+            "code": 16777323,
+            "classification": "Unknown"
+        },
+        "'Grubfather_13'": {
+            "code": 16777324,
+            "classification": "Unknown"
+        },
+        "'Grubfather_14'": {
+            "code": 16777325,
+            "classification": "Unknown"
+        },
+        "'Grubfather_15'": {
+            "code": 16777326,
+            "classification": "Unknown"
+        },
+        "'Grubfather_16'": {
+            "code": 16777327,
+            "classification": "Unknown"
+        },
+        "'Seer_1'": {
+            "code": 16777328,
+            "classification": "Unknown"
+        },
+        "'Seer_2'": {
+            "code": 16777329,
+            "classification": "Unknown"
+        },
+        "'Seer_3'": {
+            "code": 16777330,
+            "classification": "Unknown"
+        },
+        "'Seer_4'": {
+            "code": 16777331,
+            "classification": "Unknown"
+        },
+        "'Seer_5'": {
+            "code": 16777332,
+            "classification": "Unknown"
+        },
+        "'Seer_6'": {
+            "code": 16777333,
+            "classification": "Unknown"
+        },
+        "'Seer_7'": {
+            "code": 16777334,
+            "classification": "Unknown"
+        },
+        "'Seer_8'": {
+            "code": 16777335,
+            "classification": "Unknown"
+        },
+        "'Seer_9'": {
+            "code": 16777336,
+            "classification": "Unknown"
+        },
+        "'Seer_10'": {
+            "code": 16777337,
+            "classification": "Unknown"
+        },
+        "'Seer_11'": {
+            "code": 16777338,
+            "classification": "Unknown"
+        },
+        "'Seer_12'": {
+            "code": 16777339,
+            "classification": "Unknown"
+        },
+        "'Seer_13'": {
+            "code": 16777340,
+            "classification": "Unknown"
+        },
+        "'Seer_14'": {
+            "code": 16777341,
+            "classification": "Unknown"
+        },
+        "'Seer_15'": {
+            "code": 16777342,
+            "classification": "Unknown"
+        },
+        "'Seer_16'": {
+            "code": 16777343,
+            "classification": "Unknown"
+        },
+        "'Egg_Shop_1'": {
+            "code": 16777344,
+            "classification": "Unknown"
+        },
+        "'Egg_Shop_2'": {
+            "code": 16777345,
+            "classification": "Unknown"
+        },
+        "'Egg_Shop_3'": {
+            "code": 16777346,
+            "classification": "Unknown"
+        },
+        "'Egg_Shop_4'": {
+            "code": 16777347,
+            "classification": "Unknown"
+        },
+        "'Egg_Shop_5'": {
+            "code": 16777348,
+            "classification": "Unknown"
+        },
+        "'Egg_Shop_6'": {
+            "code": 16777349,
+            "classification": "Unknown"
+        },
+        "'Egg_Shop_7'": {
+            "code": 16777350,
+            "classification": "Unknown"
+        },
+        "'Egg_Shop_8'": {
+            "code": 16777351,
+            "classification": "Unknown"
+        },
+        "'Egg_Shop_9'": {
+            "code": 16777352,
+            "classification": "Unknown"
+        },
+        "'Egg_Shop_10'": {
+            "code": 16777353,
+            "classification": "Unknown"
+        },
+        "'Egg_Shop_11'": {
+            "code": 16777354,
+            "classification": "Unknown"
+        },
+        "'Egg_Shop_12'": {
+            "code": 16777355,
+            "classification": "Unknown"
+        },
+        "'Egg_Shop_13'": {
+            "code": 16777356,
+            "classification": "Unknown"
+        },
+        "'Egg_Shop_14'": {
+            "code": 16777357,
+            "classification": "Unknown"
+        },
+        "'Egg_Shop_15'": {
+            "code": 16777358,
+            "classification": "Unknown"
+        },
+        "'Egg_Shop_16'": {
+            "code": 16777359,
+            "classification": "Unknown"
+        },
+        "'Lurien'": {
+            "code": 16777360,
+            "classification": "Unknown"
+        },
+        "'Monomon'": {
+            "code": 16777361,
+            "classification": "Unknown"
+        },
+        "'Herrah'": {
+            "code": 16777362,
+            "classification": "Unknown"
+        },
+        "'World_Sense'": {
+            "code": 16777363,
+            "classification": "Unknown"
+        },
+        "'Mothwing_Cloak'": {
+            "code": 16777364,
+            "classification": "Unknown"
+        },
+        "'Mantis_Claw'": {
+            "code": 16777365,
+            "classification": "Unknown"
+        },
+        "'Crystal_Heart'": {
+            "code": 16777366,
+            "classification": "Unknown"
+        },
+        "'Monarch_Wings'": {
+            "code": 16777367,
+            "classification": "Unknown"
+        },
+        "'Shade_Cloak'": {
+            "code": 16777368,
+            "classification": "Unknown"
+        },
+        "\"Isma's_Tear\"": {
+            "code": 16777369,
+            "classification": "Unknown"
+        },
+        "'Dream_Nail'": {
+            "code": 16777370,
+            "classification": "Unknown"
+        },
+        "'Vengeful_Spirit'": {
+            "code": 16777371,
+            "classification": "Unknown"
+        },
+        "'Shade_Soul'": {
+            "code": 16777372,
+            "classification": "Unknown"
+        },
+        "'Desolate_Dive'": {
+            "code": 16777373,
+            "classification": "Unknown"
+        },
+        "'Descending_Dark'": {
+            "code": 16777374,
+            "classification": "Unknown"
+        },
+        "'Howling_Wraiths'": {
+            "code": 16777375,
+            "classification": "Unknown"
+        },
+        "'Abyss_Shriek'": {
+            "code": 16777376,
+            "classification": "Unknown"
+        },
+        "'Cyclone_Slash'": {
+            "code": 16777377,
+            "classification": "Unknown"
+        },
+        "'Dash_Slash'": {
+            "code": 16777378,
+            "classification": "Unknown"
+        },
+        "'Great_Slash'": {
+            "code": 16777379,
+            "classification": "Unknown"
+        },
+        "'Focus'": {
+            "code": 16777380,
+            "classification": "Unknown"
+        },
+        "'Baldur_Shell'": {
+            "code": 16777381,
+            "classification": "Unknown"
+        },
+        "'Fury_of_the_Fallen'": {
+            "code": 16777382,
+            "classification": "Unknown"
+        },
+        "'Lifeblood_Core'": {
+            "code": 16777383,
+            "classification": "Unknown"
+        },
+        "\"Defender's_Crest\"": {
+            "code": 16777384,
+            "classification": "Unknown"
+        },
+        "'Flukenest'": {
+            "code": 16777385,
+            "classification": "Unknown"
+        },
+        "'Thorns_of_Agony'": {
+            "code": 16777386,
+            "classification": "Unknown"
+        },
+        "'Mark_of_Pride'": {
+            "code": 16777387,
+            "classification": "Unknown"
+        },
+        "'Sharp_Shadow'": {
+            "code": 16777388,
+            "classification": "Unknown"
+        },
+        "'Spore_Shroom'": {
+            "code": 16777389,
+            "classification": "Unknown"
+        },
+        "'Soul_Catcher'": {
+            "code": 16777390,
+            "classification": "Unknown"
+        },
+        "'Soul_Eater'": {
+            "code": 16777391,
+            "classification": "Unknown"
+        },
+        "'Glowing_Womb'": {
+            "code": 16777392,
+            "classification": "Unknown"
+        },
+        "\"Nailmaster's_Glory\"": {
+            "code": 16777393,
+            "classification": "Unknown"
+        },
+        "\"Joni's_Blessing\"": {
+            "code": 16777394,
+            "classification": "Unknown"
+        },
+        "'Shape_of_Unn'": {
+            "code": 16777395,
+            "classification": "Unknown"
+        },
+        "'Hiveblood'": {
+            "code": 16777396,
+            "classification": "Unknown"
+        },
+        "'Dashmaster'": {
+            "code": 16777397,
+            "classification": "Unknown"
+        },
+        "'Quick_Slash'": {
+            "code": 16777398,
+            "classification": "Unknown"
+        },
+        "'Spell_Twister'": {
+            "code": 16777399,
+            "classification": "Unknown"
+        },
+        "'Deep_Focus'": {
+            "code": 16777400,
+            "classification": "Unknown"
+        },
+        "'Queen_Fragment'": {
+            "code": 16777401,
+            "classification": "Unknown"
+        },
+        "'King_Fragment'": {
+            "code": 16777402,
+            "classification": "Unknown"
+        },
+        "'Void_Heart'": {
+            "code": 16777403,
+            "classification": "Unknown"
+        },
+        "'Dreamshield'": {
+            "code": 16777404,
+            "classification": "Unknown"
+        },
+        "'Weaversong'": {
+            "code": 16777405,
+            "classification": "Unknown"
+        },
+        "'Grimmchild'": {
+            "code": 16777406,
+            "classification": "Unknown"
+        },
+        "'Unbreakable_Heart'": {
+            "code": 16777407,
+            "classification": "Unknown"
+        },
+        "'Unbreakable_Greed'": {
+            "code": 16777408,
+            "classification": "Unknown"
+        },
+        "'Unbreakable_Strength'": {
+            "code": 16777409,
+            "classification": "Unknown"
+        },
+        "'City_Crest'": {
+            "code": 16777410,
+            "classification": "Unknown"
+        },
+        "'Tram_Pass'": {
+            "code": 16777411,
+            "classification": "Unknown"
+        },
+        "'Simple_Key-Basin'": {
+            "code": 16777412,
+            "classification": "Unknown"
+        },
+        "'Simple_Key-City'": {
+            "code": 16777413,
+            "classification": "Unknown"
+        },
+        "'Simple_Key-Lurker'": {
+            "code": 16777414,
+            "classification": "Unknown"
+        },
+        "\"Shopkeeper's_Key\"": {
+            "code": 16777415,
+            "classification": "Unknown"
+        },
+        "'Love_Key'": {
+            "code": 16777416,
+            "classification": "Unknown"
+        },
+        "\"King's_Brand\"": {
+            "code": 16777417,
+            "classification": "Unknown"
+        },
+        "'Godtuner'": {
+            "code": 16777418,
+            "classification": "Unknown"
+        },
+        "\"Collector's_Map\"": {
+            "code": 16777419,
+            "classification": "Unknown"
+        },
+        "'Mask_Shard-Brooding_Mawlek'": {
+            "code": 16777420,
+            "classification": "Unknown"
+        },
+        "'Mask_Shard-Crossroads_Goam'": {
+            "code": 16777421,
+            "classification": "Unknown"
+        },
+        "'Mask_Shard-Stone_Sanctuary'": {
+            "code": 16777422,
+            "classification": "Unknown"
+        },
+        "\"Mask_Shard-Queen's_Station\"": {
+            "code": 16777423,
+            "classification": "Unknown"
+        },
+        "'Mask_Shard-Deepnest'": {
+            "code": 16777424,
+            "classification": "Unknown"
+        },
+        "'Mask_Shard-Waterways'": {
+            "code": 16777425,
+            "classification": "Unknown"
+        },
+        "'Mask_Shard-Enraged_Guardian'": {
+            "code": 16777426,
+            "classification": "Unknown"
+        },
+        "'Mask_Shard-Hive'": {
+            "code": 16777427,
+            "classification": "Unknown"
+        },
+        "'Mask_Shard-Grey_Mourner'": {
+            "code": 16777428,
+            "classification": "Unknown"
+        },
+        "'Mask_Shard-Bretta'": {
+            "code": 16777429,
+            "classification": "Unknown"
+        },
+        "'Vessel_Fragment-Greenpath'": {
+            "code": 16777430,
+            "classification": "Unknown"
+        },
+        "'Vessel_Fragment-City'": {
+            "code": 16777431,
+            "classification": "Unknown"
+        },
+        "'Vessel_Fragment-Crossroads'": {
+            "code": 16777432,
+            "classification": "Unknown"
+        },
+        "'Vessel_Fragment-Basin'": {
+            "code": 16777433,
+            "classification": "Unknown"
+        },
+        "'Vessel_Fragment-Deepnest'": {
+            "code": 16777434,
+            "classification": "Unknown"
+        },
+        "'Vessel_Fragment-Stag_Nest'": {
+            "code": 16777435,
+            "classification": "Unknown"
+        },
+        "'Charm_Notch-Shrumal_Ogres'": {
+            "code": 16777436,
+            "classification": "Unknown"
+        },
+        "'Charm_Notch-Fog_Canyon'": {
+            "code": 16777437,
+            "classification": "Unknown"
+        },
+        "'Charm_Notch-Colosseum'": {
+            "code": 16777438,
+            "classification": "Unknown"
+        },
+        "'Charm_Notch-Grimm'": {
+            "code": 16777439,
+            "classification": "Unknown"
+        },
+        "'Pale_Ore-Basin'": {
+            "code": 16777440,
+            "classification": "Unknown"
+        },
+        "'Pale_Ore-Crystal_Peak'": {
+            "code": 16777441,
+            "classification": "Unknown"
+        },
+        "'Pale_Ore-Nosk'": {
+            "code": 16777442,
+            "classification": "Unknown"
+        },
+        "'Pale_Ore-Colosseum'": {
+            "code": 16777443,
+            "classification": "Unknown"
+        },
+        "'Geo_Chest-False_Knight'": {
+            "code": 16777444,
+            "classification": "Unknown"
+        },
+        "'Geo_Chest-Soul_Master'": {
+            "code": 16777445,
+            "classification": "Unknown"
+        },
+        "'Geo_Chest-Watcher_Knights'": {
+            "code": 16777446,
+            "classification": "Unknown"
+        },
+        "'Geo_Chest-Greenpath'": {
+            "code": 16777447,
+            "classification": "Unknown"
+        },
+        "'Geo_Chest-Mantis_Lords'": {
+            "code": 16777448,
+            "classification": "Unknown"
+        },
+        "'Geo_Chest-Resting_Grounds'": {
+            "code": 16777449,
+            "classification": "Unknown"
+        },
+        "'Geo_Chest-Crystal_Peak'": {
+            "code": 16777450,
+            "classification": "Unknown"
+        },
+        "'Geo_Chest-Weavers_Den'": {
+            "code": 16777451,
+            "classification": "Unknown"
+        },
+        "'Geo_Chest-Junk_Pit_1'": {
+            "code": 16777452,
+            "classification": "Unknown"
+        },
+        "'Geo_Chest-Junk_Pit_2'": {
+            "code": 16777453,
+            "classification": "Unknown"
+        },
+        "'Geo_Chest-Junk_Pit_3'": {
+            "code": 16777454,
+            "classification": "Unknown"
+        },
+        "'Geo_Chest-Junk_Pit_5'": {
+            "code": 16777455,
+            "classification": "Unknown"
+        },
+        "'Lumafly_Escape-Junk_Pit_Chest_4'": {
+            "code": 16777456,
+            "classification": "Unknown"
+        },
+        "'Rancid_Egg-Sheo'": {
+            "code": 16777457,
+            "classification": "Unknown"
+        },
+        "'Rancid_Egg-Fungal_Core'": {
+            "code": 16777458,
+            "classification": "Unknown"
+        },
+        "\"Rancid_Egg-Queen's_Gardens\"": {
+            "code": 16777459,
+            "classification": "Unknown"
+        },
+        "'Rancid_Egg-Blue_Lake'": {
+            "code": 16777460,
+            "classification": "Unknown"
+        },
+        "'Rancid_Egg-Crystal_Peak_Dive_Entrance'": {
+            "code": 16777461,
+            "classification": "Unknown"
+        },
+        "'Rancid_Egg-Crystal_Peak_Dark_Room'": {
+            "code": 16777462,
+            "classification": "Unknown"
+        },
+        "'Rancid_Egg-Crystal_Peak_Tall_Room'": {
+            "code": 16777463,
+            "classification": "Unknown"
+        },
+        "'Rancid_Egg-City_of_Tears_Left'": {
+            "code": 16777464,
+            "classification": "Unknown"
+        },
+        "'Rancid_Egg-City_of_Tears_Pleasure_House'": {
+            "code": 16777465,
+            "classification": "Unknown"
+        },
+        "\"Rancid_Egg-Beast's_Den\"": {
+            "code": 16777466,
+            "classification": "Unknown"
+        },
+        "'Rancid_Egg-Dark_Deepnest'": {
+            "code": 16777467,
+            "classification": "Unknown"
+        },
+        "\"Rancid_Egg-Weaver's_Den\"": {
+            "code": 16777468,
+            "classification": "Unknown"
+        },
+        "'Rancid_Egg-Near_Quick_Slash'": {
+            "code": 16777469,
+            "classification": "Unknown"
+        },
+        "\"Rancid_Egg-Upper_Kingdom's_Edge\"": {
+            "code": 16777470,
+            "classification": "Unknown"
+        },
+        "'Rancid_Egg-Waterways_East'": {
+            "code": 16777471,
+            "classification": "Unknown"
+        },
+        "'Rancid_Egg-Waterways_Main'": {
+            "code": 16777472,
+            "classification": "Unknown"
+        },
+        "'Rancid_Egg-Waterways_West_Bluggsac'": {
+            "code": 16777473,
+            "classification": "Unknown"
+        },
+        "'Rancid_Egg-Waterways_West_Pickup'": {
+            "code": 16777474,
+            "classification": "Unknown"
+        },
+        "\"Rancid_Egg-Tuk_Defender's_Crest\"": {
+            "code": 16777475,
+            "classification": "Unknown"
+        },
+        "\"Wanderer's_Journal-Cliffs\"": {
+            "code": 16777476,
+            "classification": "Unknown"
+        },
+        "\"Wanderer's_Journal-Greenpath_Stag\"": {
+            "code": 16777477,
+            "classification": "Unknown"
+        },
+        "\"Wanderer's_Journal-Greenpath_Lower\"": {
+            "code": 16777478,
+            "classification": "Unknown"
+        },
+        "\"Wanderer's_Journal-Fungal_Wastes_Thorns_Gauntlet\"": {
+            "code": 16777479,
+            "classification": "Unknown"
+        },
+        "\"Wanderer's_Journal-Above_Mantis_Village\"": {
+            "code": 16777480,
+            "classification": "Unknown"
+        },
+        "\"Wanderer's_Journal-Crystal_Peak_Crawlers\"": {
+            "code": 16777481,
+            "classification": "Unknown"
+        },
+        "\"Wanderer's_Journal-Resting_Grounds_Catacombs\"": {
+            "code": 16777482,
+            "classification": "Unknown"
+        },
+        "\"Wanderer's_Journal-King's_Station\"": {
+            "code": 16777483,
+            "classification": "Unknown"
+        },
+        "\"Wanderer's_Journal-Pleasure_House\"": {
+            "code": 16777484,
+            "classification": "Unknown"
+        },
+        "\"Wanderer's_Journal-City_Storerooms\"": {
+            "code": 16777485,
+            "classification": "Unknown"
+        },
+        "\"Wanderer's_Journal-Ancient_Basin\"": {
+            "code": 16777486,
+            "classification": "Unknown"
+        },
+        "\"Wanderer's_Journal-Kingdom's_Edge_Entrance\"": {
+            "code": 16777487,
+            "classification": "Unknown"
+        },
+        "\"Wanderer's_Journal-Kingdom's_Edge_Camp\"": {
+            "code": 16777488,
+            "classification": "Unknown"
+        },
+        "\"Wanderer's_Journal-Kingdom's_Edge_Requires_Dive\"": {
+            "code": 16777489,
+            "classification": "Unknown"
+        },
+        "'Hallownest_Seal-Crossroads_Well'": {
+            "code": 16777490,
+            "classification": "Unknown"
+        },
+        "'Hallownest_Seal-Greenpath'": {
+            "code": 16777491,
+            "classification": "Unknown"
+        },
+        "'Hallownest_Seal-Fog_Canyon_West'": {
+            "code": 16777492,
+            "classification": "Unknown"
+        },
+        "'Hallownest_Seal-Fog_Canyon_East'": {
+            "code": 16777493,
+            "classification": "Unknown"
+        },
+        "\"Hallownest_Seal-Queen's_Station\"": {
+            "code": 16777494,
+            "classification": "Unknown"
+        },
+        "'Hallownest_Seal-Fungal_Wastes_Sporgs'": {
+            "code": 16777495,
+            "classification": "Unknown"
+        },
+        "'Hallownest_Seal-Mantis_Lords'": {
+            "code": 16777496,
+            "classification": "Unknown"
+        },
+        "'Hallownest_Seal-Resting_Grounds_Catacombs'": {
+            "code": 16777497,
+            "classification": "Unknown"
+        },
+        "\"Hallownest_Seal-King's_Station\"": {
+            "code": 16777498,
+            "classification": "Unknown"
+        },
+        "'Hallownest_Seal-City_Rafters'": {
+            "code": 16777499,
+            "classification": "Unknown"
+        },
+        "'Hallownest_Seal-Soul_Sanctum'": {
+            "code": 16777500,
+            "classification": "Unknown"
+        },
+        "'Hallownest_Seal-Watcher_Knight'": {
+            "code": 16777501,
+            "classification": "Unknown"
+        },
+        "'Hallownest_Seal-Deepnest_By_Mantis_Lords'": {
+            "code": 16777502,
+            "classification": "Unknown"
+        },
+        "\"Hallownest_Seal-Beast's_Den\"": {
+            "code": 16777503,
+            "classification": "Unknown"
+        },
+        "\"Hallownest_Seal-Queen's_Gardens\"": {
+            "code": 16777504,
+            "classification": "Unknown"
+        },
+        "\"King's_Idol-Cliffs\"": {
+            "code": 16777505,
+            "classification": "Unknown"
+        },
+        "\"King's_Idol-Crystal_Peak\"": {
+            "code": 16777506,
+            "classification": "Unknown"
+        },
+        "\"King's_Idol-Glade_of_Hope\"": {
+            "code": 16777507,
+            "classification": "Unknown"
+        },
+        "\"King's_Idol-Dung_Defender\"": {
+            "code": 16777508,
+            "classification": "Unknown"
+        },
+        "\"King's_Idol-Great_Hopper\"": {
+            "code": 16777509,
+            "classification": "Unknown"
+        },
+        "\"King's_Idol-Pale_Lurker\"": {
+            "code": 16777510,
+            "classification": "Unknown"
+        },
+        "\"King's_Idol-Deepnest\"": {
+            "code": 16777511,
+            "classification": "Unknown"
+        },
+        "'Arcane_Egg-Lifeblood_Core'": {
+            "code": 16777512,
+            "classification": "Unknown"
+        },
+        "'Arcane_Egg-Shade_Cloak'": {
+            "code": 16777513,
+            "classification": "Unknown"
+        },
+        "'Arcane_Egg-Birthplace'": {
+            "code": 16777514,
+            "classification": "Unknown"
+        },
+        "'Whispering_Root-Crossroads'": {
+            "code": 16777515,
+            "classification": "Unknown"
+        },
+        "'Whispering_Root-Greenpath'": {
+            "code": 16777516,
+            "classification": "Unknown"
+        },
+        "'Whispering_Root-Leg_Eater'": {
+            "code": 16777517,
+            "classification": "Unknown"
+        },
+        "'Whispering_Root-Mantis_Village'": {
+            "code": 16777518,
+            "classification": "Unknown"
+        },
+        "'Whispering_Root-Deepnest'": {
+            "code": 16777519,
+            "classification": "Unknown"
+        },
+        "'Whispering_Root-Queens_Gardens'": {
+            "code": 16777520,
+            "classification": "Unknown"
+        },
+        "'Whispering_Root-Kingdoms_Edge'": {
+            "code": 16777521,
+            "classification": "Unknown"
+        },
+        "'Whispering_Root-Waterways'": {
+            "code": 16777522,
+            "classification": "Unknown"
+        },
+        "'Whispering_Root-City'": {
+            "code": 16777523,
+            "classification": "Unknown"
+        },
+        "'Whispering_Root-Resting_Grounds'": {
+            "code": 16777524,
+            "classification": "Unknown"
+        },
+        "'Whispering_Root-Spirits_Glade'": {
+            "code": 16777525,
+            "classification": "Unknown"
+        },
+        "'Whispering_Root-Crystal_Peak'": {
+            "code": 16777526,
+            "classification": "Unknown"
+        },
+        "'Whispering_Root-Howling_Cliffs'": {
+            "code": 16777527,
+            "classification": "Unknown"
+        },
+        "'Whispering_Root-Ancestral_Mound'": {
+            "code": 16777528,
+            "classification": "Unknown"
+        },
+        "'Whispering_Root-Hive'": {
+            "code": 16777529,
+            "classification": "Unknown"
+        },
+        "'Boss_Essence-Elder_Hu'": {
+            "code": 16777530,
+            "classification": "Unknown"
+        },
+        "'Boss_Essence-Xero'": {
+            "code": 16777531,
+            "classification": "Unknown"
+        },
+        "'Boss_Essence-Gorb'": {
+            "code": 16777532,
+            "classification": "Unknown"
+        },
+        "'Boss_Essence-Marmu'": {
+            "code": 16777533,
+            "classification": "Unknown"
+        },
+        "'Boss_Essence-No_Eyes'": {
+            "code": 16777534,
+            "classification": "Unknown"
+        },
+        "'Boss_Essence-Galien'": {
+            "code": 16777535,
+            "classification": "Unknown"
+        },
+        "'Boss_Essence-Markoth'": {
+            "code": 16777536,
+            "classification": "Unknown"
+        },
+        "'Boss_Essence-Failed_Champion'": {
+            "code": 16777537,
+            "classification": "Unknown"
+        },
+        "'Boss_Essence-Soul_Tyrant'": {
+            "code": 16777538,
+            "classification": "Unknown"
+        },
+        "'Boss_Essence-Lost_Kin'": {
+            "code": 16777539,
+            "classification": "Unknown"
+        },
+        "'Boss_Essence-White_Defender'": {
+            "code": 16777540,
+            "classification": "Unknown"
+        },
+        "'Boss_Essence-Grey_Prince_Zote'": {
+            "code": 16777541,
+            "classification": "Unknown"
+        },
+        "'Grub-Crossroads_Acid'": {
+            "code": 16777542,
+            "classification": "Unknown"
+        },
+        "'Grub-Crossroads_Center'": {
+            "code": 16777543,
+            "classification": "Unknown"
+        },
+        "'Grub-Crossroads_Stag'": {
+            "code": 16777544,
+            "classification": "Unknown"
+        },
+        "'Grub-Crossroads_Spike'": {
+            "code": 16777545,
+            "classification": "Unknown"
+        },
+        "'Grub-Crossroads_Guarded'": {
+            "code": 16777546,
+            "classification": "Unknown"
+        },
+        "'Grub-Greenpath_Cornifer'": {
+            "code": 16777547,
+            "classification": "Unknown"
+        },
+        "'Grub-Greenpath_Journal'": {
+            "code": 16777548,
+            "classification": "Unknown"
+        },
+        "'Grub-Greenpath_MMC'": {
+            "code": 16777549,
+            "classification": "Unknown"
+        },
+        "'Grub-Greenpath_Stag'": {
+            "code": 16777550,
+            "classification": "Unknown"
+        },
+        "'Grub-Fog_Canyon'": {
+            "code": 16777551,
+            "classification": "Unknown"
+        },
+        "'Grub-Fungal_Bouncy'": {
+            "code": 16777552,
+            "classification": "Unknown"
+        },
+        "'Grub-Fungal_Spore_Shroom'": {
+            "code": 16777553,
+            "classification": "Unknown"
+        },
+        "'Grub-Deepnest_Mimic'": {
+            "code": 16777554,
+            "classification": "Unknown"
+        },
+        "'Grub-Deepnest_Nosk'": {
+            "code": 16777555,
+            "classification": "Unknown"
+        },
+        "'Grub-Deepnest_Spike'": {
+            "code": 16777556,
+            "classification": "Unknown"
+        },
+        "'Grub-Dark_Deepnest'": {
+            "code": 16777557,
+            "classification": "Unknown"
+        },
+        "\"Grub-Beast's_Den\"": {
+            "code": 16777558,
+            "classification": "Unknown"
+        },
+        "\"Grub-Kingdom's_Edge_Oro\"": {
+            "code": 16777559,
+            "classification": "Unknown"
+        },
+        "\"Grub-Kingdom's_Edge_Camp\"": {
+            "code": 16777560,
+            "classification": "Unknown"
+        },
+        "'Grub-Hive_External'": {
+            "code": 16777561,
+            "classification": "Unknown"
+        },
+        "'Grub-Hive_Internal'": {
+            "code": 16777562,
+            "classification": "Unknown"
+        },
+        "'Grub-Basin_Requires_Wings'": {
+            "code": 16777563,
+            "classification": "Unknown"
+        },
+        "'Grub-Basin_Requires_Dive'": {
+            "code": 16777564,
+            "classification": "Unknown"
+        },
+        "'Grub-Waterways_Main'": {
+            "code": 16777565,
+            "classification": "Unknown"
+        },
+        "\"Grub-Isma's_Grove\"": {
+            "code": 16777566,
+            "classification": "Unknown"
+        },
+        "'Grub-Waterways_Requires_Tram'": {
+            "code": 16777567,
+            "classification": "Unknown"
+        },
+        "'Grub-City_of_Tears_Left'": {
+            "code": 16777568,
+            "classification": "Unknown"
+        },
+        "'Grub-Soul_Sanctum'": {
+            "code": 16777569,
+            "classification": "Unknown"
+        },
+        "\"Grub-Watcher's_Spire\"": {
+            "code": 16777570,
+            "classification": "Unknown"
+        },
+        "'Grub-City_of_Tears_Guarded'": {
+            "code": 16777571,
+            "classification": "Unknown"
+        },
+        "\"Grub-King's_Station\"": {
+            "code": 16777572,
+            "classification": "Unknown"
+        },
+        "'Grub-Resting_Grounds'": {
+            "code": 16777573,
+            "classification": "Unknown"
+        },
+        "'Grub-Crystal_Peak_Below_Chest'": {
+            "code": 16777574,
+            "classification": "Unknown"
+        },
+        "'Grub-Crystallized_Mound'": {
+            "code": 16777575,
+            "classification": "Unknown"
+        },
+        "'Grub-Crystal_Peak_Spike'": {
+            "code": 16777576,
+            "classification": "Unknown"
+        },
+        "'Grub-Crystal_Peak_Mimic'": {
+            "code": 16777577,
+            "classification": "Unknown"
+        },
+        "'Grub-Crystal_Peak_Crushers'": {
+            "code": 16777578,
+            "classification": "Unknown"
+        },
+        "'Grub-Crystal_Heart'": {
+            "code": 16777579,
+            "classification": "Unknown"
+        },
+        "'Grub-Hallownest_Crown'": {
+            "code": 16777580,
+            "classification": "Unknown"
+        },
+        "'Grub-Howling_Cliffs'": {
+            "code": 16777581,
+            "classification": "Unknown"
+        },
+        "\"Grub-Queen's_Gardens_Stag\"": {
+            "code": 16777582,
+            "classification": "Unknown"
+        },
+        "\"Grub-Queen's_Gardens_Marmu\"": {
+            "code": 16777583,
+            "classification": "Unknown"
+        },
+        "\"Grub-Queen's_Gardens_Top\"": {
+            "code": 16777584,
+            "classification": "Unknown"
+        },
+        "'Grub-Collector_1'": {
+            "code": 16777585,
+            "classification": "Unknown"
+        },
+        "'Grub-Collector_2'": {
+            "code": 16777586,
+            "classification": "Unknown"
+        },
+        "'Grub-Collector_3'": {
+            "code": 16777587,
+            "classification": "Unknown"
+        },
+        "'Mimic_Grub-Deepnest_1'": {
+            "code": 16777588,
+            "classification": "Unknown"
+        },
+        "'Mimic_Grub-Deepnest_2'": {
+            "code": 16777589,
+            "classification": "Unknown"
+        },
+        "'Mimic_Grub-Deepnest_3'": {
+            "code": 16777590,
+            "classification": "Unknown"
+        },
+        "'Mimic_Grub-Crystal_Peak'": {
+            "code": 16777591,
+            "classification": "Unknown"
+        },
+        "'Crossroads_Map'": {
+            "code": 16777592,
+            "classification": "Unknown"
+        },
+        "'Greenpath_Map'": {
+            "code": 16777593,
+            "classification": "Unknown"
+        },
+        "'Fog_Canyon_Map'": {
+            "code": 16777594,
+            "classification": "Unknown"
+        },
+        "'Fungal_Wastes_Map'": {
+            "code": 16777595,
+            "classification": "Unknown"
+        },
+        "'Deepnest_Map-Upper'": {
+            "code": 16777596,
+            "classification": "Unknown"
+        },
+        "'Deepnest_Map-Right'": {
+            "code": 16777597,
+            "classification": "Unknown"
+        },
+        "'Ancient_Basin_Map'": {
+            "code": 16777598,
+            "classification": "Unknown"
+        },
+        "\"Kingdom's_Edge_Map\"": {
+            "code": 16777599,
+            "classification": "Unknown"
+        },
+        "'City_of_Tears_Map'": {
+            "code": 16777600,
+            "classification": "Unknown"
+        },
+        "'Royal_Waterways_Map'": {
+            "code": 16777601,
+            "classification": "Unknown"
+        },
+        "'Howling_Cliffs_Map'": {
+            "code": 16777602,
+            "classification": "Unknown"
+        },
+        "'Crystal_Peak_Map'": {
+            "code": 16777603,
+            "classification": "Unknown"
+        },
+        "\"Queen's_Gardens_Map\"": {
+            "code": 16777604,
+            "classification": "Unknown"
+        },
+        "'Resting_Grounds_Map'": {
+            "code": 16777605,
+            "classification": "Unknown"
+        },
+        "'Dirtmouth_Stag'": {
+            "code": 16777606,
+            "classification": "Unknown"
+        },
+        "'Crossroads_Stag'": {
+            "code": 16777607,
+            "classification": "Unknown"
+        },
+        "'Greenpath_Stag'": {
+            "code": 16777608,
+            "classification": "Unknown"
+        },
+        "\"Queen's_Station_Stag\"": {
+            "code": 16777609,
+            "classification": "Unknown"
+        },
+        "\"Queen's_Gardens_Stag\"": {
+            "code": 16777610,
+            "classification": "Unknown"
+        },
+        "'City_Storerooms_Stag'": {
+            "code": 16777611,
+            "classification": "Unknown"
+        },
+        "\"King's_Station_Stag\"": {
+            "code": 16777612,
+            "classification": "Unknown"
+        },
+        "'Resting_Grounds_Stag'": {
+            "code": 16777613,
+            "classification": "Unknown"
+        },
+        "'Distant_Village_Stag'": {
+            "code": 16777614,
+            "classification": "Unknown"
+        },
+        "'Hidden_Station_Stag'": {
+            "code": 16777615,
+            "classification": "Unknown"
+        },
+        "'Stag_Nest_Stag'": {
+            "code": 16777616,
+            "classification": "Unknown"
+        },
+        "\"Lifeblood_Cocoon-King's_Pass\"": {
+            "code": 16777617,
+            "classification": "Unknown"
+        },
+        "'Lifeblood_Cocoon-Ancestral_Mound'": {
+            "code": 16777618,
+            "classification": "Unknown"
+        },
+        "'Lifeblood_Cocoon-Greenpath'": {
+            "code": 16777619,
+            "classification": "Unknown"
+        },
+        "'Lifeblood_Cocoon-Fog_Canyon_West'": {
+            "code": 16777620,
+            "classification": "Unknown"
+        },
+        "'Lifeblood_Cocoon-Mantis_Village'": {
+            "code": 16777621,
+            "classification": "Unknown"
+        },
+        "'Lifeblood_Cocoon-Failed_Tramway'": {
+            "code": 16777622,
+            "classification": "Unknown"
+        },
+        "'Lifeblood_Cocoon-Galien'": {
+            "code": 16777623,
+            "classification": "Unknown"
+        },
+        "\"Lifeblood_Cocoon-Kingdom's_Edge\"": {
+            "code": 16777624,
+            "classification": "Unknown"
+        },
+        "'Grimmkin_Flame-City_Storerooms'": {
+            "code": 16777625,
+            "classification": "Unknown"
+        },
+        "'Grimmkin_Flame-Greenpath'": {
+            "code": 16777626,
+            "classification": "Unknown"
+        },
+        "'Grimmkin_Flame-Crystal_Peak'": {
+            "code": 16777627,
+            "classification": "Unknown"
+        },
+        "\"Grimmkin_Flame-King's_Pass\"": {
+            "code": 16777628,
+            "classification": "Unknown"
+        },
+        "'Grimmkin_Flame-Resting_Grounds'": {
+            "code": 16777629,
+            "classification": "Unknown"
+        },
+        "\"Grimmkin_Flame-Kingdom's_Edge\"": {
+            "code": 16777630,
+            "classification": "Unknown"
+        },
+        "'Grimmkin_Flame-Fungal_Core'": {
+            "code": 16777631,
+            "classification": "Unknown"
+        },
+        "'Grimmkin_Flame-Ancient_Basin'": {
+            "code": 16777632,
+            "classification": "Unknown"
+        },
+        "'Grimmkin_Flame-Hive'": {
+            "code": 16777633,
+            "classification": "Unknown"
+        },
+        "'Grimmkin_Flame-Brumm'": {
+            "code": 16777634,
+            "classification": "Unknown"
+        },
+        "\"Hunter's_Journal\"": {
+            "code": 16777635,
+            "classification": "Unknown"
+        },
+        "'Journal_Entry-Void_Tendrils'": {
+            "code": 16777636,
+            "classification": "Unknown"
+        },
+        "'Journal_Entry-Charged_Lumafly'": {
+            "code": 16777637,
+            "classification": "Unknown"
+        },
+        "'Journal_Entry-Goam'": {
+            "code": 16777638,
+            "classification": "Unknown"
+        },
+        "'Journal_Entry-Garpede'": {
+            "code": 16777639,
+            "classification": "Unknown"
+        },
+        "'Journal_Entry-Seal_of_Binding'": {
+            "code": 16777640,
+            "classification": "Unknown"
+        },
+        "'Elevator_Pass'": {
+            "code": 16777641,
+            "classification": "Unknown"
+        },
+        "'Split_Mothwing_Cloak'": {
+            "code": 16777642,
+            "classification": "Unknown"
+        },
+        "'Left_Mantis_Claw'": {
+            "code": 16777643,
+            "classification": "Unknown"
+        },
+        "'Right_Mantis_Claw'": {
+            "code": 16777644,
+            "classification": "Unknown"
+        },
+        "'Leftslash'": {
+            "code": 16777645,
+            "classification": "Unknown"
+        },
+        "'Rightslash'": {
+            "code": 16777646,
+            "classification": "Unknown"
+        },
+        "'Upslash'": {
+            "code": 16777647,
+            "classification": "Unknown"
+        },
+        "'Split_Crystal_Heart'": {
+            "code": 16777648,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Broken_Elevator_1'": {
+            "code": 16777649,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Broken_Elevator_2'": {
+            "code": 16777650,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Broken_Elevator_3'": {
+            "code": 16777651,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Broken_Bridge_Upper'": {
+            "code": 16777652,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Broken_Bridge_Lower'": {
+            "code": 16777653,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Broken_Bridge_Lower_Dupe'": {
+            "code": 16777654,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Abyss_1'": {
+            "code": 16777655,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Abyss_2'": {
+            "code": 16777656,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Abyss_3'": {
+            "code": 16777657,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Basin_Tunnel'": {
+            "code": 16777658,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Basin_Grub'": {
+            "code": 16777659,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Basin_Before_Broken_Vessel'": {
+            "code": 16777660,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Cliffs_Main_1'": {
+            "code": 16777661,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Cliffs_Main_2'": {
+            "code": 16777662,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Cliffs_Main_3'": {
+            "code": 16777663,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Cliffs_Main_4'": {
+            "code": 16777664,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Below_Gorb_Dupe'": {
+            "code": 16777665,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Below_Gorb'": {
+            "code": 16777666,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Well'": {
+            "code": 16777667,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Center_Grub'": {
+            "code": 16777668,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Root'": {
+            "code": 16777669,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Root_Dupe_1'": {
+            "code": 16777670,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Root_Dupe_2'": {
+            "code": 16777671,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Aspid_Arena'": {
+            "code": 16777672,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Aspid_Arena_Dupe_1'": {
+            "code": 16777673,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Aspid_Arena_Dupe_2'": {
+            "code": 16777674,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Aspid_Arena_Hidden'": {
+            "code": 16777675,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Above_False_Knight'": {
+            "code": 16777676,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Before_Acid_Grub'": {
+            "code": 16777677,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Below_Goam_Mask_Shard'": {
+            "code": 16777678,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_After_Goam_Mask_Shard'": {
+            "code": 16777679,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Above_Lever'": {
+            "code": 16777680,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Before_Fungal'": {
+            "code": 16777681,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Before_Fungal_Dupe_1'": {
+            "code": 16777682,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Before_Fungal_Dupe_2'": {
+            "code": 16777683,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Before_Shops'": {
+            "code": 16777684,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Before_Glowing_Womb'": {
+            "code": 16777685,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Above_Tram'": {
+            "code": 16777686,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Above_Mawlek'": {
+            "code": 16777687,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Vessel_Fragment'": {
+            "code": 16777688,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Goam_Alcove'": {
+            "code": 16777689,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Goam_Damage_Boost'": {
+            "code": 16777690,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Tram'": {
+            "code": 16777691,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Goam_Journal'": {
+            "code": 16777692,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crossroads_Goam_Journal_Dupe'": {
+            "code": 16777693,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Ancestral_Mound'": {
+            "code": 16777694,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Ancestral_Mound_Dupe'": {
+            "code": 16777695,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Ancestral_Mound_Tree'": {
+            "code": 16777696,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Ancestral_Mound_Tree_Dupe'": {
+            "code": 16777697,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Moss_Prophet'": {
+            "code": 16777698,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Moss_Prophet_Dupe'": {
+            "code": 16777699,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Deepnest_Below_Mimics'": {
+            "code": 16777700,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Deepnest_Below_Mimics_Dupe'": {
+            "code": 16777701,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Deepnest_Below_Spike_Grub'": {
+            "code": 16777702,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Deepnest_Below_Spike_Grub_Dupe'": {
+            "code": 16777703,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Deepnest_Spike_Grub_Right'": {
+            "code": 16777704,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Deepnest_By_Mantis_Lords_Garpede_Pogo'": {
+            "code": 16777705,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Deepnest_By_Mantis_Lords_Garpede_Pogo_Dupe'": {
+            "code": 16777706,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_1'": {
+            "code": 16777707,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_2'": {
+            "code": 16777708,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_3'": {
+            "code": 16777709,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Deepnest_Nosk_1'": {
+            "code": 16777710,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Deepnest_Nosk_2'": {
+            "code": 16777711,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Deepnest_Nosk_3'": {
+            "code": 16777712,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Deepnest_Above_Galien'": {
+            "code": 16777713,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Deepnest_Galien_Spike'": {
+            "code": 16777714,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Deepnest_Garpede_1'": {
+            "code": 16777715,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Deepnest_Garpede_2'": {
+            "code": 16777716,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Dark_Deepnest_Above_Grub_1'": {
+            "code": 16777717,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Dark_Deepnest_Above_Grub_2'": {
+            "code": 16777718,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Dark_Deepnest_Bottom_Left'": {
+            "code": 16777719,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Above_Mask_Maker_1'": {
+            "code": 16777720,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Above_Mask_Maker_2'": {
+            "code": 16777721,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Lower_Kingdom's_Edge_1\"": {
+            "code": 16777722,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Lower_Kingdom's_Edge_2\"": {
+            "code": 16777723,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Lower_Kingdom's_Edge_3\"": {
+            "code": 16777724,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Lower_Kingdom's_Edge_Dive\"": {
+            "code": 16777725,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Kingdom's_Edge_Below_Bardoon\"": {
+            "code": 16777726,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Kingdom's_Edge_Oro_Far_Left\"": {
+            "code": 16777727,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Kingdom's_Edge_Oro_Middle_Left\"": {
+            "code": 16777728,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Kingdom's_Edge_Above_Root\"": {
+            "code": 16777729,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Kingdom's_Edge_Above_Tower\"": {
+            "code": 16777730,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Kingdom's_Edge_Below_Colosseum\"": {
+            "code": 16777731,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Kingdom's_Edge_Above_420_Geo_Rock\"": {
+            "code": 16777732,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Kingdom's_Edge_420_Geo_Rock\"": {
+            "code": 16777733,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Beast's_Den_Above_Trilobite\"": {
+            "code": 16777734,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Beast's_Den_Above_Trilobite_Dupe\"": {
+            "code": 16777735,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Beast's_Den_Below_Herrah\"": {
+            "code": 16777736,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Beast's_Den_Below_Egg\"": {
+            "code": 16777737,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Beast's_Den_Below_Egg_Dupe\"": {
+            "code": 16777738,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Beast's_Den_Bottom\"": {
+            "code": 16777739,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Beast's_Den_Bottom_Dupe\"": {
+            "code": 16777740,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Beast's_Den_After_Herrah\"": {
+            "code": 16777741,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_Entrance'": {
+            "code": 16777742,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_Waterfall'": {
+            "code": 16777743,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_Below_Skip_Squit'": {
+            "code": 16777744,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_Skip_Squit'": {
+            "code": 16777745,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_Second_Skip_Fool_Eater'": {
+            "code": 16777746,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_Second_Skip_Fool_Eater_Dupe'": {
+            "code": 16777747,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_Second_Skip_Lower'": {
+            "code": 16777748,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_Below_Hornet'": {
+            "code": 16777749,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_Above_Thorns'": {
+            "code": 16777750,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Greenpath_Hunter's_Journal\"": {
+            "code": 16777751,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_Acid_Bridge'": {
+            "code": 16777752,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_After_MMC_Hidden'": {
+            "code": 16777753,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_After_MMC'": {
+            "code": 16777754,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_After_MMC_Dupe'": {
+            "code": 16777755,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_Obbles_Fool_Eater'": {
+            "code": 16777756,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_Moss_Knights'": {
+            "code": 16777757,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_Moss_Knights_Dupe_1'": {
+            "code": 16777758,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_Moss_Knights_Dupe_2'": {
+            "code": 16777759,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_Below_Stag'": {
+            "code": 16777760,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_Below_Stag_Fool_Eater'": {
+            "code": 16777761,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Baldur_Shell_Top_Left'": {
+            "code": 16777762,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Baldur_Shell_Alcove'": {
+            "code": 16777763,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_MMC'": {
+            "code": 16777764,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_Below_Toll'": {
+            "code": 16777765,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_Toll_Hidden'": {
+            "code": 16777766,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Greenpath_Toll_Hidden_Dupe'": {
+            "code": 16777767,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Fungal_Below_Shrumal_Ogres'": {
+            "code": 16777768,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Fungal_Above_Cloth'": {
+            "code": 16777769,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Fungal_After_Cloth'": {
+            "code": 16777770,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Fungal_Below_Pilgrim's_Way\"": {
+            "code": 16777771,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Fungal_Below_Pilgrim's_Way_Dupe\"": {
+            "code": 16777772,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Mantis_Outskirts_Guarded'": {
+            "code": 16777773,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Mantis_Outskirts_Guarded_Dupe'": {
+            "code": 16777774,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Mantis_Outskirts_Alcove'": {
+            "code": 16777775,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Mantis_Village_After_Lever'": {
+            "code": 16777776,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Mantis_Village_Above_Claw'": {
+            "code": 16777777,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Mantis_Village_Above_Claw_Dupe'": {
+            "code": 16777778,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Mantis_Village_Below_Lore'": {
+            "code": 16777779,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Mantis_Village_Above_Lever'": {
+            "code": 16777780,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Above_Mantis_Lords_1'": {
+            "code": 16777781,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Above_Mantis_Lords_2'": {
+            "code": 16777782,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Fungal_After_Bouncy_Grub'": {
+            "code": 16777783,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Fungal_After_Bouncy_Grub_Dupe'": {
+            "code": 16777784,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Fungal_Bouncy_Grub_Lever'": {
+            "code": 16777785,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Fungal_After_Cornifer'": {
+            "code": 16777786,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Fungal_Above_City_Entrance'": {
+            "code": 16777787,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Deepnest_By_Mantis_Lords_1'": {
+            "code": 16777788,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Deepnest_By_Mantis_Lords_2'": {
+            "code": 16777789,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Deepnest_Lower_Cornifer'": {
+            "code": 16777790,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Fungal_Core_Entrance'": {
+            "code": 16777791,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Fungal_Core_Hidden'": {
+            "code": 16777792,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Fungal_Core_Above_Elder'": {
+            "code": 16777793,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Queen's_Gardens_Acid_Entrance\"": {
+            "code": 16777794,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Queen's_Gardens_Below_Stag\"": {
+            "code": 16777795,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Fog_Canyon_East'": {
+            "code": 16777796,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Love_Key'": {
+            "code": 16777797,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Love_Key_Dupe'": {
+            "code": 16777798,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Queen's_Gardens_Above_Marmu\"": {
+            "code": 16777799,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Pale_Lurker'": {
+            "code": 16777800,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Godhome_Pipeway'": {
+            "code": 16777801,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Hive_Entrance'": {
+            "code": 16777802,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Hive_Outside_Bench'": {
+            "code": 16777803,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Hive_Below_Root'": {
+            "code": 16777804,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Hive_After_Root'": {
+            "code": 16777805,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Hive_Below_Stash'": {
+            "code": 16777806,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Hive_Stash'": {
+            "code": 16777807,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Hive_Stash_Dupe'": {
+            "code": 16777808,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Hive_Below_Grub'": {
+            "code": 16777809,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Hive_Above_Mask'": {
+            "code": 16777810,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crystal_Peak_Lower_Middle'": {
+            "code": 16777811,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crystal_Peak_Lower_Conveyer_1'": {
+            "code": 16777812,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crystal_Peak_Lower_Conveyer_2'": {
+            "code": 16777813,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crystal_Peak_Before_Dark_Room'": {
+            "code": 16777814,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crystal_Peak_Before_Dark_Room_Dupe'": {
+            "code": 16777815,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crystal_Peak_Above_Spike_Grub'": {
+            "code": 16777816,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crystal_Peak_Mimic_Grub'": {
+            "code": 16777817,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crystal_Peak_Dive_Egg'": {
+            "code": 16777818,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crystal_Peak_Dive_Egg_Dupe'": {
+            "code": 16777819,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crystal_Peak_Conga_Line'": {
+            "code": 16777820,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Hallownest_Crown_Dive'": {
+            "code": 16777821,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Hallownest_Crown_Dive_Dupe'": {
+            "code": 16777822,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Hallownest_Crown_Hidden'": {
+            "code": 16777823,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Hallownest_Crown_Hidden_Dupe_1'": {
+            "code": 16777824,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Hallownest_Crown_Hidden_Dupe_2'": {
+            "code": 16777825,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crystal_Peak_Before_Crystal_Heart'": {
+            "code": 16777826,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crystal_Peak_Entrance'": {
+            "code": 16777827,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crystal_Peak_Entrance_Dupe_1'": {
+            "code": 16777828,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crystal_Peak_Entrance_Dupe_2'": {
+            "code": 16777829,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crystal_Peak_Above_Crushers_Lower'": {
+            "code": 16777830,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Crystal_Peak_Above_Crushers_Higher'": {
+            "code": 16777831,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Resting_Grounds_Catacombs_Grub'": {
+            "code": 16777832,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Resting_Grounds_Catacombs_Left_Dupe'": {
+            "code": 16777833,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Resting_Grounds_Catacombs_Left'": {
+            "code": 16777834,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Overgrown_Mound'": {
+            "code": 16777835,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Fluke_Hermit_Dupe'": {
+            "code": 16777836,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Fluke_Hermit'": {
+            "code": 16777837,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Pleasure_House'": {
+            "code": 16777838,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-City_of_Tears_Quirrel'": {
+            "code": 16777839,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-City_of_Tears_Lemm'": {
+            "code": 16777840,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-City_of_Tears_Above_Lemm'": {
+            "code": 16777841,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Soul_Sanctum'": {
+            "code": 16777842,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Watcher's_Spire\"": {
+            "code": 16777843,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-Above_King's_Station\"": {
+            "code": 16777844,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-King's_Station\"": {
+            "code": 16777845,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-King's_Pass_Left\"": {
+            "code": 16777846,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-King's_Pass_Below_Fury\"": {
+            "code": 16777847,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-King's_Pass_Hidden\"": {
+            "code": 16777848,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-King's_Pass_Collapse\"": {
+            "code": 16777849,
+            "classification": "Unknown"
+        },
+        "\"Geo_Rock-King's_Pass_Above_Fury\"": {
+            "code": 16777850,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Waterways_Tuk'": {
+            "code": 16777851,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Waterways_Tuk_Alcove'": {
+            "code": 16777852,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Waterways_Left'": {
+            "code": 16777853,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Waterways_East'": {
+            "code": 16777854,
+            "classification": "Unknown"
+        },
+        "'Geo_Rock-Waterways_Flukemarm'": {
+            "code": 16777855,
+            "classification": "Unknown"
+        },
+        "'Boss_Geo-Massive_Moss_Charger'": {
+            "code": 16777856,
+            "classification": "Unknown"
+        },
+        "'Boss_Geo-Gorgeous_Husk'": {
+            "code": 16777857,
+            "classification": "Unknown"
+        },
+        "'Boss_Geo-Sanctum_Soul_Warrior'": {
+            "code": 16777858,
+            "classification": "Unknown"
+        },
+        "'Boss_Geo-Elegant_Soul_Warrior'": {
+            "code": 16777859,
+            "classification": "Unknown"
+        },
+        "'Boss_Geo-Crystal_Guardian'": {
+            "code": 16777860,
+            "classification": "Unknown"
+        },
+        "'Boss_Geo-Enraged_Guardian'": {
+            "code": 16777861,
+            "classification": "Unknown"
+        },
+        "'Boss_Geo-Gruz_Mother'": {
+            "code": 16777862,
+            "classification": "Unknown"
+        },
+        "'Boss_Geo-Vengefly_King'": {
+            "code": 16777863,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Basin'": {
+            "code": 16777864,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Cliffs_Main'": {
+            "code": 16777865,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Cliffs_Gorb'": {
+            "code": 16777866,
+            "classification": "Unknown"
+        },
+        "\"Soul_Totem-Cliffs_Joni's\"": {
+            "code": 16777867,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Crossroads_Goam_Journal'": {
+            "code": 16777868,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Crossroads_Shops'": {
+            "code": 16777869,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Crossroads_Mawlek_Upper'": {
+            "code": 16777870,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Crossroads_Acid'": {
+            "code": 16777871,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Crossroads_Mawlek_Lower'": {
+            "code": 16777872,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Crossroads_Myla'": {
+            "code": 16777873,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Ancestral_Mound'": {
+            "code": 16777874,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Distant_Village'": {
+            "code": 16777875,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Deepnest_Vessel'": {
+            "code": 16777876,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Mask_Maker'": {
+            "code": 16777877,
+            "classification": "Unknown"
+        },
+        "\"Soul_Totem-Lower_Kingdom's_Edge_1\"": {
+            "code": 16777878,
+            "classification": "Unknown"
+        },
+        "\"Soul_Totem-Lower_Kingdom's_Edge_2\"": {
+            "code": 16777879,
+            "classification": "Unknown"
+        },
+        "\"Soul_Totem-Upper_Kingdom's_Edge\"": {
+            "code": 16777880,
+            "classification": "Unknown"
+        },
+        "\"Soul_Totem-Kingdom's_Edge_Camp\"": {
+            "code": 16777881,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Oro_Dive_2'": {
+            "code": 16777882,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Oro_Dive_1'": {
+            "code": 16777883,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Oro'": {
+            "code": 16777884,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-420_Geo_Rock'": {
+            "code": 16777885,
+            "classification": "Unknown"
+        },
+        "\"Soul_Totem-Beast's_Den\"": {
+            "code": 16777886,
+            "classification": "Unknown"
+        },
+        "\"Soul_Totem-Greenpath_Hunter's_Journal\"": {
+            "code": 16777887,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Greenpath_MMC'": {
+            "code": 16777888,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Greenpath_Below_Toll'": {
+            "code": 16777889,
+            "classification": "Unknown"
+        },
+        "\"Soul_Totem-Before_Pilgrim's_Way\"": {
+            "code": 16777890,
+            "classification": "Unknown"
+        },
+        "\"Soul_Totem-Pilgrim's_Way\"": {
+            "code": 16777891,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Fungal_Core'": {
+            "code": 16777892,
+            "classification": "Unknown"
+        },
+        "\"Soul_Totem-Top_Left_Queen's_Gardens\"": {
+            "code": 16777893,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Below_Marmu'": {
+            "code": 16777894,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Upper_Crystal_Peak'": {
+            "code": 16777895,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Hallownest_Crown'": {
+            "code": 16777896,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Outside_Crystallized_Mound'": {
+            "code": 16777897,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Crystal_Heart_1'": {
+            "code": 16777898,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Crystal_Heart_2'": {
+            "code": 16777899,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Crystallized_Mound'": {
+            "code": 16777900,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Resting_Grounds'": {
+            "code": 16777901,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Below_Xero'": {
+            "code": 16777902,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Sanctum_Below_Soul_Master'": {
+            "code": 16777903,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Sanctum_Below_Chest'": {
+            "code": 16777904,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Sanctum_Above_Grub'": {
+            "code": 16777905,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Waterways_Entrance'": {
+            "code": 16777906,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Top_Left_Waterways'": {
+            "code": 16777907,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Waterways_East'": {
+            "code": 16777908,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Waterways_Flukemarm'": {
+            "code": 16777909,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-White_Palace_Entrance'": {
+            "code": 16777910,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-White_Palace_Hub'": {
+            "code": 16777911,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-White_Palace_Left'": {
+            "code": 16777912,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-White_Palace_Final'": {
+            "code": 16777913,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-White_Palace_Right'": {
+            "code": 16777914,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Path_of_Pain_Below_Lever'": {
+            "code": 16777915,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Path_of_Pain_Left_of_Lever'": {
+            "code": 16777916,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Path_of_Pain_Entrance'": {
+            "code": 16777917,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Path_of_Pain_Second'": {
+            "code": 16777918,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Path_of_Pain_Hidden'": {
+            "code": 16777919,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Path_of_Pain_Below_Thornskip'": {
+            "code": 16777920,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Path_of_Pain_Final'": {
+            "code": 16777921,
+            "classification": "Unknown"
+        },
+        "'Soul_Totem-Pale_Lurker'": {
+            "code": 16777922,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-City_Entrance'": {
+            "code": 16777923,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Pleasure_House'": {
+            "code": 16777924,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Sanctum_Entrance'": {
+            "code": 16777925,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Sanctum_Past_Soul_Master'": {
+            "code": 16777926,
+            "classification": "Unknown"
+        },
+        "\"Lore_Tablet-Watcher's_Spire\"": {
+            "code": 16777927,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Archives_Upper'": {
+            "code": 16777928,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Archives_Left'": {
+            "code": 16777929,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Archives_Right'": {
+            "code": 16777930,
+            "classification": "Unknown"
+        },
+        "\"Lore_Tablet-Pilgrim's_Way_1\"": {
+            "code": 16777931,
+            "classification": "Unknown"
+        },
+        "\"Lore_Tablet-Pilgrim's_Way_2\"": {
+            "code": 16777932,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Mantis_Outskirts'": {
+            "code": 16777933,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Mantis_Village'": {
+            "code": 16777934,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Greenpath_Upper_Hidden'": {
+            "code": 16777935,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Greenpath_Below_Toll'": {
+            "code": 16777936,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Greenpath_Lifeblood'": {
+            "code": 16777937,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Greenpath_Stag'": {
+            "code": 16777938,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Greenpath_QG'": {
+            "code": 16777939,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Greenpath_Lower_Hidden'": {
+            "code": 16777940,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Dung_Defender'": {
+            "code": 16777941,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Spore_Shroom'": {
+            "code": 16777942,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Fungal_Wastes_Hidden'": {
+            "code": 16777943,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres'": {
+            "code": 16777944,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Fungal_Core'": {
+            "code": 16777945,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Ancient_Basin'": {
+            "code": 16777946,
+            "classification": "Unknown"
+        },
+        "\"Lore_Tablet-King's_Pass_Focus\"": {
+            "code": 16777947,
+            "classification": "Unknown"
+        },
+        "\"Lore_Tablet-King's_Pass_Fury\"": {
+            "code": 16777948,
+            "classification": "Unknown"
+        },
+        "\"Lore_Tablet-King's_Pass_Exit\"": {
+            "code": 16777949,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-World_Sense'": {
+            "code": 16777950,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Howling_Cliffs'": {
+            "code": 16777951,
+            "classification": "Unknown"
+        },
+        "\"Lore_Tablet-Kingdom's_Edge\"": {
+            "code": 16777952,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Palace_Workshop'": {
+            "code": 16777953,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Palace_Throne'": {
+            "code": 16777954,
+            "classification": "Unknown"
+        },
+        "'Lore_Tablet-Path_of_Pain_Entrance'": {
+            "code": 16777955,
+            "classification": "Unknown"
+        }
+    }
+}
