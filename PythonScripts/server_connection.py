@@ -314,29 +314,56 @@ async def handle_connected(entry):
 
     # Process checked and missing locations
     game_checked_locations = entry.get("checked_locations", [])
+    print(f"checked locations = {game_checked_locations}")
     missing_locations = entry.get("missing_locations", [])  # Retrieve missing locations
 
-    # Combined all locations with converted names, and track failed conversions
-    all_locations = []
-    failed_locations = []
+    # Load the location table
+    try:
+        with open(location_file_path, 'r') as location_file:
+            location_table = json.load(location_file)["locations"]
+    except (FileNotFoundError, json.JSONDecodeError):
+        print("Error: Could not load stardew_valley_location_table.json.")
+        return
 
-    # Process checked locations
-    for loc in game_checked_locations + missing_locations:
-        location_name = get_location_name(loc)
-        if location_name:
-            all_locations.append(location_name)
-        else:
-            failed_locations.append(loc)
+    # Load existing checked_locations.json
+    try:
+        with open(checked_location_path, 'r') as checked_file:
+            checked_locations_data = json.load(checked_file)
+    except (FileNotFoundError, json.JSONDecodeError):
+        checked_locations_data = {"checked_locations": []}
 
-    # Save combined all_locations and failed_locations to all_locations.json
+    # Match checked locations by code and update checked_locations.json
+    for loc_code in game_checked_locations:
+        matched_location = next(
+            (name for name, details in location_table.items() if details["code"] == loc_code),
+            None
+        )
+        if matched_location and matched_location not in checked_locations_data["checked_locations"]:
+            checked_locations_data["checked_locations"].append(matched_location)
+
+    # Save updated checked_locations.json
+    with open(checked_location_path, 'w') as checked_file:
+        json.dump(checked_locations_data, checked_file, indent=4)
+        print("Updated checked_locations.json")
+
+    # Process all locations for all_locations.json
+    all_locations = [loc for loc in checked_locations_data["checked_locations"]]
+    missing_location_names = [
+        loc for loc in missing_locations
+        if loc not in [details["code"] for details in location_table.values()]
+    ]
+
+    # Save combined all_locations.json
     all_locations_data = {
         "all_locations": sorted(all_locations),        # Sort alphabetically
+        "missing_locations": missing_location_names    # Include missing locations if needed
     }
 
     with open(all_locations_path, 'w') as all_locations_file:
         json.dump(all_locations_data, all_locations_file, indent=4)
 
     update_data_with_all_locations()
+
 
 def update_data_with_all_locations():
 
@@ -407,8 +434,8 @@ def update_data_with_all_locations():
 
 
     # Print out the entire `data` structure for inspection before saving
-    print("\nData structure before saving to data.json:")
-    print(json.dumps(data, indent=4))
+    #print("\nData structure before saving to data.json:")
+    #print(json.dumps(data, indent=4))
 
     # Check if the data.json file has write permissions
     if os.access(data_path, os.W_OK):
@@ -437,11 +464,6 @@ def update_data_with_all_locations():
                 print("Warning: Changes not reflected in reloaded data.json.")
     except Exception as e:
         print(f"Error occurred while reloading data.json for confirmation: {e}")
-
-    # Print missing locations
-    if missing_locations:
-        for location in missing_locations:
-            print(f" - {location}")
 
     print_to_server_console("Updated All Locations", 4)
         

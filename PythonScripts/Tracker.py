@@ -171,8 +171,10 @@ def get_requirements_text(item_name, item_widgets):
                 required_items = item[1]
                 break
 
-    # Determine which function to call based on the first condition
-    if required_items and "item" in required_items[0]:
+    if required_items and "or_items" in required_items[0]:
+        # If the first item contains "or_items", handle it as an or_items requirement
+        return get_standard_requirements_text(required_items, checked_items)
+    elif required_items and "item" in required_items[0]:
         # If the first item contains "item", it's a standard requirement
         return get_standard_requirements_text(required_items, checked_items)
     elif required_items and any(key.startswith("complete_") for key in required_items[0]):
@@ -181,6 +183,7 @@ def get_requirements_text(item_name, item_widgets):
     else:
         # Handle unexpected formats gracefully
         return f"No Required Items"
+
 
     
 def get_standard_requirements_text(conditions, checked_items):
@@ -192,24 +195,19 @@ def get_standard_requirements_text(conditions, checked_items):
     relevant_items = []
 
     for condition in conditions:
-        # Handle individual item requirements
         if "item" in condition:
+            # Handle individual item requirements
             item_name = condition["item"]
             required_count = condition.get("count", 1)
             item_count = checked_items.count(item_name)
 
             if item_count >= required_count:
-                # Requirement fully met, add the entire requirement to relevant items
                 relevant_items.append(f"{required_count}x {item_name}")
             else:
-                # Requirement partially met or unmet
-                if item_count > 0:
-                    relevant_items.append(f"{item_count}x {item_name}")
-                unmet_count = required_count - item_count
-                unmet_requirements.append(f"{unmet_count}x {item_name}")
+                unmet_requirements.append(f"{required_count - item_count}x {item_name}")
 
-        # Handle "or_items" requirements
         elif "or_items" in condition:
+            # Handle "or_items" block
             or_items_text_list = []
             condition_met = False
 
@@ -218,14 +216,15 @@ def get_standard_requirements_text(conditions, checked_items):
                 or_item_count = or_item.get("count", 1)
                 or_item_actual_count = checked_items.count(or_item_name)
 
-                # Add individual or_item requirements
-                or_item_text = f"{or_item_count}x {or_item_name}"
+                # Add fully met or_items to relevant items
                 if or_item_actual_count >= or_item_count:
                     condition_met = True
-                    relevant_items.append(or_item_text)  # Add fully met or_items to relevant items
-                or_items_text_list.append(or_item_text)
+                    relevant_items.append(f"{or_item_count}x {or_item_name}")
 
-            # Display "One of: ..." if no or_item requirements were fully met
+                # Add all options to the display list
+                or_items_text_list.append(f"{or_item_count}x {or_item_name}")
+
+            # If no condition is met, show unmet requirements
             if not condition_met:
                 unmet_requirements.append(f"One of: ({', '.join(or_items_text_list)})")
 
