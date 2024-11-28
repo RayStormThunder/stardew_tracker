@@ -346,24 +346,28 @@ async def handle_connected(entry):
         json.dump(checked_locations_data, checked_file, indent=4)
         print("Updated checked_locations.json")
 
-    # Process all locations for all_locations.json
-    all_locations = [loc for loc in checked_locations_data["checked_locations"]]
-    missing_location_names = [
-        loc for loc in missing_locations
-        if loc not in [details["code"] for details in location_table.values()]
-    ]
+    # Combine all valid locations (checked and missing) for all_locations.json
+    all_locations = set(checked_locations_data["checked_locations"])  # Start with checked locations
+
+    for loc_code in game_checked_locations + missing_locations:
+        matched_location = next(
+            (name for name, details in location_table.items() if details["code"] == loc_code),
+            None
+        )
+        if matched_location:
+            all_locations.add(matched_location)
 
     # Save combined all_locations.json
     all_locations_data = {
-        "all_locations": sorted(all_locations),        # Sort alphabetically
-        "missing_locations": missing_location_names    # Include missing locations if needed
+        "all_locations": sorted(all_locations),  # Sort alphabetically
+        "missing_locations": missing_locations   # Include missing locations if needed
     }
 
     with open(all_locations_path, 'w') as all_locations_file:
         json.dump(all_locations_data, all_locations_file, indent=4)
+        print("Updated all_locations.json")
 
     update_data_with_all_locations()
-
 
 def update_data_with_all_locations():
 
