@@ -24,7 +24,7 @@
             "BB - Enchanter's Bundle",
             [
                 {
-                    "complete_4_out_of_4": [
+                    "complete_3_out_of_4": [
                         {
                             "name": [
                                 {
@@ -103,19 +103,377 @@
         ],
         [
             "BB - Fodder Bundle",
-            []
+            [
+                {
+                    "complete_2_out_of_3": [
+                        {
+                            "name": [
+                                {
+                                    "goal": "Wheat",
+                                    "count": 10
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Wheat Seeds",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Summer",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Garden Pot",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Hay",
+                                    "count": 10
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Apple",
+                                    "count": 3
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Apple Sapling",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Fall",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         ],
         [
             "BB - Field Research Bundle",
-            []
+            [
+                {
+                    "complete_3_out_of_4": [
+                        {
+                            "name": [
+                                {
+                                    "goal": "Purple Mushroom",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Nautilus Shell",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Winter",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Chub",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Frozen Geode",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         ],
         [
             "BB - Dye Bundle",
-            []
+            [
+                {
+                    "complete_5_out_of_6": [
+                        {
+                            "name": [
+                                {
+                                    "goal": "Red Mushroom",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Sea Urchin",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Beach Bridge",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Sunflower",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Sunflower Seeds",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Summer",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Fall",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Garden Pot",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Duck Feather",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Coop",
+                                    "count": 2
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Aquamarine",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Red Cabbage",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Red Cabbage Seeds",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Fall",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Garden Pot",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         ],
         [
             "BB - Chef's Bundle",
-            []
+            [
+                {
+                    "complete_5_out_of_6": [
+                        {
+                            "name": [
+                                {
+                                    "goal": "Maple Syrup",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Tapper",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Heavy Tapper",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Fiddlehead Fern",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Summer",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Truffle",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Barn",
+                                    "count": 3
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Poppy",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Poppy Seeds",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Summer",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Garden Pot",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Maki Roll",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Maki Roll Recipe",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Foraging Level",
+                                    "count": 3
+                                },
+                                {
+                                    "item": "Progressive House",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Fried Egg",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Coop",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Fried Egg Recipe",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Foraging Level",
+                                    "count": 3
+                                },
+                                {
+                                    "item": "Progressive House",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         ],
         [
             "Complete Crafts Room",
@@ -125,7 +483,7 @@
             "CR - Exotic Foraging",
             [   
                 {
-                    "complete_5_out_of_9": [
+                    "complete_4_out_of_9": [
                         {
                             "name": [
                                 {
@@ -322,7 +680,102 @@
         ],
         [
             "FT - Specialty Fish",
-            []
+            [
+                {
+                    "complete_3_out_of_4": [
+                        {
+                            "name": [
+                                {
+                                    "goal": "Pufferfish",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 4
+                                },
+                                {
+                                    "item": "Fishing Level",
+                                    "count": 7
+                                },
+                                {
+                                    "item": "Summer",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Ghostfish",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 2
+                                },
+                                {
+                                    "item": "Fishing Level",
+                                    "count": 4
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Sandfish",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 2
+                                },
+                                {
+                                    "item": "Fishing Level",
+                                    "count": 5
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Desert Obelisk",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Woodskip",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 2
+                                },
+                                {
+                                    "item": "Fishing Level",
+                                    "count": 4
+                                },
+                                {
+                                    "item": "Progressive Axe",
+                                    "count": 2
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         ],
         [
             "FT - Crab Pot",
@@ -330,37 +783,667 @@
         ],
         [
             "FT - Night Fishing",
-            []
+            [
+                {
+                    "complete_2_out_of_3": [
+                        {
+                            "name": [
+                                {
+                                    "goal": "Walleye",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Fall",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Bream",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Eel",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 2
+                                },
+                                {
+                                    "item": "Fishing Level",
+                                    "count": 6
+                                }
+                            ],
+                            "or_items": [
+                                {
+                                    "item": "Spring",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Fall",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         ],
         [
             "FT - Ocean Fish",
-            []
+            [
+                {
+                    "complete_3_out_of_4": [
+                        {
+                            "name": [
+                                {
+                                    "goal": "Sardine",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Spring",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Fall",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Winter",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Tuna",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 2
+                                },
+                                {
+                                    "item": "Fishing Level",
+                                    "count": 6
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Summer",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Winter",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Red Snapper",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Summer",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Fall",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Winter",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Tilapia",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 2
+                                },
+                                {
+                                    "item": "Fishing Level",
+                                    "count": 4
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Summer",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Fall",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         ],
         [
             "FT - Lake Fish",
-            []
+            [
+                {
+                    "complete_3_out_of_4": [
+                        {
+                            "name": [
+                                {
+                                    "goal": "Largemouth Bass",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 2
+                                },
+                                {
+                                    "item": "Fishing Level",
+                                    "count": 4
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Carp",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Bullhead",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Sturgeon",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 2
+                                },
+                                {
+                                    "item": "Fishing Level",
+                                    "count": 6
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Summer",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Winter",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         ],
         [
             "FT - River Fish",
-            []
+            [
+                {
+                    "complete_3_out_of_4": [
+                        {
+                            "name": [
+                                {
+                                    "goal": "Sunfish",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Spring",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Summer",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Catfish",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 2
+                                },
+                                {
+                                    "item": "Fishing Level",
+                                    "count": 6
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Spring",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Fall",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Winter",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Shad",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Spring",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Summer",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Fall",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Tiger Trout",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Progressive Fishing Rod",
+                                    "count": 2
+                                },
+                                {
+                                    "item": "Fishing Level",
+                                    "count": 5
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Fall",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Winter",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         ],
         [
             "Complete Pantry",
             []
         ],
         [
-            "P - Animal Bundle",
-            []
+            "P - Artisan Bundle",
+            [
+                {
+                    "complete_5_out_of_12": [
+                        {
+                            "name": [
+                                {
+                                    "goal": "Truffle Oil",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [
+                                {
+                                    "item": "Progressive Barn",
+                                    "count": 3
+                                },
+                                {
+                                    "item": "Oil Maker",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Cloth",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [
+                                {
+                                    "item": "Loom",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [
+                                {
+                                    "item": "Progressive Barn",
+                                    "count": 3
+                                },
+                                {
+                                    "item": "Progressive Coop",
+                                    "count": 3
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Goat Cheese",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Cheese Press",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Progressive Barn",
+                                    "count": 2
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Cheese",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Cheese Press",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Progressive Barn",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Honey",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Bee House",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Jelly",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Preserves Jar",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Apple",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Apple Sapling",
+                                    "count": 1
+                                }, 
+                                {
+                                    "item": "Fruit Bats",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Apricot",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Apricot Sapling",
+                                    "count": 1
+                                }, 
+                                {
+                                    "item": "Fruit Bats",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Orange",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Orange Sapling",
+                                    "count": 1
+                                }, 
+                                {
+                                    "item": "Fruit Bats",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Peach",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Peach Sapling",
+                                    "count": 1
+                                }, 
+                                {
+                                    "item": "Fruit Bats",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Pomegranate",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Pomegranate Sapling",
+                                    "count": 1
+                                }, 
+                                {
+                                    "item": "Fruit Bats",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Cherry",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Cherry Sapling",
+                                    "count": 1
+                                }, 
+                                {
+                                    "item": "Fruit Bats",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         ],
         [
             "P - Rare Crops",
-            []
+            [
+                {
+                    "complete_1_out_of_2": [
+                        {
+                            "name": [
+                                {
+                                    "goal": "Ancient Fruit",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [
+                                {
+                                    "item": "Ancient Seeds",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Sweet Gem Berry",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [
+                                {
+                                    "item": "Rare Seed",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         ],
         [
             "P - Quality Crops",
             [
                 {
-                    "complete_3_out_of_4": [
+                    "complete_2_out_of_4": [
                         {
                             "name": [
                                 {
@@ -675,15 +1758,478 @@
         ],
         [
             "P - Fall Crops",
-            []
+            [
+                {
+                    "complete_3_out_of_4": [
+                        {
+                            "name": [
+                                {
+                                    "goal": "Corn",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Corn Seeds",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Fall",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Garden Pot",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Eggplant",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Eggplant Seeds",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Fall",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Garden Pot",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Pumpkin",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Pumpkin Seeds",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Fall",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Garden Pot",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Yam",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Yam Seeds",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Fall",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Garden Pot",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Broccoli",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Broccoli Seeds",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Fall",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Garden Pot",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         ],
         [
             "P - Summer Crops",
-            []
+            [
+                {
+                    "complete_3_out_of_4": [
+                        {
+                            "name": [
+                                {
+                                    "goal": "Tomato",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Tomato Seeds",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Summer",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Garden Pot",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Hot Pepper",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Pepper Seeds",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Summer",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Garden Pot",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Blueberry",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Blueberry Seeds",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Summer",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Garden Pot",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Melon",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Melon Seeds",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Summer",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Garden Pot",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Summer Squash",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Summer Squash Seeds",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Summer",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Garden Pot",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         ],
         [
             "P - Spring Crops",
-            []
+            [
+                {
+                    "complete_3_out_of_4": [
+                        {
+                            "name": [
+                                {
+                                    "goal": "Parsnip",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Parsnip Seeds",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Spring",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Garden Pot",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Green Bean",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Green Bean Seeds",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Spring",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Garden Pot",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Cauliflower",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Cauliflower Seeds",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Spring",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Garden Pot",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Potato",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Potato Seeds",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Spring",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Garden Pot",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Kale",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Kale Seeds",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Spring",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Garden Pot",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": [
+                                {
+                                    "goal": "Carrot",
+                                    "count": 1
+                                }
+                            ],
+                            "always_items": [ 
+                                {
+                                    "item": "Carrot Seeds",
+                                    "count": 1
+                                }
+                            ],
+                            "or_items": [ 
+                                {
+                                    "item": "Greenhouse",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Spring",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Garden Pot",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         ],
         [
             "Complete Vault",
@@ -898,6 +2444,10 @@
             "Broccoli",
             [
                 {
+                    "item": "Broccoli Seeds",
+                    "count": 1
+                },
+                {
                     "item": "Fall",
                     "count": 1
                 }
@@ -1002,6 +2552,10 @@
         [
             "Carrot",
             [
+                {
+                    "item": "Carrot Seeds",
+                    "count": 1
+                },
                 {
                     "item": "Spring",
                     "count": 1
@@ -1425,6 +2979,10 @@
             "Powdermelon",
             [
                 {
+                    "item": "Powdermelon Seeds",
+                    "count": 1
+                },
+                {
                     "item": "Winter",
                     "count": 1
                 }
@@ -1658,6 +3216,10 @@
         [
             "Summer Squash",
             [
+                {
+                    "item": "Summer Squash Seeds",
+                    "count": 1
+                },
                 {
                     "item": "Summer",
                     "count": 1
@@ -4432,88 +5994,188 @@
             []
         ],
         [
-            "A Study on Diamond Yields",
-            []
-        ],
-        [
-            "An Old Farmer's Journal",
-            []
-        ],
-        [
-            "Brewmaster's Guide",
-            []
-        ],
-        [
-            "Goblins by M. Jasper",
-            []
-        ],
-        [
-            "Gunther Tunnel Notice",
-            []
-        ],
-        [
-            "Highlights From The Book of Yoba",
-            []
-        ],
-        [
-            "How Deep do the mines go?",
-            []
-        ],
-        [
-            "Journey of the Prairie King -- The Smash Hit Video Game!",
-            []
-        ],
-        [
-            "Marriage Guide for Farmers",
-            []
-        ],
-        [
-            "Mysteries of the Dwarves",
-            []
-        ],
-        [
-            "Note From Gunther",
-            []
-        ],
-        [
-            "On Foraging",
-            []
-        ],
-        [
-            "Scarecrows",
-            []
-        ],
-        [
-            "Secret Statues Acrostics",
-            []
-        ],
-        [
-            "Secrets of the Legendary Fish",
-            []
-        ],
-        [
-            "Technology Report!",
-            []
-        ],
-        [
-            "The Fisherman, Act 1",
-            []
-        ],
-        [
-            "The Fisherman, Act II",
-            []
-        ],
-        [
-            "The Secret of the Stardrop",
+            "Tips on Farming",
             []
         ],
         [
             "This is a book by Marnie",
-            []
+            [
+                {
+                    "item": "Progressive Lost Book",
+                    "count": 1
+                }
+            ]
         ],
         [
-            "Tips on Farming",
-            []
+            "On Foraging",
+            [
+                {
+                    "item": "Progressive Lost Book",
+                    "count": 2
+                }
+            ]
+        ],
+        [
+            "The Fisherman, Act I",
+            [
+                {
+                    "item": "Progressive Lost Book",
+                    "count": 3
+                }
+            ]
+        ],
+        [
+            "How deep do the mines go?",
+            [
+                {
+                    "item": "Progressive Lost Book",
+                    "count": 4
+                }
+            ]
+        ],
+        [
+            "An Old Farmer's Journal",
+            [
+                {
+                    "item": "Progressive Lost Book",
+                    "count": 5
+                }
+            ]
+        ],
+        [
+            "Scarecrows",
+            [
+                {
+                    "item": "Progressive Lost Book",
+                    "count": 6
+                }
+            ]
+        ],
+        [
+            "The Secret of the Stardrop",
+            [
+                {
+                    "item": "Progressive Lost Book",
+                    "count": 7
+                }
+            ]
+        ],
+        [
+            "Journey of the Prairie King -- The Smash Hit Video Game!",
+            [
+                {
+                    "item": "Progressive Lost Book",
+                    "count": 8
+                }
+            ]
+        ],
+        [
+            "A Study on Diamond Yields",
+            [
+                {
+                    "item": "Progressive Lost Book",
+                    "count": 9
+                }
+            ]
+        ],
+        [
+            "Brewmaster's Guide",
+            [
+                {
+                    "item": "Progressive Lost Book",
+                    "count": 10
+                }
+            ]
+        ],
+        [
+            "Mysteries of the Dwarves",
+            [
+                {
+                    "item": "Progressive Lost Book",
+                    "count": 11
+                }
+            ]
+        ],
+        [
+            "Highlights From The Book of Yoba",
+            [
+                {
+                    "item": "Progressive Lost Book",
+                    "count": 12
+                }
+            ]
+        ],
+        [
+            "Marriage Guide for Farmers",
+            [
+                {
+                    "item": "Progressive Lost Book",
+                    "count": 13
+                }
+            ]
+        ],
+        [
+            "The Fisherman, Act II",
+            [
+                {
+                    "item": "Progressive Lost Book",
+                    "count": 14
+                }
+            ]
+        ],
+        [
+            "Technology Report!",
+            [
+                {
+                    "item": "Progressive Lost Book",
+                    "count": 15
+                }
+            ]
+        ],
+        [
+            "Secrets of the Legendary Fish",
+            [
+                {
+                    "item": "Progressive Lost Book",
+                    "count": 16
+                }
+            ]
+        ],
+        [
+            "Gunther Tunnel Notice",
+            [
+                {
+                    "item": "Progressive Lost Book",
+                    "count": 17
+                }
+            ]
+        ],
+        [
+            "Note From Gunther",
+            [
+                {
+                    "item": "Progressive Lost Book",
+                    "count": 18
+                }
+            ]
+        ],
+        [
+            "Goblins by M. Jasper",
+            [
+                {
+                    "item": "Progressive Lost Book",
+                    "count": 19
+                }
+            ]
+        ],
+        [
+            "Secret Statues Acrostics",
+            [
+                {
+                    "item": "Progressive Lost Book",
+                    "count": 20
+                }
+            ]
         ]
     ],
     "Monstersanity": [
@@ -5936,35 +7598,75 @@
         ],
         [
             "Raccoon Request 1",
-            []
+            [
+                {
+                    "item": "Progressive Raccoon",
+                    "count": 2
+                }
+            ]
         ],
         [
             "Raccoon Request 2",
-            []
+            [
+                {
+                    "item": "Progressive Raccoon",
+                    "count": 3
+                }
+            ]
         ],
         [
             "Raccoon Request 3",
-            []
+            [
+                {
+                    "item": "Progressive Raccoon",
+                    "count": 4
+                }
+            ]
         ],
         [
             "Raccoon Request 4",
-            []
+            [
+                {
+                    "item": "Progressive Raccoon",
+                    "count": 5
+                }
+            ]
         ],
         [
             "Raccoon Request 5",
-            []
+            [
+                {
+                    "item": "Progressive Raccoon",
+                    "count": 6
+                }
+            ]
         ],
         [
             "Raccoon Request 6",
-            []
+            [
+                {
+                    "item": "Progressive Raccoon",
+                    "count": 7
+                }
+            ]
         ],
         [
             "Raccoon Request 7",
-            []
+            [
+                {
+                    "item": "Progressive Raccoon",
+                    "count": 8
+                }
+            ]
         ],
         [
             "Raccoon Request 8",
-            []
+            [
+                {
+                    "item": "Progressive Raccoon",
+                    "count": 9
+                }
+            ]
         ],
         [
             "Demetrius's Breakthrough",

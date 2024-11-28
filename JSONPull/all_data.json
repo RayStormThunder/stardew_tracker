@@ -3492,136 +3492,10 @@
             0
         ],
         [
-            "A Study on Diamond Yields",
+            "Tips on Farming",
             [],
             "Library",
-            "Read A Study on Diamond Yields",
-            0
-        ],
-        [
-            "An Old Farmer's Journal",
-            [],
-            "Library",
-            "Read An Old Farmer's Journal",
-            0
-        ],
-        [
-            "Brewmaster's Guide",
-            [],
-            "Library",
-            "Read Brewmaster's Guide",
-            0
-        ],
-        [
-            "Goblins by M. Jasper",
-            [],
-            "Library",
-            "Read Goblins by M. Jasper",
-            0
-        ],
-        [
-            "Gunther Tunnel Notice",
-            [],
-            "Library",
-            "Read Gunther Tunnel Notice",
-            0
-        ],
-        [
-            "Highlights From The Book of Yoba",
-            [],
-            "Library",
-            "Read Highlights From The Book of Yoba",
-            0
-        ],
-        [
-            "How Deep do the mines go?",
-            [],
-            "Library",
-            "Read How Deep do the mines go?",
-            0
-        ],
-        [
-            "Journey of the Prairie King -- The Smash Hit Video Game!",
-            [],
-            "Library",
-            "Read Journey of the Prairie King -- The Smash Hit Video Game!",
-            0
-        ],
-        [
-            "Marriage Guide for Farmers",
-            [],
-            "Library",
-            "Read Marriage Guide for Farmers",
-            0
-        ],
-        [
-            "Mysteries of the Dwarves",
-            [],
-            "Library",
-            "Read Mysteries of the Dwarves",
-            0
-        ],
-        [
-            "Note From Gunther",
-            [],
-            "Library",
-            "Read Note From Gunther",
-            0
-        ],
-        [
-            "On Foraging",
-            [],
-            "Library",
-            "Read On Foraging",
-            0
-        ],
-        [
-            "Scarecrows",
-            [],
-            "Library",
-            "Read Scarecrows",
-            0
-        ],
-        [
-            "Secret Statues Acrostics",
-            [],
-            "Library",
-            "Read Secret Statues Acrostics",
-            0
-        ],
-        [
-            "Secrets of the Legendary Fish",
-            [],
-            "Library",
-            "Read Secrets of the Legendary Fish",
-            0
-        ],
-        [
-            "Technology Report!",
-            [],
-            "Library",
-            "Read Technology Report!",
-            0
-        ],
-        [
-            "The Fisherman, Act 1",
-            [],
-            "Library",
-            "Read The Fisherman, Act 1",
-            0
-        ],
-        [
-            "The Fisherman, Act II",
-            [],
-            "Library",
-            "Read The Fisherman, Act II",
-            0
-        ],
-        [
-            "The Secret of the Stardrop",
-            [],
-            "Library",
-            "Read The Secret of the Stardrop",
+            "Read Tips on Farming",
             0
         ],
         [
@@ -3632,10 +3506,136 @@
             0
         ],
         [
-            "Tips on Farming",
+            "On Foraging",
             [],
             "Library",
-            "Read Tips on Farming",
+            "Read On Foraging",
+            0
+        ],
+        [
+            "The Fisherman, Act I",
+            [],
+            "Library",
+            "Read The Fisherman, Act I",
+            0
+        ],
+        [
+            "How deep do the mines go?",
+            [],
+            "Library",
+            "Read How deep do the mines go?",
+            0
+        ],
+        [
+            "An Old Farmer's Journal",
+            [],
+            "Library",
+            "Read An Old Farmer's Journal",
+            0
+        ],
+        [
+            "Scarecrows",
+            [],
+            "Library",
+            "Read Scarecrows",
+            0
+        ],
+        [
+            "The Secret of the Stardrop",
+            [],
+            "Library",
+            "Read The Secret of the Stardrop",
+            0
+        ],
+        [
+            "Journey of the Prairie King -- The Smash Hit Video Game!",
+            [],
+            "Library",
+            "Read Journey of the Prairie King -- The Smash Hit Video Game!",
+            0
+        ],
+        [
+            "A Study on Diamond Yields",
+            [],
+            "Library",
+            "Read A Study on Diamond Yields",
+            0
+        ],
+        [
+            "Brewmaster's Guide",
+            [],
+            "Library",
+            "Read Brewmaster's Guide",
+            0
+        ],
+        [
+            "Mysteries of the Dwarves",
+            [],
+            "Library",
+            "Read Mysteries of the Dwarves",
+            0
+        ],
+        [
+            "Highlights From The Book of Yoba",
+            [],
+            "Library",
+            "Read Highlights From The Book of Yoba",
+            0
+        ],
+        [
+            "Marriage Guide for Farmers",
+            [],
+            "Library",
+            "Read Marriage Guide for Farmers",
+            0
+        ],
+        [
+            "The Fisherman, Act II",
+            [],
+            "Library",
+            "Read The Fisherman, Act II",
+            0
+        ],
+        [
+            "Technology Report!",
+            [],
+            "Library",
+            "Read Technology Report!",
+            0
+        ],
+        [
+            "Secrets of the Legendary Fish",
+            [],
+            "Library",
+            "Read Secrets of the Legendary Fish",
+            0
+        ],
+        [
+            "Gunther Tunnel Notice",
+            [],
+            "Library",
+            "Read Gunther Tunnel Notice",
+            0
+        ],
+        [
+            "Note From Gunther",
+            [],
+            "Library",
+            "Read Note From Gunther",
+            0
+        ],
+        [
+            "Goblins by M. Jasper",
+            [],
+            "Library",
+            "Read Goblins by M. Jasper",
+            0
+        ],
+        [
+            "Secret Statues Acrostics",
+            [],
+            "Library",
+            "Read Secret Statues Acrostics",
             0
         ]
     ],
@@ -3920,35 +3920,35 @@
         [
             "Copper Axe",
             [],
-            "1 Copper Bar, 500G",
+            "1 Copper Bar, 400G",
             "Copper Axe Upgrade",
             0
         ],
         [
             "Copper Hoe",
             [],
-            "1 Copper Bar, 500G",
+            "1 Copper Bar, 400G",
             "Copper Hoe Upgrade",
             0
         ],
         [
             "Copper Pickaxe",
             [],
-            "1 Copper Bar, 500G",
+            "1 Copper Bar, 400G",
             "Copper Pickaxe Upgrade",
             0
         ],
         [
             "Copper Trash Can",
             [],
-            "1 Copper Bar, 500G",
+            "1 Copper Bar, 200G",
             "Copper Trash Can Upgrade",
             0
         ],
         [
             "Copper Watering Can",
             [],
-            "1 Copper Bar, 500G",
+            "1 Copper Bar, 400G",
             "Copper Watering Can Upgrade",
             0
         ],
@@ -4493,9 +4493,7 @@
         [
             "Pot Of Gold",
             [
-                [
-                    "Spring"
-                ]
+                "Spring"
             ],
             "Found on Spring 17th by the Hat Mouse",
             "Pot Of Gold",
