@@ -3819,11 +3819,21 @@
     "Questsanity": [
         [
             "A Dark Reagent",
-            []
+            [
+                {
+                    "item": "Winter",
+                    "count": 1
+                }
+            ]
         ],
         [
             "A Favor For Clint",
-            []
+            [
+                {
+                    "item": "Winter",
+                    "count": 1
+                }
+            ]
         ],
         [
             "A Soldier's Star",
@@ -3939,7 +3949,12 @@
         ],
         [
             "Clint's Attempt",
-            []
+            [
+                {
+                    "item": "Winter",
+                    "count": 1
+                }
+            ]
         ],
         [
             "Cow's Delight",
@@ -3973,6 +3988,46 @@
                 {
                     "item": "Magnifying Glass",
                     "count": 1
+                },
+                {
+                    "or_items": [
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Desert Obelisk",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         ],
@@ -3984,20 +4039,8 @@
                     "count": 1
                 },
                 {
-                    "item": "Dark Talisman",
+                    "item": "Rusty Key",
                     "count": 1
-                },
-                {
-                    "or_items": [
-                        {
-                            "item": "Rusty Key",
-                            "count": 1
-                        },
-                        {
-                            "item": "Progressive Fishing Rod",
-                            "count": 1
-                        }
-                    ]
                 }
             ]
         ],
@@ -4055,11 +4098,23 @@
         [
             "Fresh Fruit",
             [
-                "Spring"
-            ],
-            "Mail, Spring 6, Year 2",
-            "Fresh Fruit",
-            0
+                {
+                    "item": "Spring",
+                    "count": 1
+                },
+                {
+                    "or_items": [
+                        {
+                            "item": "Apricot Sapling",
+                            "count": 1
+                        },
+                        {
+                            "item": "Fruit Bats",
+                            "count": 1
+                        }
+                    ]
+                }
+            ]
         ],
         [
             "Goblin Problem",
@@ -4273,24 +4328,40 @@
                 {
                     "or_items": [
                         {
-                            "item": "Skull Key",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
                         },
                         {
-                            "item": "Spring",
-                            "count": 1
-                        }
-                    ]
-                },
-                {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Desert Obelisk",
+                                    "count": 1
+                                }
+                            ]
                         },
                         {
-                            "item": "Bus Repair",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
                         }
                     ]
                 }
@@ -4369,24 +4440,40 @@
                 {
                     "or_items": [
                         {
-                            "item": "Skull Key",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
                         },
                         {
-                            "item": "Spring",
-                            "count": 1
-                        }
-                    ]
-                },
-                {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Desert Obelisk",
+                                    "count": 1
+                                }
+                            ]
                         },
                         {
-                            "item": "Bus Repair",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
                         }
                     ]
                 }
@@ -4403,7 +4490,56 @@
         ],
         [
             "The Mysterious Qi",
-            []
+            [
+                {
+                    "or_items": [
+                        {
+                            "item": "Lightning Rod",
+                            "count": 1
+                        },
+                        {
+                            "item": "Solar Panel",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "item": "Summer",
+                    "count": 1
+                },
+                {
+                    "item": "Beet Seeds",
+                    "count": 1
+                },
+                {
+                    "or_items": [
+                        {
+                            "item": "Fall",
+                            "count": 1
+                        },
+                        {
+                            "item": "Greenhouse",
+                            "count": 1
+                        },
+                        {
+                            "item": "Garden Pot",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "or_items": [
+                        {
+                            "item": "Bus Repair",
+                            "count": 1
+                        },
+                        {
+                            "item": "Desert Obelisk",
+                            "count": 1
+                        }
+                    ]
+                }
+            ]
         ],
         [
             "The Skull Key",
@@ -5155,6 +5291,10 @@
                     "count": 4
                 },
                 {
+                    "item": "Railroad Boulder Removed",
+                    "count": 1
+                },
+                {
                     "item": "Rusty Key",
                     "count": 1
                 }
@@ -5858,7 +5998,6 @@
             ]
         ]
     ],
-    
     "Booksanity": [
         [
             "Bait And Bobber",
@@ -5890,7 +6029,12 @@
         ],
         [
             "Book of Mysteries",
-            []
+            [
+                {
+                    "item": "Mr Qi's Plane Ride",
+                    "count": 1
+                }
+            ]
         ],
         [
             "Dwarvish Safety Manual",
@@ -5944,6 +6088,10 @@
                 {
                     "item": "Progressive Raccoon",
                     "count": 2
+                },
+                {
+                    "item": "Summer",
+                    "count": 1
                 }
             ]
         ],
@@ -5987,12 +6135,19 @@
         ],
         [
             "Way Of The Wind pt. 2",
-            []
+            [
+                {
+                    "item": "Power: Way Of The Wind pt. 1",
+                    "count": 1
+                }
+            ]
         ],
         [
             "Woody's Secret",
             []
-        ],
+        ]
+    ],
+    "Librarysanity": [
         [
             "Tips on Farming",
             []
@@ -6016,7 +6171,7 @@
             ]
         ],
         [
-            "The Fisherman, Act I",
+            "The Fisherman, Act 1",
             [
                 {
                     "item": "Progressive Lost Book",
@@ -6221,24 +6376,40 @@
                 {
                     "or_items": [
                         {
-                            "item": "Skull Key",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
                         },
                         {
-                            "item": "Spring",
-                            "count": 1
-                        }
-                    ]
-                },
-                {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Desert Obelisk",
+                                    "count": 1
+                                }
+                            ]
                         },
                         {
-                            "item": "Bus Repair",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
                         }
                     ]
                 }
@@ -6250,24 +6421,40 @@
                 {
                     "or_items": [
                         {
-                            "item": "Skull Key",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
                         },
                         {
-                            "item": "Spring",
-                            "count": 1
-                        }
-                    ]
-                },
-                {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Desert Obelisk",
+                                    "count": 1
+                                }
+                            ]
                         },
                         {
-                            "item": "Bus Repair",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
                         }
                     ]
                 }
@@ -6287,24 +6474,40 @@
                 {
                     "or_items": [
                         {
-                            "item": "Skull Key",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
                         },
                         {
-                            "item": "Spring",
-                            "count": 1
-                        }
-                    ]
-                },
-                {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Desert Obelisk",
+                                    "count": 1
+                                }
+                            ]
                         },
                         {
-                            "item": "Bus Repair",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
                         }
                     ]
                 }
@@ -6316,24 +6519,40 @@
                 {
                     "or_items": [
                         {
-                            "item": "Skull Key",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
                         },
                         {
-                            "item": "Spring",
-                            "count": 1
-                        }
-                    ]
-                },
-                {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Desert Obelisk",
+                                    "count": 1
+                                }
+                            ]
                         },
                         {
-                            "item": "Bus Repair",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
                         }
                     ]
                 }
@@ -6349,24 +6568,40 @@
                 {
                     "or_items": [
                         {
-                            "item": "Skull Key",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
                         },
                         {
-                            "item": "Spring",
-                            "count": 1
-                        }
-                    ]
-                },
-                {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Desert Obelisk",
+                                    "count": 1
+                                }
+                            ]
                         },
                         {
-                            "item": "Bus Repair",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
                         }
                     ]
                 }
@@ -6386,32 +6621,7 @@
         ],
         [
             "Sludge",
-            [
-                {
-                    "or_items": [
-                        {
-                            "item": "Skull Key",
-                            "count": 1
-                        },
-                        {
-                            "item": "Spring",
-                            "count": 1
-                        }
-                    ]
-                },
-                {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
-                        },
-                        {
-                            "item": "Bus Repair",
-                            "count": 1
-                        }
-                    ]
-                }
-            ]
+            []
         ]
     ],
     "Blueprintsanity": [
@@ -6521,24 +6731,40 @@
                 {
                     "or_items": [
                         {
-                            "item": "Skull Key",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
                         },
                         {
-                            "item": "Spring",
-                            "count": 1
-                        }
-                    ]
-                },
-                {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Desert Obelisk",
+                                    "count": 1
+                                }
+                            ]
                         },
                         {
-                            "item": "Bus Repair",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
                         }
                     ]
                 }
@@ -6698,32 +6924,46 @@
                     "item": "Progressive Axe",
                     "count": 3
                 },
-                [
-                    {
-                        "or_items": [
-                            {
-                                "item": "Skull Key",
-                                "count": 1
-                            },
-                            {
-                                "item": "Spring",
-                                "count": 1
-                            }
-                        ]
-                    },
-                    {
-                        "or_items": [
-                            {
-                                "item": "Desert Obelisk",
-                                "count": 1
-                            },
-                            {
-                                "item": "Bus Repair",
-                                "count": 1
-                            }
-                        ]
-                    }
-                ]
+                {
+                    "or_items": [
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Desert Obelisk",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
             ]
         ],
         [
@@ -6733,32 +6973,46 @@
                     "item": "Progressive Hoe",
                     "count": 3
                 },
-                [
-                    {
-                        "or_items": [
-                            {
-                                "item": "Skull Key",
-                                "count": 1
-                            },
-                            {
-                                "item": "Spring",
-                                "count": 1
-                            }
-                        ]
-                    },
-                    {
-                        "or_items": [
-                            {
-                                "item": "Desert Obelisk",
-                                "count": 1
-                            },
-                            {
-                                "item": "Bus Repair",
-                                "count": 1
-                            }
-                        ]
-                    }
-                ]
+                {
+                    "or_items": [
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Desert Obelisk",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
             ]
         ],
         [
@@ -6768,32 +7022,46 @@
                     "item": "Progressive Pickaxe",
                     "count": 3
                 },
-                [
-                    {
-                        "or_items": [
-                            {
-                                "item": "Skull Key",
-                                "count": 1
-                            },
-                            {
-                                "item": "Spring",
-                                "count": 1
-                            }
-                        ]
-                    },
-                    {
-                        "or_items": [
-                            {
-                                "item": "Desert Obelisk",
-                                "count": 1
-                            },
-                            {
-                                "item": "Bus Repair",
-                                "count": 1
-                            }
-                        ]
-                    }
-                ]
+                {
+                    "or_items": [
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Desert Obelisk",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
             ]
         ],
         [
@@ -6803,32 +7071,46 @@
                     "item": "Progressive Trash Can",
                     "count": 3
                 },
-                [
-                    {
-                        "or_items": [
-                            {
-                                "item": "Skull Key",
-                                "count": 1
-                            },
-                            {
-                                "item": "Spring",
-                                "count": 1
-                            }
-                        ]
-                    },
-                    {
-                        "or_items": [
-                            {
-                                "item": "Desert Obelisk",
-                                "count": 1
-                            },
-                            {
-                                "item": "Bus Repair",
-                                "count": 1
-                            }
-                        ]
-                    }
-                ]
+                {
+                    "or_items": [
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Desert Obelisk",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
             ]
         ],
         [
@@ -6838,32 +7120,46 @@
                     "item": "Progressive Watering Can",
                     "count": 3
                 },
-                [
-                    {
-                        "or_items": [
-                            {
-                                "item": "Skull Key",
-                                "count": 1
-                            },
-                            {
-                                "item": "Spring",
-                                "count": 1
-                            }
-                        ]
-                    },
-                    {
-                        "or_items": [
-                            {
-                                "item": "Desert Obelisk",
-                                "count": 1
-                            },
-                            {
-                                "item": "Bus Repair",
-                                "count": 1
-                            }
-                        ]
-                    }
-                ]
+                {
+                    "or_items": [
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Desert Obelisk",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
             ]
         ],
         [
@@ -6873,32 +7169,46 @@
                     "item": "Progressive Pan",
                     "count": 3
                 },
-                [
-                    {
-                        "or_items": [
-                            {
-                                "item": "Skull Key",
-                                "count": 1
-                            },
-                            {
-                                "item": "Spring",
-                                "count": 1
-                            }
-                        ]
-                    },
-                    {
-                        "or_items": [
-                            {
-                                "item": "Desert Obelisk",
-                                "count": 1
-                            },
-                            {
-                                "item": "Bus Repair",
-                                "count": 1
-                            }
-                        ]
-                    }
-                ]
+                {
+                    "or_items": [
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Desert Obelisk",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
             ]
         ]
     ],
@@ -6975,16 +7285,8 @@
                     "count": 1
                 },
                 {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
-                        },
-                        {
-                            "item": "Bus Repair",
-                            "count": 1
-                        }
-                    ]
+                    "item": "Bus Repair",
+                    "count": 1
                 }
             ]
         ],
@@ -6996,16 +7298,8 @@
                     "count": 1
                 },
                 {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
-                        },
-                        {
-                            "item": "Bus Repair",
-                            "count": 1
-                        }
-                    ]
+                    "item": "Bus Repair",
+                    "count": 1
                 }
             ]
         ],
@@ -7017,37 +7311,60 @@
                     "count": 1
                 },
                 {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
-                        },
-                        {
-                            "item": "Bus Repair",
-                            "count": 1
-                        }
-                    ]
+                    "item": "Bus Repair",
+                    "count": 1
                 }
             ]
         ],
         [
-            "Elf Quesadilla",
+            "Earthy Mousse",
             [
                 {
                     "item": "Spring",
                     "count": 1
                 },
                 {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
-                        },
-                        {
-                            "item": "Bus Repair",
-                            "count": 1
-                        }
-                    ]
+                    "item": "Bus Repair",
+                    "count": 1
+                }
+            ]
+        ],
+        [
+            "Sweet Bean Cake",
+            [
+                {
+                    "item": "Spring",
+                    "count": 1
+                },
+                {
+                    "item": "Bus Repair",
+                    "count": 1
+                }
+            ]
+        ],
+        [
+            "Skull Cave Casserole",
+            [
+                {
+                    "item": "Spring",
+                    "count": 1
+                },
+                {
+                    "item": "Bus Repair",
+                    "count": 1
+                }
+            ]
+        ],
+        [
+            "Spicy Tacos",
+            [
+                {
+                    "item": "Spring",
+                    "count": 1
+                },
+                {
+                    "item": "Bus Repair",
+                    "count": 1
                 }
             ]
         ],
@@ -7059,16 +7376,60 @@
                     "count": 1
                 },
                 {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
-                        },
-                        {
-                            "item": "Bus Repair",
-                            "count": 1
-                        }
-                    ]
+                    "item": "Bus Repair",
+                    "count": 1
+                }
+            ]
+        ],
+        [
+            "Crystal Cake",
+            [
+                {
+                    "item": "Spring",
+                    "count": 1
+                },
+                {
+                    "item": "Bus Repair",
+                    "count": 1
+                }
+            ]
+        ],
+        [
+            "Cave Kebab",
+            [
+                {
+                    "item": "Spring",
+                    "count": 1
+                },
+                {
+                    "item": "Bus Repair",
+                    "count": 1
+                }
+            ]
+        ],
+        [
+            "Hot Log",
+            [
+                {
+                    "item": "Spring",
+                    "count": 1
+                },
+                {
+                    "item": "Bus Repair",
+                    "count": 1
+                }
+            ]
+        ],
+        [
+            "Sour Salad",
+            [
+                {
+                    "item": "Spring",
+                    "count": 1
+                },
+                {
+                    "item": "Bus Repair",
+                    "count": 1
                 }
             ]
         ],
@@ -7080,16 +7441,21 @@
                     "count": 1
                 },
                 {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
-                        },
-                        {
-                            "item": "Bus Repair",
-                            "count": 1
-                        }
-                    ]
+                    "item": "Bus Repair",
+                    "count": 1
+                }
+            ]
+        ],
+        [
+            "Warrior Smoothie",
+            [
+                {
+                    "item": "Spring",
+                    "count": 1
+                },
+                {
+                    "item": "Bus Repair",
+                    "count": 1
                 }
             ]
         ],
@@ -7101,16 +7467,47 @@
                     "count": 1
                 },
                 {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
-                        },
-                        {
-                            "item": "Bus Repair",
-                            "count": 1
-                        }
-                    ]
+                    "item": "Bus Repair",
+                    "count": 1
+                }
+            ]
+        ],
+        [
+            "Calico Pizza",
+            [
+                {
+                    "item": "Spring",
+                    "count": 1
+                },
+                {
+                    "item": "Bus Repair",
+                    "count": 1
+                }
+            ]
+        ],
+        [
+            "Stuffed Mushrooms",
+            [
+                {
+                    "item": "Spring",
+                    "count": 1
+                },
+                {
+                    "item": "Bus Repair",
+                    "count": 1
+                }
+            ]
+        ],
+        [
+            "Elf Quesadilla",
+            [
+                {
+                    "item": "Spring",
+                    "count": 1
+                },
+                {
+                    "item": "Bus Repair",
+                    "count": 1
                 }
             ]
         ],
@@ -7122,16 +7519,73 @@
                     "count": 1
                 },
                 {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
-                        },
-                        {
-                            "item": "Bus Repair",
-                            "count": 1
-                        }
-                    ]
+                    "item": "Bus Repair",
+                    "count": 1
+                }
+            ]
+        ],
+        [
+            "Cioppino",
+            [
+                {
+                    "item": "Spring",
+                    "count": 1
+                },
+                {
+                    "item": "Bus Repair",
+                    "count": 1
+                }
+            ]
+        ],
+        [
+            "Rainforest Shrimp",
+            [
+                {
+                    "item": "Spring",
+                    "count": 1
+                },
+                {
+                    "item": "Bus Repair",
+                    "count": 1
+                }
+            ]
+        ],
+        [
+            "Shrimp Donut",
+            [
+                {
+                    "item": "Spring",
+                    "count": 1
+                },
+                {
+                    "item": "Bus Repair",
+                    "count": 1
+                }
+            ]
+        ],
+        [
+            "Smell Of The Sea",
+            [
+                {
+                    "item": "Spring",
+                    "count": 1
+                },
+                {
+                    "item": "Bus Repair",
+                    "count": 1
+                }
+            ]
+        ],
+        [
+            "Desert Gumbo",
+            [
+                {
+                    "item": "Spring",
+                    "count": 1
+                },
+                {
+                    "item": "Bus Repair",
+                    "count": 1
                 }
             ]
         ],
@@ -7143,16 +7597,8 @@
                     "count": 1
                 },
                 {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
-                        },
-                        {
-                            "item": "Bus Repair",
-                            "count": 1
-                        }
-                    ]
+                    "item": "Bus Repair",
+                    "count": 1
                 }
             ]
         ],
@@ -7164,16 +7610,8 @@
                     "count": 1
                 },
                 {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
-                        },
-                        {
-                            "item": "Bus Repair",
-                            "count": 1
-                        }
-                    ]
+                    "item": "Bus Repair",
+                    "count": 1
                 }
             ]
         ],
@@ -7185,16 +7623,8 @@
                     "count": 1
                 },
                 {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
-                        },
-                        {
-                            "item": "Bus Repair",
-                            "count": 1
-                        }
-                    ]
+                    "item": "Bus Repair",
+                    "count": 1
                 }
             ]
         ],
@@ -7206,16 +7636,8 @@
                     "count": 1
                 },
                 {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
-                        },
-                        {
-                            "item": "Bus Repair",
-                            "count": 1
-                        }
-                    ]
+                    "item": "Bus Repair",
+                    "count": 1
                 }
             ]
         ],
@@ -7507,6 +7929,93 @@
             ]
         ]
     ],
+    "Raccoonsanity": [
+        [
+            "The Giant Stump",
+            [
+                {
+                    "item": "Progressive Raccoon",
+                    "count": 1
+                },
+                {
+                    "item": "Progressive Axe",
+                    "count": 2
+                }
+            ]
+        ],
+        [
+            "Raccoon Request 1",
+            [
+                {
+                    "item": "Progressive Raccoon",
+                    "count": 2
+                }
+            ]
+        ],
+        [
+            "Raccoon Request 2",
+            [
+                {
+                    "item": "Progressive Raccoon",
+                    "count": 3
+                }
+            ]
+        ],
+        [
+            "Raccoon Request 3",
+            [
+                {
+                    "item": "Progressive Raccoon",
+                    "count": 4
+                }
+            ]
+        ],
+        [
+            "Raccoon Request 4",
+            [
+                {
+                    "item": "Progressive Raccoon",
+                    "count": 5
+                }
+            ]
+        ],
+        [
+            "Raccoon Request 5",
+            [
+                {
+                    "item": "Progressive Raccoon",
+                    "count": 6
+                }
+            ]
+        ],
+        [
+            "Raccoon Request 6",
+            [
+                {
+                    "item": "Progressive Raccoon",
+                    "count": 7
+                }
+            ]
+        ],
+        [
+            "Raccoon Request 7",
+            [
+                {
+                    "item": "Progressive Raccoon",
+                    "count": 8
+                }
+            ]
+        ],
+        [
+            "Raccoon Request 8",
+            [
+                {
+                    "item": "Progressive Raccoon",
+                    "count": 9
+                }
+            ]
+        ]
+    ],
     "Misc": [
         [
             "Beach Bridge Repair",
@@ -7597,78 +8106,6 @@
             []
         ],
         [
-            "Raccoon Request 1",
-            [
-                {
-                    "item": "Progressive Raccoon",
-                    "count": 2
-                }
-            ]
-        ],
-        [
-            "Raccoon Request 2",
-            [
-                {
-                    "item": "Progressive Raccoon",
-                    "count": 3
-                }
-            ]
-        ],
-        [
-            "Raccoon Request 3",
-            [
-                {
-                    "item": "Progressive Raccoon",
-                    "count": 4
-                }
-            ]
-        ],
-        [
-            "Raccoon Request 4",
-            [
-                {
-                    "item": "Progressive Raccoon",
-                    "count": 5
-                }
-            ]
-        ],
-        [
-            "Raccoon Request 5",
-            [
-                {
-                    "item": "Progressive Raccoon",
-                    "count": 6
-                }
-            ]
-        ],
-        [
-            "Raccoon Request 6",
-            [
-                {
-                    "item": "Progressive Raccoon",
-                    "count": 7
-                }
-            ]
-        ],
-        [
-            "Raccoon Request 7",
-            [
-                {
-                    "item": "Progressive Raccoon",
-                    "count": 8
-                }
-            ]
-        ],
-        [
-            "Raccoon Request 8",
-            [
-                {
-                    "item": "Progressive Raccoon",
-                    "count": 9
-                }
-            ]
-        ],
-        [
             "Demetrius's Breakthrough",
             []
         ],
@@ -7678,24 +8115,40 @@
                 {
                     "or_items": [
                         {
-                            "item": "Skull Key",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
                         },
                         {
-                            "item": "Spring",
-                            "count": 1
-                        }
-                    ]
-                },
-                {
-                    "or_items": [
-                        {
-                            "item": "Desert Obelisk",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Desert Obelisk",
+                                    "count": 1
+                                }
+                            ]
                         },
                         {
-                            "item": "Bus Repair",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
                         }
                     ]
                 }
@@ -7918,7 +8371,7 @@
             "Purchase Fiberglass Rod",
             [
                 {
-                    "item": "Progressive Fishing Rod",
+                    "item": "Fishing Level",
                     "count": 2
                 }
             ]
@@ -7927,19 +8380,14 @@
             "Purchase Iridium Rod",
             [
                 {
-                    "item": "Progressive Fishing Rod",
-                    "count": 4
+                    "item": "Fishing Level",
+                    "count": 6
                 }
             ]
         ],
         [
             "Purchase Training Rod",
-            [
-                {
-                    "item": "Progressive Fishing Rod",
-                    "count": 1
-                }
-            ]
+            []
         ],
         [
             "Rarecrow #3 (Alien)",
@@ -8059,18 +8507,6 @@
                     "count": 2
                 },
                 {
-                    "or_items": [
-                        {
-                            "item": "Skull Key",
-                            "count": 1
-                        },
-                        {
-                            "item": "Spring",
-                            "count": 1
-                        }
-                    ]
-                },
-                {
                     "item": "Fish Pond",
                     "count": 1
                 },
@@ -8095,14 +8531,42 @@
                     "count": 1
                 },
                 {
-                    "or_items": [ 
+                    "or_items": [
                         {
-                            "item": "Bus Repair",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
                         },
                         {
-                            "item": "Desert Obelisk",
-                            "count": 1
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Desert Obelisk",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        {
+                            "and_items": [
+                                {
+                                    "item": "Skull Key",
+                                    "count": 1
+                                },
+                                {
+                                    "item": "Bus Repair",
+                                    "count": 1
+                                }
+                            ]
                         }
                     ]
                 },
@@ -8127,6 +8591,26 @@
                     ]
                 }
             ]
+        ],
+        [
+            "Fishing Mastery",
+            []
+        ],
+        [
+            "Foraging Mastery",
+            []
+        ],
+        [
+            "Mining Mastery",
+            []
+        ],
+        [
+            "Combat Mastery",
+            []
+        ],
+        [
+            "Farming Mastery",
+            []
         ]
     ]
 }

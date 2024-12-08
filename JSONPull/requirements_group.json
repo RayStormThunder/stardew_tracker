@@ -1,0 +1,66 @@
+{
+    "Desert Access": [
+        {
+            "or_items": [
+                {
+                    "item": "Desert Obelisk",
+                    "count": 1
+                },
+                {
+                    "item": "Bus Repair",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Skull Cavern Access": [
+        {
+            "or_items": [
+                {
+                    "and_items": [
+                        {
+                            "item": "Desert Access",
+                            "group": true
+                        },
+                        {
+                            "item": "Skull Key",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "item": "Desert Festival Access",
+                    "group": true
+                }
+            ]
+        }
+    ],
+    "Desert Festival Access": [
+        {
+            "and_items": [
+                {
+                    "item": "Spring",
+                    "count": 1
+                },
+                {
+                    "item": "Bus Repair",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Can Plant in Alternate Season": [
+        {
+            "or_items": [ 
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                },
+                {
+                    "item": "Garden Pot",
+                    "count": 1
+                }
+            ]
+        }
+    ]
+}
