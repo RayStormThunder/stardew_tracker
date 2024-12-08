@@ -1,18 +1,68 @@
 import sys
 import json
 import re
+import os
 import socket
+import threading
 import time
 from PyQt5 import QtCore
+from PyQt5.QtGui import QTextCursor, QTextCharFormat, QColor
+from PyQt5.QtWidgets import QTabBar
 from PyQt5.QtWidgets import (
     QApplication, QSizeGrip, QSizePolicy, QWidget, QTabWidget, QVBoxLayout, QHBoxLayout, QCheckBox,
     QLineEdit, QLabel, QScrollArea, QGroupBox, QPushButton, QListWidget,
     QSpinBox, QComboBox, QGridLayout, QTextEdit, QListWidgetItem,QToolTip, 
 )
-from PyQt5.QtCore import QFileSystemWatcher, Qt, QObject, QThread, pyqtSignal, QEvent, QPoint
+from PyQt5.QtCore import QFileSystemWatcher, Qt, QObject, QTimer, QThread, pyqtSignal, QEvent, QPoint
 import PyQt5.QtCore
 PyQt5.QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
 PyQt5.QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps)
+
+# Define a mapping from tab display names to data keys
+tab_name_mapping = {
+    "Bundles": "Bundles",
+    "Crops": "Cropsanity",
+    "Fish": "Fishsanity",
+    "Monsters": "Monstersanity",
+    "Quests": "Questsanity",
+    "Travelling Cart": "Cartsanity",
+    "Books": "Booksanity",
+    "Library": "Librarysanity",
+    "Robin's Shop": "Blueprintsanity",
+    "Clint's Shop": "Upgradesanity",
+    "Gus' Shop": "Chefsanity",
+    "Raccoons": "Raccoonsanity", 
+    "Festivals": "Festivalsanity", 
+    "Misc": "Misc"
+}
+
+tab_display_names = {
+    "Bundles": "Bundles", 
+    "Cropsanity": "Crops", 
+    "Fishsanity": "Fish",
+    "Questsanity": "Quests", 
+    "Cartsanity": "Travelling Cart",
+    "Booksanity": "Books",
+    "Librarysanity": "Library",
+    "Monstersanity": "Monsters",
+    "Blueprintsanity": "Robin's Shop",
+    "Upgradesanity": "Clint's Shop", 
+    "Chefsanity": "Gus' Shop", 
+    "Raccoonsanity": "Raccoons", 
+    "Festivalsanity": "Festivals", 
+    "Misc": "Misc"
+}
+
+data_file_path = "../JSONStore/data.json"
+config_file_path = "../JSONStore/config.json"
+notes_file_path = "../JSONStore/notes.json"
+checked_location_file_path = "../JSONStore/checked_location.json"
+current_items_file_path = "../JSONStore/current_items.json"
+requirements_file_path = "../JSONPull/requirements.json"
+requirements_group_file_path = "../JSONPull/requirements_group.json"
+hint_my_location_file_path = "../JSONStore/hint_my_location.json"
+hint_my_item_file_path = "../JSONStore/hint_my_item.json"
+extra_info_file_path = "../JSONStore/extra_info.json"
 
 
 dark_theme = """
@@ -59,14 +109,25 @@ dark_theme = """
     QTabBar::tab {
         background-color: #3c3f41;
         color: #ffffff;
-        padding: 8px;
+        font-size: 8pt;
+        padding: 2px;
         border: 1px solid #555555;
         border-bottom: none;
+        text-align: center; /* Center the text */
     }
 
     QTabBar::tab:selected {
         background-color: #4c4f51;
         font-weight: bold;
+    }
+
+    QTabBar QLabel {
+        background-color: transparent; /* Make QLabel transparent to inherit tab color */
+        color: #ffffff; /* Ensure text color matches tab color */
+        font-size: 1pt;
+        padding: 0px; /* Adjust padding for alignment */
+        text-align: center; /* Center the text */
+        white-space: pre-wrap; /* Allow multi-line text */
     }
 
     QLabel {
@@ -157,6 +218,21 @@ def save_data(file_path, data):
     with open(file_path, 'w') as f:
         json.dump(data, f, indent=4)
 
+def load_config(file_path):
+    """Load configuration data from a JSON file."""
+    if os.path.exists(file_path):
+        try:
+            with open(file_path, "r") as file:
+                return json.load(file)
+        except (FileNotFoundError, json.JSONDecodeError):
+            pass
+    return {}  # Return an empty dictionary if the file doesn't exist or is invalid
+
+def save_config(file_path, config_data):
+    """Save configuration data to a JSON file."""
+    with open(file_path, "w") as file:
+        json.dump(config_data, file, indent=4)
+
 def get_requirements_text(item_name, item_widgets):
     # Fetch requirements and current items
     requirements_data = load_data(requirements_file_path)
@@ -184,15 +260,14 @@ def get_requirements_text(item_name, item_widgets):
         # Handle unexpected formats gracefully
         return f"No Required Items"
 
-
-    
 def get_standard_requirements_text(conditions, checked_items):
     """
-    Generate tooltip text for standard requirements with detailed item needs.
+    Generate tooltip text for standard requirements with detailed item needs,
+    handling both 'or_items' and nested 'and_items' logic.
     """
     tooltip_text = "Required Items:\n"
     unmet_requirements = []
-    relevant_items = []
+    relevant_items = set()  # Use a set to avoid duplicates
 
     for condition in conditions:
         if "item" in condition:
@@ -202,9 +277,9 @@ def get_standard_requirements_text(conditions, checked_items):
             item_count = checked_items.count(item_name)
 
             if item_count >= required_count:
-                relevant_items.append(f"{required_count}x {item_name}")
+                relevant_items.add(f"{required_count}x {item_name}")
             else:
-                unmet_requirements.append(f"{required_count - item_count}x {item_name}")
+                unmet_requirements.append(f"{required_count}x {item_name}")
 
         elif "or_items" in condition:
             # Handle "or_items" block
@@ -212,21 +287,55 @@ def get_standard_requirements_text(conditions, checked_items):
             condition_met = False
 
             for or_item in condition["or_items"]:
-                or_item_name = or_item["item"]
-                or_item_count = or_item.get("count", 1)
-                or_item_actual_count = checked_items.count(or_item_name)
+                if "item" in or_item:
+                    # Handle single item within or_items
+                    item_name = or_item["item"]
+                    required_count = or_item.get("count", 1)
+                    item_count = checked_items.count(item_name)
 
-                # Add fully met or_items to relevant items
-                if or_item_actual_count >= or_item_count:
-                    condition_met = True
-                    relevant_items.append(f"{or_item_count}x {or_item_name}")
+                    if item_count >= required_count:
+                        condition_met = True
+                        relevant_items.add(f"{required_count}x {item_name}")
 
-                # Add all options to the display list
-                or_items_text_list.append(f"{or_item_count}x {or_item_name}")
+                    or_items_text_list.append(f"{required_count}x {item_name}")
+
+                elif "and_items" in or_item:
+                    # Handle "and_items" within "or_items"
+                    and_items_text_list = []
+                    and_condition_met = True
+
+                    for and_item in or_item["and_items"]:
+                        item_name = and_item["item"]
+                        required_count = and_item.get("count", 1)
+                        item_count = checked_items.count(item_name)
+
+                        # Add to relevant items even if not all are met
+                        if item_count > 0:
+                            relevant_items.add(f"{item_count}x {item_name}")
+                        if item_count < required_count:
+                            and_condition_met = False
+                            and_items_text_list.append(f"{required_count}x {item_name}")
+                        else:
+                            # Fully satisfied items are not included in unmet requirements
+                            relevant_items.add(f"{required_count}x {item_name}")
+
+                    if and_items_text_list:
+                        or_items_text_list.append(" AND ".join(and_items_text_list))
+
+                    if and_condition_met:
+                        condition_met = True
 
             # If no condition is met, show unmet requirements
             if not condition_met:
                 unmet_requirements.append(f"One of: ({', '.join(or_items_text_list)})")
+
+    # Remove items from unmet_requirements if they are fully satisfied
+    relevant_item_names = {item.split("x ", 1)[1] for item in relevant_items}
+    unmet_requirements = [
+        req for req in unmet_requirements if all(
+            part.strip() not in relevant_item_names for part in req.split(" AND ")
+        )
+    ]
 
     # Format the unmet requirements section
     if unmet_requirements:
@@ -235,15 +344,16 @@ def get_standard_requirements_text(conditions, checked_items):
         tooltip_text += "All requirements met."
 
     # Display relevant items the user currently has
-    tooltip_text += f"\n\nCurrent Relevant Items:\n{', '.join(relevant_items) if relevant_items else 'None'}"
+    tooltip_text += f"\n\nCurrent Relevant Items:\n{', '.join(sorted(relevant_items)) if relevant_items else 'None'}"
 
     return tooltip_text
+
 
 def get_complete_requirements_text(conditions, checked_items, item_widgets):
     """
     Generate tooltip text for complete_X_out_of_Y requirements.
     """
-    # Print each widget's `text_input` content for debugging
+    # Print each widget's text_input content for debugging
     for widget in item_widgets:
         text_content = widget['text_input'].text()
     tooltip_text = ""
@@ -541,47 +651,6 @@ def get_goal_requirements(conditions):
 
     return goals
 
-# Define a mapping from tab display names to data keys
-tab_name_mapping = {
-    "Bundles": "Bundles",
-    "Crops": "Cropsanity",
-    "Fish": "Fishsanity",
-    "Special Orders": "Ordersanity",
-    "Monster Kills": "Monstersanity",
-    "Quests": "Questsanity",
-    "Travelling Cart": "Cartsanity",
-    "Books": "Booksanity",
-    "Robin's Blueprints": "Blueprintsanity",
-    "Clint's Upgrades": "Upgradesanity",
-    "Gus' Recipes": "Chefsanity",
-    "Festivals": "Festivalsanity", 
-    "Misc": "Misc"
-}
-
-tab_display_names = {
-    "Bundles": "Bundles", 
-    "Cropsanity": "Crops", 
-    "Fishsanity": "Fish",
-    "Ordersanity": "Special Orders", 
-    "Questsanity": "Quests", 
-    "Cartsanity": "Travelling Cart",
-    "Booksanity": "Books",
-    "Monstersanity": "Monster Kills",
-    "Blueprintsanity": "Robin's Blueprints",
-    "Upgradesanity": "Clint's Upgrades", 
-    "Chefsanity": "Gus' Recipes", 
-    "Festivalsanity": "Festivals", 
-    "Misc": "Misc"
-}
-
-data_file_path = "../JSONStore/data.json"
-config_file_path = "../JSONStore/config.json"
-hint_file_path = "../JSONStore/hints.json"
-checked_location_file_path = "../JSONStore/checked_location.json"
-current_items_file_path = "../JSONStore/current_items.json"
-requirements_file_path = "../JSONPull/requirements.json"
-note_file_path = "../JSONStore/note.json"  # Path to note.json
-
 # Load the data from the JSON file
 data_file = data_file_path
 all_major_data = load_data(data_file_path)
@@ -591,7 +660,7 @@ config_file = config_file_path
 with open(config_file, 'r') as f:
     config_data = json.load(f)
 
-from server_connection import connect_to_server, message_emitter,send_message_to_server  # Import from server_connection.py
+from server_connection import connect_to_server, message_emitter, send_message_to_server  # Import from server_connection.py
 import asyncio
 from PyQt5 import QtGui
 
@@ -612,10 +681,11 @@ class ServerWindow(QWidget):
         super().__init__()
         self.main_window = main_window
         self.setWindowTitle("Server Connection")
-        self.setGeometry(400, 200, 850, 980)  # Adjusted width for two-column layout
-
-        # Load hints data from JSON
-        self.hints_data = self.load_hints_data()
+        self.pending_server_file_actions = set()  # Store the file to act upon after debounce
+        self.debounce_timer = QTimer()
+        self.debounce_timer.setSingleShot(True)  # Ensure it only triggers once after timeout
+        self.debounce_timer.timeout.connect(self.run_file_change_actions)
+        self.setGeometry(400, 200, 600, 750)  # Adjusted width for two-column layout
 
         # Load config data from config.json
         self.config_data = self.load_config_data()
@@ -669,17 +739,17 @@ class ServerWindow(QWidget):
         self.items_tab = QTextEdit()
         self.notes_tab = QTextEdit()
 
-        # Populate tabs from JSON
-        self.load_hints()
-
         self.items_tab.setReadOnly(True)
         self.locations_tab.setReadOnly(True)
 
         # Add tabs to the widget
-        self.tab_widget.addTab(self.locations_tab, "Locations for others to do")
-        self.tab_widget.addTab(self.items_tab, "Locations for me to do")
+        self.tab_widget.addTab(self.items_tab, "My Locations")
+        self.tab_widget.addTab(self.locations_tab, "Other's Locations")
         self.tab_widget.addTab(self.notes_tab, "Notes")
         right_layout.addWidget(self.tab_widget)
+
+        notes_tab_text = self.load_notes()
+        self.notes_tab.setPlainText(notes_tab_text)
 
         # Button to send info
         self.send_info_button = QPushButton("Send info")
@@ -692,94 +762,123 @@ class ServerWindow(QWidget):
         main_layout.addLayout(right_layout)
         self.setLayout(main_layout)
 
+        self.populate_tabs_from_json()
+        
+        # QFileSystemWatcher to monitor specific files
+        self.file_watcher = QFileSystemWatcher(self)
+        self.file_watcher.addPath(hint_my_location_file_path)
+        self.file_watcher.addPath(hint_my_item_file_path)
+
+        # Connect the `fileChanged` signals for specific files
+        self.file_watcher.fileChanged.connect(self.handle_file_change)
+
         # Connect message signal from server_connection.py to the output display
         message_emitter.message_signal.connect(self.print_to_server_console)
 
         # Enable Send button only if there’s text in message_input
         self.message_input.textChanged.connect(self.toggle_send_button)
 
-    def clear_hints(self):
-        """Clear the items in hints.json."""
-        self.hints_data = {
-            "Locations for checks": [],
-            "Hinted Items": [],
-            "Notes": [{"notes": ""}]
-        }
-        self.save_hints_data()  # Save the cleared hints data to hints.json
-        self.load_hints()  # Reload the hints in the UI to reflect the cleared state
+    def handle_file_change(self, changed_file):
+        """
+        Handle changes to watched files with a global QTimer debounce mechanism.
+        """
+        # Add the changed file to the pending actions set
+        self.pending_server_file_actions.add(changed_file)
 
-    def load_hints(self):
-        """Load hints from the JSON file and populate the tabs."""
+        if self.debounce_timer.isActive():
+            remaining_time = self.debounce_timer.remainingTime()
+            print(f"Timer reset. Remaining time was: {remaining_time} ms")
+        else:
+            print("Starting new debounce timer.")
+
+        # Restart the timer
+        self.debounce_timer.start(1000)
+
+    def run_file_change_actions(self):
+        """
+        Execute actions for all pending files after debounce delay.
+        """
+        print(f"Running actions for files: {self.pending_server_file_actions}")
+        for changed_file in self.pending_server_file_actions:
+            if changed_file == hint_my_location_file_path:
+                self.populate_tabs_from_json()
+                print("location change")
+
+            elif changed_file == hint_my_item_file_path:
+                self.populate_tabs_from_json()
+                print("item change")
+
+        # Clear pending actions after execution
+        self.pending_server_file_actions.clear()
+
+    def populate_tabs_from_json(self):
+        """Populate 'My Locations' and 'Other's Locations' tabs with data from JSON files."""
         try:
-            with open(hint_file_path, "r") as file:
-                hints_data = json.load(file)
+            # Load data from the JSON files
+            with open(hint_my_location_file_path, 'r') as f:
+                my_location_data = json.load(f)
+            with open(hint_my_item_file_path, 'r') as f:
+                my_item_data = json.load(f)
 
-            # Populate Locations for checks tab
-            locations_text = "\n".join(
-                f"{hint['hint']} ({'found' if hint['obtained_status'] == 'True' else 'not found'})"+"\n"
-                for hint in hints_data["Locations for checks"]
-            )
-            self.locations_tab.setPlainText(locations_text)
+            # Allowed tabs
+            allowed_tabs = {"Unknown", "Elevatorsanity", "Skillsanity", "Friendsanity"}
 
-            # Populate Hinted Items tab
-            items_text = "\n".join(
-                f"{hint['hint']} ({'found' if hint['obtained_status'] == 'True' else 'not found'})"+"\n"
-                for hint in hints_data["Hinted Items"]
-            )
-            self.items_tab.setPlainText(items_text)
+            # Helper function to process the data
+            def process_data(data):
+                entries = []
+                for entry in data:
+                    state = entry.get("state", "")
+                    entry_class = entry.get("class", "")
+                    tab = entry.get("tab", "Unknown")
+                    if state.lower() == "found" or entry_class.lower() == "filler" or tab not in allowed_tabs:
+                        continue  # Skip if state is "found", class is "filler", or tab is not allowed
+                    checkbox_text = entry.get("checkbox_text", "Unknown Location")
+                    hint_input = entry.get("hint_input", "Unknown Item")
+                    entries.append({
+                        "text": f"{hint_input} ({entry_class})\n is at \n({checkbox_text})\n",
+                        "class": entry_class.lower()
+                    })
 
-            # Populate Notes tab
-            notes_text = hints_data["Notes"][0]["notes"] if hints_data["Notes"] else ""
-            self.notes_tab.setPlainText(notes_text)
+                # Sort entries: progressive first
+                return sorted(entries, key=lambda x: 0 if x["class"] == "progressive" else 1)
+        # Apply formatted text to the tab
+            def apply_text_format(tab, entries):
+                tab.clear()
+                cursor = tab.textCursor()
+                for entry in entries:
+                    fmt = QTextCharFormat()
+                    fmt.setForeground(QColor("#000000"))  # Set text color to black
 
-        except FileNotFoundError:
-            print("Hints file not found.")
-        except json.JSONDecodeError:
-            print("Error decoding hints JSON.")
+                    if entry["class"] == "useful":
+                        fmt.setBackground(QColor("#e8f29b"))  # Yellow background for "useful"
+                    elif entry["class"] == "progressive":
+                        fmt.setBackground(QColor("#9bf2bf"))  # Green background for "progressive"
+                    else:
+                        fmt.setBackground(QColor("#cca1ff"))  # Green background for "progressive"
 
-    def load_hints_data(self):
-        """Load hints from the JSON file."""
-        try:
-            with open(hint_file_path, "r") as file:
-                return json.load(file)
-        except FileNotFoundError:
-            print("Hints file not found.")
-            return {}
-        except json.JSONDecodeError:
-            print("Error decoding hints JSON.")
-            return {}
+                    cursor.insertText(entry["text"], fmt)
+                    cursor.insertBlock()
 
-    def save_hints_data(self):
-        """Save the updated hints data back to the JSON file."""
-        with open(hint_file_path, "w") as file:
-            json.dump(self.hints_data, file, indent=4)
+            # Process the data for each tab
+            my_locations_entries = process_data(my_location_data)
+            others_locations_entries = process_data(my_item_data)
 
+            # Populate the tabs with formatted text
+            apply_text_format(self.locations_tab, others_locations_entries)
+            apply_text_format(self.items_tab, my_locations_entries)
 
-    def save_hints(self):
-        """Save the current state of hints to the JSON file."""
-        hints_data = {
-            "Locations for checks": [
-                {"hint": line.split(" (")[0], "obtained_status": "True" if "(found)" in line else "False"}
-                for line in self.locations_tab.toPlainText().splitlines() if line
-            ],
-            "Hinted Items": [
-                {"hint": line.split(" (")[0], "obtained_status": "True" if "(found)" in line else "False"}
-                for line in self.items_tab.toPlainText().splitlines() if line
-            ],
-            "Notes": [{"notes": self.notes_tab.toPlainText()}]
-        }
-
-        with open(hint_file_path, "w") as file:
-            json.dump(hints_data, file, indent=4)
-
+        except FileNotFoundError as e:
+            print(f"File not found: {e}")
+        except json.JSONDecodeError as e:
+            print(f"Error decoding JSON: {e}")
 
     async def send_info(self):
         """Send the content of the selected tab to the server using the 'say' command."""
         current_tab_index = self.tab_widget.currentIndex()
         if current_tab_index == 0:  # Locations for checks tab
-            text_to_send = self.locations_tab.toPlainText()
-        elif current_tab_index == 1:  # Hinted Items tab
             text_to_send = self.items_tab.toPlainText()
+        elif current_tab_index == 1:  # Hinted Items tab
+            text_to_send = self.locations_tab.toPlainText()
         elif current_tab_index == 2:  # Notes tab
             text_to_send = self.notes_tab.toPlainText()
         else:
@@ -821,59 +920,14 @@ class ServerWindow(QWidget):
         padding_lines = "\n" * 90
         self.output_display.append(padding_lines)
 
-    def print_to_server_console(self, text, state):
+    def print_to_server_console(self, text):
         """Display parsed text on the server console, auto-track, and update hints."""
 
-        # Append to the main output display if not a hint
-        if "[Hint]" not in text:
-            self.output_display.append("\n" + text)
-            self.output_display.moveCursor(QtGui.QTextCursor.End)
-            self.output_display.ensureCursorVisible()
+        self.output_display.append("\n" + text)
+        self.output_display.moveCursor(QtGui.QTextCursor.End)
+        self.output_display.ensureCursorVisible()
 
-        # Determine found status from the text
-        found_status = "True" if "(found)" in text else "False"
-        clean_text = text.replace(" (found)", "").replace(" (not found)", "")
-
-        if "[Hint]" in text:
-            # If found_status is False, add the hint if not already in hints_data
-            if found_status == "False":
-                if state in (1, 0):
-                    if not self.check_and_update_hint(clean_text, "Hinted Items"):
-                        # Append to the items tab and add to hints_data
-                        self.items_tab.append("\n" + clean_text + " (not found)")
-                        self.hints_data["Hinted Items"].append({
-                            "hint": clean_text,
-                            "obtained_status": found_status
-                        })
-                        self.save_hints_data()
-
-                if state in (2, 0):
-                    if not self.check_and_update_hint(clean_text, "Locations for checks"):
-                        # Append to the locations tab and add to hints_data
-                        self.locations_tab.append("\n" + clean_text + " (not found)")
-                        self.hints_data["Locations for checks"].append({
-                            "hint": clean_text,
-                            "obtained_status": found_status
-                        })
-                        self.save_hints_data()
-
-            # If found_status is True, remove the hint if it exists in hints_data and reload tabs
-            if found_status == "True":
-                if state in (1, 0):
-                    if self.check_and_update_hint(clean_text, "Hinted Items", remove_if_found=True):
-                        # Clear and reload the items tab after removing the hint
-                        self.items_tab.clear()
-                        self.load_hints()
-
-                if state in (2, 0):
-                    if self.check_and_update_hint(clean_text, "Locations for checks", remove_if_found=True):
-                        # Clear and reload the locations tab after removing the hint
-                        self.locations_tab.clear()
-                        self.load_hints()
-
-        # Call auto_track unless state is 3
-        if state != 3:
-            self.auto_track()
+        self.auto_track()
 
     def auto_track(self):
         """Automatically track checked locations and update data.json."""
@@ -899,22 +953,6 @@ class ServerWindow(QWidget):
         
         # Save updated data.json
         save_data(data_file, new_all_major_data)
-        
-        # Print the number of updated fields
-        print(f"Auto-track completed: {data_updated_count} fields changed to 1.")
-
-    def check_and_update_hint(self, hint_text, hint_category, remove_if_found=False):
-        """
-        Check if a hint exists in hints_data and update its obtained_status if needed.
-        If remove_if_found is True and the hint is found, it will be removed from hints_data.
-        """
-        for hint in self.hints_data.get(hint_category, []):
-            if hint["hint"] == hint_text:
-                if remove_if_found:
-                    self.hints_data[hint_category].remove(hint)
-                    self.save_hints_data()
-                return True
-        return False
 
     def start_server_connection(self):
         server_address = self.server_input.text()
@@ -942,6 +980,14 @@ class ServerWindow(QWidget):
         except (FileNotFoundError, json.JSONDecodeError):
             return {}
 
+    def load_notes(self):
+        """Load hints from hint_my_location_file.json or return an empty list if the file doesn't exist."""
+        try:
+            with open(notes_file_path, "r") as file:
+                return json.load(file)
+        except (FileNotFoundError, json.JSONDecodeError):
+            return []
+
 class HoverTooltip(QLabel):
     """Tooltip overlay widget for displaying information over other widgets."""
     def __init__(self, text, parent=None):
@@ -961,20 +1007,28 @@ class HoverTooltip(QLabel):
 class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
-        self.all_item_widgets = {}
+        self.all_item_widgets = {}        # Global timer for debouncing file change events
+        self.debounce_timer = QTimer()
+        self.debounce_timer.setSingleShot(True)  # Ensure it only triggers once after timeout
+        self.pending_file_actions = set()  # Store the file to act upon after debounce
+
+        # Connect the timer's timeout signal to the action handler
+        self.debounce_timer.timeout.connect(self.run_file_change_actions)
         self.season = None
         self.tooltip = HoverTooltip("")  # Initialize tooltip overlay
         
         # Initialize attributes for secondary windows
         self.server_window = None  # Track the server window instance
-
-        # Initialize QFileSystemWatcher to monitor file changes
+        
+        # QFileSystemWatcher to monitor specific files
         self.file_watcher = QFileSystemWatcher(self)
         self.file_watcher.addPath(checked_location_file_path)
         self.file_watcher.addPath(current_items_file_path)
-        
-        # Connect file change signal to the update function
-        self.file_watcher.fileChanged.connect(self.update_all_background_colors)
+        self.file_watcher.addPath(data_file_path)
+        self.file_watcher.addPath(hint_my_location_file_path)
+
+        # Connect the `fileChanged` signals for specific files
+        self.file_watcher.fileChanged.connect(self.handle_file_change)
 
         # Load initial state of data.json
         self.previous_data_state = load_data(data_file_path)
@@ -983,9 +1037,6 @@ class MainWindow(QWidget):
         self.file_watcher.addPath(data_file_path)
         self.file_watcher.fileChanged.connect(self.detect_array_changes)
 
-
-
-        
         # Set up the main layout
         self.setWindowTitle("Stardew Check Tracker")
         self.setGeometry(300, 100, 1200, 500)
@@ -1021,15 +1072,25 @@ class MainWindow(QWidget):
         # Season filter buttons (single selection)
         self.selected_season = None
         self.season_buttons = []
+
+        self.load_season_from_config()
         season_layout = QHBoxLayout()
-        season_state = ""
         for season in ["Spring", "Summer", "Fall", "Winter"]:
             button = QPushButton(season)
             button.setCheckable(True)
-            button.setStyleSheet("background-color: #4c5052;")  # Default color when not selected
+            
+            # Check if the current season matches the selected season
+            if self.selected_season == season:
+                button.setChecked(True)
+                button.setStyleSheet(season_colors[season])  # Use the selected season's color
+            else:
+                button.setStyleSheet("background-color: #4c5052;")  # Default color for unselected
+            
+            # Connect button to filter_by_season
             button.clicked.connect(lambda _, s=season, b=button: self.filter_by_season(s, b))
             self.season_buttons.append(button)
             season_layout.addWidget(button)
+
         main_layout.addLayout(season_layout)
 
         # Create tab widgets for Main, Skills, Mines, and Friends sections
@@ -1039,9 +1100,6 @@ class MainWindow(QWidget):
         self.friends_tabs = QTabWidget()
 
         self.main_tabs.currentChanged.connect(self.update_all_background_colors)
-
-        # Sort widgets after updating their background color
-        self.main_tabs.currentChanged.connect(self.sort_widgets_by_background_color)
         
         # Counter labels for each tab set
         self.counter_labels = {}
@@ -1063,33 +1121,152 @@ class MainWindow(QWidget):
         self.mines_tabs.addTab(self.create_mines_tab(mines_tab_name), "Mines")
         self.friends_tabs.addTab(self.create_friends_tab(friends_tab_name), "Friends")
 
+        # Add the Recent Items tab
+        self.recent_items_tab = QTabWidget()
+        self.recent_items_display = QTextEdit()
+        self.recent_items_display.setReadOnly(True)  # Make the display read-only
+        self.recent_items_display.setStyleSheet("font-family: Consolas; font-size: 10pt;")
+        self.recent_items_tab.addTab(self.recent_items_display, "Important Items Status")
+        
+
+        
+        # Initialize recent items display
+        self.update_recent_items()
+
         # Set maximum height for Skills, Mines, and Friends tabs
-        max_height = 300  # Set this to the desired max height in pixels
+        max_height = 250  # Set this to the desired max height in pixels
         self.skills_tabs.setMaximumHeight(max_height)
         self.mines_tabs.setMaximumHeight(max_height)
         self.friends_tabs.setMaximumHeight(max_height)
+        self.recent_items_tab.setMaximumHeight(max_height)
+        self.skills_tabs.setMinimumHeight(max_height)
+        self.mines_tabs.setMinimumHeight(max_height)
+        self.friends_tabs.setMinimumHeight(max_height)
+        self.recent_items_tab.setMinimumHeight(max_height)
 
         # Create a horizontal layout for Skills, Mines, and Friends
         side_tab_layout = QHBoxLayout()
         side_tab_layout.addWidget(self.skills_tabs)
         side_tab_layout.addWidget(self.mines_tabs)
         side_tab_layout.addWidget(self.friends_tabs)
+        side_tab_layout.addWidget(self.recent_items_tab)
 
         # Add main and side tabs to the main layout
         main_layout.addWidget(self.main_tabs)
         main_layout.addLayout(side_tab_layout)
         self.setLayout(main_layout)
+        self.main_tabs.currentChanged.connect(lambda: self.update_note_tab("t"))
+
 
         # Initialize the global counter label
         self.update_global_counter()
+        self.update_tab_names()
+        self.update_season_button_texts()  # Update button texts based on initial data
+
+    def handle_file_change(self, changed_file):
+        """
+        Handle changes to watched files with a global QTimer debounce mechanism.
+        """
+        # Add the changed file to the pending actions set
+        self.pending_file_actions.add(changed_file)
+
+        if self.debounce_timer.isActive():
+            remaining_time = self.debounce_timer.remainingTime()
+            print(f"Timer reset. Remaining time was: {remaining_time} ms")
+        else:
+            print("Starting new debounce timer.")
+
+        # Restart the timer
+        self.debounce_timer.start(1000)
+
+    def run_file_change_actions(self):
+        """
+        Execute actions for all pending files after debounce delay.
+        """
+        print(f"Running actions for files: {self.pending_file_actions}")
+        for changed_file in self.pending_file_actions:
+            if changed_file == current_items_file_path:
+                self.update_recent_items()
+                self.update_tab_names()
+                self.update_elevator_floor_label()
+                self.update_season_button_texts()
+                for skill in ["Combat", "Farming", "Fishing", "Foraging", "Mining"]:
+                    self.refresh_skill_level(skill)
+
+            elif changed_file == data_file_path:
+                self.update_tab_names()
+
+            elif changed_file == hint_my_location_file_path:
+                print("Updating Notes in Hint Text field")
+                self.update_note_tab("t")
+                self.update_tab_names()
+
+        # Clear pending actions after execution
+        self.pending_file_actions.clear()
+
+    def update_recent_items(self):
+        """Update the Recent Items tab with the count of specific items from current_items.json."""
+        try:
+            # Load current items from the JSON file
+            current_items_data = load_data(current_items_file_path)
+            current_items_list = current_items_data.get("current_items", [])
+
+            # Define the specific items to track
+            specific_items = [
+                "Rusty Key",
+                "Skull Key",
+                "Desert Obelisk",
+                "Bus Repair",
+                "Beach Bridge",
+                "Bridge Repair",
+                "Dwarvish Translation Guide",
+                "Dark Talisman",
+                "Railroad Boulder Removed",
+                "Greenhouse",
+                "Progressive House",
+                "Progressive Coop",
+                "Progressive Barn",
+            ]
+
+            # Get the last tracked item in current_items
+            last_tracked_item = None
+            if current_items_list:  # Only proceed if the list is not empty
+                for item in reversed(current_items_list):
+                    if item in specific_items:
+                        last_tracked_item = item
+                        break
+
+            # Count occurrences of each specific item
+            item_counts = {
+                item: current_items_list.count(item) for item in specific_items
+            }
+
+            # Format the display, marking the last tracked item with "<-- LAST ITEM"
+            formatted_items = "<br>".join(
+                f'<span style="color: gray; font-size: 12px;">None: {item}</span>' if count == 0
+                else (
+                    f'<span style="color: #58adb8; font-size: 12px;">{count}x {item} (LAST ITEM)</span>'
+                    if item == last_tracked_item
+                    else f'<span style="font-size: 12px;">{count}x {item}</span>'
+                )
+                for item, count in item_counts.items()
+            )
+
+            # Update the Recent Items tab with the formatted string
+            self.recent_items_display.setText(f"<html><body>{formatted_items}</body></html>")
+        except (FileNotFoundError, KeyError, json.JSONDecodeError) as e:
+            self.recent_items_display.setText("Error reading current_items.json.")
+            print(f"Error: {e}")
+
 
     def closeEvent(self, event):
         """Override closeEvent to handle shutdown behavior for all windows and threads."""
 
-        # Close the Server Window if it's open and ensure hints are saved
-        if self.server_window is not None:
-            if hasattr(self.server_window, 'save_hints'):
-                self.server_window.save_hints()  # Explicitly save hints before closing
+        # Check if the server window exists and is open
+        if self.server_window and hasattr(self.server_window, 'notes_tab'):
+            # Access the notes_tab widget and get its content
+            notes_data = self.server_window.notes_tab.toPlainText()
+            self.save_notes_to_file(notes_data)
             self.server_window.close()
 
         # Ensure the server thread is terminated if it's still running
@@ -1098,6 +1275,8 @@ class MainWindow(QWidget):
             self.server_window.server_thread.wait()
 
         event.accept()  # Accept the close event to proceed with window closing
+
+    
 
     def open_server_window(self):
         """Open a separate window for server connection and console."""
@@ -1120,18 +1299,15 @@ class MainWindow(QWidget):
             
             if previous_array is None:
                 # New array was added
-                print(f"Array '{array_name}' was added.")
                 continue
 
             if previous_array != current_array:  # Check if the array has changed
-                print(f"Changes detected in '{array_name}' array:")
 
                 # Loop through each entry in the array and compare fields
                 for index, current_entry in enumerate(current_array):
                     if index >= len(previous_array):
                         # New entry was added
                         entry_name = current_entry[0] if current_entry else f"Entry {index}"
-                        print(f"  {entry_name} was added: {current_entry}")
                         continue
 
                     previous_entry = previous_array[index]
@@ -1140,24 +1316,21 @@ class MainWindow(QWidget):
                     # Compare each field within the entry
                     for field_index, (current_field, previous_field) in enumerate(zip(current_entry, previous_entry)):
                         if current_field != previous_field:
-                            print(f"  {entry_name}'s field {field_index} changed from '{previous_field}' to '{current_field}'")
 
                             self.update_all(array_name, entry_name, field_index, previous_field, current_field)
 
                     # Check for extra fields in the current entry if it has more fields than the previous entry
                     if len(current_entry) > len(previous_entry):
                         extra_fields = current_entry[len(previous_entry):]
-                        for extra_field in extra_fields:
-                            print(f"  {entry_name} has a new field: {extra_field}")
 
                 # Check for removed entries if previous_array is longer than current_array
                 if len(previous_array) > len(current_array):
                     for index in range(len(current_array), len(previous_array)):
                         entry_name = previous_array[index][0] if previous_array[index] else f"Entry {index}"
-                        print(f"  {entry_name} was removed: {previous_array[index]}")
 
         # Update the stored previous state to the current state after comparison
         self.previous_data_state = current_data_state
+
 
     def create_friends_tab(self, tab_name):
         """Create a special tab for friends with relationship level controls and separate birthday labels."""
@@ -1244,7 +1417,7 @@ class MainWindow(QWidget):
         self.update_global_counter()
                     
     def create_mines_tab(self, tab_name):
-        """Create a special tab for mines with Floor and Treasure controls."""
+        """Create a special tab for mines with Floor, Treasure controls, and current elevator floor display."""
         tab = QWidget()
         layout = QVBoxLayout(tab)
         layout.setAlignment(Qt.AlignTop)  # Align layout to the top
@@ -1292,11 +1465,26 @@ class MainWindow(QWidget):
         layout.addWidget(treasure_selector)
         layout.addWidget(entrance_cutscene_checkbox)
 
+        # Add the Current Elevator Floor line at the bottom
+        self.elevator_floor_label = QLabel("Current Elevator Floor: 0")  # Default value
+        layout.addWidget(self.elevator_floor_label)
+        self.update_elevator_floor_label()  # Update the label based on current items
+
         tab.setLayout(layout)
 
         # Initialize Mines counter display
         self.update_mines_counter()
         return tab
+
+    def update_elevator_floor_label(self):
+        """Update the elevator floor label based on the number of Progressive Mine Elevator items."""
+        try:
+            current_items_data = load_data(current_items_file_path)
+            elevator_count = current_items_data["current_items"].count("Progressive Mine Elevator")
+            elevator_floor = elevator_count * 5
+            self.elevator_floor_label.setText(f"Current Elevator Floor: {elevator_floor}")
+        except (FileNotFoundError, KeyError, json.JSONDecodeError):
+            self.elevator_floor_label.setText("Current Elevator Floor: 0")  # Default in case of error
 
     def get_last_checked_floor(self, tab_name):
         """Retrieve the highest checked floor value specifically for floors."""
@@ -1365,9 +1553,8 @@ class MainWindow(QWidget):
         save_data(data_file, new_all_major_data)
         self.update_mines_counter()  # Refresh the Mines counter
 
-
     def create_skills_tab(self, tab_name):
-        """Create a special tab for skills with level controls from 0 to 10."""
+        """Create a special tab for skills with XP and level controls displayed on the same line."""
         tab = QWidget()
         layout = QVBoxLayout(tab)
         layout.setAlignment(Qt.AlignTop)  # Ensure the main layout aligns everything at the top
@@ -1376,25 +1563,41 @@ class MainWindow(QWidget):
         self.skills_counter_label = QLabel()
         layout.addWidget(self.skills_counter_label)  # Add the counter label at the top of the tab
 
-        # Grid layout for skill labels and level selectors
+        # Grid layout for skill labels, XP number boxes, and level labels
         skills_layout = QGridLayout()
         skills_layout.setAlignment(Qt.AlignTop)  # Align grid items to the top
         skills_layout.setVerticalSpacing(10)  # Add some spacing between rows for better readability
 
         skills = ["Combat", "Farming", "Fishing", "Foraging", "Mining"]
 
-        for i, skill in enumerate(skills):
-            skill_label = QLabel(f"{skill}:")
-            level_selector = QSpinBox()
-            level_selector.setRange(0, 10)
-            level_selector.setValue(self.get_skill_level_from_data(tab_name, skill))
-            
-            # Connect each SpinBox to update JSON and the counter when changed
-            level_selector.valueChanged.connect(lambda value, s=skill: self.update_skill_level(tab_name, s, value))
-            level_selector.valueChanged.connect(self.update_skills_counter)  # Update the counter
+        # Track the level labels for updating
+        self.skill_level_labels = {}
 
-            skills_layout.addWidget(skill_label, i, 0, Qt.AlignTop)  # Align labels to the top
-            skills_layout.addWidget(level_selector, i, 1, Qt.AlignTop)  # Align selectors to the top
+        for i, skill in enumerate(skills):
+            # Skill name label
+            skill_label = QLabel(f"{skill} XP:")
+            
+            # XP Number Box (spin box)
+            xp_selector = QSpinBox()
+            xp_selector.setRange(0, 10)  # Set the range to 0-10 for XP
+            print("test")
+            xp_selector.setValue(self.get_skill_xp_from_data(tab_name, skill))
+            
+            # Connect XP selector to update JSON and refresh level
+            xp_selector.valueChanged.connect(lambda value, s=skill: self.update_skill_xp(tab_name, s, value))
+            xp_selector.valueChanged.connect(lambda _, s=skill: self.refresh_skill_level(s))  # Refresh level display
+
+            # Skill level label
+            level_value = self.get_skill_level_from_current_items(skill)
+            max_skill_length = max(len(s) for s in skills)  # Align skill names dynamically
+            padding = " " * (max_skill_length - len(skill))
+            level_label = QLabel(f"{skill} Level: {padding} {level_value}")
+            self.skill_level_labels[skill] = level_label  # Store reference to the label for updates
+
+            # Arrange widgets in a single row
+            skills_layout.addWidget(skill_label, i, 0, Qt.AlignLeft)
+            skills_layout.addWidget(xp_selector, i, 1, Qt.AlignLeft)
+            skills_layout.addWidget(level_label, i, 2, Qt.AlignLeft)
 
         layout.addLayout(skills_layout)
         tab.setLayout(layout)
@@ -1402,6 +1605,53 @@ class MainWindow(QWidget):
         # Initialize the skills counter display
         self.update_skills_counter()
         return tab
+
+    def refresh_skill_level(self, skill):
+        """Refresh the skill level label based on current items with proper alignment."""
+        if skill in self.skill_level_labels:
+            new_level = self.get_skill_level_from_current_items(skill)
+            
+            # Calculate padding for alignment
+            max_skill_length = max(len(s) for s in ["Combat", "Farming", "Fishing", "Foraging", "Mining"])
+            padding = " " * (max_skill_length - len(skill))
+            
+            # Update the label with proper alignment
+            self.skill_level_labels[skill].setText(f"{skill} Level: {padding} {new_level}")
+
+    
+    def get_skill_xp_from_data(self, tab_name, skill):
+        """Retrieve the highest checked level for each skill from the data on load."""
+        new_all_major_data = load_data(data_file_path)
+        highest_level = 0
+        for item in new_all_major_data[tab_name]:
+            if skill in item[0] and item[4] == 1:
+                level_num = int(item[0].split()[-1])
+                if level_num > highest_level:
+                    highest_level = level_num
+        return highest_level
+
+    
+    def update_skill_xp(self, tab_name, skill, xp):
+        """Update JSON data to reflect skill XP."""
+        new_all_major_data = load_data(data_file_path)
+        for item in new_all_major_data[tab_name]:
+            if skill in item[0] and "XP" in item[0]:
+                item[2] = str(xp)  # Update the XP value in the third field
+                break
+
+        save_data(data_file, new_all_major_data)
+
+    def get_skill_level_from_current_items(self, skill):
+        """Calculate the skill level based on the count of relevant items in current_items.json."""
+        try:
+            current_items_data = load_data(current_items_file_path)
+            print(f"Skill Name: {skill}")
+            level_count = sum(1 for item in current_items_data["current_items"] if (skill + " Level") in item)
+            return level_count
+        except (FileNotFoundError, KeyError, json.JSONDecodeError):
+            return 0  # Default level if an error occurs
+
+
 
     def update_skills_counter(self):
         """Update the Skills tab counter label to show the checked items count."""
@@ -1446,7 +1696,8 @@ class MainWindow(QWidget):
         layout = QVBoxLayout(tab)
 
         # Load existing notes from note.json
-        notes_array = self.load_notes()
+        notes_array = self.load_hint_my_location()
+        extra_info_array = self.load_extra_info()
 
         # Counter Label for this tab
         counter_label = QLabel()
@@ -1455,7 +1706,7 @@ class MainWindow(QWidget):
 
         # User Search Bar
         user_search_bar = QLineEdit()
-        user_search_bar.setPlaceholderText("User Search...")
+        user_search_bar.setPlaceholderText("User Search... (Use ',' for OR and ':' for AND)")
         user_search_bar.textChanged.connect(lambda text: self.apply_filters(item_widgets, text.lower()))
         layout.addWidget(user_search_bar)
 
@@ -1505,14 +1756,18 @@ class MainWindow(QWidget):
             text_input.setPlaceholderText(f"{item_info}")
             text_input.setText(f"{item_info}")
 
-            # Connect the textChanged signal to update the third field in JSON
-            text_input.textChanged.connect(lambda new_text, t=tab_name, i=index: self.update_third_field_in_json(t, i, new_text))
+            matching_extra_info = next((extra_info for extra_info in extra_info_array if extra_info["checkbox_text"] == item_id), None)
+            if matching_extra_info:
+                text_input.setText(matching_extra_info["extra_info_input"])
+
+            text_input.textChanged.connect(lambda _, cb_text=item_id, text=text_input: 
+                                            self.update_extra_info_array(cb_text, text.text()))
 
             hint_input = QLineEdit()
             hint_input.setPlaceholderText("Insert Item on Check")
-            hint_input.setFixedWidth(140)
+            hint_input.setFixedWidth(220)
 
-            matching_note = next((note for note in notes_array if note["checkbox_text"] == item_name), None)
+            matching_note = next((note for note in notes_array if note["checkbox_text"] == item_id), None)
             if matching_note:
                 hint_input.setText(matching_note["hint_input"])
 
@@ -1527,8 +1782,14 @@ class MainWindow(QWidget):
             item_layout.addWidget(hint_input)
             scroll_layout.addWidget(item_widget)
             # Connect hint_input to update_notes_array to save changes to note.json
-            hint_input.textChanged.connect(lambda _, cb_text=checkbox_text.text(), hint=hint_input: 
-                                        self.update_notes_array(cb_text, hint.text()))
+            hint_input.textChanged.connect(lambda text, sa=scroll_area, cb_widget=checkbox_text:
+                                            self.adjust_scroll_position(sa, cb_widget))
+
+            hint_input.editingFinished.connect(lambda cb_text=item_id, hint=hint_input: 
+                                                self.update_notes_array(cb_text, hint.text()))
+
+
+
             # Connect checkbox and hint_input changes to update background color
             checkbox.stateChanged.connect(lambda state, cb=checkbox, ct=checkbox_text, ro=read_only_input, ti=text_input, hi=hint_input, st=season_text: 
                                         self.update_background_color(state, ct, ro, ti, hi, st))
@@ -1538,6 +1799,8 @@ class MainWindow(QWidget):
             # Connect text_input changes to update background color
             text_input.textChanged.connect(lambda _, cb=checkbox, ct=checkbox_text, ro=read_only_input, ti=text_input, hi=hint_input, st=season_text:
                                         self.update_background_color(cb.checkState(), ct, ro, ti, hi, st))
+            
+            checkbox.stateChanged.connect(lambda state, cb_text=item_id, c=checkbox, t=tab_name, i=index, sb=user_search_bar: self.update_checkbox(c, scroll_layout, checkboxes, t, i, sb, cb_text))
 
             item_widgets.append({
                 'widget': item_widget,
@@ -1545,11 +1808,11 @@ class MainWindow(QWidget):
                 'read_only_input': read_only_input,
                 'text_input': text_input,
                 'hint_input': hint_input,
-                'checkbox': checkbox
+                'checkbox': checkbox,
+                'item_id': item_id  # Add the Item_ID here
             })
 
             # Connect checkbox state change to update functions
-            checkbox.stateChanged.connect(lambda state, c=checkbox, t=tab_name, i=index, sb=user_search_bar: self.update_checkbox(c, scroll_layout, checkboxes, t, i, sb))
             self.update_background_color(checkbox.checkState(), checkbox_text, read_only_input, text_input, hint_input, season_text)
 
         self.all_item_widgets[tab_name] = item_widgets
@@ -1559,47 +1822,286 @@ class MainWindow(QWidget):
 
         return tab
     
-    def load_notes(self):
-        """Load notes from note.json or return an empty list if the file doesn't exist."""
+    def print_modified_checkbox(self, checkbox_text):
+        """
+        Print the checkbox text of the modified hint_input.
+        Args:
+            checkbox_text: The text of the associated checkbox.
+        """
+        print(f"Modified checkbox_text: {checkbox_text}")
+        return checkbox_text
+
+    
+    def scroll_to_top_adjusted(self, scroll_area, pink_widgets_count):
+        """
+        Scroll to the top of the scroll area, adjusting based on the number of pink widgets.
+        Args:
+            scroll_area: QScrollArea instance.
+            pink_widgets_count: Number of pink widgets at the top.
+        """
+        # Define the offset per pink widget (in pixels)
+        offset_per_pink_widget = 30  # Adjust this value based on your widget height
+
+        if pink_widgets_count == 0:
+            pink_widgets_count += 1
+
+        if pink_widgets_count == 1:
+            pink_widgets_count += 1
+
+        # Calculate the adjusted scroll position
+        adjusted_position = (pink_widgets_count - 2) * offset_per_pink_widget
+
+        # Scroll to the adjusted position
+        scroll_area.verticalScrollBar().setValue(adjusted_position)
+
+    def adjust_scroll_position(self, scroll_area, current_checkbox_text):
+        """
+        Adjust the scroll position of the given scroll area based on the number of pink widgets,
+        unless the current checkbox text has the background color #b85858 or black.
+        Args:
+            scroll_area: QScrollArea instance.
+            current_checkbox_text: The checkbox_text widget being modified.
+        """
+        # Check the background color of the current checkbox_text
+        forbidden_colors = ["background-color: #b85858;", "background-color: black;"]
+        if current_checkbox_text and any(color in current_checkbox_text.styleSheet() for color in forbidden_colors):
+            print(f"Skipping scroll adjustment for: {current_checkbox_text.text()} (background-color matches forbidden colors)")
+            return
+
+        # Find all widgets in the scroll area
+        scroll_content = scroll_area.widget()
+        scroll_layout = scroll_content.layout()
+
+        # Count pink widgets
+        pink_widgets_count = 0
+        for i in range(scroll_layout.count()):
+            widget = scroll_layout.itemAt(i).widget()
+            if widget:
+                checkbox_text = widget.findChild(QLineEdit)
+                if checkbox_text and "background-color: #cca1ff;" in checkbox_text.styleSheet():
+                    pink_widgets_count += 1
+
+        # Adjust the scroll position
+        self.scroll_to_top_adjusted(scroll_area, pink_widgets_count)
+
+    def count_in_logic_and_incomplete(self, tab_name):
+        """Count the items that are in logic and not yet completed."""
+        in_logic_count = 0
+        items = all_major_data.get(tab_name, [])
+        for item in items:
+            item_state = item[4]  # Check the completed state
+            item_in_logic = has_requirements(item[0], item[2])  # Check if in logic
+            if item_in_logic != "Red" and item_in_logic != "Pink" and item_state == 0:  # In logic and not completed
+                in_logic_count += 1
+        return in_logic_count
+
+    def count_hinted_items(self, tab_name):
         try:
-            with open(note_file_path, "r") as file:
+            # Open and parse the JSON file
+            with open(hint_my_location_file_path, 'r') as file:
+                data = json.load(file)
+            
+            # Ensure data is a list
+            if not isinstance(data, list):
+                raise ValueError("Expected a list in the JSON file.")
+            
+            # Count occurrences of tab_name in the "tab" field,
+            # excluding items with an empty "hint_input" and ensuring "state" is "not found"
+            count = sum(
+                1 for item in data
+                if item.get("tab") == tab_name 
+                and item.get("hint_input", "").strip()
+                and item.get("state") == "not found"
+                and item.get("user_state") in (0, None)
+            )
+            
+            return count
+        except FileNotFoundError:
+            print(f"Error: File not found at {hint_my_location_file_path}")
+            return 0
+        except json.JSONDecodeError:
+            print("Error: Failed to parse JSON file. Please check the file's content.")
+            return 0
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return 0
+
+
+    def update_tab_names(self):
+        """Update the tab names with the count of in-logic items and dynamically map the new names."""
+        global tab_name_mapping
+        tab_name_mapping = {}  # Clear the mapping
+
+        # Extract the current tab names and strip any counts (e.g., "Crops (5)" -> "Crops")
+        current_tab_names = [
+            self.main_tabs.tabText(i).split("\n(")[0] for i in range(self.main_tabs.count())
+        ]
+
+        # Match stripped names to tab_display_names to determine the correct internal order
+        ordered_internal_names = [
+            internal_name
+            for display_name in current_tab_names
+            for internal_name, mapped_name in tab_display_names.items()
+            if mapped_name == display_name
+        ]
+
+        # Iterate through the tabs and update their names
+        for i, internal_tab_name in enumerate(ordered_internal_names):
+            # Get the widget for the tab
+            tab_widget_page = self.main_tabs.widget(i)
+            if not tab_widget_page:
+                continue  # Skip if no tab widget is found
+
+            # Fetch the display name from tab_display_names
+            display_name = tab_display_names.get(internal_tab_name, internal_tab_name)
+
+            # Count in-logic items for the tab
+            in_logic_count = self.count_in_logic_and_incomplete(internal_tab_name)
+            hinted_count = self.count_hinted_items(internal_tab_name)
+
+            # Create the new display name with the count
+            new_display_name = f"{display_name}\n({in_logic_count}|{hinted_count})"
+
+            # Update the tab text
+            self.main_tabs.setTabText(i, new_display_name)        
+            self.main_tabs.tabBar().setTabButton(i, QTabBar.RightSide, QLabel(f"\n"))  # Use RightSide for proper layout
+
+            # Update the mapping
+            tab_name_mapping[new_display_name] = internal_tab_name
+
+    def load_hint_my_location(self):
+        """Load hints from hint_my_location_file.json or return an empty list if the file doesn't exist."""
+        try:
+            with open(hint_my_location_file_path, "r") as file:
                 return json.load(file)
         except (FileNotFoundError, json.JSONDecodeError):
             return []
     
+    def save_hint_my_location_to_file(self, notes_array):
+        """Save the notes array to note.json."""
+        with open(hint_my_location_file_path, "w") as file:
+            json.dump(notes_array, file, indent=4)
+    
+    def save_hint_my_item_to_file(self, notes_array):
+        """Save the notes array to note.json."""
+        with open(hint_my_item_file_path, "w") as file:
+            json.dump(notes_array, file, indent=4)
+    
     def save_notes_to_file(self, notes_array):
         """Save the notes array to note.json."""
-        with open(note_file_path, "w") as file:
+        with open(notes_file_path, "w") as file:
             json.dump(notes_array, file, indent=4)
 
     def update_notes_array(self, checkbox_text, hint_text):
         """Update or add an entry in notes.json based on checkbox_text."""
-        notes_array = self.load_notes()
-        
+        notes_array = self.load_hint_my_location()
+
+        # Get the current tab index and name
+        current_tab_index = self.main_tabs.currentIndex()
+        current_tab_name = self.main_tabs.tabText(current_tab_index)
+
+        # Map the tab name to its internal data key
+        data_key = tab_name_mapping.get(current_tab_name, "Unknown")
+
         # Check if the note already exists, and update it if so
         for note in notes_array:
             if note["checkbox_text"] == checkbox_text:
-                note["hint_input"] = hint_text  # Overwrite the existing entry
+                note["hint_input"] = hint_text
+                note["class"] = "Unknown"
+                note["state"] = "Unknown"
+                note["tab"] = data_key  # Dynamically set the tab
                 break
         else:
             # Add new entry if no match is found
             notes_array.append({
                 "checkbox_text": checkbox_text,
-                "hint_input": hint_text
+                "hint_input": hint_text,
+                "class": "Unknown",
+                "state": "Unknown",
+                "tab": data_key  # Dynamically set the tab
             })
 
         # Save the updated notes array
-        self.save_notes_to_file(notes_array)
+        self.save_hint_my_location_to_file(notes_array)
 
-    def update_third_field_in_json(self, tab_name, index, new_text):
-        """Update the third field in data.json with the new text from text_input."""
-        # Update the third field for the specified item in the JSON data
-        new_all_major_data = load_data(data_file_path)
-        new_all_major_data[tab_name][index][2] = new_text
+
+    def update_note_tab(self, state):
+        """Update the hint_text field of every widget to match the hint_input field in note.json and set text color based on class."""
+        notes_array = self.load_hint_my_location()  # Load the notes from note.json
+
+        # Get the current tab index and tab name
+        current_tab_index = self.main_tabs.currentIndex()
+        current_tab_name = self.main_tabs.tabText(current_tab_index)  # Get the tab name as displayed
+        data_key = tab_name_mapping.get(current_tab_name, "")  # Map the display name to internal data key
+
+        if data_key in self.all_item_widgets:  # Check if the current tab has associated widgets
+            #print(f"Updating tab: {tab_name}")  # Debug: Print the tab name being updated
+            for widget in self.all_item_widgets[data_key]:
+                # Use item_id for matching instead of checkbox_text
+                matching_note = next(
+                    (note for note in notes_array if note["checkbox_text"] == widget['item_id']), None
+                )
+                if matching_note:
+                    # Update the hint_input field with the note's hint_input value
+                    print_a = matching_note["checkbox_text"]
+                    if state == "t":
+                        print(f"State Test for {print_a}")
+                        widget['hint_input'].setText(matching_note["hint_input"])
+
+                    # Determine the background color based on the "class" field
+                    text_class = matching_note.get("class", "").lower()
+                    if text_class == "progressive":
+                        background_color = "#9bf2bf"
+                    elif text_class == "useful":
+                        background_color = "#e8f29b"
+                    elif text_class == "filler":
+                        background_color = "Null"
+                        widget['checkbox'].setChecked(True)
+                    else:
+                        background_color = "Null"
+                    
+                    state_check = matching_note.get("state", "").lower()
+                    if state_check == "found":
+                        widget['checkbox'].setChecked(True)
+                        
+
+                    # Retrieve the current background color
+                    text_color = "black"
+
+                    if not background_color == "Null":
+                        widget['hint_input'].setStyleSheet(f"color: {text_color}; background-color: {background_color};")
+
+    def load_extra_info(self):
+        """Load extra_info from extra_info.json or return an empty list if the file doesn't exist."""
+        try:
+            with open(extra_info_file_path, "r") as file:
+                return json.load(file)
+        except (FileNotFoundError, json.JSONDecodeError):
+            return []
+    
+    def save_extra_info_to_file(self, extra_info_array):
+        """Save the extra_info array to note.json."""
+        with open(extra_info_file_path, "w") as file:
+            json.dump(extra_info_array, file, indent=4)
+
+    def update_extra_info_array(self, checkbox_text, extra_info_text):
+        """Update or add an entry in notes.json based on checkbox_text."""
+        extra_info_array = self.load_extra_info()
         
-        # Save the updated data back to the JSON file
-        save_data(data_file, new_all_major_data)
-        print(f"Updated third field in {tab_name}[{index}] to '{new_text}'")
+        # Check if the note already exists, and update it if so
+        for extra_info in extra_info_array:
+            if extra_info["checkbox_text"] == checkbox_text:
+                extra_info["extra_info_input"] = extra_info_text  # Overwrite the existing entry
+                break
+        else:
+            # Add new entry if no match is found
+            extra_info_array.append({
+                "checkbox_text": checkbox_text,
+                "extra_info_input": extra_info_text
+            })
+
+        # Save the updated extra_info array
+        self.save_extra_info_to_file(extra_info_array)
     
     def update_all(self, array_name, entry_name, field_index, previous_field, current_field):
         """
@@ -1613,17 +2115,14 @@ class MainWindow(QWidget):
             # Ensure current_field is greater than previous_field
             if current_field > previous_field:
                 if array_name == "Skillsanity":
-                    print("Skills test")
                     # Remove and recreate the Skills tab
                     self.skills_tabs.removeTab(0)
                     self.skills_tabs.addTab(self.create_skills_tab("Skillsanity"), "Skills")
                 elif array_name == "Elevatorsanity":
-                    print("Mines test")
                     # Remove and recreate the Mines tab
                     self.mines_tabs.removeTab(0)
                     self.mines_tabs.addTab(self.create_mines_tab("Elevatorsanity"), "Mines")
                 elif array_name == "Friendsanity":
-                    print("Friends test")
                     # Remove and recreate the Friends tab
                     self.friends_tabs.removeTab(0)
                     self.friends_tabs.addTab(self.create_friends_tab("Friendsanity"), "Friends")
@@ -1692,11 +2191,12 @@ class MainWindow(QWidget):
         color_priority = {
             "background-color: #8f0599; color: white;": 1, # Pink (highest priority)
             "background-color: #cca1ff; color: black;": 2, # Light purple (hinted items)
-            "background-color: #344534; color: black;": 3, # Spring
-            "background-color: #4f4300; color: black;": 4, # Summer
-            "background-color: #633700; color: black;": 5, # Fall
-            "background-color: #0a3054; color: black;": 6, # Winter
-            "background-color: #58adb8; color: black;": 7, # Default color
+            "background-color: #344534; color: white;": 3, # Spring
+            "background-color: #4f4300; color: white;": 3, # Summer
+            "background-color: #633700; color: white;": 3, # Fall
+            "background-color: #0a3054; color: white;": 3, # Winter
+            "background-color: #58adb8; color: black;": 4, # Default color
+            "background-color: #db708a; color: black;": 7, # Red (hinted)
             "background-color: #b85858; color: white;": 8, # Red (not in logic)
             "background-color: black; color: white;": 9,   # Checked (lowest priority)
         }
@@ -1724,7 +2224,7 @@ class MainWindow(QWidget):
             scroll_layout.insertWidget(i, widget)
 
         scroll_layout.update()
-
+        self.update_note_tab("f")
 
     def show_tooltip(self, event, widget, tooltip_text):
         """Display tooltip near the widget with additional information."""
@@ -1747,6 +2247,10 @@ class MainWindow(QWidget):
             #priority 5
             # Red background with white text for "NOT IN LOGIC" (overrides purple)
             style = "background-color: #b85858; color: white;"
+            if hint_input.text().strip():
+                #priority 2
+                # Light purple background for items with hints
+                style = "background-color: #db708a; color: black;"
         elif not_in_logic == "Pink":
             #priority 1
             # Red background with white text for "NOT IN LOGIC" (overrides purple)
@@ -1776,6 +2280,7 @@ class MainWindow(QWidget):
         text_input.update()
         hint_input.update()
 
+
         # Sort widgets after updating their background color
         self.sort_widgets_by_background_color()
 
@@ -1799,31 +2304,67 @@ class MainWindow(QWidget):
 
     def apply_filters(self, item_widgets, search_text=""):
         """
-        Filters and shows/hides item_widgets based on whether the search_text is found
-        in either the checkbox_text or text_input of each item.
+        Filters and shows/hides item_widgets based on search_text.
+        - If search_text contains ',' it acts as an OR (matches any term).
+        - If search_text contains ':' it acts as an AND (matches all terms).
         """
+        # Normalize the search_text
+        search_text = search_text.lower()
+
+        # Determine the filtering mode based on the presence of ',' or ':'
+        if ',' in search_text:
+            search_terms = [term.strip() for term in search_text.split(',')]
+            filter_mode = 'OR'
+        elif ':' in search_text:
+            search_terms = [term.strip() for term in search_text.split(':')]
+            filter_mode = 'AND'
+        else:
+            search_terms = [search_text.strip()]
+            filter_mode = 'SINGLE'
+
         for item in item_widgets:
             # Retrieve the text from checkbox_text and text_input QLineEdit widgets
             checkbox_text_value = item['checkbox_text'].text().lower() if item['checkbox_text'] else ""
             text_input_value = item['text_input'].text().lower() if item['text_input'] else ""
-            
-            # Check if search_text is found in either checkbox_text or text_input
-            is_visible = search_text in checkbox_text_value or search_text in text_input_value
-            
+
+            # Check conditions based on filter_mode
+            if filter_mode == 'OR':
+                is_visible = any(term in checkbox_text_value or term in text_input_value for term in search_terms)
+            elif filter_mode == 'AND':
+                is_visible = all(term in checkbox_text_value or term in text_input_value for term in search_terms)
+            else:  # SINGLE
+                is_visible = search_text in checkbox_text_value or search_text in text_input_value
+
             # Show or hide the item_widget based on the search match
             item['widget'].setVisible(is_visible)
 
-    def update_checkbox(self, checkbox, layout, checkboxes, tab_name, index, search_bar):
+
+    def update_checkbox(self, checkbox, layout, checkboxes, tab_name, index, search_bar, item_id):
         # Update the JSON data with the new state
         item_state = 1 if checkbox.isChecked() else 0
         all_major_data[tab_name][index][4] = item_state  # Update state in data
 
+        notes_array = self.load_hint_my_location()
+
+        # Check if the note already exists, and update it if so
+        print(f"Passed Go: {item_id}")
+        for note in notes_array:
+            if note["checkbox_text"] == item_id:
+                note["hint_input"]
+                note["class"]
+                note["state"]
+                note["tab"]
+                note["user_state"] = item_state
+                break
+
         # Save the updated state to the JSON file
         save_data(data_file, all_major_data)
+        self.save_hint_my_location_to_file(notes_array)
 
         # Update the global and tab counters
         self.update_counter(checkboxes, tab_name)
         self.update_global_counter()
+
 
     def reset_all_checkboxes(self):
         # Friends whose states should remain checked at level 8
@@ -1836,19 +2377,33 @@ class MainWindow(QWidget):
             "Cropsanity": [],
             "Skillsanity": [],
             "Elevatorsanity": [],
-            "Ordersanity": [],
             "Questsanity": [],
             "Fishsanity": [],
             "Chefsanity": [],
             "Friendsanity": [],
             "Cartsanity": [],
             "Booksanity": [],
+            "Librarysanity": [],
             "Monstersanity": [],
             "Blueprintsanity": [],
             "Upgradesanity": [],
+            "Raccoonsanity": [],
             "Festivalsanity": [],
             "Misc": []
         }
+
+        # Reset season selection
+        self.selected_season = None  # Clear the selected season
+        for button in self.season_buttons:
+            button.setText(button.text().split(" (")[0])  # Remove "(Not Found)" if present
+            button.setStyleSheet("background-color: #4c5052;")  # Default color
+        
+        self.selected_season = None  # Clear the selected season
+
+        self.config_data = load_config(config_file_path)
+        self.selected_season = None
+        self.config_data["season"] = self.selected_season
+        save_config(config_file_path, self.config_data)
 
         # Step 1: Reset all JSON fields to 0
         for tab_name, items in new_all_major_data.items():
@@ -1860,11 +2415,21 @@ class MainWindow(QWidget):
             if any(friend in item[3] for friend in friends_to_keep_checked):
                 item[4] = 1
 
-        if self.server_window is not None:
-            self.server_window.clear_hints()  # Clear the hints if the ServerWindow is open
+        # Reset notes in note.json
+        self.save_hint_my_location_to_file([])  # Clear notes by saving an empty list to note.json
 
         # Reset notes in note.json
-        self.save_notes_to_file([])  # Clear notes by saving an empty list to note.json
+        self.save_hint_my_item_to_file([])  # Clear notes by saving an empty list to note.json
+
+        # Reset notes in note.json
+        self.save_extra_info_to_file([])  # Clear notes by saving an empty list to note.json
+
+        # Reset notes in note.json
+        self.save_notes_to_file("")  # Clear notes by saving an empty list to note.json
+        # Update the notes_tab in the ServerWindow
+        if self.server_window:  # Ensure the server_window exists
+            notes_tab_text = self.server_window.load_notes()  # Call load_notes from ServerWindow
+            self.server_window.notes_tab.setPlainText(notes_tab_text)  # Set the text
 
         # Reset current_items.json
         with open(current_items_file_path, "w") as f:
@@ -1992,13 +2557,14 @@ class MainWindow(QWidget):
         self.total_checked = sum(1 for tab in new_all_major_data.values() for item in tab if item[4] == 1)
         self.update_global_counter()
 
+
     def update_counter(self, checkboxes, tab_name):
         total = len(checkboxes)
         checked = sum(1 for checkbox in checkboxes if checkbox.isChecked())
         self.counter_labels[tab_name].setText(f"{checked} / {total} items checked")
 
     def update_global_counter(self):
-        # Count the total number of items in the JSON and those with `1` in the last field
+        # Count the total number of items in the JSON and those with 1 in the last field
         total_items = sum(len(items) for items in all_major_data.values())
         checked_items = sum(1 for items in all_major_data.values() for item in items if item[4] == 1)
         
@@ -2006,20 +2572,73 @@ class MainWindow(QWidget):
         self.global_counter_label.setText(f"{checked_items} / {total_items} items checked")
 
     def filter_by_season(self, season, button):
-        """Update button colors and filter checkboxes based on selected season."""
+        """
+        Update button colors and filter checkboxes based on selected season.
+        If the season is not in current_items.json, change the button text to 'Season (Not Found)'.
+        """
         # Unselect other season buttons and reset their colors
         for btn in self.season_buttons:
             if btn != button:
                 btn.setChecked(False)
                 btn.setStyleSheet("background-color: #4c5052;")  # Default color
             else:
+                # Check if the season exists in current_items.json
+                try:
+                    current_items_data = load_data(current_items_file_path)
+                    seasons_in_items = current_items_data.get("current_items", [])
+                    if season not in seasons_in_items:
+                        # Update button text to indicate 'Not Found'
+                        button.setText(f"{season} (Not Found)")
+                    else:
+                        # Reset to just the season name
+                        button.setText(season)
+                except (FileNotFoundError, json.JSONDecodeError):
+                    # Handle error cases gracefully
+                    button.setText(f"{season} (Not Found)")
+
                 # Set selected season button color
                 btn.setStyleSheet(season_colors[season] if btn.isChecked() else "background-color: #4c5052;")
+
+        # Update the selected season
+        self.config_data = load_config(config_file_path)
+        self.selected_season = season if button.isChecked() else None
+        self.config_data["season"] = self.selected_season
+        save_config(config_file_path, self.config_data)
 
         # Set the selected season
         self.selected_season = season if button.isChecked() else None
         self.season = season if button.isChecked() else None
         self.update_all_background_colors()
+
+    def load_season_from_config(self):
+        """Load the selected season from the config file and update the UI."""
+        self.config_data = load_config(config_file_path)
+        saved_season = self.config_data.get("season")
+        if saved_season:
+            self.selected_season = saved_season
+            self.season = saved_season
+
+            # Find the corresponding button and check it
+            for button in self.season_buttons:
+                if button.text() == saved_season:
+                    button.setChecked(True)
+                    button.setStyleSheet("background-color: green;")
+                    break
+
+    def update_season_button_texts(self):
+        """Update the season button texts based on the presence of seasons in current_items.json."""
+        try:
+            current_items_data = load_data(current_items_file_path)
+            current_items = current_items_data.get("current_items", [])
+
+            for button in self.season_buttons:
+                season = button.text().split(" ")[0]  # Extract the season name from the button text
+                if season in current_items:
+                    button.setText(season)  # Reset to plain season name
+                else:
+                    button.setText(f"{season} (Not Found)")  # Add "(Not Found)" if the season is missing
+        except (FileNotFoundError, json.JSONDecodeError):
+            print("Error: Failed to load or decode current_items.json.")
 
 # Run the application
 app = QApplication(sys.argv)
