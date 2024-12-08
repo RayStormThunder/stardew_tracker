@@ -2213,7 +2213,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Mountain Lake, Secret Woods, Pond, Sewers) (35 Smooth)",
+            "(Anytime) (Any Weather) (Mountain Lake, Secret Woods, Pond, Sewers) (15 Mixed)",
             "Fishsanity: Carp",
             0
         ],
@@ -3490,7 +3490,9 @@
             "Power, Obtained from cutting down trees",
             "Read Woody's Secret",
             0
-        ],
+        ]
+    ],
+    "Librarysanity": [
         [
             "Tips on Farming",
             [],
@@ -3513,17 +3515,17 @@
             0
         ],
         [
-            "The Fisherman, Act I",
+            "The Fisherman, Act 1",
             [],
             "Library",
-            "Read The Fisherman, Act I",
+            "Read The Fisherman, Act 1",
             0
         ],
         [
-            "How deep do the mines go?",
+            "How Deep do the mines go?",
             [],
             "Library",
-            "Read How deep do the mines go?",
+            "Read How Deep do the mines go?",
             0
         ],
         [
@@ -4126,12 +4128,39 @@
             0
         ],
         [
-            "Elf Quesadilla",
+            "Earthy Mousse",
             [
                 "Spring"
             ],
-            "Desert Festival, Spring 15 to 17, Extremely Sharp Cheddar and Cherry Syrup",
-            "Elf Quesadilla",
+            "Desert Festival, Spring 15 to 17, Hearty Beans and Mushroom Creme",
+            "Earthy Mousse",
+            0
+        ],
+        [
+            "Sweet Bean Cake",
+            [
+                "Spring"
+            ],
+            "Desert Festival, Spring 15 to 17, Hearty Beans and Cherry Syrup",
+            "Sweet Bean Cake",
+            0
+        ],
+        [
+            "Skull Cave Casserole",
+            [
+                "Spring"
+            ],
+            "Desert Festival, Spring 15 to 17, Hearty Beans and Pungent Garlic",
+            "Skull Cave Casserole",
+            0
+        ],
+        [
+            "Spicy Tacos",
+            [
+                "Spring"
+            ],
+            "Desert Festival, Spring 15 to 17, Hearty Beans and Uncomfortably Hot Sauce",
+            "Spicy Tacos",
             0
         ],
         [
@@ -4139,8 +4168,44 @@
             [
                 "Spring"
             ],
-            "Desert Festival, Spring 15 to 17, Cave Syrup and Rich Marinara",
+            "Desert Festival, Spring 15 to 17, Cave Loaf and Rich Marinara",
             "Mountain Chili",
+            0
+        ],
+        [
+            "Crystal Cake",
+            [
+                "Spring"
+            ],
+            "Desert Festival, Spring 15 to 17, Cave Loaf and Cherry Syrup",
+            "Crystal Cake",
+            0
+        ],
+        [
+            "Cave Kebab",
+            [
+                "Spring"
+            ],
+            "Desert Festival, Spring 15 to 17, Cave Loaf and Pungent Garlic",
+            "Cave Kebab",
+            0
+        ],
+        [
+            "Hot Log",
+            [
+                "Spring"
+            ],
+            "Desert Festival, Spring 15 to 17, Cave Loaf and Uncomfortably Hot Sauce",
+            "Hot Log",
+            0
+        ],
+        [
+            "Sour Salad",
+            [
+                "Spring"
+            ],
+            "Desert Festival, Spring 15 to 17, Rare Fruit and Rich Marinara",
+            "Sour Salad",
             0
         ],
         [
@@ -4153,6 +4218,15 @@
             0
         ],
         [
+            "Warrior Smoothie",
+            [
+                "Spring"
+            ],
+            "Desert Festival, Spring 15 to 17, Rare Fruit and Pungent Garlic",
+            "Warrior Smoothie",
+            0
+        ],
+        [
             "Rumpled Fruit Skin",
             [
                 "Spring"
@@ -4162,12 +4236,84 @@
             0
         ],
         [
+            "Calico Pizza",
+            [
+                "Spring"
+            ],
+            "Desert Festival, Spring 15 to 17, Extremely Sharp Cheddar and Rich Marinara",
+            "Calico Pizza",
+            0
+        ],
+        [
+            "Stuffed Mushrooms",
+            [
+                "Spring"
+            ],
+            "Desert Festival, Spring 15 to 17, Extremely Sharp Cheddar and Mushroom Creme",
+            "Stuffed Mushrooms",
+            0
+        ],
+        [
+            "Elf Quesadilla",
+            [
+                "Spring"
+            ],
+            "Desert Festival, Spring 15 to 17, Extremely Sharp Cheddar and Cherry Syrup",
+            "Elf Quesadilla",
+            0
+        ],
+        [
             "Nachos Of The Desert",
             [
                 "Spring"
             ],
             "Desert Festival, Spring 15 to 17, Extremely Sharp Cheddar and Uncomfortably Hot Sauce",
             "Nachos Of The Desert",
+            0
+        ],
+        [
+            "Cioppino",
+            [
+                "Spring"
+            ],
+            "Desert Festival, Spring 15 to 17, Shrimp and Rich Marinara",
+            "Cioppino",
+            0
+        ],
+        [
+            "Rainforest Shrimp",
+            [
+                "Spring"
+            ],
+            "Desert Festival, Spring 15 to 17, Shrimp and Mushroom Creme",
+            "Rainforest Shrimp",
+            0
+        ],
+        [
+            "Shrimp Donut",
+            [
+                "Spring"
+            ],
+            "Desert Festival, Spring 15 to 17, Shrimp and Cherry Syrup",
+            "Shrimp Donut",
+            0
+        ],
+        [
+            "Smell Of The Sea",
+            [
+                "Spring"
+            ],
+            "Desert Festival, Spring 15 to 17, Shrimp and Pungent Garlic",
+            "Smell Of The Sea",
+            0
+        ],
+        [
+            "Desert Gumbo",
+            [
+                "Spring"
+            ],
+            "Desert Festival, Spring 15 to 17, Shrimp and Uncomfortably Hot Sauce",
+            "Desert Gumbo",
             0
         ],
         [
@@ -4468,6 +4614,71 @@
             0
         ]
     ],
+    "Raccoonsanity": [
+        [
+            "The Giant Stump",
+            [],
+            "",
+            "The Giant Stump",
+            0
+        ],
+        [
+            "Raccoon Request 1",
+            [],
+            "",
+            "Raccoon Request 1",
+            0
+        ],
+        [
+            "Raccoon Request 2",
+            [],
+            "",
+            "Raccoon Request 2",
+            0
+        ],
+        [
+            "Raccoon Request 3",
+            [],
+            "",
+            "Raccoon Request 3",
+            0
+        ],
+        [
+            "Raccoon Request 4",
+            [],
+            "",
+            "Raccoon Request 4",
+            0
+        ],
+        [
+            "Raccoon Request 5",
+            [],
+            "",
+            "Raccoon Request 5",
+            0
+        ],
+        [
+            "Raccoon Request 6",
+            [],
+            "",
+            "Raccoon Request 6",
+            0
+        ],
+        [
+            "Raccoon Request 7",
+            [],
+            "",
+            "Raccoon Request 7",
+            0
+        ],
+        [
+            "Raccoon Request 8",
+            [],
+            "",
+            "Raccoon Request 8",
+            0
+        ]
+    ],
     "Misc": [
         [
             "Bamboo Pole Cutscene",
@@ -4525,62 +4736,6 @@
             [],
             "",
             "Deluxe Pack",
-            0
-        ],
-        [
-            "Raccoon Request 1",
-            [],
-            "",
-            "Raccoon Request 1",
-            0
-        ],
-        [
-            "Raccoon Request 2",
-            [],
-            "",
-            "Raccoon Request 2",
-            0
-        ],
-        [
-            "Raccoon Request 3",
-            [],
-            "",
-            "Raccoon Request 3",
-            0
-        ],
-        [
-            "Raccoon Request 4",
-            [],
-            "",
-            "Raccoon Request 4",
-            0
-        ],
-        [
-            "Raccoon Request 5",
-            [],
-            "",
-            "Raccoon Request 5",
-            0
-        ],
-        [
-            "Raccoon Request 6",
-            [],
-            "",
-            "Raccoon Request 6",
-            0
-        ],
-        [
-            "Raccoon Request 7",
-            [],
-            "",
-            "Raccoon Request 7",
-            0
-        ],
-        [
-            "Raccoon Request 8",
-            [],
-            "",
-            "Raccoon Request 8",
             0
         ],
         [
@@ -4687,6 +4842,41 @@
             "Silver Wine, Dinosaur Mayonnaise, Prismatic Shard, 5 Gold Ancient Fruit, Gold Void Salmon, Caviar",
             "The Missing Bundle",
             0
+        ],
+        [
+            "Fishing Mastery",
+            [],
+            "",
+            "Fishing Mastery",
+            1
+        ],
+        [
+            "Foraging Mastery",
+            [],
+            "",
+            "Foraging Mastery",
+            1
+        ],
+        [
+            "Mining Mastery",
+            [],
+            "",
+            "Mining Mastery",
+            1
+        ],
+        [
+            "Combat Mastery",
+            [],
+            "",
+            "Combat Mastery",
+            1
+        ],
+        [
+            "Farming Mastery",
+            [],
+            "",
+            "Farming Mastery",
+            1
         ]
     ]
 }

@@ -1,7 +1,10 @@
 # server_connection.py
 
 import asyncio
+import bisect
 import os
+import re
+import threading
 import websockets
 import json
 import uuid
@@ -11,30 +14,54 @@ from NetUtils import encode
 import Utils
 
 # Paths for item and location tables in JSONPull
-item_file_path = "../JSONPull/stardew_valley_item_table.json"
-location_file_path = "../JSONPull/stardew_valley_location_table.json"
+item_file_path = "../JSONPull/item_name_to_id.json"
+location_file_path = "../JSONPull/location_name_to_id.json"
 player_table_path = "../JSONStore/player_table.json"
 checked_location_path = "../JSONStore/checked_location.json"
 all_locations_path = "../JSONStore/all_locations.json"
 current_items_path = "../JSONStore/current_items.json"
+hint_my_location_file_path = "../JSONStore/hint_my_location.json"
+hint_my_item_file_path = "../JSONStore/hint_my_item.json"
 all_data_path = "../JSONPull/all_data.json"
 data_path = "../JSONStore/data.json"
 log_file_path = "../serverlog.txt"
-hollow_knight_item_file_path = "../JSONPull/hollow_knight_item_table.json"
-hollow_knight_location_file_path = "../JSONPull/hollow_knight_location_table.json"
 
-# Load the Hollow Knight item and location data
-with open(hollow_knight_item_file_path, 'r') as hk_item_file:
-    hollow_knight_item_data = json.load(hk_item_file)["items"]
+# Load the JSON files into lists
+with open(item_file_path, 'r') as item_file:
+    item_data = json.load(item_file)  # Flat list of objects
 
-with open(hollow_knight_location_file_path, 'r') as hk_location_file:
-    hollow_knight_location_data = json.load(hk_location_file)["locations"]
+with open(location_file_path, 'r') as location_file:
+    location_data = json.load(location_file)  # Flat list of objects
+
+# Preprocess the data into sorted lists and dictionaries for efficient lookups
+item_ids = [entry["id"] for entry in item_data]
+item_names = {entry["id"]: entry["name"] for entry in item_data}
+
+location_ids = [entry["id"] for entry in location_data]
+location_names = {entry["id"]: entry["name"] for entry in location_data}
+
+def get_item_name(item_id):
+    """Retrieve the item name by item ID using binary search."""
+    index = bisect.bisect_left(item_ids, item_id)
+    if index < len(item_ids) and item_ids[index] == item_id:
+        return item_names[item_id]
+    return "Unknown Item"
+
+def get_location_name(location_id):
+    """Retrieve the location name by location ID using binary search."""
+    index = bisect.bisect_left(location_ids, location_id)
+    if index < len(location_ids) and location_ids[index] == location_id:
+        return location_names[location_id]
+    return "Unknown Location"
 
 # Define a global websocket variable
 global_websocket = None
+# Track the player's name
+global_player_name = None
+
 
 class MessageEmitter(QObject):
-    message_signal = pyqtSignal(str, int)  # Emit both text and state
+    message_signal = pyqtSignal(str)  # Emit both text and state
 
 
 # Instantiate a global emitter object
@@ -53,6 +80,7 @@ async def connect_to_server(server_address, player_slot):
             await listen_to_server(global_websocket)
 
     except Exception as e:
+        print_to_server_console(f"The server address: {server_address} is unresponsive. Try refreshing the Archipelago Page and try again.")
         print("An error occurred:", e)
 
 async def handle_server_message(message, send_to_main_program):
@@ -81,12 +109,6 @@ async def listen_to_server(websocket):
         print(f"An error occurred: {e}")
     return None, None
 
-with open(item_file_path, 'r') as item_file:
-    item_data = json.load(item_file)["items"]
-
-with open(location_file_path, 'r') as location_file:
-    location_data = json.load(location_file)["locations"]
-
 if os.path.exists(player_table_path):
     with open(player_table_path, 'r') as player_file:
         try:
@@ -100,20 +122,6 @@ if os.path.exists(checked_location_path):
             data = json.load(checked_file)
         except json.JSONDecodeError:
             print("Error: Could not decode JSON in checked_location.json.")
-
-def get_item_name(item_id):
-    """Retrieve the item name by item ID."""
-    for name, info in item_data.items():
-        if info["code"] == item_id:
-            return name
-    return None  # Return None if item ID is not found
-
-def get_location_name(location_id):
-    """Retrieve the location name by location ID."""
-    for name, info in location_data.items():
-        if info["code"] == location_id:
-            return name
-    return None  # Return None if location ID is not found
 
 # Load player data from player_table.json
 def load_player_data():
@@ -208,11 +216,9 @@ async def handle_ReceivedItems(entry):
     with open(current_items_path, 'w') as current_items_file:
         json.dump({"current_items": current_items}, current_items_file, indent=4)
 
-    # Print or store the list of received item names
-    print_to_server_console("Updated Current Items", 1)
-
 def handle_print_json(entry):
     """Process 'PrintJSON' command to interpret and display text fields."""
+    item_referenced_player = "null"
     players = load_player_data()  # Load players from JSON file
 
     try:
@@ -225,74 +231,177 @@ def handle_print_json(entry):
         # Check for "[Hint]: " at the start of the first text field
         is_hint_message = entry["data"][0].get("text", "").startswith("[Hint]: ")
 
+        #The will build the message
         message_parts = []
-        item_unknown = False
-        location_unknown = False
-        state = not is_hint_message  # Set state to False if it's a hint message
-        true_state = 3
-        print("true_state = 3")
+        my_location = True
+        my_item = True
+        flag_detail = "null"
 
         for item in entry["data"]:
             # Process text field and additional information if present
             text = item.get("text", "")
-            item_type = item.get("type")
+            flag = item.get("flags", "")
+            color = item.get("color", "")
+            # color returns red (not found) or green (found)
+            type = item.get("type")
 
-            # Interpret player, item, and location codes using JSON lookup
-            if item_type == "player_id":
+            if color == "green":
+                found = "found"
+            else:
+                found = "not found"
+
+            if flag == 0:
+                flag_detail = "filler"
+            elif flag == 2:
+                flag_detail = "useful"
+            elif flag == 1:
+                flag_detail = "progressive"
+
+            if type == "player_id":
                 player_name = get_player_name_by_slot(int(text), players)
                 text = player_name if player_name else "Unknown Player"
-            elif item_type == "item_id":
-                print(f"Item ID: {int(text)}")
-                id = int(text)
-                item_name = get_item_name(int(text))
-                true_state = 0
-                print("true_state = 0(Item)")
-                if item_name:
-                    text = item_name
-                    if id > 10000000:
-                        true_state = 3
 
+            #{"text":"16777216","player":1,"flags":2,"type":"item_id"}
+            elif type == "item_id":
+                #Using the item id given to find the item associated with that id
+                item_name = get_item_name(int(text))
+                text = item_name
+                item_referenced_player = get_player_name_by_slot(item.get("player", ""), players)
+
+                #If the player name matches the player name of the client, then assume this is my item
+                print(f"Item Check: Does {item_referenced_player} = {global_player_name}")
+                if item_referenced_player == global_player_name:
+                    my_item = True
                 else:
-                    text = "Otherworldly Item"
-                    item_unknown = True
-            elif item_type == "location_id":
-                print(f"Location ID: {int(text)}")
-                id = int(text)
+                    my_item = False
+
+            #{"text":"717001","player":1,"type":"location_id"}        
+            elif type == "location_id":
+                #Using the location id given to find the location associated with that id
                 location_name = get_location_name(int(text))
-                true_state = 0
-                print("true_state = 0(Location)")
+                text = location_name
+                location_referenced_player = get_player_name_by_slot(item.get("player", ""), players)
+
+                #If this is a location name then add that location as a checked location in the json file to track it.
                 if location_name:
-                    text = location_name
-                    if id > 10000000:
-                        true_state = 2
                     # Only update checked_location.json if it's not a hint message
                     if not is_hint_message and location_name not in checked_locations_data["checked_locations"]:
                         checked_locations_data["checked_locations"].append(location_name)
                         # Save the updated list back to the file
                         with open(checked_location_path, 'w') as location_file:
                             json.dump(checked_locations_data, location_file, indent=4)
+
+                #If the player name matches the player name of the client, then assume this is my location
+                print(f"Location Check: Does {location_referenced_player} = {global_player_name}")
+                if location_referenced_player == global_player_name:
+                    my_location = True
                 else:
-                    text = "Otherworldly Location"
-                    location_unknown = True
+                    my_location = False
 
             # Add interpreted text to message parts
             message_parts.append(text)
 
+        if is_hint_message:
+            if my_location:
+                player_clean = re.sub(r"\{['\"]|['\"]\}", "", str(item_referenced_player))
+                itemname_clean = re.sub(r"\{['\"]|['\"]\}", "", str(item_name))
+                location_clean = re.sub(r"\{['\"]|['\"]\}", "", str(location_name))
 
-        if item_unknown == True:
-            true_state = 1
-            print("true_state = 1")
-        if location_unknown == True:
-            true_state = 2
-            print("true_state = 2")
-        if (item_unknown and location_unknown) == True:
-            true_state = 3
-            print("true_state = 3")
+                itemname_clean = f"{player_clean}'s {itemname_clean}"
+                process_hint(player_clean, itemname_clean, location_clean, flag_detail, found, hint_my_location_file_path)
+            else:
+                if my_item:
+                    player_clean = re.sub(r"\{['\"]|['\"]\}", "", str(location_referenced_player))
+                    itemname_clean = re.sub(r"\{['\"]|['\"]\}", "", str(item_name))
+                    location_clean = re.sub(r"\{['\"]|['\"]\}", "", str(location_name))
 
-        if not (item_unknown and location_unknown):
-            full_message = "".join(message_parts)
-            print(f"Final True State = {true_state}")
-            print_to_server_console(full_message, true_state)
+                    location_clean = f"{player_clean}'s {location_clean}"
+                    process_hint(player_clean, itemname_clean, location_clean, flag_detail, found, hint_my_item_file_path)
+        else:
+            if my_location or my_item:
+                if not flag == 0:
+                    full_message = "".join(message_parts)
+                    print_to_server_console(full_message)
+
+# Lock for thread-safe file operations
+file_lock = threading.Lock()
+
+def get_tab(location_clean, data_path):
+    try:
+        with open(data_path, "r") as file:
+            data = json.load(file)
+            for header, entries in data.items():
+                for entry in entries:
+                    # Check if entry is a list and location_clean matches the 4th element
+                    if isinstance(entry, list) and len(entry) > 3 and location_clean == entry[3]:
+                        return header
+        print(f"Location '{location_clean}' not found in {data_path}.")
+        return None
+    except Exception as e:
+        print(f"An error occurred while reading {data_path}: {e}")
+        return None
+
+
+def process_hint(player_clean, itemname_clean, location_clean, flag_detail, found, filepath):
+    try:
+        tab = get_tab(location_clean, data_path)  # Get the tab based on location_clean
+
+        if tab is None:
+            print(f"Tab could not be determined for location: {location_clean}. Defaulting to 'Unknown'.")
+            tab = "Unknown"
+
+        with file_lock:
+            # Load the JSON data from the file
+            if os.path.exists(filepath):
+                with open(filepath, "r") as file:
+                    try:
+                        notes = json.load(file)
+                    except json.JSONDecodeError:
+                        print(f"Error decoding JSON from file: {filepath}. Reinitializing.")
+                        notes = []
+            else:
+                notes = []
+
+            # Ensure notes is a list
+            if not isinstance(notes, list):
+                print(f"Unexpected JSON structure in {filepath}. Reinitializing.")
+                notes = []
+
+            # Find the matching entry by 'checkbox_text'
+            match_found = False
+            for entry in notes:
+                if entry["checkbox_text"] == location_clean:
+                    # Update the 'hint_input' for the matching entry
+                    entry["hint_input"] = itemname_clean
+                    entry["class"] = flag_detail
+                    entry["state"] = found
+                    entry["tab"] = tab
+                    match_found = True
+                    print(f"Updated hint for location '{location_clean}' to: {entry['hint_input']}")
+                    break
+
+            # If no match is found, add a new entry
+            if not match_found:
+                new_entry = {
+                    "checkbox_text": location_clean,
+                    "hint_input": itemname_clean,
+                    "class": flag_detail,
+                    "state": found,
+                    "tab": tab
+                }
+                notes.append(new_entry)
+                print(f"Added new entry: {new_entry}")
+
+            # Write updates to a temporary file first
+            temp_path = filepath + ".tmp"
+            with open(temp_path, "w") as temp_file:
+                json.dump(notes, temp_file, indent=4)
+
+            # Replace the original file with the temp file
+            os.replace(temp_path, filepath)
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 async def handle_connected(entry):
     """Process 'Connected' command to save player and location information, and update all_locations.json."""
@@ -317,14 +426,6 @@ async def handle_connected(entry):
     print(f"checked locations = {game_checked_locations}")
     missing_locations = entry.get("missing_locations", [])  # Retrieve missing locations
 
-    # Load the location table
-    try:
-        with open(location_file_path, 'r') as location_file:
-            location_table = json.load(location_file)["locations"]
-    except (FileNotFoundError, json.JSONDecodeError):
-        print("Error: Could not load stardew_valley_location_table.json.")
-        return
-
     # Load existing checked_locations.json
     try:
         with open(checked_location_path, 'r') as checked_file:
@@ -334,10 +435,7 @@ async def handle_connected(entry):
 
     # Match checked locations by code and update checked_locations.json
     for loc_code in game_checked_locations:
-        matched_location = next(
-            (name for name, details in location_table.items() if details["code"] == loc_code),
-            None
-        )
+        matched_location = location_names.get(loc_code)
         if matched_location and matched_location not in checked_locations_data["checked_locations"]:
             checked_locations_data["checked_locations"].append(matched_location)
 
@@ -350,10 +448,7 @@ async def handle_connected(entry):
     all_locations = set(checked_locations_data["checked_locations"])  # Start with checked locations
 
     for loc_code in game_checked_locations + missing_locations:
-        matched_location = next(
-            (name for name, details in location_table.items() if details["code"] == loc_code),
-            None
-        )
+        matched_location = location_names.get(loc_code)
         if matched_location:
             all_locations.add(matched_location)
 
@@ -369,8 +464,8 @@ async def handle_connected(entry):
 
     update_data_with_all_locations()
 
-def update_data_with_all_locations():
 
+def update_data_with_all_locations():
     # Load all_data.json
     try:
         with open(all_data_path, 'r') as all_data_file:
@@ -436,46 +531,21 @@ def update_data_with_all_locations():
             missing_locations_from_locations.append(location)
             print(f"Location '{location}' is in all_locations.json but missing from all_data.json.")
 
-
-    # Print out the entire `data` structure for inspection before saving
-    #print("\nData structure before saving to data.json:")
-    #print(json.dumps(data, indent=4))
-
-    # Check if the data.json file has write permissions
-    if os.access(data_path, os.W_OK):
-        print("data.json has write permissions.")
-    else:
-        print("data.json does NOT have write permissions.")
-
     # Write the updated data.json safely
     try:
         with open(data_path, 'w') as data_file:
             json.dump(data, data_file, indent=4)
-            data_file.flush()  # Ensure data is written to the file
-            os.fsync(data_file.fileno())  # Ensure data is written to disk
     except Exception as e:
         print(f"Error occurred while saving data.json: {e}")
         return
 
-    # Confirm changes by reloading data.json
-    try:
-        with open(data_path, 'r') as data_file:
-            saved_data = json.load(data_file)
-            print(json.dumps(saved_data, indent=4))
-            if saved_data == data:
-                print("Changes confirmed in data.json.")
-            else:
-                print("Warning: Changes not reflected in reloaded data.json.")
-    except Exception as e:
-        print(f"Error occurred while reloading data.json for confirmation: {e}")
-
-    print_to_server_console("Updated All Locations", 4)
+    print("Updated data.json successfully.")
         
 
-def print_to_server_console(text, state):
+def print_to_server_console(text):
     """Emit the parsed text to the server console output in Tracker.py."""
     # Emit the text to the connected GUI console in Tracker.py
-    message_emitter.message_signal.emit(text, state)
+    message_emitter.message_signal.emit(text)
 
 async def log_to_file(message):
     """Append a message to the log file."""
@@ -484,6 +554,7 @@ async def log_to_file(message):
 
 async def send_initial_connect(websocket, player_name):
     """Send the initial Connect packet to the server."""
+    global global_player_name  # Declare that we are using the global variable
     connect_packet = [{
         'cmd': 'Connect',
         'password': None,
@@ -496,6 +567,7 @@ async def send_initial_connect(websocket, player_name):
         'slot_data': False
     }]
 
+    global_player_name = player_name
     await websocket.send(encode(connect_packet))
     print(f"Sending at: {websocket}")
     print("Sent initial Connect packet to the server.")

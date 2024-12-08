@@ -1,4 +1,5 @@
 {
     "server_address": "wss://archipelago.gg:",
-    "slot_name": ""
+    "slot_name": "",
+    "season": null
 }
