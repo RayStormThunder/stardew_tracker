@@ -1,0 +1,448 @@
+{
+    "Can Cook": [
+        {
+            "or_items": [
+                {
+                    "goal": "Cookout Kit"
+                },
+                {
+                    "goal": "Has Kitchen"
+                }
+            ]
+        }
+    ],
+    "Can Marry": [
+        {
+            "and_items": [
+                {
+                    "goal": "Tide Pool Access"
+                },
+                {
+                    "goal": "Has Kitchen"
+                },
+                {
+                    "or_items": [
+                        {
+                            "item": "Alex <3",
+                            "count": 4
+                        },
+                        {
+                            "item": "Elliott <3",
+                            "count": 4
+                        },
+                        {
+                            "item": "Harvey <3",
+                            "count": 4
+                        },
+                        {
+                            "item": "Sam <3",
+                            "count": 4
+                        },
+                        {
+                            "item": "Sebastian <3",
+                            "count": 4
+                        },
+                        {
+                            "item": "Shane <3",
+                            "count": 4
+                        },
+                        {
+                            "item": "Abigail <3",
+                            "count": 4
+                        },
+                        {
+                            "item": "Emily <3",
+                            "count": 4
+                        },
+                        {
+                            "item": "Haley <3",
+                            "count": 4
+                        },
+                        {
+                            "item": "Leah <3",
+                            "count": 4
+                        },
+                        {
+                            "item": "Maru <3",
+                            "count": 4
+                        },
+                        {
+                            "item": "Penny <3",
+                            "count": 4
+                        } 
+                    ]
+                },
+                {
+                    "or_items": [
+                        {
+                            "goal": "Has Spring"
+                        },
+                        {
+                            "goal": "Has Summer"
+                        },
+                        {
+                            "goal": "Has Fall"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "Can Date": [
+        {
+            "or_items": [
+                {
+                    "item": "Alex <3",
+                    "count": 4
+                },
+                {
+                    "item": "Elliott <3",
+                    "count": 4
+                },
+                {
+                    "item": "Harvey <3",
+                    "count": 4
+                },
+                {
+                    "item": "Sam <3",
+                    "count": 4
+                },
+                {
+                    "item": "Sebastian <3",
+                    "count": 4
+                },
+                {
+                    "item": "Shane <3",
+                    "count": 4
+                },
+                {
+                    "item": "Abigail <3",
+                    "count": 4
+                },
+                {
+                    "item": "Emily <3",
+                    "count": 4
+                },
+                {
+                    "item": "Haley <3",
+                    "count": 4
+                },
+                {
+                    "item": "Leah <3",
+                    "count": 4
+                },
+                {
+                    "item": "Maru <3",
+                    "count": 4
+                },
+                {
+                    "item": "Penny <3",
+                    "count": 4
+                } 
+            ]
+        }
+
+    ],
+    "Can Dance": [
+        {
+            "or_items": [
+                {
+                    "or_items": [
+                        {
+                            "item": "Abigail <3",
+                            "count": 2
+                        },
+                        {
+                            "item": "Emily <3",
+                            "count": 2
+                        },
+                        {
+                            "item": "Haley <3",
+                            "count": 2
+                        },
+                        {
+                            "item": "Leah <3",
+                            "count": 2
+                        },
+                        {
+                            "item": "Maru <3",
+                            "count": 2
+                        },
+                        {
+                            "item": "Penny <3",
+                            "count": 2
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "Can Craft Scarecrow": [
+        {
+            "and_items": [
+                {
+                    "item": "Farming Level",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Can Craft Cherry Bomb": [
+        {
+            "and_items": [
+                {
+                    "item": "Mining Level",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Can Craft Bomb": [
+        {
+            "and_items": [
+                {
+                    "item": "Mining Level",
+                    "count": 6
+                }
+            ]
+        }
+    ],
+    "Can Craft Mega Bomb": [
+        {
+            "and_items": [
+                {
+                    "item": "Mining Level",
+                    "count": 8
+                }
+            ]
+        }
+    ],
+    "Can Craft Explosive Ammo": [
+        {
+            "and_items": [
+                {
+                    "item": "Combat Level",
+                    "count": 8
+                }
+            ]
+        }
+    ],
+    "Can Craft Tree Fertilizer": [
+        {
+            "and_items": [
+                {
+                    "item": "Farming Level",
+                    "count": 7
+                }
+            ]
+        }
+    ],
+    "Can Purchase Fiberglass Rod": [
+        {
+            "and_items": [
+                {
+                    "item": "Fishing Level",
+                    "count": 2
+                }
+            ]
+        }
+    ],
+    "Can Purchase Iridium Rod": [
+        {
+            "and_items": [
+                {
+                    "item": "Fishing Level",
+                    "count": 6
+                }
+            ]
+        }
+    ],
+    "Can Plant Spring Crops": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                },
+                {
+                    "item": "Garden Pot",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Can Plant Summer Crops": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                },
+                {
+                    "item": "Garden Pot",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Can Plant Fall Crops": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                },
+                {
+                    "item": "Garden Pot",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Can Plant Winter Crops": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Winter"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                },
+                {
+                    "item": "Garden Pot",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Can Fish": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Fishing Rod",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Can Catch Basic Fish": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Fishing Rod",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Can Get Tree Seeds": [
+        {
+            "and_items": [
+                {
+                    "item": "Foraging Level",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Can Catch Moderate Fish": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Fishing Rod",
+                    "count": 2
+                },
+                {
+                    "item": "Fishing Level",
+                    "count": 4
+                }
+            ]
+        }
+    ],
+    "Can Catch Intermediate Fish": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Fishing Rod",
+                    "count": 2
+                },
+                {
+                    "item": "Fishing Level",
+                    "count": 5
+                }
+            ]
+        }
+    ],
+    "Can Catch Difficult Fish": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Fishing Rod",
+                    "count": 2
+                },
+                {
+                    "item": "Fishing Level",
+                    "count": 6
+                }
+            ]
+        }
+    ],
+    "Can Catch Extreme Fish": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Fishing Rod",
+                    "count": 4
+                },
+                {
+                    "item": "Fishing Level",
+                    "count": 7
+                }
+            ]
+        }
+    ],
+    "Can Catch Impossible Fish": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Fishing Rod",
+                    "count": 4
+                },
+                {
+                    "item": "Fishing Level",
+                    "count": 8
+                }
+            ]
+        }
+    ],
+    "Can Break Strong Stumps": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Axe",
+                    "count": 2
+                }
+            ]
+        }
+    ],
+    "Can Break Strong Rocks": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Pickaxe",
+                    "count": 2
+                }
+            ]
+        }
+    ]
+}

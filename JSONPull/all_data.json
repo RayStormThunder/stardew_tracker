@@ -1,5 +1,5 @@
 {
-    "Bundles": [
+    "Boiler Room": [
         [
             "Complete Boiler Room",
             [],
@@ -15,7 +15,7 @@
                 "Fall",
                 "Winter"
             ],
-            "Copper Bar, Iron Bar, Gold Bar",
+            "",
             "Blacksmith's Bundle",
             0
         ],
@@ -27,7 +27,7 @@
                 "Fall",
                 "Winter"
             ],
-            "Quartz, Earth Crystal, Frozen Tear, Fire Quartz",
+            "",
             "Geologist's Bundle",
             0
         ],
@@ -39,10 +39,54 @@
                 "Fall",
                 "Winter"
             ],
-            "99 Slime, 10 Bat Wings, 10 Solar Essence, 10 Void Essence",
+            "",
             "Adventurer's Bundle",
             0
         ],
+        [
+            "BR - Archaeologist's Bundle",
+            [],
+            "",
+            "Archaeologist's Bundle",
+            0
+        ],
+        [
+            "BR - Demolition Bundle",
+            [],
+            "",
+            "Demolition Bundle",
+            0
+        ],
+        [
+            "BR - Engineer's Bundle",
+            [],
+            "",
+            "Engineer's Bundle",
+            0
+        ],
+        [
+            "BR - Paleontologist's Bundle",
+            [],
+            "",
+            "Paleontologist's Bundle",
+            0
+        ],
+        [
+            "BR - Recycling Bundle",
+            [],
+            "",
+            "Recycling Bundle",
+            0
+        ],
+        [
+            "BR - Treasure Hunter's Bundle",
+            [],
+            "",
+            "Treasure Hunter's Bundle",
+            0
+        ]
+    ],    
+    "Bulletin Board": [
         [
             "Complete Bulletin Board",
             [],
@@ -55,7 +99,7 @@
             [
                 "Summer"
             ],
-            "Maple Syrup, Fiddlehead Fern, Truffle, Poppy, Maki Roll, Fried Egg",
+            "",
             "Chef's Bundle",
             0
         ],
@@ -64,7 +108,7 @@
             [
                 "Summer"
             ],
-            "Red Mushroom, Sea Urchin, Sunflower, Duck Feather, Aquamarine, Red Cabbage",
+            "",
             "Dye Bundle",
             0
         ],
@@ -73,7 +117,7 @@
             [
                 "Winter"
             ],
-            "Purple Mushroom, Nautilus Shell, Chub, Frozen Geode",
+            "",
             "Field Research Bundle",
             0
         ],
@@ -82,7 +126,7 @@
             [
                 "Fall"
             ],
-            "10 Wheat, 10 Hay, 3 Apples",
+            "",
             "Fodder Bundle",
             0
         ],
@@ -94,7 +138,7 @@
                 "Fall",
                 "Winter"
             ],
-            "Oak Resin, Wine, Rabbit's Foot, Pomegranate",
+            "",
             "Enchanter's Bundle",
             0
         ],
@@ -105,7 +149,7 @@
                 "Summer",
                 "Fall"
             ],
-            "10 Eggs (any type), 10 Milk (any type), 100 Wheat Flour, 100 Sugar",
+            "",
             "Home Cook's Bundle",
             0
         ],
@@ -114,7 +158,7 @@
             [
                 "Summer"
             ],
-            "10 Ancient Dolls, 10 Ice Creams, 10 Cookies",
+            "",
             "Children's Bundle",
             0
         ],
@@ -123,10 +167,54 @@
             [
                 "Fall"
             ],
-            "15 Wild Plums",
+            "",
             "Forager's Bundle",
             0
         ],
+        [
+            "BB - Bartender's Bundle",
+            [],
+            "",
+            "Bartender's Bundle",
+            0
+        ],
+        [
+            "BB - Calico Bundle",
+            [],
+            "",
+            "Calico Bundle",
+            0
+        ],
+        [
+            "BB - Helper's Bundle",
+            [],
+            "",
+            "Helper's Bundle",
+            0
+        ],
+        [
+            "BB - Raccoon Bundle",
+            [],
+            "",
+            "Raccoon Bundle",
+            0
+        ],
+        [
+            "BB - Spirit's Eve Bundle",
+            [],
+            "",
+            "Spirit's Eve Bundle",
+            0
+        ],
+        [
+            "BB - Winter Star Bundle",
+            [],
+            "",
+            "Winter Star Bundle",
+            0
+        ]
+    ],    
+    "Crafts Room": [
         [
             "Complete Crafts Room",
             [],
@@ -139,7 +227,7 @@
             [
                 "Spring"
             ],
-            "Wild Horseradish, Daffodil, Leek, Dandelion, Spring Onion",
+            "",
             "Spring Foraging Bundle",
             0
         ],
@@ -148,7 +236,7 @@
             [
                 "Summer"
             ],
-            "Grape, Spice Berry, Sweet Pea",
+            "",
             "Summer Foraging Bundle",
             0
         ],
@@ -157,7 +245,7 @@
             [
                 "Fall"
             ],
-            "Common Mushroom, Wild Plum, Hazelnut, Blackberry",
+            "",
             "Fall Foraging Bundle",
             0
         ],
@@ -166,7 +254,7 @@
             [
                 "Winter"
             ],
-            "Winter Root, Crystal Fruit, Snow Yam, Crocus, Holly",
+            "",
             "Winter Foraging Bundle",
             0
         ],
@@ -178,7 +266,7 @@
                 "Fall",
                 "Winter"
             ],
-            "99 Wood, 99 Wood, 99 Stone, 10 Hardwood",
+            "",
             "Construction Bundle",
             0
         ],
@@ -190,7 +278,7 @@
                 "Fall",
                 "Winter"
             ],
-            "500 Sap",
+            "",
             "Sticky Bundle",
             0
         ],
@@ -202,7 +290,7 @@
                 "Fall",
                 "Winter"
             ],
-            "Coconut, Cactus Fruit, Cave Carrot, Red Mushroom, Purple Mushroom, Maple Syrup, Oak Resin, Pine Tar, Morel",
+            "",
             "Exotic Foraging Bundle",
             0
         ],
@@ -211,10 +299,54 @@
             [
                 "Summer"
             ],
-            "5 Purple Mushrooms, 5 Fiddlehead Ferns, 5 White Algae, 5 Hops",
+            "",
             "Wild Medicine Bundle",
             0
         ],
+        [
+            "CR - Beach Foraging Bundle",
+            [],
+            "",
+            "Beach Foraging Bundle",
+            0
+        ],
+        [
+            "CR - Desert Foraging Bundle",
+            [],
+            "",
+            "Desert Foraging Bundle",
+            0
+        ],
+        [
+            "CR - Forest Bundle",
+            [],
+            "",
+            "Forest Bundle",
+            0
+        ],
+        [
+            "CR - Green Rain Bundle",
+            [],
+            "",
+            "Green Rain Bundle",
+            0
+        ],
+        [
+            "CR - Mines Foraging Bundle",
+            [],
+            "",
+            "Mines Foraging Bundle",
+            0
+        ],
+        [
+            "CR - Quality Foraging Bundle",
+            [],
+            "",
+            "Quality Foraging Bundle",
+            0
+        ]
+    ],    
+    "Fish Tank": [
         [
             "Complete Fish Tank",
             [],
@@ -230,7 +362,7 @@
                 "Fall",
                 "Winter"
             ],
-            "Sunfish, Catfish, Shad, Tiger Trout",
+            "",
             "River Fish Bundle",
             0
         ],
@@ -240,7 +372,7 @@
                 "Summer",
                 "Winter"
             ],
-            "Largemouth Bass, Carp, Bullhead, Sturgeon",
+            "",
             "Lake Fish Bundle",
             0
         ],
@@ -251,7 +383,7 @@
                 "Fall",
                 "Winter"
             ],
-            "Sardine, Tuna, Red Snapper, Tilapia",
+            "",
             "Ocean Fish Bundle",
             0
         ],
@@ -260,7 +392,7 @@
             [
                 "Fall"
             ],
-            "Walleye, Bream, Eel",
+            "l",
             "Night Fishing Bundle",
             0
         ],
@@ -272,7 +404,7 @@
                 "Fall",
                 "Winter"
             ],
-            "Lobster, Crayfish, Crab, Cockle, Mussel, Shrimp, Snail, Periwinkle, Oyster, Clam",
+            "",
             "Crab Pot Bundle",
             0
         ],
@@ -281,7 +413,7 @@
             [
                 "Summer"
             ],
-            "Pufferfish, Ghostfish, Sandfish, Woodskip",
+            "",
             "Specialty Fish Bundle",
             0
         ],
@@ -290,7 +422,7 @@
             [
                 "Fall"
             ],
-            "Gold or Iridium quality Largemouth Bass, Shad, Tuna, Walleye",
+            "",
             "Quality Fish Bundle",
             0
         ],
@@ -300,10 +432,96 @@
                 "Summer",
                 "Winter"
             ],
-            "Octopus, Blobfish, Lava Eel",
+            "",
             "Master Fisher's Bundle",
             0
         ],
+        [
+            "FT - Deep Fishing Bundle",
+            [],
+            "",
+            "Deep Fishing Bundle",
+            0
+        ],
+        [
+            "FT - Fall Fishing Bundle",
+            [],
+            "",
+            "Fall Fishing Bundle",
+            0
+        ],
+        [
+            "FT - Fish Smoker Bundle",
+            [],
+            "",
+            "Fish Smoker Bundle",
+            0
+        ],
+        [
+            "FT - Legendary Fish Bundle",
+            [],
+            "",
+            "Legendary Fish Bundle",
+            0
+        ],
+        [
+            "FT - Master Baiter Bundle",
+            [],
+            "",
+            "Master Baiter Bundle",
+            0
+        ],
+        [
+            "FT - Rain Fishing Bundle",
+            [],
+            "",
+            "Rain Fishing Bundle",
+            0
+        ],
+        [
+            "FT - Specific Fishing Bundle",
+            [],
+            "",
+            "Specific Fishing Bundle",
+            0
+        ],
+        [
+            "FT - Spring Fishing Bundle",
+            [],
+            "",
+            "Spring Fishing Bundle",
+            0
+        ],
+        [
+            "FT - Summer Fishing Bundle",
+            [],
+            "",
+            "Summer Fishing Bundle",
+            0
+        ],
+        [
+            "FT - Tackle Bundle",
+            [],
+            "",
+            "Tackle Bundle",
+            0
+        ],
+        [
+            "FT - Trash Bundle",
+            [],
+            "",
+            "Trash Bundle",
+            0
+        ],
+        [
+            "FT - Winter Fishing Bundle",
+            [],
+            "",
+            "Winter Fishing Bundle",
+            0
+        ]
+    ],    
+    "Pantry": [
         [
             "Complete Pantry",
             [],
@@ -316,7 +534,7 @@
             [
                 "Spring"
             ],
-            "Parsnip, Green Bean, Cauliflower, Potato, Kale, Carrot",
+            "",
             "Spring Crops Bundle",
             0
         ],
@@ -325,7 +543,7 @@
             [
                 "Summer"
             ],
-            "Tomato, Hot Pepper, Blueberry, Melon, Summer Squash",
+            "",
             "Summer Crops Bundle",
             0
         ],
@@ -334,7 +552,7 @@
             [
                 "Fall"
             ],
-            "Corn, Eggplant, Pumpkin, Yam, Broccoli",
+            "",
             "Fall Crops Bundle",
             0
         ],
@@ -346,8 +564,20 @@
                 "Fall",
                 "Winter"
             ],
-            "Gold quality Parsnip, Green Bean, Potato, Cauliflower, Melon, Blueberry, Hot Pepper, Pumpkin, Yam, Eggplant, Corn",
+            "",
             "Quality Crops Bundle",
+            0
+        ],
+        [
+            "P - Orchard Bundle",
+            [
+                "Spring",
+                "Summer",
+                "Fall",
+                "Winter"
+            ],
+            "",
+            "Orchard Bundle",
             0
         ],
         [
@@ -355,7 +585,7 @@
             [
                 "Fall"
             ],
-            "Ancient Fruit, Sweet Gem Berry",
+            "",
             "Rare Crops Bundle",
             0
         ],
@@ -367,7 +597,7 @@
                 "Fall",
                 "Winter"
             ],
-            "Large Milk, Large Egg (Brown), Large Egg (White), Large Goat Milk, Wool, Duck Egg",
+            "",
             "Animal Bundle",
             0
         ],
@@ -379,8 +609,15 @@
                 "Fall",
                 "Winter"
             ],
-            "15 Roe, 15 Aged Roe, 1 Squid Ink",
+            "",
             "Fish Farmer's Bundle",
+            0
+        ],
+        [
+            "P - Agronomist's Bundle",
+            [],
+            "",
+            "Agronomist's Bundle",
             0
         ],
         [
@@ -390,7 +627,7 @@
                 "Summer",
                 "Fall"
             ],
-            "Tulip, Blue Jazz, Summer Spangle, Sunflower, Fairy Rose",
+            "",
             "Garden Bundle",
             0
         ],
@@ -402,7 +639,7 @@
                 "Fall",
                 "Winter"
             ],
-            "Truffle Oil, Cloth, Goat Cheese, Cheese, Honey, Jelly, Apple, Apricot, Orange, Peach, Pomegranate, Cherry",
+            "",
             "Artisan Bundle",
             0
         ],
@@ -414,10 +651,33 @@
                 "Fall",
                 "Winter"
             ],
-            "Mead, Pale Ale, Wine, Juice, Green Tea",
+            "",
             "Brewer's Bundle",
             0
         ],
+        [
+            "P - Dry Bundle",
+            [],
+            "",
+            "Dry Bundle",
+            0
+        ],
+        [
+            "P - Slime Farmer Bundle",
+            [],
+            "",
+            "Slime Farmer Bundle",
+            0
+        ],
+        [
+            "P - Sommelier Bundle",
+            [],
+            "",
+            "Sommelier Bundle",
+            0
+        ]
+    ],    
+    "Vault": [
         [
             "Complete Vault",
             [],
@@ -519,6 +779,125 @@
             ],
             "25,000g",
             "25,000g Bundle",
+            0
+        ],
+        [
+            "V - 1,000g Bundle",
+            [],
+            "",
+            "1,000g Bundle",
+            0
+        ],
+        [
+            "V - 100,000g Bundle",
+            [],
+            "",
+            "100,000g Bundle",
+            0
+        ],
+        [
+            "V - 14,000g Bundle",
+            [],
+            "",
+            "14,000g Bundle",
+            0
+        ],
+        [
+            "V - 18,000g Bundle",
+            [],
+            "",
+            "18,000g Bundle",
+            0
+        ],
+        [
+            "V - 2,000g Bundle",
+            [],
+            "",
+            "2,000g Bundle",
+            0
+        ],
+        [
+            "V - 20,000g Bundle",
+            [],
+            "",
+            "20,000g Bundle",
+            0
+        ],
+        [
+            "V - 250g Bundle",
+            [],
+            "",
+            "250g Bundle",
+            0
+        ],
+        [
+            "V - 3,500g Bundle",
+            [],
+            "",
+            "3,500g Bundle",
+            0
+        ],
+        [
+            "V - 35,000g Bundle",
+            [],
+            "",
+            "35,000g Bundle",
+            0
+        ],
+        [
+            "V - 4,500g Bundle",
+            [],
+            "",
+            "4,500g Bundle",
+            0
+        ],
+        [
+            "V - 40,000g Bundle",
+            [],
+            "",
+            "40,000g Bundle",
+            0
+        ],
+        [
+            "V - 45,000g Bundle",
+            [],
+            "",
+            "45,000g Bundle",
+            0
+        ],
+        [
+            "V - 500g Bundle",
+            [],
+            "",
+            "500g Bundle",
+            0
+        ],
+        [
+            "V - 7,000g Bundle",
+            [],
+            "",
+            "7,000g Bundle",
+            0
+        ],
+        [
+            "V - 9,000g Bundle",
+            [],
+            "",
+            "9,000g Bundle",
+            0
+        ],
+        [
+            "V - Carnival Bundle",
+            [],
+            "",
+            "Carnival Bundle",
+            0
+        ],
+        [
+            "V - Gambler's Bundle",
+            [],
+            "",
+            "Gambler's Bundle",
             0
         ]
     ],
@@ -2067,6 +2446,18 @@
             0
         ],
         [
+            "Feeding Animals",
+            [
+                "Spring",
+                "Summer",
+                "Fall",
+                "Winter"
+            ],
+            "Complete 'Getting Started'",
+            "Feeding Animals",
+            0
+        ],
+        [
             "Robin's Lost Axe",
             [
                 "Spring"
@@ -2158,7 +2549,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(6am - 11am, 6pm - 2am) (Any Weather) (Ocean) (60 Mixed)",
+            "(6am - 11am, 6pm - 2am) (Sun, Rain) Ocean",
             "Fishsanity: Albacore",
             0
         ],
@@ -2168,7 +2559,7 @@
                 "Spring",
                 "Fall"
             ],
-            "(Anytime) (Any Weather) (Ocean) (30 Dart)",
+            "(6am - 2am) (Sun, Rain) Ocean",
             "Fishsanity: Anchovy",
             0
         ],
@@ -2177,7 +2568,7 @@
             [
                 "Winter"
             ],
-            "(5pm - 2am) (Any Weather) (Submarine) (75 Floater)",
+            "(5pm - 2am) (Sun, Rain) Submarine",
             "Fishsanity: Blobfish",
             0
         ],
@@ -2189,7 +2580,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(6pm - 2am) (Any Weather) (River) (35 Smooth)",
+            "(6pm - 2am) (Sun, Rain) River",
             "Fishsanity: Bream",
             0
         ],
@@ -2201,7 +2592,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Mountain Lake) (46 Smooth)",
+            "(6am - 2am) (Sun, Rain) Lake",
             "Fishsanity: Bullhead",
             0
         ],
@@ -2213,7 +2604,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Mountain Lake, Secret Woods, Pond, Sewers) (15 Mixed)",
+            "(6am - 2am) (Sun, Rain) Lake, Woods, Pond, Sewers",
             "Fishsanity: Carp",
             0
         ],
@@ -2224,7 +2615,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(6am - 12am) (Rain) (River, Secret Woods, Pond) (75 Mixed)",
+            "(6am - 12am) (Rain) River, Woods, Pond",
             "Fishsanity: Catfish",
             0
         ],
@@ -2236,7 +2627,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Cindersap River, Mountain Lake) (35 Dart)",
+            "(6am - 2am) (Sun, Rain) River, Lake",
             "Fishsanity: Chub",
             0
         ],
@@ -2248,7 +2639,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Beach Crab Pot)",
+            "(6am - 2am) (Sun, Rain) Ocean Crab Pot",
             "Fishsanity: Clam",
             0
         ],
@@ -2260,7 +2651,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Beach Crab Pot)",
+            "(6am - 2am) (Sun, Rain) Ocean Crab Pot",
             "Fishsanity: Cockle",
             0
         ],
@@ -2272,7 +2663,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Beach Crab Pot)",
+            "(6am - 2am) (Sun, Rain) Ocean Crab Pot",
             "Fishsanity: Crab",
             0
         ],
@@ -2284,7 +2675,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Freshwater Crab Pot)",
+            "(6am - 2am) (Sun, Rain) Fresh Crab Pot",
             "Fishsanity: Crayfish",
             0
         ],
@@ -2293,7 +2684,7 @@
             [
                 "Summer"
             ],
-            "(6am - 7pm) (Any Weather) (Forest River) (78 Mixed)",
+            "(6am - 7pm) (Sun, Rain) River",
             "Fishsanity: Dorado",
             0
         ],
@@ -2303,7 +2694,7 @@
                 "Spring",
                 "Fall"
             ],
-            "(4pm - 2am) (Rain) (Ocean) (70 Smooth)",
+            "(4pm - 2am) (Rain) Ocean",
             "Fishsanity: Eel",
             0
         ],
@@ -2313,7 +2704,7 @@
                 "Spring",
                 "Summer"
             ],
-            "(6am - 8pm) (Any Weather) (Ocean, Ginger Island) (50 Sinker)",
+            "(6am - 8pm) (Sun, Rain) Ocean, Island",
             "Fishsanity: Flounder",
             0
         ],
@@ -2325,7 +2716,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Mines, Ponds) (50 Mixed)",
+            "(6am - 2am) (Sun, Rain) Mines",
             "Fishsanity: Ghostfish",
             0
         ],
@@ -2337,7 +2728,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Cindersap Waterfalls) (55 Dart)",
+            "(6am - 2am) (Sun, Rain) Waterfalls",
             "Fishsanity: Goby",
             0
         ],
@@ -2348,7 +2739,7 @@
                 "Summer",
                 "Winter"
             ],
-            "(6am - 11am, 7pm - 2am) (Any Weather) (Ocean) (50 Sinker)",
+            "(6am - 11am, 7pm - 2am) (Sun, Rain) Ocean",
             "Fishsanity: Halibut",
             0
         ],
@@ -2358,7 +2749,7 @@
                 "Spring",
                 "Winter"
             ],
-            "(6am - 2am) (Any Weather) (Ocean) (25 Dart)",
+            "(6am - 2am) (Sun, Rain) Ocean",
             "Fishsanity: Herring",
             0
         ],
@@ -2370,7 +2761,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Mines Level 60) (85 Dart)",
+            "(6am - 2am) (Sun, Rain) Mines 60",
             "Fishsanity: Ice Pip",
             0
         ],
@@ -2382,7 +2773,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(6am - 7pm) (Any Weather) (Mountain Lake) (50 Mixed)",
+            "(6am - 7pm) (Sun, Rain) Lake",
             "Fishsanity: Largemouth Bass",
             0
         ],
@@ -2394,7 +2785,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Mines Level 100) (90 Mixed)",
+            "(6am - 2am) (Sun, Rain) Mines 100",
             "Fishsanity: Lava Eel",
             0
         ],
@@ -2403,7 +2794,7 @@
             [
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (River, Mountain Lake) (85 Mixed)",
+            "(6am - 2am) (Sun, Rain) River, Lake",
             "Fishsanity: Lingcod",
             0
         ],
@@ -2415,7 +2806,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Ocean Crab Pot)",
+            "(6am - 2am) (Sun, Rain) Ocean Crab Pot",
             "Fishsanity: Lobster",
             0
         ],
@@ -2425,7 +2816,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(10pm - 2am) (Any Weather) (Forest Pond, Ginger Island) (55 Mixed)",
+            "(10pm - 2am) (Sun, Rain) Pond, Island",
             "Fishsanity: Midnight Carp",
             0
         ],
@@ -2434,7 +2825,7 @@
             [
                 "Winter"
             ],
-            "(5pm - 2am) (Any Weather) (Submarine) (55 Sinker)",
+            "(5pm - 2am) (Sun, Rain) Submarine",
             "Fishsanity: Midnight Squid",
             0
         ],
@@ -2446,7 +2837,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Beach Crab Pot)",
+            "(6am - 2am) (Sun, Rain) Ocean Crab Pot",
             "Fishsanity: Mussel",
             0
         ],
@@ -2455,7 +2846,7 @@
             [
                 "Summer"
             ],
-            "(6am - 1pm) (Any Weather) (Ocean) (95 Sinker)",
+            "(6am - 1pm) (Sun, Rain) Ocean",
             "Fishsanity: Octopus",
             0
         ],
@@ -2467,7 +2858,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Beach Crab Pot)",
+            "(6am - 2am) (Sun, Rain) Ocean Crab Pot",
             "Fishsanity: Oyster",
             0
         ],
@@ -2476,7 +2867,7 @@
             [
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (River, Mountain Lake) (35 Dart)",
+            "(6am - 2am) (Sun, Rain) River, Lake",
             "Fishsanity: Perch",
             0
         ],
@@ -2488,7 +2879,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Freshwater Crab Pot)",
+            "(6am - 2am) (Sun, Rain) Fresh Crab Pot",
             "Fishsanity: Periwinkle",
             0
         ],
@@ -2498,7 +2889,7 @@
                 "Summer",
                 "Winter"
             ],
-            "(6am - 2am) (Any Weather) (River, Forest Pond) (60 Dart)",
+            "(6am - 2am) (Sun, Rain) River, Pond",
             "Fishsanity: Pike",
             0
         ],
@@ -2507,7 +2898,7 @@
             [
                 "Summer"
             ],
-            "(12pm - 4pm) (Sun) (Ocean) (80 Floater)",
+            "(12pm - 4pm) (Sun) Ocean",
             "Fishsanity: Pufferfish",
             0
         ],
@@ -2516,7 +2907,7 @@
             [
                 "Summer"
             ],
-            "(6am - 7pm) (Sun) (River, Mountain Lake) (45 Mixed)",
+            "(6am - 7pm) (Sun) River, Lake",
             "Fishsanity: Rainbow Trout",
             0
         ],
@@ -2526,7 +2917,7 @@
                 "Summer",
                 "Winter"
             ],
-            "(6am - 7pm) (Any Weather) (Ocean) (55 Smooth)",
+            "(6am - 7pm) (Sun, Rain) Ocean",
             "Fishsanity: Red Mullet",
             0
         ],
@@ -2537,7 +2928,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(6am - 7pm) (Rain) (Ocean) (40 Mixed)",
+            "(6am - 7pm) (Rain) Ocean",
             "Fishsanity: Red Snapper",
             0
         ],
@@ -2546,7 +2937,7 @@
             [
                 "Fall"
             ],
-            "(6am - 7pm) (Any Weather) (River) (50 Mixed)",
+            "(6am - 7pm) (Sun, Rain) River",
             "Fishsanity: Salmon",
             0
         ],
@@ -2558,7 +2949,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(6am - 8pm) (Any Weather) (Desert) (65 Mixed)",
+            "(6am - 8pm) (Sun, Rain) Desert",
             "Fishsanity: Sandfish",
             0
         ],
@@ -2569,7 +2960,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(6am - 7pm) (Any Weather) (Ocean) (30 Dart)",
+            "(6am - 7pm) (Sun, Rain) Ocean",
             "Fishsanity: Sardine",
             0
         ],
@@ -2581,7 +2972,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(6am - 8pm) (Any Weather) (Desert) (90 Dart)",
+            "(6am - 8pm) (Sun, Rain) Desert",
             "Fishsanity: Scorpion Carp",
             0
         ],
@@ -2591,7 +2982,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(6am - 7pm) (Any Weather) (Ocean) (40 Sinker)",
+            "(6am - 7pm) (Sun, Rain) Ocean",
             "Fishsanity: Sea Cucumber",
             0
         ],
@@ -2602,7 +2993,7 @@
                 "Summer",
                 "Fall"
             ],
-            "(9am - 2am) (Rain) (River) (45 Smooth)",
+            "(9am - 2am) (Rain) River",
             "Fishsanity: Shad",
             0
         ],
@@ -2614,7 +3005,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Ocean Crab Pot)",
+            "(6am - 2am) (Sun, Rain) Ocean Crab Pot",
             "Fishsanity: Shrimp",
             0
         ],
@@ -2626,7 +3017,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Mutant Bug Lair) (55 Dart)",
+            "(6am - 2am) (Sun, Rain) Mutant Bug Lair",
             "Fishsanity: Slimejack",
             0
         ],
@@ -2636,7 +3027,7 @@
                 "Spring",
                 "Fall"
             ],
-            "(Anytime) (Any Weather) (River, Forest Pond) (28 Mixed)",
+            "(6am - 2am) (Sun, Rain) River, Pond",
             "Fishsanity: Smallmouth Bass",
             0
         ],
@@ -2648,7 +3039,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Freshwater Crab Pot)",
+            "(6am - 2am) (Sun, Rain) Fresh Crab Pot",
             "Fishsanity: Snail",
             0
         ],
@@ -2657,7 +3048,7 @@
             [
                 "Winter"
             ],
-            "(5pm - 2am) (Any Weather) (Submarine) (60 Dart)",
+            "(5pm - 2am) (Sun, Rain) Submarine",
             "Fishsanity: Spook Fish",
             0
         ],
@@ -2666,7 +3057,7 @@
             [
                 "Winter"
             ],
-            "(6pm - 2am) (Any Weather) (Ocean) (75 Sinker)",
+            "(6pm - 2am) (Sun, Rain) Ocean",
             "Fishsanity: Squid",
             0
         ],
@@ -2678,7 +3069,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Mines Level 20) (65 Sinker)",
+            "(6am - 2am) (Sun, Rain) Mines 20",
             "Fishsanity: Stonefish",
             0
         ],
@@ -2688,7 +3079,7 @@
                 "Summer",
                 "Winter"
             ],
-            "(6am - 7pm) (Any Weather) (Mountain Lake) (78 Mixed)",
+            "(6am - 7pm) (Sun, Rain) Lake",
             "Fishsanity: Sturgeon",
             0
         ],
@@ -2698,7 +3089,7 @@
                 "Spring",
                 "Summer"
             ],
-            "(6am - 7pm) (Sun) (River) (30 Dart) (30 Mixed)",
+            "(6am - 7pm) (Sun) River",
             "Fishsanity: Sunfish",
             0
         ],
@@ -2708,7 +3099,7 @@
                 "Summer",
                 "Fall"
             ],
-            "(6pm - 2am) (Any Weather) (Ocean) (80 Sinker)",
+            "(6pm - 2am) (Sun, Rain) Ocean",
             "Fishsanity: Super Cucumber",
             0
         ],
@@ -2718,7 +3109,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(6am - 7pm) (Any Weather) (River) (60 Dart)",
+            "(6am - 7pm) (Sun, Rain) River",
             "Fishsanity: Tiger Trout",
             0
         ],
@@ -2728,7 +3119,7 @@
                 "Summer",
                 "Fall"
             ],
-            "(6am - 2pm) (Any Weather) (Ocean) (50 Mixed)",
+            "(6am - 2pm) (Sun, Rain) Ocean",
             "Fishsanity: Tilapia",
             0
         ],
@@ -2738,7 +3129,7 @@
                 "Summer",
                 "Winter"
             ],
-            "(6am - 7pm) (Any Weather) (Ocean) (70 Smooth)",
+            "(6am - 7pm) (Sun, Rain) Ocean",
             "Fishsanity: Tuna",
             0
         ],
@@ -2750,7 +3141,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Witch's Swamp) (80 Mixed)",
+            "(6am - 2am) (Sun, Rain) Witch's Swamp",
             "Fishsanity: Void Salmon",
             0
         ],
@@ -2760,7 +3151,7 @@
                 "Fall",
                 "Winter"
             ],
-            "(12pm - 2am) (Rain) (River, Mountain Lake, Forest Pond) (45 Smooth)",
+            "(12pm - 2am) (Rain) River, Lake, Pond",
             "Fishsanity: Walleye",
             0
         ],
@@ -2772,9 +3163,9 @@
                 "Fall",
                 "Winter"
             ],
-            "(Anytime) (Any Weather) (Secret Woods, Forest Farm) (50 Mixed)",
+            "(6am - 2am) (Sun, Rain) Woods",
             "Fishsanity: Woodskip",
-            0
+            1
         ]
     ],
     "Chefsanity": [
@@ -2839,338 +3230,954 @@
         [
             "Abigail 2 <3",
             [],
-            "",
+            "(Birthday: Fall 13)",
             "Friendsanity: Abigail 2 <3",
             0
         ],
         [
             "Abigail 4 <3",
             [],
-            "",
+            "(Birthday: Fall 13)",
             "Friendsanity: Abigail 4 <3",
             0
         ],
         [
             "Abigail 6 <3",
             [],
-            "",
+            "(Birthday: Fall 13)",
             "Friendsanity: Abigail 6 <3",
             0
         ],
         [
             "Abigail 8 <3",
             [],
-            "",
+            "(Birthday: Fall 13)",
             "Friendsanity: Abigail 8 <3",
             0
         ],
         [
             "Alex 2 <3",
             [],
-            "",
+            "(Birthday: Summer 13)",
             "Friendsanity: Alex 2 <3",
-            1
+            0
         ],
         [
             "Alex 4 <3",
             [],
-            "",
+            "(Birthday: Summer 13)",
             "Friendsanity: Alex 4 <3",
-            1
+            0
         ],
         [
             "Alex 6 <3",
             [],
-            "",
+            "(Birthday: Summer 13)",
             "Friendsanity: Alex 6 <3",
-            1
+            0
         ],
         [
             "Alex 8 <3",
             [],
-            "",
+            "(Birthday: Summer 13)",
             "Friendsanity: Alex 8 <3",
-            1
+            0
         ],
         [
             "Elliott 2 <3",
             [],
-            "",
+            "(Birthday: Fall 5)",
             "Friendsanity: Elliott 2 <3",
-            1
+            0
         ],
         [
             "Elliott 4 <3",
             [],
-            "",
+            "(Birthday: Fall 5)",
             "Friendsanity: Elliott 4 <3",
-            1
+            0
         ],
         [
             "Elliott 6 <3",
             [],
-            "",
+            "(Birthday: Fall 5)",
             "Friendsanity: Elliott 6 <3",
-            1
+            0
         ],
         [
             "Elliott 8 <3",
             [],
-            "",
+            "(Birthday: Fall 5)",
             "Friendsanity: Elliott 8 <3",
-            1
+            0
         ],
         [
             "Emily 2 <3",
             [],
-            "",
+            "(Birthday: Spring 27)",
             "Friendsanity: Emily 2 <3",
             0
         ],
         [
             "Emily 4 <3",
             [],
-            "",
+            "(Birthday: Spring 27)",
             "Friendsanity: Emily 4 <3",
             0
         ],
         [
             "Emily 6 <3",
             [],
-            "",
+            "(Birthday: Spring 27)",
             "Friendsanity: Emily 6 <3",
             0
         ],
         [
             "Emily 8 <3",
             [],
-            "",
+            "(Birthday: Spring 27)",
             "Friendsanity: Emily 8 <3",
             0
         ],
         [
             "Haley 2 <3",
             [],
-            "",
+            "(Birthday: Spring 14)",
             "Friendsanity: Haley 2 <3",
             0
         ],
         [
             "Haley 4 <3",
             [],
-            "",
+            "(Birthday: Spring 14)",
             "Friendsanity: Haley 4 <3",
             0
         ],
         [
             "Haley 6 <3",
             [],
-            "",
+            "(Birthday: Spring 14)",
             "Friendsanity: Haley 6 <3",
             0
         ],
         [
             "Haley 8 <3",
             [],
-            "",
+            "(Birthday: Spring 14)",
             "Friendsanity: Haley 8 <3",
             0
         ],
         [
             "Harvey 2 <3",
             [],
-            "",
+            "(Birthday: Winter 14)",
             "Friendsanity: Harvey 2 <3",
-            1
+            0
         ],
         [
             "Harvey 4 <3",
             [],
-            "",
+            "(Birthday: Winter 14)",
             "Friendsanity: Harvey 4 <3",
-            1
+            0
         ],
         [
             "Harvey 6 <3",
             [],
-            "",
+            "(Birthday: Winter 14)",
             "Friendsanity: Harvey 6 <3",
-            1
+            0
         ],
         [
             "Harvey 8 <3",
             [],
-            "",
+            "(Birthday: Winter 14)",
             "Friendsanity: Harvey 8 <3",
-            1
+            0
         ],
         [
             "Leah 2 <3",
             [],
-            "",
+            "(Birthday: Winter 23)",
             "Friendsanity: Leah 2 <3",
             0
         ],
         [
             "Leah 4 <3",
             [],
-            "",
+            "(Birthday: Winter 23)",
             "Friendsanity: Leah 4 <3",
             0
         ],
         [
             "Leah 6 <3",
             [],
-            "",
+            "(Birthday: Winter 23)",
             "Friendsanity: Leah 6 <3",
             0
         ],
         [
             "Leah 8 <3",
             [],
-            "",
+            "(Birthday: Winter 23)",
             "Friendsanity: Leah 8 <3",
             0
         ],
         [
             "Maru 2 <3",
             [],
-            "",
+            "(Birthday: Summer 10)",
             "Friendsanity: Maru 2 <3",
             0
         ],
         [
             "Maru 4 <3",
             [],
-            "",
+            "(Birthday: Summer 10)",
             "Friendsanity: Maru 4 <3",
             0
         ],
         [
             "Maru 6 <3",
             [],
-            "",
+            "(Birthday: Summer 10)",
             "Friendsanity: Maru 6 <3",
             0
         ],
         [
             "Maru 8 <3",
             [],
-            "",
+            "(Birthday: Summer 10)",
             "Friendsanity: Maru 8 <3",
             0
         ],
         [
             "Penny 2 <3",
             [],
-            "",
+            "(Birthday: Fall 2)",
             "Friendsanity: Penny 2 <3",
             0
         ],
         [
             "Penny 4 <3",
             [],
-            "",
+            "(Birthday: Fall 2)",
             "Friendsanity: Penny 4 <3",
             0
         ],
         [
             "Penny 6 <3",
             [],
-            "",
+            "(Birthday: Fall 2)",
             "Friendsanity: Penny 6 <3",
             0
         ],
         [
             "Penny 8 <3",
             [],
-            "",
+            "(Birthday: Fall 2)",
             "Friendsanity: Penny 8 <3",
             0
         ],
         [
             "Sam 2 <3",
             [],
-            "",
+            "(Birthday: Summer 17)",
             "Friendsanity: Sam 2 <3",
-            1
+            0
         ],
         [
             "Sam 4 <3",
             [],
-            "",
+            "(Birthday: Summer 17)",
             "Friendsanity: Sam 4 <3",
-            1
+            0
         ],
         [
             "Sam 6 <3",
             [],
-            "",
+            "(Birthday: Summer 17)",
             "Friendsanity: Sam 6 <3",
-            1
+            0
         ],
         [
             "Sam 8 <3",
             [],
-            "",
+            "(Birthday: Summer 17)",
             "Friendsanity: Sam 8 <3",
-            1
+            0
         ],
         [
             "Sebastian 2 <3",
             [],
-            "",
+            "(Birthday: Summer 4)",
             "Friendsanity: Sebastian 2 <3",
-            1
+            0
         ],
         [
             "Sebastian 4 <3",
             [],
-            "",
+            "(Birthday: Summer 4)",
             "Friendsanity: Sebastian 4 <3",
-            1
+            0
         ],
         [
             "Sebastian 6 <3",
             [],
-            "",
+            "(Birthday: Summer 4)",
             "Friendsanity: Sebastian 6 <3",
-            1
+            0
         ],
         [
             "Sebastian 8 <3",
             [],
-            "",
+            "(Birthday: Summer 4)",
             "Friendsanity: Sebastian 8 <3",
-            1
+            0
         ],
         [
             "Shane 2 <3",
             [],
-            "",
+            "(Birthday: Spring 20)",
             "Friendsanity: Shane 2 <3",
-            1
+            0
         ],
         [
             "Shane 4 <3",
             [],
-            "",
+            "(Birthday: Spring 20)",
             "Friendsanity: Shane 4 <3",
-            1
+            0
         ],
         [
             "Shane 6 <3",
             [],
-            "",
+            "(Birthday: Spring 20)",
             "Friendsanity: Shane 6 <3",
-            1
+            0
         ],
         [
             "Shane 8 <3",
             [],
-            "",
+            "(Birthday: Spring 20)",
             "Friendsanity: Shane 8 <3",
-            1
+            0
+        ],
+        [
+            "Caroline 2 <3",
+            [],
+            "(Birthday: Winter 7)",
+            "Friendsanity: Caroline 2 <3",
+            0
+        ],
+        [
+            "Caroline 4 <3",
+            [],
+            "(Birthday: Winter 7)",
+            "Friendsanity: Caroline 4 <3",
+            0
+        ],
+        [
+            "Caroline 6 <3",
+            [],
+            "(Birthday: Winter 7)",
+            "Friendsanity: Caroline 6 <3",
+            0
+        ],
+        [
+            "Caroline 8 <3",
+            [],
+            "(Birthday: Winter 7)",
+            "Friendsanity: Caroline 8 <3",
+            0
+        ],
+        [
+            "Caroline 10 <3",
+            [],
+            "(Birthday: Winter 7)",
+            "Friendsanity: Caroline 10 <3",
+            0
+        ],
+        [
+            "Clint 2 <3",
+            [],
+            "(Birthday: Winter 26)",
+            "Friendsanity: Clint 2 <3",
+            0
+        ],
+        [
+            "Clint 4 <3",
+            [],
+            "(Birthday: Winter 26)",
+            "Friendsanity: Clint 4 <3",
+            0
+        ],
+        [
+            "Clint 6 <3",
+            [],
+            "(Birthday: Winter 26)",
+            "Friendsanity: Clint 6 <3",
+            0
+        ],
+        [
+            "Clint 8 <3",
+            [],
+            "(Birthday: Winter 26)",
+            "Friendsanity: Clint 8 <3",
+            0
+        ],
+        [
+            "Clint 10 <3",
+            [],
+            "(Birthday: Winter 26)",
+            "Friendsanity: Clint 10 <3",
+            0
+        ],
+        [
+            "Demetrius 2 <3",
+            [],
+            "(Birthday: Summer 19)",
+            "Friendsanity: Demetrius 2 <3",
+            0
+        ],
+        [
+            "Demetrius 4 <3",
+            [],
+            "(Birthday: Summer 19)",
+            "Friendsanity: Demetrius 4 <3",
+            0
+        ],
+        [
+            "Demetrius 6 <3",
+            [],
+            "(Birthday: Summer 19)",
+            "Friendsanity: Demetrius 6 <3",
+            0
+        ],
+        [
+            "Demetrius 8 <3",
+            [],
+            "(Birthday: Summer 19)",
+            "Friendsanity: Demetrius 8 <3",
+            0
+        ],
+        [
+            "Demetrius 10 <3",
+            [],
+            "(Birthday: Summer 19)",
+            "Friendsanity: Demetrius 10 <3",
+            0
+        ],
+        [
+            "Evelyn 2 <3",
+            [],
+            "(Birthday: Winter 20)",
+            "Friendsanity: Evelyn 2 <3",
+            0
+        ],
+        [
+            "Evelyn 4 <3",
+            [],
+            "(Birthday: Winter 20)",
+            "Friendsanity: Evelyn 4 <3",
+            0
+        ],
+        [
+            "Evelyn 6 <3",
+            [],
+            "(Birthday: Winter 20)",
+            "Friendsanity: Evelyn 6 <3",
+            0
+        ],
+        [
+            "Evelyn 8 <3",
+            [],
+            "(Birthday: Winter 20)",
+            "Friendsanity: Evelyn 8 <3",
+            0
+        ],
+        [
+            "Evelyn 10 <3",
+            [],
+            "(Birthday: Winter 20)",
+            "Friendsanity: Evelyn 10 <3",
+            0
+        ],
+        [
+            "George 2 <3",
+            [],
+            "(Birthday: Fall 24)",
+            "Friendsanity: George 2 <3",
+            0
+        ],
+        [
+            "George 4 <3",
+            [],
+            "(Birthday: Fall 24)",
+            "Friendsanity: George 4 <3",
+            0
+        ],
+        [
+            "George 6 <3",
+            [],
+            "(Birthday: Fall 24)",
+            "Friendsanity: George 6 <3",
+            0
+        ],
+        [
+            "George 8 <3",
+            [],
+            "(Birthday: Fall 24)",
+            "Friendsanity: George 8 <3",
+            0
+        ],
+        [
+            "George 10 <3",
+            [],
+            "(Birthday: Fall 24)",
+            "Friendsanity: George 10 <3",
+            0
+        ],
+        [
+            "Gus 2 <3",
+            [],
+            "(Birthday: Summer 8)",
+            "Friendsanity: Gus 2 <3",
+            0
+        ],
+        [
+            "Gus 4 <3",
+            [],
+            "(Birthday: Summer 8)",
+            "Friendsanity: Gus 4 <3",
+            0
+        ],
+        [
+            "Gus 6 <3",
+            [],
+            "(Birthday: Summer 8)",
+            "Friendsanity: Gus 6 <3",
+            0
+        ],
+        [
+            "Gus 8 <3",
+            [],
+            "(Birthday: Summer 8)",
+            "Friendsanity: Gus 8 <3",
+            0
+        ],
+        [
+            "Gus 10 <3",
+            [],
+            "(Birthday: Summer 8)",
+            "Friendsanity: Gus 10 <3",
+            0
+        ],
+        [
+            "Jas 2 <3",
+            [],
+            "(Birthday: Summer 4)",
+            "Friendsanity: Jas 2 <3",
+            0
+        ],
+        [
+            "Jas 4 <3",
+            [],
+            "(Birthday: Summer 4)",
+            "Friendsanity: Jas 4 <3",
+            0
+        ],
+        [
+            "Jas 6 <3",
+            [],
+            "(Birthday: Summer 4)",
+            "Friendsanity: Jas 6 <3",
+            0
+        ],
+        [
+            "Jas 8 <3",
+            [],
+            "(Birthday: Summer 4)",
+            "Friendsanity: Jas 8 <3",
+            0
+        ],
+        [
+            "Jas 10 <3",
+            [],
+            "(Birthday: Summer 4)",
+            "Friendsanity: Jas 10 <3",
+            0
+        ],
+        [
+            "Jodi 2 <3",
+            [],
+            "(Birthday: Fall 11)",
+            "Friendsanity: Jodi 2 <3",
+            0
+        ],
+        [
+            "Jodi 4 <3",
+            [],
+            "(Birthday: Fall 11)",
+            "Friendsanity: Jodi 4 <3",
+            0
+        ],
+        [
+            "Jodi 6 <3",
+            [],
+            "(Birthday: Fall 11)",
+            "Friendsanity: Jodi 6 <3",
+            0
+        ],
+        [
+            "Jodi 8 <3",
+            [],
+            "(Birthday: Fall 11)",
+            "Friendsanity: Jodi 8 <3",
+            0
+        ],
+        [
+            "Jodi 10 <3",
+            [],
+            "(Birthday: Fall 11)",
+            "Friendsanity: Jodi 10 <3",
+            0
+        ],
+        [
+            "Lewis 2 <3",
+            [],
+            "(Birthday: Spring 7)",
+            "Friendsanity: Lewis 2 <3",
+            0
+        ],
+        [
+            "Lewis 4 <3",
+            [],
+            "(Birthday: Spring 7)",
+            "Friendsanity: Lewis 4 <3",
+            0
+        ],
+        [
+            "Lewis 6 <3",
+            [],
+            "(Birthday: Spring 7)",
+            "Friendsanity: Lewis 6 <3",
+            0
+        ],
+        [
+            "Lewis 8 <3",
+            [],
+            "(Birthday: Spring 7)",
+            "Friendsanity: Lewis 8 <3",
+            0
+        ],
+        [
+            "Lewis 10 <3",
+            [],
+            "(Birthday: Spring 7)",
+            "Friendsanity: Lewis 10 <3",
+            0
+        ],
+        [
+            "Linus 2 <3",
+            [],
+            "(Birthday: Winter 3)",
+            "Friendsanity: Linus 2 <3",
+            0
+        ],
+        [
+            "Linus 4 <3",
+            [],
+            "(Birthday: Winter 3)",
+            "Friendsanity: Linus 4 <3",
+            0
+        ],
+        [
+            "Linus 6 <3",
+            [],
+            "(Birthday: Winter 3)",
+            "Friendsanity: Linus 6 <3",
+            0
+        ],
+        [
+            "Linus 8 <3",
+            [],
+            "(Birthday: Winter 3)",
+            "Friendsanity: Linus 8 <3",
+            0
+        ],
+        [
+            "Linus 10 <3",
+            [],
+            "(Birthday: Winter 3)",
+            "Friendsanity: Linus 10 <3",
+            0
+        ],
+        [
+            "Marnie 2 <3",
+            [],
+            "(Birthday: Fall 18)",
+            "Friendsanity: Marnie 2 <3",
+            0
+        ],
+        [
+            "Marnie 4 <3",
+            [],
+            "(Birthday: Fall 18)",
+            "Friendsanity: Marnie 4 <3",
+            0
+        ],
+        [
+            "Marnie 6 <3",
+            [],
+            "(Birthday: Fall 18)",
+            "Friendsanity: Marnie 6 <3",
+            0
+        ],
+        [
+            "Marnie 8 <3",
+            [],
+            "(Birthday: Fall 18)",
+            "Friendsanity: Marnie 8 <3",
+            0
+        ],
+        [
+            "Marnie 10 <3",
+            [],
+            "(Birthday: Fall 18)",
+            "Friendsanity: Marnie 10 <3",
+            0
+        ],
+        [
+            "Pam 2 <3",
+            [],
+            "(Birthday: Spring 18)",
+            "Friendsanity: Pam 2 <3",
+            0
+        ],
+        [
+            "Pam 4 <3",
+            [],
+            "(Birthday: Spring 18)",
+            "Friendsanity: Pam 4 <3",
+            0
+        ],
+        [
+            "Pam 6 <3",
+            [],
+            "(Birthday: Spring 18)",
+            "Friendsanity: Pam 6 <3",
+            0
+        ],
+        [
+            "Pam 8 <3",
+            [],
+            "(Birthday: Spring 18)",
+            "Friendsanity: Pam 8 <3",
+            0
+        ],
+        [
+            "Pam 10 <3",
+            [],
+            "(Birthday: Spring 18)",
+            "Friendsanity: Pam 10 <3",
+            0
+        ],
+        [
+            "Pierre 2 <3",
+            [],
+            "(Birthday: Spring 26)",
+            "Friendsanity: Pierre 2 <3",
+            0
+        ],
+        [
+            "Pierre 4 <3",
+            [],
+            "(Birthday: Spring 26)",
+            "Friendsanity: Pierre 4 <3",
+            0
+        ],
+        [
+            "Pierre 6 <3",
+            [],
+            "(Birthday: Spring 26)",
+            "Friendsanity: Pierre 6 <3",
+            0
+        ],
+        [
+            "Pierre 8 <3",
+            [],
+            "(Birthday: Spring 26)",
+            "Friendsanity: Pierre 8 <3",
+            0
+        ],
+        [
+            "Pierre 10 <3",
+            [],
+            "(Birthday: Spring 26)",
+            "Friendsanity: Pierre 10 <3",
+            0
+        ],
+        [
+            "Robin 2 <3",
+            [],
+            "(Birthday: Fall 21)",
+            "Friendsanity: Robin 2 <3",
+            0
+        ],
+        [
+            "Robin 4 <3",
+            [],
+            "(Birthday: Fall 21)",
+            "Friendsanity: Robin 4 <3",
+            0
+        ],
+        [
+            "Robin 6 <3",
+            [],
+            "(Birthday: Fall 21)",
+            "Friendsanity: Robin 6 <3",
+            0
+        ],
+        [
+            "Robin 8 <3",
+            [],
+            "(Birthday: Fall 21)",
+            "Friendsanity: Robin 8 <3",
+            0
+        ],
+        [
+            "Robin 10 <3",
+            [],
+            "(Birthday: Fall 21)",
+            "Friendsanity: Robin 10 <3",
+            0
+        ],
+        [
+            "Vincent 2 <3",
+            [],
+            "(Birthday: Spring 10)",
+            "Friendsanity: Vincent 2 <3",
+            0
+        ],
+        [
+            "Vincent 4 <3",
+            [],
+            "(Birthday: Spring 10)",
+            "Friendsanity: Vincent 4 <3",
+            0
+        ],
+        [
+            "Vincent 6 <3",
+            [],
+            "(Birthday: Spring 10)",
+            "Friendsanity: Vincent 6 <3",
+            0
+        ],
+        [
+            "Vincent 8 <3",
+            [],
+            "(Birthday: Spring 10)",
+            "Friendsanity: Vincent 8 <3",
+            0
+        ],
+        [
+            "Vincent 10 <3",
+            [],
+            "(Birthday: Spring 10)",
+            "Friendsanity: Vincent 10 <3",
+            0
+        ],
+        [
+            "Willy 2 <3",
+            [],
+            "(Birthday: Summer 24)",
+            "Friendsanity: Willy 2 <3",
+            0
+        ],
+        [
+            "Willy 4 <3",
+            [],
+            "(Birthday: Summer 24)",
+            "Friendsanity: Willy 4 <3",
+            0
+        ],
+        [
+            "Willy 6 <3",
+            [],
+            "(Birthday: Summer 24)",
+            "Friendsanity: Willy 6 <3",
+            0
+        ],
+        [
+            "Willy 8 <3",
+            [],
+            "(Birthday: Summer 24)",
+            "Friendsanity: Willy 8 <3",
+            0
+        ],
+        [
+            "Willy 10 <3",
+            [],
+            "(Birthday: Summer 24)",
+            "Friendsanity: Willy 10 <3",
+            0
+        ],
+        [
+            "Wizard 2 <3",
+            [],
+            "(Birthday: Winter 17)",
+            "Friendsanity: Wizard 2 <3",
+            0
+        ],
+        [
+            "Wizard 4 <3",
+            [],
+            "(Birthday: Winter 17)",
+            "Friendsanity: Wizard 4 <3",
+            0
+        ],
+        [
+            "Wizard 6 <3",
+            [],
+            "(Birthday: Winter 17)",
+            "Friendsanity: Wizard 6 <3",
+            0
+        ],
+        [
+            "Wizard 8 <3",
+            [],
+            "(Birthday: Winter 17)",
+            "Friendsanity: Wizard 8 <3",
+            0
+        ],
+        [
+            "Wizard 10 <3",
+            [],
+            "(Birthday: Winter 17)",
+            "Friendsanity: Wizard 10 <3",
+            0
+        ],
+        [
+            "Pet 2 <3",
+            [],
+            "^._.^",
+            "Friendsanity: Pet 2 <3",
+            0
+        ],
+        [
+            "Pet 4 <3",
+            [],
+            "^._.^",
+            "Friendsanity: Pet 4 <3",
+            0
+        ],
+        [
+            "Pet 5 <3",
+            [],
+            "^._.^",
+            "Friendsanity: Pet 5 <3",
+            0
         ]
     ],
     "Cartsanity": [
@@ -3466,7 +4473,7 @@
         [
             "The Art O' Crabbing",
             [],
-            "Power, Reward from Squidfest Iridium Tier",
+            "Power, Must obtain through checks",
             "Read The Art O' Crabbing",
             0
         ],
@@ -3927,73 +4934,10 @@
             0
         ],
         [
-            "Copper Hoe",
-            [],
-            "1 Copper Bar, 400G",
-            "Copper Hoe Upgrade",
-            0
-        ],
-        [
-            "Copper Pickaxe",
-            [],
-            "1 Copper Bar, 400G",
-            "Copper Pickaxe Upgrade",
-            0
-        ],
-        [
-            "Copper Trash Can",
-            [],
-            "1 Copper Bar, 200G",
-            "Copper Trash Can Upgrade",
-            0
-        ],
-        [
-            "Copper Watering Can",
-            [],
-            "1 Copper Bar, 400G",
-            "Copper Watering Can Upgrade",
-            0
-        ],
-        [
             "Iron Axe",
             [],
             "1 Iron Bar, 1000G",
             "Iron Axe Upgrade",
-            0
-        ],
-        [
-            "Iron Hoe",
-            [],
-            "1 Iron Bar, 1000G",
-            "Iron Hoe Upgrade",
-            0
-        ],
-        [
-            "Iron Pickaxe",
-            [],
-            "1 Iron Bar, 1000G",
-            "Iron Pickaxe Upgrade",
-            0
-        ],
-        [
-            "Iron Trash Can",
-            [],
-            "1 Iron Bar, 1000G",
-            "Iron Trash Can Upgrade",
-            0
-        ],
-        [
-            "Iron Watering Can",
-            [],
-            "1 Iron Bar, 1000G",
-            "Iron Watering Can Upgrade",
-            0
-        ],
-        [
-            "Iron Pan",
-            [],
-            "1 Iron Bar, 1000G",
-            "Iron Pan Upgrade",
             0
         ],
         [
@@ -4004,24 +4948,24 @@
             0
         ],
         [
-            "Gold Hoe",
+            "Iridium Axe",
             [],
-            "1 Gold Bar, 2000G",
-            "Gold Hoe Upgrade",
+            "1 Iridium Bar, 5000G",
+            "Iridium Axe Upgrade",
             0
         ],
         [
-            "Gold Pickaxe",
+            "Copper Watering Can",
             [],
-            "1 Gold Bar, 2000G",
-            "Gold Pickaxe Upgrade",
+            "1 Copper Bar, 400G",
+            "Copper Watering Can Upgrade",
             0
         ],
         [
-            "Gold Trash Can",
+            "Iron Watering Can",
             [],
-            "1 Gold Bar, 2000G",
-            "Gold Trash Can Upgrade",
+            "1 Iron Bar, 1000G",
+            "Iron Watering Can Upgrade",
             0
         ],
         [
@@ -4032,24 +4976,31 @@
             0
         ],
         [
-            "Gold Pan",
+            "Iridium Watering Can",
             [],
-            "1 Gold Bar, 1000G",
-            "Gold Pan Upgrade",
+            "1 Iridium Bar, 5000G",
+            "Iridium Watering Can Upgrade",
             0
         ],
         [
-            "Iridium Axe",
+            "Copper Pickaxe",
             [],
-            "1 Iridium Bar, 5000G",
-            "Iridium Axe Upgrade",
+            "1 Copper Bar, 400G",
+            "Copper Pickaxe Upgrade",
             0
         ],
         [
-            "Iridium Hoe",
+            "Iron Pickaxe",
             [],
-            "1 Iridium Bar, 5000G",
-            "Iridium Hoe Upgrade",
+            "1 Iron Bar, 1000G",
+            "Iron Pickaxe Upgrade",
+            0
+        ],
+        [
+            "Gold Pickaxe",
+            [],
+            "1 Gold Bar, 2000G",
+            "Gold Pickaxe Upgrade",
             0
         ],
         [
@@ -4060,6 +5011,55 @@
             0
         ],
         [
+            "Copper Hoe",
+            [],
+            "1 Copper Bar, 400G",
+            "Copper Hoe Upgrade",
+            0
+        ],
+        [
+            "Iron Hoe",
+            [],
+            "1 Iron Bar, 1000G",
+            "Iron Hoe Upgrade",
+            0
+        ],
+        [
+            "Gold Hoe",
+            [],
+            "1 Gold Bar, 2000G",
+            "Gold Hoe Upgrade",
+            0
+        ],
+        [
+            "Iridium Hoe",
+            [],
+            "1 Iridium Bar, 5000G",
+            "Iridium Hoe Upgrade",
+            0
+        ],
+        [
+            "Copper Trash Can",
+            [],
+            "1 Copper Bar, 200G",
+            "Copper Trash Can Upgrade",
+            0
+        ],
+        [
+            "Iron Trash Can",
+            [],
+            "1 Iron Bar, 1000G",
+            "Iron Trash Can Upgrade",
+            0
+        ],
+        [
+            "Gold Trash Can",
+            [],
+            "1 Gold Bar, 2000G",
+            "Gold Trash Can Upgrade",
+            0
+        ],
+        [
             "Iridium Trash Can",
             [],
             "1 Iridium Bar, 5000G",
@@ -4067,10 +5067,17 @@
             0
         ],
         [
-            "Iridium Watering Can",
+            "Iron Pan",
             [],
-            "1 Iridium Bar, 5000G",
-            "Iridium Watering Can Upgrade",
+            "1 Iron Bar, 1000G",
+            "Iron Pan Upgrade",
+            0
+        ],
+        [
+            "Gold Pan",
+            [],
+            "1 Gold Bar, 1000G",
+            "Gold Pan Upgrade",
             0
         ],
         [
@@ -4080,7 +5087,7 @@
             "Iridium Pan Upgrade",
             0
         ]
-        ],
+    ],
     "Festivalsanity": [
         [
             "Strawberry Seeds",
@@ -4429,7 +5436,7 @@
             [
                 "Summer"
             ],
-            "Dance of the Moonlight Jellies, Summer 28",
+            "Dance of the Moonlight Jellies, Summer 28, 800g",
             "Moonlight Jellies Banner",
             0
         ],
@@ -4848,35 +5855,35 @@
             [],
             "",
             "Fishing Mastery",
-            1
+            0
         ],
         [
             "Foraging Mastery",
             [],
             "",
             "Foraging Mastery",
-            1
+            0
         ],
         [
             "Mining Mastery",
             [],
             "",
             "Mining Mastery",
-            1
+            0
         ],
         [
             "Combat Mastery",
             [],
             "",
             "Combat Mastery",
-            1
+            0
         ],
         [
             "Farming Mastery",
             [],
             "",
             "Farming Mastery",
-            1
+            0
         ]
     ]
 }

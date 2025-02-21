@@ -1,0 +1,168 @@
+{
+    "Dinosaur Egg": [
+        {
+            "and_items": [
+                {
+                    "goal": "Skull Cavern Access"
+                }
+            ]
+        }
+    ],
+    "Roe": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Fish Pond"
+                }
+            ]
+        }
+    ],
+    "Duck Egg": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Big Coop"
+                }
+            ]
+        }
+    ],
+    "Caviar": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Fish Pond"
+                },
+                {
+                    "goal": "Sturgeon"
+                }
+            ]
+        }
+    ],
+    "Duck Feather": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Big Coop"
+                }
+            ]
+        }
+    ],
+    "Honey": [
+        {
+            "and_items": [
+                {
+                    "item": "Bee House",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Large Egg (Brown)": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Coop"
+                }
+            ]
+        }
+    ],
+    "Large Egg (White)": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Coop"
+                }
+            ]
+        }
+    ],
+    "Egg (Brown)": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Coop"
+                }
+            ]
+        }
+    ],
+    "Egg (White)": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Coop"
+                }
+            ]
+        }
+    ],
+    "Goat Milk": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Big Barn"
+                }
+            ]
+        }
+    ],
+    "Large Goat Milk": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Big Barn"
+                }
+            ]
+        }
+    ],
+    "Milk": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Barn"
+                }
+            ]
+        }
+    ],
+    "Large Milk": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Barn"
+                }
+            ]
+        }
+    ],
+    "Rabbit's Foot": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Deluxe Coop"
+                }
+            ]
+        }
+    ],
+    "Truffle": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Deluxe Barn"
+                }
+            ]
+        }
+    ],
+    "Void Egg": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Big Coop"
+                }
+            ]
+        }
+    ],
+    "Wool": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Deluxe Barn"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,530 @@
+{
+    "Amethyst": [
+        {}
+    ],
+    "Aquamarine": [
+        {}
+    ],
+    "Bat Wing": [
+        {}
+    ],
+    "Battery Pack": [
+        {
+            "or_items": [
+                {
+                    "item": "Solar Panel",
+                    "count": 1
+                },
+                {
+                    "item": "Lightning Rod",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Complete All Bundles": [
+        {
+            "or_items": [
+                {
+                    "item": "Complete every bundle to complete this check",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Clay": [
+        {}
+    ],
+    "Cloth": [
+        {
+            "and_items": [
+                {
+                    "item": "Loom",
+                    "count": 1
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Deluxe Coop"
+                },
+                {
+                    "goal": "Has Deluxe Barn"
+                }
+            ]
+        }
+    ],
+    "Basic Fertilizer": [
+        {}
+    ],
+    "Quality Fertilizer": [
+        {}
+    ],
+    "Basic Retaining Soil": [
+        {}
+    ],
+    "Quality Retaining Soil": [
+        {}
+    ],
+    "Speed-Gro": [
+        {}
+    ],
+    "Deluxe Speed-Gro": [
+        {}
+    ],
+    "Tree Fertilizer": [
+        {
+            "or_items": [
+                {
+                    "goal": "Can Craft Tree Fertilizer"
+                }
+            ]
+        }
+    ],
+    "Copper Ore": [
+        {}
+    ],
+    "Copper Bar": [
+        {
+            "and_items": [
+                {
+                    "goal": "Copper Ore"
+                }
+            ]
+        }
+    ],
+    "Earth Crystal": [
+        {}
+    ],
+    "Fire Quartz": [
+        {}
+    ],
+    "Fiber": [
+        {}
+    ],
+    "Geode": [
+        {}
+    ],
+    "Frozen Geode": [
+        {}
+    ],
+    "Magma Geode": [
+        {}
+    ],
+    "Artifact Trove": [
+        {}
+    ],
+    "Frozen Tear": [
+        {}
+    ],
+    "Omni Geode": [
+        {}
+    ],
+    "Gold Ore": [
+        {}
+    ],
+    "Sap": [
+        {}
+    ],
+    "Dwarf Scroll 1": [
+        {}
+    ],
+    "Dwarf Scroll 2": [
+        {}
+    ],
+    "Dwarf Scroll 3": [
+        {}
+    ],
+    "Dwarf Scroll 4": [
+        {}
+    ],
+    "Elvish Jewelry": [
+        {}
+    ],
+    "Ancient Drum": [
+        {}
+    ],
+    "Dried Starfish": [
+        {}
+    ],
+    "Bone Fragment": [
+        {}
+    ],
+    "Golden Mask": [
+        {}
+    ],
+    "Golden Relic": [
+        {}
+    ],
+    "Dwarf Gadget": [
+        {}
+    ],
+    "Chicken Statue": [
+        {}
+    ],
+    "Rusty Cog": [
+        {}
+    ],
+    "Rusty Spur": [
+        {}
+    ],
+    "Rusty Spoon": [
+        {}
+    ],
+    "Ancient Sword": [
+        {}
+    ],
+    "Oramental Fan": [
+        {}
+    ],
+    "Chipped Amphora": [
+        {}
+    ],
+    "Prehistoric Scapula": [
+        {}
+    ],
+    "Prehistoric Tibia": [
+        {}
+    ],
+    "Prehistoric Skull": [
+        {}
+    ],
+    "Skeletal Hand": [
+        {}
+    ],
+    "Prehistoric Rib": [
+        {}
+    ],
+    "Prehistoric Vertebra": [
+        {}
+    ],
+    "Skeletal Tail": [
+        {}
+    ],
+    "Nautilus Fossil": [
+        {}
+    ],
+    "Amphibian Fossil": [
+        {}
+    ],
+    "Dwarvish Helm": [
+        {}
+    ],
+    "Palm Fossil": [
+        {}
+    ],
+    "Trilobite": [
+        {}
+    ],
+    "Gold Bar": [
+        {
+            "and_items": [
+                {
+                    "goal": "Gold Ore"
+                }
+            ]
+        }
+    ],
+    "Hardwood": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Break Strong Stumps"
+                }
+            ]
+        }
+    ],
+    "Emerald": [
+        {}
+    ],
+    "Ruby": [
+        {}
+    ],
+    "Topaz": [
+        {}
+    ],
+    "Jade": [
+        {}
+    ],
+    "Diamond": [
+        {}
+    ],
+    "Iridium Ore": [
+        {
+            "and_items": [
+                {
+                    "goal": "Skull Cavern Access"
+                }
+            ]
+        }
+    ],
+    "Iridium Bar": [
+        {
+            "and_items": [
+                {
+                    "goal": "Iridium Ore"
+                }
+            ]
+        }
+    ],
+    "Iron Ore": [
+        {}
+    ],
+    "Iron Bar": [
+        {
+            "and_items": [
+                {
+                    "goal": "Iron Ore"
+                }
+            ]
+        }
+    ],
+    "Jack-O-Lantern": [
+        {
+            "and_items": [
+                {
+                    "goal": "Pumpkin"
+                },
+                {
+                    "goal": "Can Craft Jack-O-Lantern"
+                }
+            ]
+        }
+    ],
+    "Star Token": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Qi Coin": [
+        {
+            "and_items": [
+                {
+                    "goal": "Club Access"
+                }
+            ]
+        }
+    ],
+    "Money": [
+        {}
+    ],
+    "Prize Ticket": [
+        {}
+    ],
+    "Pearl": [
+        {
+            "and_items": [
+                {
+                    "goal": "Winter"
+                }
+            ]
+        }
+    ],
+    "Mixed Seeds": [
+        {}
+    ],
+    "Moss": [
+        {}
+    ],
+    "Ancient Doll": [
+        {}
+    ],
+    "Prismatic Shard": [
+        {
+            "and_items": [
+                {
+                    "goal": "Skull Cavern Access"
+                }
+            ]
+        }
+    ],
+    "Mystery Box": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Has Mr Qi's Plane Ride"
+                }
+            ]
+        }
+    ],
+    "Golden Mystery Box": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Has Mr Qi's Plane Ride"
+                },
+                {
+                    "goal": "Has Foraging Mastery"
+                }
+            ]
+        }
+    ],
+    "Calico Egg": [
+        {
+            "and_items": [
+                {
+                    "goal": "Desert Access"
+                },
+                {
+                    "goal": "Villager Desert Access"
+                },
+                {
+                    "goal": "Has Spring"
+                }
+            ]
+        }
+    ],
+    "Quartz": [
+        {}
+    ],
+    "Refined Quartz": [
+        {
+            "or_items": [
+                {
+                    "goal": "Quartz"
+                },
+                {
+                    "goal": "Fire Quartz"
+                }
+            ]
+        }
+    ],
+    "Slime": [
+        {}
+    ],
+    "Bug Meat": [
+        {}
+    ],
+    "Solar Essence": [
+        {}
+    ],
+    "Cherry Bomb": [
+        {
+            "or_items": [
+                {
+                    "goal": "Dwarf Access"
+                },
+                {
+                    "goal": "Can Craft Cherry Bomb"
+                }
+            ]
+        }
+    ],
+    "Bomb": [
+        {
+            "or_items": [
+                {
+                    "goal": "Dwarf Access"
+                },
+                {
+                    "goal": "Can Craft Bomb"
+                }
+            ]
+        }
+    ],
+    "Mega Bomb": [
+        {
+            "or_items": [
+                {
+                    "goal": "Dwarf Access"
+                },
+                {
+                    "goal": "Can Craft Mega Bomb"
+                }
+            ]
+        }
+    ],
+    "Explosive Ammo": [
+        {
+            "or_items": [
+                {
+                    "goal": "Can Craft Explosive Ammo"
+                }
+            ]
+        }
+    ],
+    "Petrified Slime": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Slime Hutch"
+                }
+            ]
+        }
+    ],
+    "Green Slime Egg": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Slime Hutch"
+                }
+            ]
+        }
+    ],
+    "Blue Slime Egg": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Slime Hutch"
+                }
+            ]
+        }
+    ],
+    "Red Slime Egg": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Slime Hutch"
+                }
+            ]
+        }
+    ],
+    "Purple Slime Egg": [
+        {
+            "and_items": [
+                {
+                    "goal": "Skull Cavern Access"
+                },
+                {
+                    "goal": "Has Slime Hutch"
+                }
+            ]
+        }
+    ],
+    "Squid Ink": [
+        {}
+    ],
+    "Stone": [
+        {}
+    ],
+    "Coal": [
+        {}
+    ],
+    "Bouquet": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Date"
+                }
+            ]
+        }
+    ],
+    "Wilted Boquet": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Date"
+                }
+            ]
+        }
+    ],
+    "Void Essence": [
+        {}
+    ],
+    "Wood": [
+        {}
+    ]
+}

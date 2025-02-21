@@ -1,0 +1,230 @@
+{
+    "Has Rarecrows": [
+        {
+            "and_items": [
+                {
+                    "item": "Rarecrow #1",
+                    "count": 1
+                },
+                {
+                    "item": "Rarecrow #2",
+                    "count": 1
+                },
+                {
+                    "item": "Rarecrow #3",
+                    "count": 1
+                },
+                {
+                    "item": "Rarecrow #4",
+                    "count": 1
+                },
+                {
+                    "item": "Rarecrow #5",
+                    "count": 1
+                },
+                {
+                    "item": "Rarecrow #6",
+                    "count": 1
+                },
+                {
+                    "item": "Rarecrow #7",
+                    "count": 1
+                },
+                {
+                    "item": "Rarecrow #8",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Glittering Boulder Removed": [
+        {
+            "and_items": [
+                {
+                    "item": "Glittering Boulder Removed",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Traveling Cart: Monday": [
+        {
+            "and_items": [
+                {
+                    "item": "Traveling Merchant: Monday",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Traveling Cart: Tuesday": [
+        {
+            "and_items": [
+                {
+                    "item": "Traveling Merchant: Tuesday",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Traveling Cart: Wednesday": [
+        {
+            "and_items": [
+                {
+                    "item": "Traveling Merchant: Wednesday",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Traveling Cart: Thursday": [
+        {
+            "and_items": [
+                {
+                    "item": "Traveling Merchant: Thursday",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Traveling Cart: Friday": [
+        {
+            "and_items": [
+                {
+                    "item": "Traveling Merchant: Friday",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Traveling Cart: Saturday": [
+        {
+            "and_items": [
+                {
+                    "item": "Traveling Merchant: Saturday",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Traveling Cart: Sunday": [
+        {
+            "and_items": [
+                {
+                    "item": "Traveling Merchant: Sunday",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Mr Qi's Plane Ride": [
+        {
+            "and_items": [
+                {
+                    "item": "Mr Qi's Plane Ride",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Magnifying Glass": [
+        {
+            "and_items": [
+                {
+                    "item": "Magnifying Glass",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Summer": [
+        {
+            "and_items": [
+                {
+                    "item": "Summer",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Spring": [
+        {
+            "and_items": [
+                {
+                    "item": "Spring",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Winter": [
+        {
+            "and_items": [
+                {
+                    "item": "Winter",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Fall": [
+        {
+            "and_items": [
+                {
+                    "item": "Fall",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Foraging Mastery": [
+        {
+            "and_items": [
+                {
+                    "item": "Foraging Mastery",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Farming Mastery": [
+        {
+            "and_items": [
+                {
+                    "item": "Farming Mastery",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Mining Mastery": [
+        {
+            "and_items": [
+                {
+                    "item": "Mining Mastery",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Combat Mastery": [
+        {
+            "and_items": [
+                {
+                    "item": "Combat Mastery",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Fishing Mastery": [
+        {
+            "and_items": [
+                {
+                    "item": "Fishing Mastery",
+                    "count": 1
+                }
+            ]
+        }
+    ]
+}

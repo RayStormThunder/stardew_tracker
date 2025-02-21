@@ -1,0 +1,495 @@
+{
+    "Chanterelle": [
+        {
+            "or_items": [
+                {
+                    "item": "Mushroom Boxes",
+                    "count": 1
+                },
+                {
+                    "goal": "Summer"
+                }
+            ]
+        }
+    ],
+    "Coconut": [
+        {
+            "and_items": [
+                {
+                    "goal": "Desert Access"
+                }
+            ]
+        }
+    ],
+    "Fall Foraging Seeds": [
+        {
+            "or_items": [
+                {
+                    "item": "Resource Pack: 10 Fall Seeds",
+                    "count": 2
+                },
+                {
+                    "item": "Resource Pack: 20 Fall Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 30 Fall Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 40 Fall Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 50 Fall Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 60 Fall Seeds",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Common Mushroom": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "item": "Mushroom Boxes",
+                    "count": 1
+                },
+                {
+                    "goal": "Fall Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Crocus": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Winter"
+                },
+                {
+                    "goal": "Winter Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Crystal Fruit": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Winter"
+                },
+                {
+                    "goal": "Winter Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Daffodil": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Spring Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Dandelion": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Spring Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Fiddlehead Fern": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Hazelnut": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "goal": "Fall Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Holly": [
+        {
+            "and_items": [
+                {
+                    "goal": "Winter"
+                }
+            ]
+        }
+    ],
+    "Leek": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Spring Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Acorn": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Get Tree Seeds"
+                }
+            ]
+        }
+    ],
+    "Maple Seeds": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Get Tree Seeds"
+                }
+            ]
+        }
+    ],
+    "Pine Cone": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Get Tree Seeds"
+                }
+            ]
+        }
+    ],
+    "Mahogany Seed": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Break Strong Stumps"
+                }
+            ]
+        }
+    ],
+    "Mystic Tree Seed": [
+        {
+            "and_items": [
+                {
+                    "goal": "Acorn"
+                },
+                {
+                    "goal": "Maple Seeds"
+                },
+                {
+                    "goal": "Pine Cone"
+                },
+                {
+                    "goal": "Has Foraging Mastery"
+                }
+            ]
+        }
+    ],
+    "Mossy Seed": [
+        {
+            "and_items": [
+                {
+                    "goal": "Summer"
+                }
+            ]
+        }
+    ],
+    "Morel": [
+        {
+            "or_items": [
+                {
+                    "item": "Mushroom Boxes",
+                    "count": 1
+                },
+                {
+                    "goal": "Secret Woods Access"
+                }
+            ]
+        }
+    ],
+    "Pale Ale": [
+        {
+            "and_items": [
+                {
+                    "item": "Keg",
+                    "count": 1
+                },
+                {
+                    "goal": "Hops"
+                }
+            ]
+        }
+    ],
+    "Purple Mushroom": [
+        {}
+    ],
+    "Red Mushroom": [
+        {}
+    ],
+    "Salmonberry": [
+        {
+            "and_items": [
+                {
+                    "goal": "Spring"
+                }
+            ]
+        }
+    ],
+    "Spring Onion": [
+        {
+            "and_items": [
+                {
+                    "goal": "Spring"
+                }
+            ]
+        }
+    ],
+    "Snow Yam": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Winter"
+                },
+                {
+                    "goal": "Winter Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Spice Berry": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "item": "Fruit Bats",
+                    "count": 1
+                },
+                {
+                    "goal": "Summer Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Spring Foraging Seeds": [
+        {
+            "or_items": [
+                {
+                    "item": "Resource Pack: 10 Spring Seeds",
+                    "count": 2
+                },
+                {
+                    "item": "Resource Pack: 20 Spring Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 30 Spring Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 40 Spring Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 50 Spring Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 60 Spring Seeds",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Summer Foraging Seeds": [
+        {
+            "or_items": [
+                {
+                    "item": "Resource Pack: 10 Summer Seeds",
+                    "count": 2
+                },
+                {
+                    "item": "Resource Pack: 20 Summer Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 30 Summer Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 40 Summer Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 50 Summer Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 60 Summer Seeds",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Sweet Pea": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Summer Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Wild Horseradish": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Spring Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Wild Plum": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "item": "Fruit Bats",
+                    "count": 1
+                },
+                {
+                    "goal": "Fall Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Winter Foraging Seeds": [
+        {
+            "or_items": [
+                {
+                    "item": "Resource Pack: 10 Winter Seeds",
+                    "count": 2
+                },
+                {
+                    "item": "Resource Pack: 20 Winter Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 30 Winter Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 40 Winter Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 50 Winter Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 60 Winter Seeds",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Winter Root": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Winter"
+                },
+                {
+                    "goal": "Winter Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,819 @@
+{
+    "Amaranth": [
+        {
+            "and_items": [
+                {
+                    "item": "Amaranth Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Ancient Fruit": [
+        {
+            "and_items": [
+                {
+                    "item": "Ancient Seeds",
+                    "count": 1
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Apple": [
+        {
+            "or_items": [
+                {
+                    "goal": "Apple Sapling"
+                },
+                {
+                    "item": "Fruit Bats",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Apple Sapling": [
+        {
+            "and_items": [
+                {
+                    "item": "Apple Sapling",
+                    "count": 1
+                }
+            ],
+            "or_items": [
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Apricot": [
+        {
+            "or_items": [
+                {
+                    "goal": "Apricot Sapling"
+                },
+                {
+                    "item": "Fruit Bats",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Apricot Sapling": [
+        {
+            "and_items": [
+                {
+                    "item": "Apricot Sapling",
+                    "count": 1
+                }
+            ],
+            "or_items": [
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Spring"
+                }
+            ]
+        }
+    ],
+    "Artichoke": [
+        {
+            "and_items": [
+                {
+                    "item": "Artichoke Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Beet": [
+        {
+            "and_items": [
+                {
+                    "item": "Beet Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Blackberry": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "item": "Fruit Bats",
+                    "count": 1
+                },
+                {
+                    "goal": "Fall Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Blue Jazz": [
+        {
+            "and_items": [
+                {
+                    "item": "Jazz Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Blueberry": [
+        {
+            "and_items": [
+                {
+                    "item": "Blueberry Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Bok Choy": [
+        {
+            "and_items": [
+                {
+                    "item": "Bok Choy Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Broccoli": [
+        {
+            "and_items": [
+                {
+                    "item": "Broccoli Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Cactus Fruit": [
+        {
+            "and_items": [
+                {
+                    "goal": "Desert Access"
+                }
+            ]
+        }
+    ],
+    "Carrot": [
+        {
+            "and_items": [
+                {
+                    "item": "Carrot Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Cauliflower": [
+        {
+            "and_items": [
+                {
+                    "item": "Cauliflower Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Cave Carrot": [
+        {}
+    ],
+    "Cherry": [
+        {
+            "or_items": [
+                {
+                    "goal": "Cherry Sapling"
+                },
+                {
+                    "item": "Fruit Bats",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Cherry Sapling": [
+        {
+            "and_items": [
+                {
+                    "item": "Cherry Sapling",
+                    "count": 1
+                }
+            ],
+            "or_items": [
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Spring"
+                }
+            ]
+        }
+    ],
+    "Coconut": [
+        {
+            "and_items": [
+                {
+                    "goal": "Desert Access"
+                }
+            ]
+        }
+    ],
+    "Coffee Bean": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Plant Spring Crops"
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Tea Leaves": [
+        {}
+    ],
+    "Corn": [
+        {
+            "and_items": [
+                {
+                    "item": "Corn Seeds",
+                    "count": 1
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Can Plant Summer Crops"
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Cranberries": [
+        {
+            "item": "Cranberry Seeds",
+            "count": 1
+        },
+        {
+            "or_items": [
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                },
+                {
+                    "item": "Garden Pot",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Eel": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Difficult Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Fairy Rose": [
+        {
+            "and_items": [
+                {
+                    "item": "Fairy Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Garlic": [
+        {
+            "and_items": [
+                {
+                    "item": "Garlic Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Grape": [
+        {
+            "and_items": [
+                {
+                    "item": "Grape Starter",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Green Bean": [
+        {
+            "and_items": [
+                {
+                    "item": "Bean Starter",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Hops": [
+        {
+            "and_items": [
+                {
+                    "item": "Hops Starter",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Hot Pepper": [
+        {
+            "and_items": [
+                {
+                    "item": "Pepper Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Kale": [
+        {
+            "and_items": [
+                {
+                    "item": "Kale Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Melon": [
+        {
+            "and_items": [
+                {
+                    "item": "Melon Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Orange": [
+        {
+            "or_items": [
+                {
+                    "goal": "Orange Sapling"
+                },
+                {
+                    "item": "Fruit Bats",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Orange Sapling": [
+        {
+            "and_items": [
+                {
+                    "item": "Orange Sapling",
+                    "count": 1
+                }
+            ],
+            "or_items": [
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Parsnip": [
+        {
+            "and_items": [
+                {
+                    "item": "Parsnip Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Peach": [
+        {
+            "or_items": [
+                {
+                    "goal": "Peach Sapling"
+                },
+                {
+                    "item": "Fruit Bats",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Peach Sapling": [
+        {
+            "and_items": [
+                {
+                    "item": "Peach Sapling",
+                    "count": 1
+                }
+            ],
+            "or_items": [
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Pomegranate": [
+        {
+            "or_items": [
+                {
+                    "goal": "Pomegranate Sapling"
+                },
+                {
+                    "item": "Fruit Bats",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Pomegranate Sapling": [
+        {
+            "and_items": [
+                {
+                    "item": "Pomegranate Sapling",
+                    "count": 1
+                }
+            ],
+            "or_items": [
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Poppy": [
+        {
+            "and_items": [
+                {
+                    "item": "Poppy Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Potato": [
+        {
+            "and_items": [
+                {
+                    "item": "Potato Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Powdermelon": [
+        {
+            "and_items": [
+                {
+                    "item": "Powdermelon Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Winter Crops"
+                }
+            ]
+        }
+    ],
+    "Pumpkin": [
+        {
+            "and_items": [
+                {
+                    "item": "Pumpkin Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Radish": [
+        {
+            "and_items": [
+                {
+                    "item": "Radish Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Red Cabbage": [
+        {
+            "and_items": [
+                {
+                    "item": "Red Cabbage Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Rhubarb": [
+        {
+            "and_items": [
+                {
+                    "item": "Rhubarb Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Starfruit": [
+        {
+            "and_items": [
+                {
+                    "item": "Starfruit Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Strawberry": [
+        {
+            "and_items": [
+                {
+                    "item": "Strawberry Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Summer Spangle": [
+        {
+            "and_items": [
+                {
+                    "item": "Spangle Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Summer Squash": [
+        {
+            "and_items": [
+                {
+                    "item": "Summer Squash Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Sunflower": [
+        {
+            "and_items": [
+                {
+                    "item": "Sunflower Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Sweet Gem Berry": [
+        {
+            "and_items": [
+                {
+                    "item": "Rare Seed",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Tomato": [
+        {
+            "and_items": [
+                {
+                    "item": "Tomato Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Tulip": [
+        {
+            "and_items": [
+                {
+                    "item": "Tulip Bulb",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Unmilled Rice": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Wheat": [
+        {
+            "and_items": [
+                {
+                    "item": "Wheat Seeds",
+                    "count": 1
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Can Plant Summer Crops"
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Eggplant": [
+        {
+            "and_items": [
+                {
+                    "item": "Eggplant Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Hay": [
+        {}
+    ],
+    "Yam": [
+        {
+            "and_items": [
+                {
+                    "item": "Yam Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ]
+}

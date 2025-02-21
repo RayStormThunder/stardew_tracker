@@ -1,0 +1,162 @@
+{
+    "Has Big Coop": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Coop",
+                    "count": 2
+                }
+            ]
+        }
+    ],
+    "Has Big Barn": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Barn",
+                    "count": 2
+                }
+            ]
+        }
+    ],
+    "Has Deluxe Coop": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Coop",
+                    "count": 3
+                }
+            ]
+        }
+    ],
+    "Has Deluxe Barn": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Barn",
+                    "count": 3
+                }
+            ]
+        }
+    ],
+    "Has Shed": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Shed",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Big Shed": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Shed",
+                    "count": 2
+                }
+            ]
+        }
+    ],
+    "Has Kitchen": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive House",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Kid's Room": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive House",
+                    "count": 2
+                }
+            ]
+        }
+    ],
+    "Has Cellar": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive House",
+                    "count": 3
+                }
+            ]
+        }
+    ],
+    "Has Coop": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Coop",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Barn": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Barn",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Silo": [
+        {
+            "and_items": [
+                {
+                    "item": "Silo",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Fish Pond": [
+        {
+            "and_items": [
+                {
+                    "item": "Fish Pond",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Shipping Bin": [
+        {
+            "and_items": [
+                {
+                    "item": "Shipping Bin",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Well": [
+        {
+            "and_items": [
+                {
+                    "item": "Well",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Slime Hutch": [
+        {
+            "and_items": [
+                {
+                    "item": "Slime Hutch",
+                    "count": 1
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,242 @@
+{
+    "Has Copper Axe": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Axe",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Iron Axe": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Axe",
+                    "count": 2
+                }
+            ]
+        }
+    ],
+    "Has Gold Axe": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Axe",
+                    "count": 3
+                }
+            ]
+        }
+    ],
+    "Has Iridium Axe": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Axe",
+                    "count": 4
+                }
+            ]
+        }
+    ],
+    "Has Copper Pickaxe": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Pickaxe",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Iron Pickaxe": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Pickaxe",
+                    "count": 2
+                }
+            ]
+        }
+    ],
+    "Has Gold Pickaxe": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Pickaxe",
+                    "count": 3
+                }
+            ]
+        }
+    ],
+    "Has Iridium Pickaxe": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Pickaxe",
+                    "count": 4
+                }
+            ]
+        }
+    ],
+    "Has Copper Hoe": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Hoe",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Iron Hoe": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Hoe",
+                    "count": 2
+                }
+            ]
+        }
+    ],
+    "Has Gold Hoe": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Hoe",
+                    "count": 3
+                }
+            ]
+        }
+    ],
+    "Has Iridium Hoe": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Hoe",
+                    "count": 4
+                }
+            ]
+        }
+    ],
+    "Has Copper Watering Can": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Watering Can",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Iron Watering Can": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Watering Can",
+                    "count": 2
+                }
+            ]
+        }
+    ],
+    "Has Gold Watering Can": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Watering Can",
+                    "count": 3
+                }
+            ]
+        }
+    ],
+    "Has Iridium Watering Can": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Watering Can",
+                    "count": 4
+                }
+            ]
+        }
+    ],
+    "Has Copper Trash Can": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Trash Can",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Iron Trash Can": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Trash Can",
+                    "count": 2
+                }
+            ]
+        }
+    ],
+    "Has Gold Trash Can": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Trash Can",
+                    "count": 3
+                }
+            ]
+        }
+    ],
+    "Has Iridium Trash Can": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Trash Can",
+                    "count": 4
+                }
+            ]
+        }
+    ],
+    "Has Copper Pan": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Pan",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Has Iron Pan": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Pan",
+                    "count": 2
+                }
+            ]
+        }
+    ],
+    "Has Gold Pan": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Pan",
+                    "count": 3
+                }
+            ]
+        }
+    ],
+    "Has Iridium Pan": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Pan",
+                    "count": 4
+                }
+            ]
+        }
+    ]
+}
