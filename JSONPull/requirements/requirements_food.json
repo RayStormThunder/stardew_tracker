@@ -1,0 +1,771 @@
+{
+    "Fried Egg": [
+        {
+            "and_items": [
+                {
+                    "item": "Fried Egg Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Coop"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Maki Roll": [
+        {
+            "and_items": [
+                {
+                    "item": "Maki Roll Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Fish"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Oil": [
+        {}
+    ],
+    "Wheat Flour": [
+        {}
+    ],
+    "Rice": [
+        {}
+    ],
+    "Vinegar": [
+        {}
+    ],
+    "Sugar": [
+        {}
+    ],
+    "Omelet": [
+        {
+            "and_items": [
+                {
+                    "goal": "Milk"
+                },
+                {
+                    "goal": "Egg (White)"
+                },
+                {
+                    "item": "Omelet Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Hashbrowns": [
+        {
+            "and_items": [
+                {
+                    "goal": "Potato"
+                },
+                {
+                    "goal": "Oil"
+                },
+                {
+                    "item": "Hashbrowns Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Pancakes": [
+        {
+            "and_items": [
+                {
+                    "goal": "Egg (White)"
+                },
+                {
+                    "goal": "Wheat Flour"
+                },
+                {
+                    "item": "Pancakes Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Tortilla": [
+        {
+            "and_items": [
+                {
+                    "goal": "Egg (White)"
+                },
+                {
+                    "goal": "Wheat Flour"
+                },
+                {
+                    "item": "Tortilla Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Triple Shot Espresso": [
+        {
+            "and_items": [
+                {
+                    "goal": "Coffe"
+                },
+                {
+                    "item": "Tortilla Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Farmer's Lunch": [
+        {
+            "and_items": [
+                {
+                    "goal": "Omelet"
+                },
+                {
+                    "goal": "Parsnip"
+                },
+                {
+                    "goal": "Farmer's Lunch Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Survival Burger": [
+        {
+            "and_items": [
+                {
+                    "goal": "Bread"
+                },
+                {
+                    "goal": "Cave Carrot"
+                },
+                {
+                    "goal": "Eggplant"
+                },
+                {
+                    "goal": "Survival Burger Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Miner's Treat": [
+        {
+            "and_items": [
+                {
+                    "goal": "Cave Carrot"
+                },
+                {
+                    "goal": "Sugar"
+                },
+                {
+                    "goal": "Milk"
+                },
+                {
+                    "goal": "Miner's Treat Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Roots Platter": [
+        {
+            "and_items": [
+                {
+                    "goal": "Cave Carrot"
+                },
+                {
+                    "goal": "Winter Root"
+                },
+                {
+                    "goal": "Roots Platter Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Cheese Cauliflower": [
+        {
+            "and_items": [
+                {
+                    "goal": "Cauliflower"
+                },
+                {
+                    "goal": "Cheese"
+                },
+                {
+                    "goal": "Cheese Cauliflower Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Parsnip Soup": [
+        {
+            "and_items": [
+                {
+                    "goal": "Parsnip"
+                },
+                {
+                    "goal": "Milk"
+                },
+                {
+                    "goal": "Vinegar"
+                },
+                {
+                    "goal": "Parsnip Soup Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Fried Mushroom": [
+        {
+            "and_items": [
+                {
+                    "goal": "Common Mushroom"
+                },
+                {
+                    "goal": "Morel"
+                },
+                {
+                    "goal": "Oil"
+                },
+                {
+                    "goal": "Fried Mushroom Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Salmon Dinner": [
+        {
+            "and_items": [
+                {
+                    "goal": "Salmon"
+                },
+                {
+                    "goal": "Amaranth"
+                },
+                {
+                    "goal": "Kale"
+                },
+                {
+                    "goal": "Salmon Dinner Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Pepper Poppers": [
+        {
+            "and_items": [
+                {
+                    "goal": "Hot Pepper"
+                },
+                {
+                    "goal": "Cheese"
+                },
+                {
+                    "goal": "Pepper Poppers Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Blueberry Tart": [
+        {
+            "and_items": [
+                {
+                    "goal": "Blueberry"
+                },
+                {
+                    "goal": "Wheat Flour"
+                },
+                {
+                    "goal": "Sugar"
+                },
+                {
+                    "goal": "Egg (White)"
+                },
+                {
+                    "goal": "Blueberry Tart Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Algae Soup": [
+        {
+            "and_items": [
+                {
+                    "goal": "Green Algae"
+                },
+                {
+                    "goal": "Algae Soup Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Pale Broth": [
+        {
+            "and_items": [
+                {
+                    "goal": "White Algae"
+                },
+                {
+                    "goal": "Algae Soup Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Chowder": [
+        {
+            "and_items": [
+                {
+                    "goal": "Clam"
+                },
+                {
+                    "goal": "Milk"
+                },
+                {
+                    "goal": "Chowder Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Cookie": [
+        {
+            "and_items": [
+                {
+                    "goal": "Wheat Flour"
+                },
+                {
+                    "goal": "Sugar"
+                },
+                {
+                    "goal": "Egg"
+                },
+                {
+                    "item": "Cookie Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Ice Cream": [
+        {
+            "or_items": [
+                {
+                    "and_items": [
+                        {
+                            "goal": "Milk"
+                        },
+                        {
+                            "goal": "Sugar"
+                        },
+                        {
+                            "goal": "Ice Cream Recipe"
+                        },
+                        {
+                            "goal": "Can Cook"
+                        }
+                    ]
+                },
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Cranberry Candy": [
+        {
+            "and_items": [
+                {
+                    "goal": "Cranberries"
+                },
+                {
+                    "goal": "Apple"
+                },
+                {
+                    "goal": "Sugar"
+                },
+                {
+                    "goal": "Cranberry Candy Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Pink Cake": [
+        {
+            "and_items": [
+                {
+                    "goal": "Melon"
+                },
+                {
+                    "goal": "Wheat Flour"
+                },
+                {
+                    "goal": "Sugar"
+                },
+                {
+                    "goal": "Egg (White)"
+                },
+                {
+                    "goal": "Pink Cake Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Plum Pudding": [
+        {
+            "and_items": [
+                {
+                    "goal": "Wild Plum"
+                },
+                {
+                    "goal": "Wheat Flour"
+                },
+                {
+                    "goal": "Sugar"
+                },
+                {
+                    "goal": "Plum Pudding Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Chocolate Cake": [
+        {
+            "and_items": [
+                {
+                    "goal": "Wild Plum"
+                },
+                {
+                    "goal": "Wheat Flour"
+                },
+                {
+                    "goal": "Sugar"
+                },
+                {
+                    "goal": "Plum Pudding Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Rhubarb Pie": [
+        {
+            "and_items": [
+                {
+                    "goal": "Rhubarb"
+                },
+                {
+                    "goal": "Wheat Flour"
+                },
+                {
+                    "goal": "Sugar"
+                },
+                {
+                    "goal": "Rhubarb Pie Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Dish O' The Sea": [
+        {
+            "and_items": [
+                {
+                    "goal": "Sardine"
+                },
+                {
+                    "goal": "Hashbrowns"
+                },
+                {
+                    "goal": "Rhubarb Pie Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Shrimp Cocktail": [
+        {
+            "and_items": [
+                {
+                    "goal": "Tomato"
+                },
+                {
+                    "goal": "Shrimp"
+                },
+                {
+                    "goal": "Wild Horseradish"
+                },
+                {
+                    "goal": "Shrimp Cocktail Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Stuffing": [
+        {
+            "or_items": [
+                {
+                    "and_items": [
+                        {
+                            "goal": "Bread"
+                        },
+                        {
+                            "goal": "Cranberries"
+                        },
+                        {
+                            "goal": "Hazelnut"
+                        },
+                        {
+                            "goal": "Stuffing Recipe"
+                        },
+                        {
+                            "goal": "Can Cook"
+                        }
+                    ]
+                },
+                {
+                    "and_items": [
+                        {
+                            "goal": "Has Winter"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "Magic Rock Candy": [
+        {
+            "and_items": [
+                {
+                    "goal": "Desert Access"
+                }
+            ]
+        }
+    ],
+    "Spicy Eel": [
+        {
+            "and_items": [
+                {
+                    "goal": "Eel"
+                },
+                {
+                    "goal": "Hot Pepper"
+                },
+                {
+                    "goal": "Spicy Eel Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Crab Cakes": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab"
+                },
+                {
+                    "goal": "Wheat Flour"
+                },
+                {
+                    "goal": "Egg"
+                },
+                {
+                    "goal": "Oil"
+                },
+                {
+                    "goal": "Crab Cakes Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Eggplant Parmesan": [
+        {
+            "and_items": [
+                {
+                    "goal": "Eggplant"
+                },
+                {
+                    "goal": "Tomato"
+                },
+                {
+                    "goal": "Eggplant Parmesan Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Pumpkin Soup": [
+        {
+            "or_items": [
+                {
+                    "and_items": [
+                        {
+                            "goal": "Pumpkin"
+                        },
+                        {
+                            "goal": "Milk"
+                        },
+                        {
+                            "goal": "Pumpkin Soup Recipe"
+                        },
+                        {
+                            "goal": "Can Cook"
+                        }
+                    ]
+                },
+                {
+                    "and_items": [
+                        {
+                            "goal": "Has Winter"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "Lucky Lunch": [
+        {
+            "and_items": [
+                {
+                    "goal": "Sea Cucumber"
+                },
+                {
+                    "goal": "Tortilla"
+                },
+                {
+                    "goal": "Blue Jazz"
+                },
+                {
+                    "goal": "Lucky Lunch Recipe"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Salad": [
+        {}
+    ],
+    "Bread": [
+        {}
+    ],
+    "Spaghetti": [
+        {}
+    ],
+    "Pizza": [
+        {}
+    ],
+    "Sashimi": [
+        {
+            "and_items": [
+                {
+                    "goal": "Sashimi Recipe"
+                },
+                {
+                    "goal": "Can Fish"
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Void Mayonnaise": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Fish"
+                }
+            ]
+        }
+    ]
+}

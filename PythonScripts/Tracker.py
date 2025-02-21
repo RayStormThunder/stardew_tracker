@@ -1,3 +1,4 @@
+import shutil
 import sys
 import json
 import re
@@ -5,22 +6,32 @@ import os
 import socket
 import threading
 import time
+import yaml
+from PyQt5.QtGui import QFont, QPainter, QPixmap, QIcon
+from PyQt5.QtCore import Qt
+
+from PyQt5.QtWidgets import QSpacerItem, QSizePolicy
 from PyQt5 import QtCore
-from PyQt5.QtGui import QTextCursor, QTextCharFormat, QColor
+from PyQt5.QtGui import QTextCursor, QTextCharFormat, QColor, QPixmap, QIcon
 from PyQt5.QtWidgets import QTabBar
 from PyQt5.QtWidgets import (
     QApplication, QSizeGrip, QSizePolicy, QWidget, QTabWidget, QVBoxLayout, QHBoxLayout, QCheckBox,
     QLineEdit, QLabel, QScrollArea, QGroupBox, QPushButton, QListWidget,
-    QSpinBox, QComboBox, QGridLayout, QTextEdit, QListWidgetItem,QToolTip, 
+    QSpinBox, QComboBox, QGridLayout, QTextEdit, QListWidgetItem,QToolTip,
 )
-from PyQt5.QtCore import QFileSystemWatcher, Qt, QObject, QTimer, QThread, pyqtSignal, QEvent, QPoint
+from PyQt5.QtCore import QFileSystemWatcher,  QSize, Qt, QObject, QTimer, QThread, pyqtSignal, QEvent, QPoint
 import PyQt5.QtCore
 PyQt5.QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
 PyQt5.QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps)
 
 # Define a mapping from tab display names to data keys
 tab_name_mapping = {
-    "Bundles": "Bundles",
+    "Crafts Room": "Crafts Room",
+    "Pantry": "Pantry",
+    "Fish Tank": "Fish Tank",
+    "Bulletin Board": "Bulletin Board",
+    "Vault": "Vault",
+    "Boiler Room": "Boiler Room",
     "Crops": "Cropsanity",
     "Fish": "Fishsanity",
     "Monsters": "Monstersanity",
@@ -37,7 +48,12 @@ tab_name_mapping = {
 }
 
 tab_display_names = {
-    "Bundles": "Bundles", 
+    "Crafts Room": "Crafts Room",
+    "Pantry": "Pantry",
+    "Fish Tank": "Fish Tank",
+    "Bulletin Board": "Bulletin Board",
+    "Vault": "Vault",
+    "Boiler Room": "Boiler Room",
     "Cropsanity": "Crops", 
     "Fishsanity": "Fish",
     "Questsanity": "Quests", 
@@ -53,16 +69,27 @@ tab_display_names = {
     "Misc": "Misc"
 }
 
-data_file_path = "../JSONStore/data.json"
-config_file_path = "../JSONStore/config.json"
-notes_file_path = "../JSONStore/notes.json"
+
+#Store
+all_locations_file_path = "../JSONStore/all_locations.json"
+bundle_items_file_path = "../JSONStore/bundle_items.json"
 checked_location_file_path = "../JSONStore/checked_location.json"
+checked_location_detailed_file_path = "../JSONStore/checked_location_detailed.json"
 current_items_file_path = "../JSONStore/current_items.json"
-requirements_file_path = "../JSONPull/requirements.json"
-requirements_group_file_path = "../JSONPull/requirements_group.json"
-hint_my_location_file_path = "../JSONStore/hint_my_location.json"
-hint_my_item_file_path = "../JSONStore/hint_my_item.json"
+config_file_path = "../JSONStore/config.json"
+data_file_path = "../JSONStore/data.json"
 extra_info_file_path = "../JSONStore/extra_info.json"
+hint_my_item_file_path = "../JSONStore/hint_my_item.json"
+hint_my_location_file_path = "../JSONStore/hint_my_location.json"
+notes_file_path = "../JSONStore/notes.json"
+player_table_file_path = "../JSONStore/player_table.json"
+
+#Pull
+all_data_file_path = "../JSONPull/all_data.json"
+requirements_file_path = "../JSONPull/requirements.json"
+requirements_goals_file_path = "../JSONPull/requirements"
+bundle_items_vanilla_file_path = "../JSONPull/bundle_items_vanilla.json"
+settings_folder = "../Settings"
 
 
 dark_theme = """
@@ -186,6 +213,679 @@ dark_theme = """
     }
 """
 
+import json
+import os
+import keyboard
+from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QScrollArea, QHBoxLayout
+from PyQt5.QtGui import QPixmap
+from PyQt5.QtCore import Qt
+import json
+from collections import Counter
+from functools import lru_cache
+
+# Cache dictionaries
+extra_info_cache = {}
+goals_cache = {}
+expand_goals_cache = {}
+wrap_requirements_cache = {}
+remove_completed_requirements_cache = {}
+all_requirements_met_cache = {}
+parse_requirements_cache = {}
+requirements_cache = None
+
+def get_requirements(item_name, return_type):
+    count = get_extra_info(item_name, "count", 0)
+    if item_name == "The Missing Bundle":
+        print(count)
+    if count == 0:
+        return {"text": "No Requirements", "color": "Blue"}[return_type]
+    
+    return_results = []
+    return_next_results = []
+        
+    return_results.append(get_requirements_main(item_name, return_type, 0, count - 1))
+    
+    if count == 2:
+        if return_type == "text":
+            return_results.append(get_requirements_main(item_name, return_type, 1, count - 1))
+        if return_type == "color":
+            return_next_results.append(get_requirements_main(item_name, return_type, 1, count - 1))
+
+    if return_type == "text":
+        return "\n\n".join(map(str, return_results))
+    
+    if return_type == "color":
+        # Merge results from both lists
+        all_colors = return_results + return_next_results
+
+        # Define priority order
+        priority = {"Pink": 3, "Red": 2, "Blue": 1}
+
+        # Find the highest priority color
+        highest_priority_color = max(all_colors, key=lambda c: priority.get(c, 0))
+
+        return highest_priority_color
+
+    return "Failed: " + return_type
+
+
+def get_requirements_main(item_name, return_type, skip, skip_compare):
+    """Get all requirements formatted properly, count completed goals, and update logic tracking only if needed."""
+    
+    # Detect if Shift is being held
+    shift_held = keyboard.is_pressed("shift")
+
+    # Load bundle_items.json to track "IN LOGIC" and "CHECKED" status
+    with open(bundle_items_file_path, "r", encoding="utf-8") as file:
+        bundle_data = json.load(file)
+
+    in_logic_key = f"{item_name} | IN LOGIC"
+    checked_key = f"{item_name} | CHECKED"
+    
+    current_in_logic = set(bundle_data.get(in_logic_key, []))  # Convert to set for comparison
+    manually_checked = set(bundle_data.get(checked_key, []))  # Goals manually checked off
+
+    # Get extra info
+    type = get_extra_info(item_name, "type", skip)
+    goals_to_complete = get_extra_info(item_name, "goals_to_complete", skip)
+    amount_of_goals = get_extra_info(item_name, "amount_of_goals", skip)
+
+    # Check if the bundle settings are properly configured
+    if type == "Bundle" or type == "Setting":
+        bundle_goals = get_bundle_list(item_name)
+        if len(bundle_goals) != amount_of_goals:
+            return {"text": "Please click the bundle icon and select what possible goals you can get", "color": "Pink"}[return_type]
+
+    # Get goals and forced goals
+    goals, forced_goals = get_goals(item_name, skip)
+    if goals == ["No Requirements"] and not forced_goals:
+        return {"text": "No Requirements", "color": "Blue"}[return_type]
+    
+    if item_name == "The Missing Bundle":
+        print("===================================\n Extra Info for " + item_name + ": \n   -Type: " + type + "\n   -Goals to Complete: " + str(goals_to_complete) + "\n   -Amount of Goals: " + str(amount_of_goals) + "\n\n")
+
+    # Filter goals for bundles
+    if type == "Bundle" or type == "Setting":
+        goals = [goal for goal in bundle_goals if goal in goals]
+
+    requirements_data = get_requirements_from_folder()
+
+    # Load the current items data
+    with open(current_items_file_path, "r") as f:
+        current_items_data = json.load(f)
+        current_items = Counter(current_items_data["current_items"])  # Use Counter for quantity tracking
+
+    completed_count = 0
+    text_output = [f"Complete {goals_to_complete} goals. Currently {completed_count} out of {amount_of_goals} Completed:\n"]
+    text_output_shift = [f"Complete {goals_to_complete} goals. Currently {completed_count} out of {amount_of_goals} Completed:\n"]
+
+    # Track in-logic goals
+    updated_in_logic = set()  # Use set for easy comparison
+
+    # Process each goal
+    for goal in goals:
+        if item_name == "The Missing Bundle":
+            print("===================================\n Goals for " + goal + "\n\n")
+
+        if goal in manually_checked:
+            # ✅ Manually checked goals are always in logic
+            text_output.append(f"      ✅Requirements for <b><u>{goal}</u></b>:\n           Manually Checked Off\n")
+            completed_count += 1
+            updated_in_logic.add(goal)  # Add to IN LOGIC
+            continue  # Skip logic checks
+
+        if goal in requirements_data:
+            expanded_requirements = expand_goals(requirements_data[goal], requirements_data)
+
+            # Remove completed requirements
+            wrapped_requirements = wrap_requirements(expanded_requirements, current_items)
+            filtered_requirements = remove_completed_requirements(wrapped_requirements, current_items)
+
+            if not filtered_requirements:  # ✅ All requirements met
+                text_output.append(f"      ✅Requirements for <b><u>{goal}</u></b>:\n           All Requirements Met\n")
+                completed_count += 1
+                updated_in_logic.add(goal)  # Mark as in logic
+            else:  # ❌ Missing requirements
+                text_output.append(f"      ❌Requirements for <b><u>{goal}</u></b>:\n")
+                for requirement in filtered_requirements:
+                    text_output.append(parse_requirements(requirement, 10, True, current_items))
+
+            if not expanded_requirements:
+                text_output_shift.append(f"      Requirements for <b><u>{goal}</u></b>:\n           All Requirements Met\n")
+                completed_count += 1
+            else:
+                text_output_shift.append(f"      Requirements for <b><u>{goal}</u></b>:\n")
+                for requirement in expanded_requirements:
+                    text_output_shift.append(parse_requirements(requirement, 10, True, current_items))
+
+    # Update completion count
+    text_output[0] = f"Complete {goals_to_complete} goals. Currently {completed_count} out of {amount_of_goals} Completed:\n"
+    text_output_shift[0] = f"Complete {goals_to_complete} goals. Currently {completed_count} out of {amount_of_goals} Completed:\n"
+
+    # Append Shift instruction
+    if skip == skip_compare:
+        text_output.append("\nHold SHIFT and REHOVER to see all requirements")
+    else:
+        text_output.append("\n")
+
+
+    # Determine logic color
+    color = "Blue" if completed_count >= goals_to_complete else "Red"
+
+    # Choose correct output based on Shift key state
+    final_text = text_output_shift if shift_held else text_output
+
+    # **Update IN LOGIC Goals in bundle_items.json ONLY IF CHANGED**
+    if type == "Bundle":
+        if current_in_logic != updated_in_logic:
+            bundle_data[in_logic_key] = list(updated_in_logic)  # Convert back to list for JSON storage
+
+            with open(bundle_items_file_path, "w", encoding="utf-8") as file:
+                json.dump(bundle_data, file, indent=4)
+
+    # Return formatted output
+    return {
+        "text": "".join(final_text)
+            .replace("\n", "<br>")
+            .replace(" ", "&nbsp;"),  # Convert spaces for indentation
+        "color": color
+    }[return_type]
+
+def get_requirements_from_folder():
+    global requirements_cache
+
+    # Return cached result if it exists and is not empty
+    if requirements_cache:
+        return requirements_cache  # Works only if cache has data
+
+    combined_requirements = {}  # Store everything in a single dictionary
+
+    # Iterate through all files in the folder
+    for filename in os.listdir(requirements_goals_file_path):
+        file_path = os.path.join(requirements_goals_file_path, filename)
+
+        # Ensure it's a JSON file before opening
+        if filename.endswith(".json") and os.path.isfile(file_path):
+            with open(file_path, "r") as f:
+                try:
+                    data = json.load(f)
+                    
+                    # Ensure it's a dictionary before merging
+                    if isinstance(data, dict):
+                        combined_requirements.update(data)
+
+                except json.JSONDecodeError:
+                    print(f"Error decoding JSON in file: {filename}")
+
+    # Cache the result for future calls
+    requirements_cache = combined_requirements if combined_requirements else None  # Keep None if empty
+    return requirements_cache
+
+def wrap_requirements(requirements, current_items):
+    """Wraps the first and last bracket of the JSON with an AND condition."""
+    key = json.dumps(requirements, sort_keys=True)  # Cache key based on input data
+    if key in wrap_requirements_cache:
+        return wrap_requirements_cache[key]
+
+    if not requirements:
+        return requirements
+
+    wrapped = {"and_items": requirements}
+    wrap_requirements_cache[key] = [wrapped]
+    return [wrapped]
+
+
+def print_json(goal, requirements):
+    """Prints expanded requirements in formatted JSON."""
+    print(f"\nExpanded Requirements for {goal}:\n")
+    print(json.dumps(requirements, indent=4))
+
+def expand_goals(requirements, requirements_data):
+    """Cached version of expand_goals"""
+    global expand_goals_cache
+
+    key = json.dumps(requirements, sort_keys=True)  # Cache key based on input data
+    if key in expand_goals_cache:
+        return expand_goals_cache[key]
+
+    expanded = []
+
+    for requirement in requirements:
+        new_requirement = {}
+
+        for k, v in requirement.items():
+            if isinstance(v, list):
+                new_requirement[k] = []
+                for item in v:
+                    if isinstance(item, dict) and "goal" in item:
+                        goal_name = item["goal"]
+                        if goal_name in requirements_data:
+                            new_requirement[k].extend(expand_goals(requirements_data[goal_name], requirements_data))
+                        else:
+                            new_requirement[k].append(item)
+                    elif isinstance(item, dict):
+                        new_requirement[k].append(expand_goals([item], requirements_data)[0])
+                    else:
+                        new_requirement[k].append(item)
+            else:
+                new_requirement[k] = v
+
+        expanded.append(new_requirement)
+
+    expand_goals_cache[key] = expanded
+    return expanded
+
+def remove_completed_requirements(requirements, current_items):
+    """Removes fully completed AND/OR conditions and items, ensuring all keys in a requirement are checked."""
+    key = json.dumps(requirements, sort_keys=True) + json.dumps(current_items, sort_keys=True)
+    if key in remove_completed_requirements_cache:
+        return remove_completed_requirements_cache[key]
+
+    filtered_requirements = []
+    for requirement in requirements:
+        new_requirement = {}
+
+        if "and_items" in requirement:
+            filtered_and_items = remove_completed_requirements(requirement["and_items"], current_items)
+            if filtered_and_items:
+                new_requirement["and_items"] = filtered_and_items
+
+        if "or_items" in requirement:
+            if any(all_requirements_met([item], current_items) for item in requirement["or_items"]):
+                pass
+            else:
+                filtered_or_items = remove_completed_requirements(requirement["or_items"], current_items)
+                if filtered_or_items:
+                    new_requirement["or_items"] = filtered_or_items
+
+        if "item" in requirement:
+            item_name = requirement["item"]
+            required_count = requirement.get("count", 1)
+            if current_items.get(item_name, 0) < required_count:
+                new_requirement["item"] = item_name
+                new_requirement["count"] = required_count
+
+        if new_requirement:
+            filtered_requirements.append(new_requirement)
+
+    remove_completed_requirements_cache[key] = filtered_requirements
+    return filtered_requirements
+
+def all_requirements_met(requirements, current_items):
+    """Checks if ALL requirements are met, considering quantity."""
+    key = json.dumps(requirements, sort_keys=True) + json.dumps(current_items, sort_keys=True)
+    if key in all_requirements_met_cache:
+        return all_requirements_met_cache[key]
+
+    for requirement in requirements:
+        if "and_items" in requirement:
+            if not all(all_requirements_met([item], current_items) for item in requirement["and_items"]):
+                all_requirements_met_cache[key] = False
+                return False
+        if "or_items" in requirement:
+            if not any(all_requirements_met([item], current_items) for item in requirement["or_items"]):
+                all_requirements_met_cache[key] = False
+                return False
+        if "item" in requirement:
+            item_name = requirement["item"]
+            required_count = requirement.get("count", 1)
+            if current_items.get(item_name, 0) < required_count:
+                all_requirements_met_cache[key] = False
+                return False
+
+    all_requirements_met_cache[key] = True
+    return True
+
+def parse_requirements(requirement, indent_level, use_dash, current_items):
+    """Recursively parse and return formatted requirements, handling nested AND/OR conditions properly."""
+    key = json.dumps(requirement, sort_keys=True) + json.dumps(current_items, sort_keys=True) + str(indent_level) + str(use_dash)
+    if key in parse_requirements_cache:
+        return parse_requirements_cache[key]
+
+    indent = " " * indent_level
+    symbol = "-" if use_dash else "="
+    output = []
+
+    if "and_items" in requirement:
+        flattened_items = []
+        for item in requirement["and_items"]:
+            if "and_items" in item and len(item) == 1:
+                flattened_items.extend(item["and_items"])
+            else:
+                flattened_items.append(item)
+
+        if len(flattened_items) == 1:
+            output.append(parse_requirements(flattened_items[0], indent_level, use_dash, current_items))
+        else:
+            output.append(f"{indent}{symbol} AND:\n")
+            for item in flattened_items:
+                output.append(parse_requirements(item, indent_level + 4, not use_dash, current_items))
+
+    if "or_items" in requirement:
+        flattened_items = []
+        for item in requirement["or_items"]:
+            if "or_items" in item and len(item) == 1:
+                flattened_items.extend(item["or_items"])
+            else:
+                flattened_items.append(item)
+
+        if len(flattened_items) == 1:
+            output.append(parse_requirements(flattened_items[0], indent_level, use_dash, current_items))
+        else:
+            output.append(f"{indent}{symbol} OR:\n")
+            for item in flattened_items:
+                output.append(parse_requirements(item, indent_level + 4, not use_dash, current_items))
+
+    if "item" in requirement:
+        item_name = requirement["item"].replace("<", "&lt;").replace(">", "&gt;")
+        required_count = requirement.get("count", 1)
+        output.append(f"{indent}{symbol} ⭐️ {item_name} (x{required_count})\n")
+
+    parsed_output = "".join(output)
+    parse_requirements_cache[key] = parsed_output
+    return parsed_output
+
+def get_bundle_list(item_name):
+    try:
+        # Load the JSON data
+        with open(bundle_items_file_path, 'r', encoding='utf-8') as file:
+            bundle_data = json.load(file)
+
+        # Return the list if the item exists, otherwise return an empty list
+        return bundle_data.get(item_name, [])
+
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        print(f"Error reading JSON: {e}")
+        return []
+
+def get_extra_info(item_name, info, skip):
+    """Cached version of get_extra_info"""
+    global extra_info_cache
+
+    key = (item_name, info, skip)
+    if key in extra_info_cache:
+        return extra_info_cache[key]
+
+    try:
+        with open(requirements_file_path, "r", encoding="utf-8") as file:
+            data = json.load(file)
+
+        for category in data.values():
+            if isinstance(category, list):
+                for entry in category:
+                    if isinstance(entry, list) and len(entry) > 1:
+                        name, details = entry[0], entry[1]
+
+                        if name == item_name and isinstance(details, list):
+                            extra_info_list = []
+                            for detail in details:
+                                if isinstance(detail, dict) and "extra_info" in detail:
+                                    extra_info_list.extend(detail["extra_info"])
+
+                            if info == "count":
+                                result = len(extra_info_list)
+                            elif 0 <= skip < len(extra_info_list):
+                                result = extra_info_list[skip].get(info, "Info not found")
+                            else:
+                                result = 0
+
+                            extra_info_cache[key] = result
+                            return result
+    except (FileNotFoundError, json.JSONDecodeError):
+        return "Requirements file not found"
+
+    return 0
+
+def get_goals(item_name, skip):
+    """Cached version of get_goals"""
+    global goals_cache
+
+    key = (item_name, skip)
+    if key in goals_cache:
+        return goals_cache[key]
+
+    try:
+        with open(requirements_file_path, "r", encoding="utf-8") as file:
+            data = json.load(file)
+
+        goals_list = []
+        forced_goals_list = []
+        goal_entries = []
+
+        for category in data.values():
+            if isinstance(category, list):
+                for entry in category:
+                    if isinstance(entry, list) and len(entry) > 1:
+                        name, details = entry[0], entry[1]
+                        if name == item_name and isinstance(details, list):
+                            for detail in details:
+                                if isinstance(detail, dict) and "goals" in detail:
+                                    goal_entries.append([goal_entry["goal"] for goal_entry in detail["goals"] if "goal" in goal_entry])
+
+        if 0 <= skip < len(goal_entries):
+            goals_list = goal_entries[skip]
+        else:
+            goals_list = ["No Requirements"] if not goal_entries else goal_entries[0]
+
+        goals_cache[key] = (goals_list, forced_goals_list)
+        return goals_cache[key]
+
+    except (FileNotFoundError, json.JSONDecodeError):
+        return (["Error loading requirements"], [])
+
+
+
+
+
+class BundleItem(QWidget):
+    def __init__(self, main_window, item_name):
+        super().__init__()
+        self.main_window = main_window
+        self.item_name = item_name
+        self.setWindowTitle("Bundle Selector")
+
+        # Parse JSON and get the goals and number of slots
+        goals, num_slots = self.find_goals_in_json(requirements_file_path, item_name)
+
+        # Determine grid size
+        num_pictures = len(goals)
+        columns = min(6, num_pictures)  # Maximum of 6 columns
+        rows = -(-num_pictures // columns)  # Ceiling division for rows
+        second_row = 1
+
+        if num_slots > 6:
+            second_row = 2
+
+        # Adjust window size based on the grid and overlay slots
+        width = columns * 54
+        height = (rows * 54 + 100 + second_row * 54 + 50)  # Extra height for the Submit button
+        self.setGeometry(300, 300, width, height)
+
+        # Main layout
+        main_layout = QVBoxLayout()
+
+        # Item name label at the top
+        item_name_label = QLabel(item_name)
+        item_name_label.setAlignment(Qt.AlignHCenter)  # Center horizontally
+        item_name_label.setStyleSheet("font-size: 18px; font-weight: bold;")  # Bigger and bold text
+        main_layout.addWidget(item_name_label, alignment=Qt.AlignTop)
+
+        # Scroll area for buttons
+        scroll_area = QScrollArea()
+        scroll_area.setWidgetResizable(True)
+        scroll_content = QWidget()
+        grid_layout = QGridLayout(scroll_content)
+        grid_layout.setContentsMargins(0, 0, 0, 0)
+        grid_layout.setSpacing(0)
+
+        # Add buttons for pictures
+        for index, goal in enumerate(goals):
+            row = index // columns
+            col = index % columns
+
+            # Create button with picture
+            picture_path = f"../Pictures/{goal.replace(' ', '_')}.png"
+            button = QPushButton()
+            button.setFixedSize(48, 48)
+            button.setStyleSheet("border: none; margin: 3px;")  # Center with padding
+            if os.path.exists(picture_path):
+                pixmap = QPixmap(picture_path).scaled(48, 48, Qt.KeepAspectRatio)
+                icon = QIcon(pixmap)
+                button.setIcon(icon)
+                button.setIconSize(QSize(48, 48))
+            else:
+                button.setText("")  # Fallback if image is missing
+
+            # Connect button click to overlay functionality
+            button.clicked.connect(lambda _, g=goal: self.add_to_overlay(g))
+
+            grid_layout.addWidget(button, row, col)
+
+        scroll_content.setLayout(grid_layout)
+        scroll_area.setWidget(scroll_content)
+        main_layout.addWidget(scroll_area)
+
+        # Overlay layout for selected pictures with support for up to 12 slots in two rows
+        overlay_widget = QWidget()
+        overlay_layout = QGridLayout(overlay_widget)
+        overlay_layout.setContentsMargins(0, 0, 0, 0)
+        overlay_layout.setSpacing(0)
+
+        # Determine the number of rows needed
+        overlay_columns = 6
+        overlay_rows = -(-num_slots // overlay_columns)  # Ceiling division for rows
+
+        # Adjust window height for overlay rows
+        height += (overlay_rows - 1) * 54  # Add extra height for additional rows beyond 1
+
+        # Create slots dynamically
+        self.overlay_slots = []
+        self.selected_names = []  # To store the names of selected pictures
+
+        for i in range(num_slots):
+            row = i // overlay_columns
+            col = i % overlay_columns
+
+            slot_label = QLabel()
+            slot_label.setFixedSize(54, 54)
+            slot_label.setStyleSheet(f"border-image: url('../Pictures/Bundle_Background.png');")
+            slot_label.setAlignment(Qt.AlignCenter)  # Center the image within the slot
+
+            # Install event filter for right-click functionality
+            slot_label.installEventFilter(self)
+
+            self.overlay_slots.append(slot_label)
+            overlay_layout.addWidget(slot_label, row, col)
+
+        main_layout.addWidget(overlay_widget)
+
+        # Submit button at the bottom
+        submit_button = QPushButton("Submit")
+        submit_button.setFixedHeight(40)
+        submit_button.clicked.connect(self.submit_selection)
+        main_layout.addWidget(submit_button)
+
+        self.setLayout(main_layout)
+
+        # Load previous selection if available
+        self.load_previous_selection()
+
+    def find_goals_in_json(self, file_path, item_name):
+        """Search for item_name in the JSON file and return the list of goals and the number of slots."""
+        goals = []
+        num_slots = 6  # Default to 6 if not specified in JSON
+
+        try:
+            with open(file_path, 'r') as file:
+                data = json.load(file)
+
+            for category, entries in data.items():
+                for entry in entries:
+                    if entry[0] == item_name:
+                        for condition in entry[1]:  # Iterate through conditions
+                            is_bundle = any(extra.get("type") == "Bundle" for extra in condition.get("extra_info", []))
+                            
+                            if is_bundle:
+                                for extra in condition.get("extra_info", []):
+                                    if "goals_to_complete" in extra and "amount_of_goals" in extra:
+                                        num_slots = extra["amount_of_goals"]  # Set slots to 'amount_of_goals'
+
+                                if "goals" in condition:
+                                    for goal_data in condition["goals"]:
+                                        if "goal" in goal_data:
+                                            goals.append(goal_data["goal"])  # Extract 'goal' names
+
+        except Exception as e:
+            print(f"Error reading JSON: {e}")
+
+        return goals, num_slots
+
+    def add_to_overlay(self, goal):
+        """Add a picture corresponding to the goal to the overlay."""
+        picture_path = f"../Pictures/{goal.replace(' ', '_')}.png"
+        for slot in self.overlay_slots:
+            if slot.pixmap() is None:  # Find the first empty slot
+                if os.path.exists(picture_path):
+                    pixmap = QPixmap(picture_path).scaled(42, 42, Qt.KeepAspectRatio)
+                    slot.setPixmap(pixmap)
+                    slot.setAlignment(Qt.AlignCenter)
+                else:
+                    slot.setText("No Image")
+                # Add the goal name (without underscores and .png) to the list
+                formatted_name = goal.replace('_', ' ')
+                self.selected_names.append(formatted_name)
+                break
+
+    def load_previous_selection(self):
+        """Load previously saved selection for the item_name."""
+        try:
+            with open(bundle_items_file_path, 'r') as file:
+                data = json.load(file)
+            if self.item_name in data:
+                previous_selection = data[self.item_name]
+                for goal in previous_selection:
+                    self.add_to_overlay(goal)
+        except Exception as e:
+            print(f"Error loading previous selection: {e}")
+
+    def submit_selection(self):
+        """Save the selected items to the JSON file and close the window."""
+        try:
+            # Load existing data
+            data = {}
+            if os.path.exists(bundle_items_file_path):
+                with open(bundle_items_file_path, 'r') as file:
+                    data = json.load(file)
+
+            # Update data with current selection
+            data[self.item_name] = self.selected_names
+
+            # Save updated data
+            with open(bundle_items_file_path, 'w') as file:
+                json.dump(data, file, indent=4)
+
+        except Exception as e:
+            print(f"Error saving selection: {e}")
+
+        self.close()
+
+    def eventFilter(self, source, event):
+        """Handle right-click events for removing pictures."""
+        if event.type() == QEvent.MouseButtonPress:
+            if event.button() == Qt.RightButton:
+                if source in self.overlay_slots:
+                    slot_index = self.overlay_slots.index(source)
+                    
+                    if source.pixmap() is not None and slot_index < len(self.selected_names):
+                        # Remove the corresponding name at the correct slot index
+                        removed_name = self.selected_names.pop(slot_index)
+                        
+                        # Clear the slot's image
+                        source.clear()
+
+        return super().eventFilter(source, event)
+
+
 def update_tab_background(self, tab_widget, tab_index):
     """Set tab background to black if all checkboxes are checked, otherwise reset to default."""
     tab = tab_widget.widget(tab_index)
@@ -233,424 +933,6 @@ def save_config(file_path, config_data):
     with open(file_path, "w") as file:
         json.dump(config_data, file, indent=4)
 
-def get_requirements_text(item_name, item_widgets):
-    # Fetch requirements and current items
-    requirements_data = load_data(requirements_file_path)
-    current_items_data = load_data(current_items_file_path)
-    checked_items = current_items_data.get("current_items", [])
-    
-    # Retrieve requirements for the specific item
-    required_items = []
-    for category, items in requirements_data.items():
-        for item in items:
-            if item[0] == item_name:
-                required_items = item[1]
-                break
-
-    if required_items and "or_items" in required_items[0]:
-        # If the first item contains "or_items", handle it as an or_items requirement
-        return get_standard_requirements_text(required_items, checked_items)
-    elif required_items and "item" in required_items[0]:
-        # If the first item contains "item", it's a standard requirement
-        return get_standard_requirements_text(required_items, checked_items)
-    elif required_items and any(key.startswith("complete_") for key in required_items[0]):
-        # If it starts with "complete_X_out_of_Y", it's a completion requirement
-        return get_complete_requirements_text(required_items, checked_items, item_widgets)
-    else:
-        # Handle unexpected formats gracefully
-        return f"No Required Items"
-
-def get_standard_requirements_text(conditions, checked_items):
-    """
-    Generate tooltip text for standard requirements with detailed item needs,
-    handling both 'or_items' and nested 'and_items' logic.
-    """
-    tooltip_text = "Required Items:\n"
-    unmet_requirements = []
-    relevant_items = set()  # Use a set to avoid duplicates
-
-    for condition in conditions:
-        if "item" in condition:
-            # Handle individual item requirements
-            item_name = condition["item"]
-            required_count = condition.get("count", 1)
-            item_count = checked_items.count(item_name)
-
-            if item_count >= required_count:
-                relevant_items.add(f"{required_count}x {item_name}")
-            else:
-                unmet_requirements.append(f"{required_count}x {item_name}")
-
-        elif "or_items" in condition:
-            # Handle "or_items" block
-            or_items_text_list = []
-            condition_met = False
-
-            for or_item in condition["or_items"]:
-                if "item" in or_item:
-                    # Handle single item within or_items
-                    item_name = or_item["item"]
-                    required_count = or_item.get("count", 1)
-                    item_count = checked_items.count(item_name)
-
-                    if item_count >= required_count:
-                        condition_met = True
-                        relevant_items.add(f"{required_count}x {item_name}")
-
-                    or_items_text_list.append(f"{required_count}x {item_name}")
-
-                elif "and_items" in or_item:
-                    # Handle "and_items" within "or_items"
-                    and_items_text_list = []
-                    and_condition_met = True
-
-                    for and_item in or_item["and_items"]:
-                        item_name = and_item["item"]
-                        required_count = and_item.get("count", 1)
-                        item_count = checked_items.count(item_name)
-
-                        # Add to relevant items even if not all are met
-                        if item_count > 0:
-                            relevant_items.add(f"{item_count}x {item_name}")
-                        if item_count < required_count:
-                            and_condition_met = False
-                            and_items_text_list.append(f"{required_count}x {item_name}")
-                        else:
-                            # Fully satisfied items are not included in unmet requirements
-                            relevant_items.add(f"{required_count}x {item_name}")
-
-                    if and_items_text_list:
-                        or_items_text_list.append(" AND ".join(and_items_text_list))
-
-                    if and_condition_met:
-                        condition_met = True
-
-            # If no condition is met, show unmet requirements
-            if not condition_met:
-                unmet_requirements.append(f"One of: ({', '.join(or_items_text_list)})")
-
-    # Remove items from unmet_requirements if they are fully satisfied
-    relevant_item_names = {item.split("x ", 1)[1] for item in relevant_items}
-    unmet_requirements = [
-        req for req in unmet_requirements if all(
-            part.strip() not in relevant_item_names for part in req.split(" AND ")
-        )
-    ]
-
-    # Format the unmet requirements section
-    if unmet_requirements:
-        tooltip_text += "\n".join(unmet_requirements)
-    else:
-        tooltip_text += "All requirements met."
-
-    # Display relevant items the user currently has
-    tooltip_text += f"\n\nCurrent Relevant Items:\n{', '.join(sorted(relevant_items)) if relevant_items else 'None'}"
-
-    return tooltip_text
-
-
-def get_complete_requirements_text(conditions, checked_items, item_widgets):
-    """
-    Generate tooltip text for complete_X_out_of_Y requirements.
-    """
-    # Print each widget's text_input content for debugging
-    for widget in item_widgets:
-        text_content = widget['text_input'].text()
-    tooltip_text = ""
-    goal_count = 0  # Initialize goal_count outside the sub-conditions loop to accumulate across searches
-
-    for condition in conditions:
-        complete_key = next((key for key in condition if key.startswith("complete_")), None)
-        if complete_key:
-            x, y = map(int, re.findall(r"\d+", complete_key))
-            sub_conditions = condition[complete_key]
-            met_conditions = []
-            unmet_conditions = []
-
-            # Classify each sub-condition as met or unmet
-            for sub_condition in sub_conditions:
-                name = sub_condition.get("name", [{"goal": "Item"}])[0].get("goal", "Item")
-
-                # Search item_widgets for occurrences of the goal
-                goal_matches = [
-                    widget for widget in item_widgets if name in widget['text_input'].text()
-                ]
-                goal_addition = len(goal_matches)
-                if goal_addition > 1:
-                    goal_addition = 1
-                goal_count += goal_addition  # Accumulate matches across goals
-
-
-                # Skip this goal if no matches were found in item_widgets
-                if not goal_matches:
-                    continue
-
-                # Check for more matches than unmet_conditions
-                if goal_count > y:
-                    return f"Please edit the requirements field to only have {y} amount of items in it."
-
-                # Check for always_items requirements
-                if "always_items" in sub_condition:
-                    always_items_text = ", ".join(
-                        f"{always_item.get('count', 1)}x {always_item['item']}"
-                        for always_item in sub_condition["always_items"]
-                    )
-                    always_items_met = all(
-                        checked_items.count(always_item['item']) >= always_item.get('count', 1)
-                        for always_item in sub_condition["always_items"]
-                    )
-                else:
-                    always_items_text = ""
-                    always_items_met = True  # If no always_items, treat as met
-
-                # Check for or_items requirements
-                if "or_items" in sub_condition:
-                    or_items_text_list = []
-                    or_condition_met = False
-
-                    for or_item in sub_condition["or_items"]:
-                        if "item" in or_item:
-                            or_item_text = f"{or_item.get('count', 1)}x {or_item['item']}"
-                            if checked_items.count(or_item['item']) >= or_item.get('count', 1):
-                                or_condition_met = True
-                            or_items_text_list.append(or_item_text)
-
-                        elif "and_items" in or_item:
-                            and_items_text_list = []
-                            and_condition_met = True
-
-                            for and_item in or_item["and_items"]:
-                                and_item_text = f"{and_item.get('count', 1)}x {and_item['item']}"
-                                if checked_items.count(and_item['item']) < and_item.get('count', 1):
-                                    and_condition_met = False
-                                and_items_text_list.append(and_item_text)
-
-                            or_items_text_list.append(" and ".join(and_items_text_list))
-                            if and_condition_met:
-                                or_condition_met = True
-
-                    # Format the or_items_text to be displayed with commas
-                    or_items_text = f"({', '.join(or_items_text_list)})"
-                    text = f"[{name}] {always_items_text} and One of: {or_items_text}" if always_items_text else f"[{name}] One of: {or_items_text}"
-                    
-                    # Determine if this condition is met or unmet based on always_items and or_items
-                    if always_items_met and or_condition_met:
-                        met_conditions.append(f"- {text}")
-                    else:
-                        unmet_conditions.append(f"- {text}")
-                else:
-                    # No or_items, so check always_items alone
-                    if always_items_met:
-                        met_conditions.append(f"- [{name}] {always_items_text}")
-                    else:
-                        unmet_conditions.append(f"- [{name}] {always_items_text}")
-
-            # Format unmet and met conditions sections
-            unmet_needed = max(0, x - len(met_conditions))
-            tooltip_text += f"Complete {unmet_needed} more of the following:\n" + "\n".join(unmet_conditions)
-
-            # Display the met conditions
-            tooltip_text += f"\n\nCompleted {len(met_conditions)} out of {x} so far:\n" + "\n".join(met_conditions)
-    
-    return tooltip_text
-
-
-def has_requirements(item_id, text_input):
-    """
-    Check if the given item ID meets the requirements specified in requirements.json.
-    List missing requirements if the item is not in logic.
-    """
-    # Load requirements data and current items
-    requirements_data = load_data(requirements_file_path)
-    current_items_data = load_data(current_items_file_path)
-    checked_items = current_items_data.get("current_items", [])
-
-    # Initialize a list to keep track of missing requirements
-    missing_requirements = []
-
-    # Search for the item by ID in each category
-    for category, items in requirements_data.items():
-        for item in items:
-            if item[0] == item_id:
-                # Retrieve conditions from the second element in the item
-                conditions = item[1]
-                
-                # Check the conditions and collect missing items
-                missing_requirements = get_missing_requirements(conditions, checked_items, text_input)
-
-                if missing_requirements == "Pink":
-                    return "Pink"
-                
-                if not missing_requirements:
-                    return "Default"  # All requirements met
-                else:
-                    return "Red"  # Missing requirements
-
-    return False  # No requirements found for the item
-
-def get_missing_requirements(conditions, checked_items, text_input):
-    # Get and print the goal requirements
-    goals = get_goal_requirements(conditions)
-    goals_amount = 0  # Only matched goals will be counted towards this
-
-    for goal, items in goals.items():
-        
-        # Check if the goal is in text_input and print the location if found
-        goal_match = re.search(goal, text_input, re.IGNORECASE)
-        if goal_match:
-            goals_amount += 1  # Count only matched goals
-        else:
-            continue  # Skip unmet goals entirely in count
-
-        # Print each item's requirements for achieving this goal
-        for item in items:
-            if isinstance(item, list):
-                and_items = " and ".join([f"{count}x {name}" for name, count in item])
-            else:
-                name, count = item
-
-    missing = []
-    for condition in conditions:
-        if isinstance(condition, dict) and condition:  # Only proceed if it's a dictionary and not empty
-            # Handle "complete_X_out_of_Y" conditions
-            complete_key = next((key for key in condition if key.startswith("complete_")), None)
-            if complete_key:
-                x, y = map(int, re.findall(r"\d+", complete_key))  # Extract X and Y from "complete_X_out_of_Y"
-                if goals_amount > y:
-                    return "Pink"
-                sub_conditions = condition[complete_key]
-                
-                # Filter sub_conditions to include only those whose goals matched in text_input
-                matched_sub_conditions = [
-                    sub_condition for sub_condition in sub_conditions
-                    if any(goal["goal"] == sub_condition.get("name")[0]["goal"] and re.search(goal["goal"], text_input, re.IGNORECASE)
-                           for goal in sub_condition.get("name", []))
-                ]
-
-                # Count only matched sub-conditions
-                met_count = sum(
-                    check_conditions([sub_condition], checked_items, text_input) for sub_condition in matched_sub_conditions
-                )
-                
-                # Only add to missing if met_count falls short of requirement x
-                if met_count < x:
-                    missing.append(f"Complete {x - met_count} more out of {y} total requirements")
-                continue  # Skip to the next condition after processing this complete_X_out_of_Y
-
-            # Handle "always_items" conditions
-            if "always_items" in condition:
-                for always_item in condition["always_items"]:
-                    required_item = always_item["item"]
-                    required_count = always_item.get("count", 1)
-                    item_count = checked_items.count(required_item)
-                    if item_count < required_count:
-                        missing.append(f"{required_count - item_count}x {required_item} (mandatory)")
-
-            # Handle individual item conditions
-            if "item" in condition:
-                required_item = condition["item"]
-                required_count = condition.get("count", 1)
-                item_count = checked_items.count(required_item)
-                if item_count < required_count:
-                    missing.append(f"{required_count - item_count}x {required_item}")
-
-            # Handle "or_items" conditions
-            elif "or_items" in condition:
-                if not any(check_conditions([or_item], checked_items, text_input) for or_item in condition["or_items"]):
-                    or_missing = []
-                    for or_item in condition["or_items"]:
-                        if "item" in or_item:
-                            or_missing.append(f"{or_item.get('count', 1)}x {or_item['item']}")
-                        elif "and_items" in or_item:
-                            and_missing = [
-                                f"{and_item.get('count', 1)}x {and_item['item']}"
-                                for and_item in or_item["and_items"]
-                            ]
-                            or_missing.append(" and ".join(and_missing))
-                    missing.append(f"One of: ({' or '.join(or_missing)})")
-    return missing
-
-
-
-def check_conditions(conditions, checked_items, text_input):
-    for condition in conditions:
-        if isinstance(condition, dict) and condition:  # Only proceed if it's a dictionary and not empty
-            # Handle "complete_X_out_of_Y" conditions
-            complete_key = next((key for key in condition if key.startswith("complete_")), None)
-            if complete_key:
-                x, y = map(int, re.findall(r"\d+", complete_key))  # Extract X and Y from "complete_X_out_of_Y"
-                sub_conditions = condition[complete_key]
-                met_count = sum(
-                    check_conditions([sub_condition], checked_items, text_input) for sub_condition in sub_conditions
-                )
-                if met_count >= x:
-                    return True  # Met enough sub-conditions
-                return False  # Did not meet the required number of sub-conditions
-
-            # Handle "always_items" conditions
-            if "always_items" in condition:
-                for always_item in condition["always_items"]:
-                    required_item = always_item["item"]
-                    required_count = always_item.get("count", 1)
-                    if checked_items.count(required_item) < required_count:
-                        return False  # Mandatory item not met
-
-            # Handle individual item conditions
-            if "item" in condition:
-                if checked_items.count(condition["item"]) < condition.get("count", 1):
-                    return False
-
-            # Handle "or_items" conditions
-            elif "or_items" in condition:
-                if not any(check_conditions([or_item], checked_items, text_input) for or_item in condition["or_items"]):
-                    return False
-
-            # Handle "and_items" conditions
-            elif "and_items" in condition:
-                if not all(
-                    checked_items.count(and_item["item"]) >= and_item.get("count", 1)
-                    for and_item in condition["and_items"]
-                ):
-                    return False
-
-    return True
-
-def get_goal_requirements(conditions):
-    """Retrieve goal requirements and their corresponding items for each goal."""
-    goals = {}
-
-    for condition in conditions:
-        if isinstance(condition, dict) and condition:
-            # Handle "complete_X_out_of_Y" conditions
-            complete_key = next((key for key in condition if key.startswith("complete_")), None)
-            if complete_key:
-                sub_conditions = condition[complete_key]
-                # Recursively process sub-conditions for goals
-                sub_goals = get_goal_requirements(sub_conditions)
-                goals.update(sub_goals)  # Merge sub-goals with the main goals
-                continue
-
-            # Detect "goal" in conditions with corresponding items
-            if "name" in condition:
-                for goal_info in condition["name"]:
-                    goal_name = goal_info.get("goal")
-                    if goal_name:
-                        goals[goal_name] = []  # Initialize the goal with an empty list of items
-
-                        # Collect items that satisfy the goal
-                        if "or_items" in condition:
-                            for or_item in condition["or_items"]:
-                                if "item" in or_item:
-                                    item_name = or_item["item"]
-                                    item_count = or_item.get("count", 1)
-                                    goals[goal_name].append((item_name, item_count))
-                                elif "and_items" in or_item:
-                                    and_items = [(and_item["item"], and_item.get("count", 1))
-                                                 for and_item in or_item["and_items"]]
-                                    goals[goal_name].append(and_items)  # Grouped items for "and_items"
-
-    return goals
-
 # Load the data from the JSON file
 data_file = data_file_path
 all_major_data = load_data(data_file_path)
@@ -660,7 +942,7 @@ config_file = config_file_path
 with open(config_file, 'r') as f:
     config_data = json.load(f)
 
-from server_connection import connect_to_server, message_emitter, send_message_to_server  # Import from server_connection.py
+from server_connection import connect_to_server, message_emitter, send_message_to_server
 import asyncio
 from PyQt5 import QtGui
 
@@ -675,6 +957,11 @@ class ServerThread(QThread):
 
     def run(self):
         asyncio.run(self.async_connect())
+
+from PyQt5.QtWidgets import QWidget, QLabel, QVBoxLayout, QHBoxLayout, QPushButton, QLineEdit, QTextEdit, QTabWidget
+from PyQt5.QtCore import QTimer, QFileSystemWatcher
+from PyQt5.QtGui import QPixmap
+import asyncio
 
 class ServerWindow(QWidget):
     def __init__(self, main_window):
@@ -707,10 +994,18 @@ class ServerWindow(QWidget):
         self.slot_input.setText(self.config_data.get("slot_name", ""))
         left_layout.addWidget(self.slot_input)
 
-        # Connect Button
+        # Connection Status Image & Connect Button
+        connection_layout = QHBoxLayout()
+        self.status_label = QLabel(self)
+        connection_path = "../Pictures/Disconnected.png"
+        pixmap = QPixmap(connection_path).scaled(16, 16, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+        self.status_label.setPixmap(QPixmap(pixmap))  # Default to Disconnected
+        self.status_label.setFixedSize(16, 16)  # Adjust size as needed
         self.connect_button = QPushButton("Connect")
         self.connect_button.clicked.connect(self.start_server_connection)
-        left_layout.addWidget(self.connect_button)
+        connection_layout.addWidget(self.connect_button)
+        connection_layout.addWidget(self.status_label)
+        left_layout.addLayout(connection_layout)
 
         # Output display for server messages
         self.output_display = QTextEdit()
@@ -774,9 +1069,29 @@ class ServerWindow(QWidget):
 
         # Connect message signal from server_connection.py to the output display
         message_emitter.message_signal.connect(self.print_to_server_console)
+        # Connect the connection status signal to update the UI
+        message_emitter.connection_signal.connect(self.update_connection_status)
+
+
 
         # Enable Send button only if there’s text in message_input
         self.message_input.textChanged.connect(self.toggle_send_button)
+
+    def update_connection_status(self, is_connected):
+        """Updates the connection status image and button state."""
+
+        # Update the connection status image
+        image_path = "../Pictures/Connected.png" if is_connected else "../Pictures/Disconnected.png"
+        pixmap = QPixmap(image_path).scaled(16, 16, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+        self.status_label.setPixmap(pixmap)  # Update UI
+
+        # Update button text and state
+        if is_connected:
+            self.connect_button.setText("Connected")
+            self.connect_button.setEnabled(False)  # Disable button when connected
+        else:
+            self.connect_button.setText("Connect")
+            self.connect_button.setEnabled(True)  # Enable button when disconnected
 
     def handle_file_change(self, changed_file):
         """
@@ -787,9 +1102,6 @@ class ServerWindow(QWidget):
 
         if self.debounce_timer.isActive():
             remaining_time = self.debounce_timer.remainingTime()
-            print(f"Timer reset. Remaining time was: {remaining_time} ms")
-        else:
-            print("Starting new debounce timer.")
 
         # Restart the timer
         self.debounce_timer.start(1000)
@@ -798,15 +1110,12 @@ class ServerWindow(QWidget):
         """
         Execute actions for all pending files after debounce delay.
         """
-        print(f"Running actions for files: {self.pending_server_file_actions}")
         for changed_file in self.pending_server_file_actions:
             if changed_file == hint_my_location_file_path:
                 self.populate_tabs_from_json()
-                print("location change")
 
             elif changed_file == hint_my_item_file_path:
                 self.populate_tabs_from_json()
-                print("item change")
 
         # Clear pending actions after execution
         self.pending_server_file_actions.clear()
@@ -871,6 +1180,7 @@ class ServerWindow(QWidget):
             print(f"File not found: {e}")
         except json.JSONDecodeError as e:
             print(f"Error decoding JSON: {e}")
+    
 
     async def send_info(self):
         """Send the content of the selected tab to the server using the 'say' command."""
@@ -936,7 +1246,6 @@ class ServerWindow(QWidget):
             with open(checked_location_file_path, 'r') as checked_file:
                 checked_data = json.load(checked_file)["checked_locations"]
         except (FileNotFoundError, json.JSONDecodeError):
-            print("Error: checked_location.json file not found or could not be decoded.")
             return
         
         new_all_major_data = load_data(data_file_path)
@@ -965,12 +1274,25 @@ class ServerWindow(QWidget):
         self.server_thread = ServerThread(server_address, player_slot)
         self.server_thread.start()
 
-
     def save_config_data(self, server_address, slot_name):
-        """Save server address and slot name to config.json."""
-        config_data = {"server_address": server_address, "slot_name": slot_name}
+        """Save server address and slot name to config.json without removing existing 'season' key."""
+        config_data = {}
+
+        # Check if the file exists and load existing data
+        if os.path.exists(config_file_path):
+            with open(config_file_path, "r") as f:
+                try:
+                    config_data = json.load(f)
+                except json.JSONDecodeError:
+                    pass  # Handle corrupted or empty JSON files gracefully
+
+        # Update only the necessary fields
+        config_data.update({"server_address": server_address, "slot_name": slot_name})
+
+        # Write back the modified config
         with open(config_file_path, "w") as f:
             json.dump(config_data, f, indent=4)
+
 
     def load_config_data(self):
         """Load server address and slot name from config.json."""
@@ -988,6 +1310,10 @@ class ServerWindow(QWidget):
         except (FileNotFoundError, json.JSONDecodeError):
             return []
 
+from PyQt5.QtWidgets import QLabel, QSizePolicy, QApplication
+from PyQt5.QtCore import Qt, QPoint
+from PyQt5.QtGui import QGuiApplication, QTextDocument
+
 class HoverTooltip(QLabel):
     """Tooltip overlay widget for displaying information over other widgets."""
     def __init__(self, text, parent=None):
@@ -995,15 +1321,47 @@ class HoverTooltip(QLabel):
         self.setWindowFlags(Qt.ToolTip | Qt.FramelessWindowHint)
         self.setStyleSheet("background-color: #444444; color: white; padding: 5px; font-size: 10pt;")
         self.setAttribute(Qt.WA_TransparentForMouseEvents)
+        self.setTextFormat(Qt.RichText)
+
+        self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding) 
+
+        # Force proper size calculation for long tooltips
+        doc = QTextDocument()
+        doc.setHtml(text)
+        doc.setTextWidth(400)  # Set reasonable width
+        self.resize(int(doc.idealWidth()), int(doc.size().height()))
+
         self.hide()
 
     def show_tooltip(self, pos):
+        self.adjustSize()  # Ensure correct tooltip size before positioning
+        self.resize(self.sizeHint())  # Explicitly resize to fit text
+
+        # Find the screen that contains the tooltip position
+        screen = QGuiApplication.screenAt(pos)
+        if screen is None:
+            screen = QGuiApplication.primaryScreen()  # Fallback to primary if detection fails
+        screen_rect = screen.availableGeometry()
+
+        tooltip_rect = self.frameGeometry()
+
+        # Calculate how much it goes off the bottom
+        overflow = (pos.y() + tooltip_rect.height()) - screen_rect.bottom()
+
+        # If it goes off the bottom, move it up by that amount
+        if overflow > 0:
+            pos.setY(pos.y() - overflow)
+
+        # Ensure tooltip does not go off the top of the screen
+        if pos.y() < screen_rect.top():
+            pos.setY(screen_rect.top())
+
         self.move(pos)
         self.show()
 
     def hide_tooltip(self):
         self.hide()
-
+        
 class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
@@ -1023,9 +1381,13 @@ class MainWindow(QWidget):
         # QFileSystemWatcher to monitor specific files
         self.file_watcher = QFileSystemWatcher(self)
         self.file_watcher.addPath(checked_location_file_path)
+        self.file_watcher.addPath(bundle_items_file_path)
         self.file_watcher.addPath(current_items_file_path)
         self.file_watcher.addPath(data_file_path)
         self.file_watcher.addPath(hint_my_location_file_path)
+
+        # Call the setting_check method
+        self.setting_check()
 
         # Connect the `fileChanged` signals for specific files
         self.file_watcher.fileChanged.connect(self.handle_file_change)
@@ -1119,7 +1481,6 @@ class MainWindow(QWidget):
         # Add Skills, Mines, and Friends tabs to their respective tab widgets
         self.skills_tabs.addTab(self.create_skills_tab(skills_tab_name), "Skills")
         self.mines_tabs.addTab(self.create_mines_tab(mines_tab_name), "Mines")
-        self.friends_tabs.addTab(self.create_friends_tab(friends_tab_name), "Friends")
 
         # Add the Recent Items tab
         self.recent_items_tab = QTabWidget()
@@ -1127,9 +1488,7 @@ class MainWindow(QWidget):
         self.recent_items_display.setReadOnly(True)  # Make the display read-only
         self.recent_items_display.setStyleSheet("font-family: Consolas; font-size: 10pt;")
         self.recent_items_tab.addTab(self.recent_items_display, "Important Items Status")
-        
-
-        
+    
         # Initialize recent items display
         self.update_recent_items()
 
@@ -1157,11 +1516,12 @@ class MainWindow(QWidget):
         self.setLayout(main_layout)
         self.main_tabs.currentChanged.connect(lambda: self.update_note_tab("t"))
 
-
-        # Initialize the global counter label
+        self.update_friends()
+        self.process_data_file_for_checked_locations()
         self.update_global_counter()
         self.update_tab_names()
         self.update_season_button_texts()  # Update button texts based on initial data
+
 
     def handle_file_change(self, changed_file):
         """
@@ -1172,37 +1532,131 @@ class MainWindow(QWidget):
 
         if self.debounce_timer.isActive():
             remaining_time = self.debounce_timer.remainingTime()
-            print(f"Timer reset. Remaining time was: {remaining_time} ms")
-        else:
-            print("Starting new debounce timer.")
 
         # Restart the timer
-        self.debounce_timer.start(1000)
+        self.debounce_timer.start(250)
 
     def run_file_change_actions(self):
         """
         Execute actions for all pending files after debounce delay.
         """
-        print(f"Running actions for files: {self.pending_file_actions}")
         for changed_file in self.pending_file_actions:
             if changed_file == current_items_file_path:
                 self.update_recent_items()
                 self.update_tab_names()
                 self.update_elevator_floor_label()
                 self.update_season_button_texts()
+                self.update_all_background_colors()
                 for skill in ["Combat", "Farming", "Fishing", "Foraging", "Mining"]:
                     self.refresh_skill_level(skill)
 
             elif changed_file == data_file_path:
                 self.update_tab_names()
+                self.process_data_file_for_checked_locations()
+
+            elif changed_file == bundle_items_file_path:
+                self.update_bundle_pictures()
+                self.update_tab_names()
+                self.update_all_background_colors()
+                
 
             elif changed_file == hint_my_location_file_path:
-                print("Updating Notes in Hint Text field")
                 self.update_note_tab("t")
                 self.update_tab_names()
 
         # Clear pending actions after execution
         self.pending_file_actions.clear()
+
+    def setting_check(self):
+        # Get the first YAML file in the folder
+        yaml_files = [f for f in os.listdir(settings_folder) if f.endswith(".yaml")]
+        if not yaml_files:
+            return None
+
+        first_yaml_file = os.path.join(settings_folder, yaml_files[0])
+
+        # Read the YAML file
+        with open(first_yaml_file, "r", encoding="utf-8") as file:
+            data = yaml.safe_load(file)
+
+        # Extract bundle_randomization value
+        if "Stardew Valley" in data and "bundle_randomization" in data["Stardew Valley"]:
+            bundle_randomization_value = data["Stardew Valley"]["bundle_randomization"]
+
+            if bundle_randomization_value == "vanilla":
+                # Load the vanilla bundle data (source)
+                if os.path.exists(bundle_items_vanilla_file_path):
+                    with open(bundle_items_vanilla_file_path, "r", encoding="utf-8") as file:
+                        try:
+                            new_data = json.load(file)
+                        except json.JSONDecodeError:
+                            print(f"Error loading JSON from {bundle_items_vanilla_file_path}. Aborting update.")
+                            return
+                else:
+                    return
+
+                # Load the existing bundle data (destination)
+                if os.path.exists(bundle_items_file_path):
+                    with open(bundle_items_file_path, "r", encoding="utf-8") as file:
+                        try:
+                            bundle_data = json.load(file)
+                        except json.JSONDecodeError:
+                            print(f"Error loading JSON from {bundle_items_file_path}. Resetting file.")
+                            bundle_data = {}
+                else:
+                    bundle_data = {}
+
+                # Update or add headers in the existing bundle data
+                for key, value in new_data.items():
+                    bundle_data[key] = value  # Replace if exists, add if missing
+
+                # Write the modified JSON data back to the file
+                with open(bundle_items_file_path, "w", encoding="utf-8") as file:
+                    json.dump(bundle_data, file, indent=4)
+
+    def process_data_file_for_checked_locations(self):
+        """
+        Process the data file, check the 5th field, and save the 4th field of matching entries
+        to 'checked_location_detailed_file_path'. Additionally, include unmatched 4th fields
+        from 'all_data.json'.
+        """
+        try:
+            # Load the primary data file
+            with open(data_file_path, 'r') as data_file:
+                data = json.load(data_file)
+
+            # Load the all_data file
+            with open(all_data_file_path, 'r') as all_data_file:
+                all_data = json.load(all_data_file)
+
+            # Collect all matching 4th fields
+            checked_locations = []
+            data_fields = set(entry[3] for category in data.values() for entry in category if len(entry) >= 4) 
+            
+            # Add entries from data with 5th field equal to 1
+            for category, items in data.items():
+                for entry in items:
+                    if len(entry) >= 5 and entry[4] == 1:
+                        checked_locations.append(entry[3])  # Add 4th field to the list
+
+            # Add unmatched fields from all_data
+            for category, items in all_data.items():
+                for entry in items:
+                    if len(entry) >= 4 and entry[3] not in data_fields:
+                        checked_locations.append(entry[3])
+
+            # Prepare the JSON structure for detailed checked locations
+            detailed_data = {"checked_locations": checked_locations}
+
+            # Write the updated data to the file, replacing any previous content
+            with open(checked_location_detailed_file_path, 'w') as json_file:
+                json.dump(detailed_data, json_file, indent=4)
+
+        except Exception as e:
+            print(f"Error processing {data_file_path}: {e}")
+
+
+
 
     def update_recent_items(self):
         """Update the Recent Items tab with the count of specific items from current_items.json."""
@@ -1331,58 +1785,161 @@ class MainWindow(QWidget):
         # Update the stored previous state to the current state after comparison
         self.previous_data_state = current_data_state
 
-
-    def create_friends_tab(self, tab_name):
+    def create_friends_tab(self, tab_name, category_filter, spacing=0):
         """Create a special tab for friends with relationship level controls and separate birthday labels."""
+        # Load the data from data.json
+        with open(data_file_path, 'r') as f:
+            data = json.load(f)
+        
+        # Parse unique friend names, birthdays, and their category
+        friendsanity_data = data.get("Friendsanity", [])
+        friends_with_birthdays = {}
+        
+        # Map category filter input
+        if category_filter == "v":
+            category_filter = "Villagers"
+        elif category_filter == "b":
+            category_filter = "Bachelor(ette)s"
+
+        for entry in friendsanity_data:
+            if len(entry) >= 3:  # Ensure the entry has enough fields
+                name_with_level = entry[0]  # Example: "Pam 10 <3"
+                birthday_info = entry[2]    # Example: "(Birthday: Spring 18)"
+                name = name_with_level.split()[0]  # Extract the first word as the name
+                
+                # Check if this friend is already processed
+                if name not in friends_with_birthdays:
+                    # Add to the dictionary with default category and birthday
+                    friends_with_birthdays[name] = {
+                        "Birthday": birthday_info,
+                        "Category": "Bachelor(ette)s"
+                    }
+                
+                # Update the category to "Villagers" if any entry has a "10"
+                if "10" in name_with_level:
+                    friends_with_birthdays[name]["Category"] = "Villagers"
+
+        # Filter friends based on the category_filter
+        filtered_friends_with_birthdays = [
+            (name, data["Birthday"], data["Category"])
+            for name, data in friends_with_birthdays.items()
+            if data["Category"] == category_filter or category_filter == "c"
+        ]
+
+        # Helper function to convert season and day to a sortable format
+        def birthday_sort_key(birthday):
+            season_order = {"Spring": 1, "Summer": 2, "Fall": 3, "Winter": 4}
+            for season, order in season_order.items():
+                if season in birthday:
+                    day = int(''.join(filter(str.isdigit, birthday)))
+                    return order * 100 + day
+            return 1000000  # Default value if no season is found
+
+        # Sort the friends by their birthday
+        filtered_friends_with_birthdays.sort(key=lambda x: birthday_sort_key(x[1]))
+
+        # Define birthday color mapping
+        birthday_colors = {
+            "Spring": "background-color: #344534; color: white;",
+            "Summer": "background-color: #4f4300; color: white;",
+            "Fall": "background-color: #633700; color: white;",
+            "Winter": "background-color: #0a3054; color: white;"
+        }
+
+        # Create the main tab layout
         tab = QWidget()
-        layout = QVBoxLayout(tab)
-        layout.setAlignment(Qt.AlignTop)
+        main_layout = QVBoxLayout(tab)
+        main_layout.setAlignment(Qt.AlignTop)
 
         # Counter Label for Friends tab
         self.friends_counter_label = QLabel()
-        layout.addWidget(self.friends_counter_label)
+        main_layout.addWidget(self.friends_counter_label)
+
+        # Create a scrollable area for the friends list
+        scroll_area = QScrollArea()
+        scroll_area.setWidgetResizable(True)
+
+        # Create a widget for the scroll area
+        scroll_widget = QWidget()
+        scroll_layout = QVBoxLayout(scroll_widget)
+        scroll_layout.setAlignment(Qt.AlignTop)
 
         # Grid layout for each friend
         friends_layout = QGridLayout()
         friends_layout.setAlignment(Qt.AlignTop)
-        friends_layout.setVerticalSpacing(10)
+        friends_layout.setVerticalSpacing(spacing)  # Set custom spacing
 
-        # List of friends with their birthdays
-        friends_with_birthdays = [
-            ("Emily", "Birthday: Spring 27"), ("Abigail", "Birthday: Fall 13"), 
-            ("Penny", "Birthday: Fall 2"), ("Leah", "Birthday: Winter 23"), 
-            ("Maru", "Birthday: Summer 10"), ("Haley", "Birthday: Spring 14")
-        ]
-
-        for i, (friend, birthday) in enumerate(friends_with_birthdays):
+        for i, (friend, birthday, category) in enumerate(filtered_friends_with_birthdays):
+            # Friend label
             friend_label = QLabel(f"{friend}:")
-            birthday_label = QLabel(f"({birthday})")  # Separate birthday label
-            birthday_label.setStyleSheet("color: gray;")  # Style the birthday label
+            
+            # Birthday label with styling based on season
+            season = next((key for key in birthday_colors if key in birthday), "Cat")
+            birthday_label = QLabel(f"{birthday}")
+            birthday_label.setStyleSheet(birthday_colors.get(season, "background-color: gray; color: white;"))
 
-            level_selector = QComboBox()
-            level_options = [0, 2, 4, 6, 8]
-            level_selector.addItems(map(str, level_options))
-            level_selector.setCurrentText(str(self.get_friends_data(friend, tab_name)))
-            level_selector.currentTextChanged.connect(lambda value, f=friend: self.update_friends_data(f, tab_name, int(value)))
-            level_selector.currentTextChanged.connect(self.update_friends_counter)
+            # Retrieve the highest relationship level for the friend
+            highest_level = self.get_friends_data(friend, tab_name)
+            
+            # Level label with styling
+            level_label = QLabel(str(highest_level))
+            level_font = level_label.font()
+            level_font.setBold(True)
+            level_label.setFont(level_font)
+            
+            completed_tab = False
 
-            # Arrange the labels and selectors in the grid layout
-            friends_layout.addWidget(friend_label, i, 0, Qt.AlignTop)
-            friends_layout.addWidget(birthday_label, i, 1, Qt.AlignTop)
-            friends_layout.addWidget(level_selector, i, 2, Qt.AlignTop)
+            # Set color for level label
+            if (category == "Bachelor(ette)s" and highest_level == 8) or (category == "Villagers" and highest_level == 10):
+                level_label.setStyleSheet("background-color: #58adb8; color: black;")
+                completed_tab = True
+            else:
+                level_label.setStyleSheet("color: white;")
 
-        layout.addLayout(friends_layout)
-        tab.setLayout(layout)
+            if friend == "Pet" and highest_level == 5:
+                level_label.setStyleSheet("background-color: #58adb8; color: black;")
+                completed_tab = True
+
+            # Arrange the labels and level in the grid layout
+            if completed_tab == True:
+                if category_filter == "c":
+                    friends_layout.addWidget(friend_label, i, 0, Qt.AlignTop)
+                    friends_layout.addWidget(birthday_label, i, 1, Qt.AlignTop)
+                    friends_layout.addWidget(level_label, i, 2, Qt.AlignTop)
+            else:
+                if category_filter != "c":
+                    friends_layout.addWidget(friend_label, i, 0, Qt.AlignTop)
+                    friends_layout.addWidget(birthday_label, i, 1, Qt.AlignTop)
+                    friends_layout.addWidget(level_label, i, 2, Qt.AlignTop)
+
+        scroll_layout.addLayout(friends_layout)
+        scroll_widget.setLayout(scroll_layout)
+        scroll_area.setWidget(scroll_widget)
+
+        # Add the scroll area to the main layout
+        main_layout.addWidget(scroll_area)
+        tab.setLayout(main_layout)
 
         # Initialize the friends counter display
         self.update_friends_counter()
+
+            # Check if the friends_layout is empty
+        if friends_layout.count() == 0:
+            return None  # Return None if the layout is empty (tab is blank)
+        
         return tab
 
 
     def update_friends_counter(self):
         """Update the Friends tab counter label to show the checked items count."""
         total_checked = 0
-        total_items = 48  # Total number of friends
+        with open(data_file_path, 'r') as f:
+            data = json.load(f)
+        
+        # Parse unique friend names and birthdays from the JSON data
+        friendsanity_data = data.get("Friendsanity", [])
+        total_entries = len(friendsanity_data)
+        total_items = total_entries  # Total number of friends
         new_all_major_data = load_data(data_file_path)
 
         # Count the total checked levels for each friend in JSON data
@@ -1392,6 +1949,7 @@ class MainWindow(QWidget):
 
         # Update the counter label in the Friends tab
         self.friends_counter_label.setText(f"{total_checked} / {total_items} items checked")
+
 
     def get_friends_data(self, friend, tab_name):
         """Retrieve the highest relationship level for each friend from the data on load."""
@@ -1580,7 +2138,6 @@ class MainWindow(QWidget):
             # XP Number Box (spin box)
             xp_selector = QSpinBox()
             xp_selector.setRange(0, 10)  # Set the range to 0-10 for XP
-            print("test")
             xp_selector.setValue(self.get_skill_xp_from_data(tab_name, skill))
             
             # Connect XP selector to update JSON and refresh level
@@ -1645,7 +2202,6 @@ class MainWindow(QWidget):
         """Calculate the skill level based on the count of relevant items in current_items.json."""
         try:
             current_items_data = load_data(current_items_file_path)
-            print(f"Skill Name: {skill}")
             level_count = sum(1 for item in current_items_data["current_items"] if (skill + " Level") in item)
             return level_count
         except (FileNotFoundError, KeyError, json.JSONDecodeError):
@@ -1752,51 +2308,274 @@ class MainWindow(QWidget):
             read_only_input.setReadOnly(True)
             read_only_input.setFixedWidth(130)
 
+            # Create a layout to hold the season images
+            season_layout = QHBoxLayout()
+            season_layout.setContentsMargins(0, 0, 0, 0)
+            season_layout.setSpacing(2)
+
+            # If no seasons are selected, consider it as all seasons
+            if not item_seasons:
+                item_seasons = ["Spring", "Summer", "Fall", "Winter"]
+
+            # Define the order of seasons and corresponding images
+            all_seasons = ["Spring", "Summer", "Fall", "Winter"]
+            for season in all_seasons:
+                season_label = QLabel()
+                season_label.setFixedSize(24, 24)
+                # Determine the image path
+                if season in item_seasons:
+                    season_image_path = f"../Pictures/{season}.png"
+                else:
+                    season_image_path = "../Pictures/Blank.png"
+                # Set the image or fallback text
+                if os.path.exists(season_image_path):
+                    pixmap = QPixmap(season_image_path).scaled(24, 24, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+                    season_label.setPixmap(pixmap)
+                else:
+                    season_label.setText("No Img")
+                    season_label.setAlignment(Qt.AlignCenter)
+                # Add the season label to the layout
+                season_layout.addWidget(season_label)
+
             text_input = QLineEdit()
             text_input.setPlaceholderText(f"{item_info}")
             text_input.setText(f"{item_info}")
 
-            matching_extra_info = next((extra_info for extra_info in extra_info_array if extra_info["checkbox_text"] == item_id), None)
-            if matching_extra_info:
-                text_input.setText(matching_extra_info["extra_info_input"])
+            fish = False
 
-            text_input.textChanged.connect(lambda _, cb_text=item_id, text=text_input: 
-                                            self.update_extra_info_array(cb_text, text.text()))
+            def parse_time_ranges(time_text):
+                # Define the hours from 6 AM to 2 AM
+                hours = [f"{h}am" for h in range(6, 12)] + ["12pm"] + [f"{h}pm" for h in range(1, 12)] + ["12am", "1am", "2am"]
+
+                # Initialize an array of zeros for each hour
+                time_array = [0] * len(hours)
+
+                # Extract individual times from input
+                time_matches = re.findall(r'(\d{1,2})(am|pm)', time_text)
+                time_pattern = tuple(f"{hour}{period}" for hour, period in time_matches)
+
+                # Iterate through the hours and mark the array
+                i = 0
+                while i < len(time_pattern):
+                    if i + 1 < len(time_pattern):
+                        start_time, end_time = time_pattern[i], time_pattern[i + 1]
+                        found_start = False
+
+                        for j, hour in enumerate(hours):
+                            if hour == start_time:
+                                time_array[j] = 1  # Mark the start
+                                found_start = True
+                            elif found_start:
+                                if hour == end_time:  # Stop marking before `end_time`
+                                    break
+                                time_array[j] = 1  # Mark everything between 1 and 2
+
+                    i += 2  # Move to the next time range
+
+                return time_array
+
+            # **New Block: Add 21 images for "Fishsanity" with Time Filtering**
+            if tab_name == "Fishsanity":
+                time_sequence = [6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1]  # Defined sequence
+
+                # Extract ordered time array from `text_input`
+                ordered_time_array = parse_time_ranges(text_input.text())
+
+                # Perform bitwise operation: replace time with 0 if ordered_time_array is 0
+                masked_time_sequence = [time_sequence[i] if ordered_time_array[i] == 1 else 0 for i in range(len(time_sequence))]
+
+                fishsanity_layout = QHBoxLayout()
+                fishsanity_layout.setContentsMargins(0, 0, 0, 0)
+                fishsanity_layout.setSpacing(0)
+
+                for i, number in enumerate(masked_time_sequence):  # Use the masked sequence
+                    # Determine correct image path based on time range
+                    if number == 0:
+                        image_path = "../Pictures/Blank.png"
+                    elif 1 <= number and 6 <= i <= 17:  # 1PM - 12PM range
+                        image_path = f"../Pictures/Time_{number}_PM.png"
+                    else:
+                        image_path = f"../Pictures/Time_{number}.png"
+
+                    fish_image_label = QLabel()
+                    fish_image_label.setFixedSize(18, 18)  # Keep consistent size
+
+                    if os.path.exists(image_path):
+                        pixmap = QPixmap(image_path).scaled(20, 20, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+                        fish_image_label.setPixmap(pixmap)
+                    else:
+                        fish_image_label.setText(f"{number}")  # Fallback: Display number if image is missing
+                        fish_image_label.setAlignment(Qt.AlignCenter)
+
+                    fishsanity_layout.addWidget(fish_image_label)
+
+                fish = True
+
+                weather_paths = {
+                    "Sun": "../Pictures/StatusSun.png",
+                    "Rain": "../Pictures/StatusRain.png",
+                    "Blank": "../Pictures/Blank.png"
+                }
+
+                weather_conditions = text_input.text()
+                is_sunny = "Sun" in weather_conditions
+                is_rainy = "Rain" in weather_conditions
+
+                for condition in ["Sun", "Rain"]:
+                    weather_image_label = QLabel()
+                    weather_image_label.setFixedSize(34, 24)
+
+                    image_path = weather_paths["Blank"]
+                    if (condition == "Sun" and is_sunny) or (condition == "Rain" and is_rainy):
+                        image_path = weather_paths[condition]
+
+                    if os.path.exists(image_path):
+                        pixmap = QPixmap(image_path).scaled(34, 24, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+                        weather_image_label.setPixmap(pixmap)
+
+                    fishsanity_layout.addWidget(weather_image_label)
+
+                def extract_final_part(text_input):
+                    # Remove everything between the first and second sets of parentheses
+                    cleaned_text = re.sub(r"^\(.*?\) \(.*?\) ", "", text_input)
+                    return cleaned_text
+                
+                item_info = extract_final_part(item_info)
+
+                text_input = QLineEdit()
+                text_input.setPlaceholderText(f"{item_info}")
+                text_input.setText(f"{item_info}")
+
+
+            else:
+                matching_extra_info = next((extra_info for extra_info in extra_info_array if extra_info["checkbox_text"] == item_id), None)
+                if matching_extra_info:
+                    text_input.setText(matching_extra_info["extra_info_input"])
+
+                text_input.textChanged.connect(lambda _, cb_text=item_id, text=text_input: 
+                                                self.update_extra_info_array(cb_text, text.text()))
 
             hint_input = QLineEdit()
             hint_input.setPlaceholderText("Insert Item on Check")
             hint_input.setFixedWidth(220)
+            
+            with open(requirements_file_path, "r", encoding="utf-8") as file:
+                data = json.load(file)
+
+            # Get extra_info for the current item_name
+            extra_info = self.get_extra_info_for_item(requirements_file_path, item_name, "extra_info")
+            all_goals = self.get_extra_info_for_item(requirements_file_path, item_name, "goals")
+
+            # Check if the item is of type "Bundle"
+            is_setting = any(info.get("type") == "Setting" for info in extra_info)
+
+            # Button for opening the new window with an image
+            open_window_button = QPushButton()
+            open_window_button.setFixedSize(24, 24)  # Adjust button size to fit the image
+            if is_setting:
+                picture_path = "../Pictures/Advanced_Options_Button.png"
+            else:
+                picture_path = "../Pictures/Golden_Scroll.png"
+
+            if os.path.exists(picture_path):
+                pixmap = QPixmap(picture_path).scaled(24, 24, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+                icon = QIcon(pixmap)
+                open_window_button.setIcon(icon)
+                open_window_button.setIconSize(QSize(24, 24))
+            else:
+                open_window_button.setText("[!]")  # Fallback if image is missing
+
+            # Connect the button to open the new window
+            open_window_button.clicked.connect(lambda _, name=item_name: self.open_new_window(name))
 
             matching_note = next((note for note in notes_array if note["checkbox_text"] == item_id), None)
             if matching_note:
                 hint_input.setText(matching_note["hint_input"])
+                
+            is_bundle = any(info.get("type") == "Bundle" for info in extra_info)
+            amount_of_goals = next((info.get("amount_of_goals") for info in extra_info if "amount_of_goals" in info), None)
+            current_goals_return = len([info.get("goal") for info in all_goals if "goal" in info])
 
             # Add checkbox to the list of checkboxes
             checkboxes.append(checkbox)
+            bundle_pictures = []
+            
+            with open(bundle_items_file_path, "r", encoding="utf-8") as file:
+                bundle_data = json.load(file)
+
+            if item_name in bundle_data:
+                bundle_pictures = [f"../Pictures/{item.replace(' ', '_')}.png" for item in bundle_data[item_name]]
+
+            picture_layout = QHBoxLayout()
+            picture_layout.setContentsMargins(0, 0, 0, 0)
+            picture_layout.setSpacing(0)
+
+            if is_bundle:
+                # Load bundle_items.json
+                with open(bundle_items_file_path, "r") as file:
+                    bundle_items = json.load(file)
+
+                # Check if amount_of_goals == current_goals_return
+                if amount_of_goals == current_goals_return:
+                    # Extract all goals correctly
+                    goals_list = [goal_info["goal"] for goal_info in all_goals]
+
+                    # Replace the entry in bundle_items.json under the item_name header
+                    bundle_items[item_name] = goals_list  # Overwrites the previous value
+
+                    # Save the updated JSON
+                    with open(bundle_items_file_path, "w") as file:
+                        json.dump(bundle_items, file, indent=4)
+
+
+
+                self.update_bundle_pictures()
+
+
+                item_entry = {
+                    'widget': item_widget,
+                    'checkbox_text': checkbox_text,
+                    'read_only_input': read_only_input,
+                    'text_input': text_input,
+                    'hint_input': hint_input,
+                    'checkbox': checkbox,
+                    'item_id': item_id,
+                    'picture_layout': picture_layout
+                }
+
+                item_widgets.append(item_entry)
+
+                spacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
             # Add all widgets to layout
             item_layout.addWidget(checkbox)
             item_layout.addWidget(checkbox_text)
-            item_layout.addWidget(read_only_input)
-            item_layout.addWidget(text_input)
+            item_layout.addLayout(season_layout)
+            if fish:
+                item_layout.addLayout(fishsanity_layout)
+            if is_bundle:
+                item_layout.addWidget(open_window_button)
+                item_layout.addLayout(picture_layout)
+                item_layout.addItem(spacer)
+            if is_setting:
+                item_layout.addWidget(open_window_button)
+            if not is_bundle:
+                item_layout.addWidget(text_input)
             item_layout.addWidget(hint_input)
             scroll_layout.addWidget(item_widget)
-            # Connect hint_input to update_notes_array to save changes to note.json
+
             hint_input.textChanged.connect(lambda text, sa=scroll_area, cb_widget=checkbox_text:
                                             self.adjust_scroll_position(sa, cb_widget))
 
-            hint_input.editingFinished.connect(lambda cb_text=item_id, hint=hint_input: 
-                                                self.update_notes_array(cb_text, hint.text()))
+            hint_input.editingFinished.connect(lambda cb_text=item_id, hint=hint_input, tab=tab_name: 
+                                            self.update_notes_array(cb_text, hint.text(), tab))
 
 
-
-            # Connect checkbox and hint_input changes to update background color
             checkbox.stateChanged.connect(lambda state, cb=checkbox, ct=checkbox_text, ro=read_only_input, ti=text_input, hi=hint_input, st=season_text: 
                                         self.update_background_color(state, ct, ro, ti, hi, st))
             hint_input.textChanged.connect(lambda _, cb=checkbox, ct=checkbox_text, ro=read_only_input, ti=text_input, hi=hint_input, st=season_text:
                                         self.update_background_color(cb.checkState(), ct, ro, ti, hi, st))
 
-            # Connect text_input changes to update background color
             text_input.textChanged.connect(lambda _, cb=checkbox, ct=checkbox_text, ro=read_only_input, ti=text_input, hi=hint_input, st=season_text:
                                         self.update_background_color(cb.checkState(), ct, ro, ti, hi, st))
             
@@ -1809,11 +2588,9 @@ class MainWindow(QWidget):
                 'text_input': text_input,
                 'hint_input': hint_input,
                 'checkbox': checkbox,
-                'item_id': item_id  # Add the Item_ID here
+                'item_id': item_id,
+                'picture_layout': picture_layout
             })
-
-            # Connect checkbox state change to update functions
-            self.update_background_color(checkbox.checkState(), checkbox_text, read_only_input, text_input, hint_input, season_text)
 
         self.all_item_widgets[tab_name] = item_widgets
         layout.addWidget(scroll_area)
@@ -1822,13 +2599,222 @@ class MainWindow(QWidget):
 
         return tab
     
+    def update_bundle_pictures(self):
+        """
+        Refreshes all bundle pictures across all tabs.
+        Each picture becomes a button that toggles its goal in bundle_items.json.
+        If a goal is in logic, its background is #58adb8 and the image is grayed out.
+        If a goal is not in logic, its background is #b85858 and the image is normal.
+        """
+
+        # Set size variables
+        ICON_SIZE = 32  # Size of the main image
+        CHECKMARK_SIZE = 32  # Size of the checkmark
+        BUTTON_SIZE = ICON_SIZE  # Button should match icon size
+
+        # Load the latest bundle_items.json data
+        with open(bundle_items_file_path, "r", encoding="utf-8") as file:
+            bundle_data = json.load(file)
+
+        # Checkmark overlay icon path
+        checkmark_path = "../Pictures/Check_Mark.png"
+
+        def toggle_goal(item_name, goal, button):
+            """Function to toggle goal in bundle_items.json"""
+            with open(bundle_items_file_path, "r", encoding="utf-8") as file:
+                bundle_data = json.load(file)
+
+            checked_key = f"{item_name} | CHECKED"
+            if checked_key not in bundle_data:
+                bundle_data[checked_key] = []
+
+            if goal in bundle_data[checked_key]:
+                bundle_data[checked_key].remove(goal)  # Remove if exists
+            else:
+                bundle_data[checked_key].append(goal)  # Add if not exists
+
+            # Save back to JSON
+            with open(bundle_items_file_path, "w", encoding="utf-8") as file:
+                json.dump(bundle_data, file, indent=4)
+
+            # Update button icon
+            update_button_icon(button, goal, item_name)
+
+        def update_button_icon(button, goal, item_name):
+            """Updates the button icon with the checkmark if checked and applies background color + grayscale."""
+            checked_key = f"{item_name} | CHECKED"
+            in_logic_key = f"{item_name} | IN LOGIC"
+            
+            checked_goals = bundle_data.get(checked_key, [])
+            in_logic_goals = bundle_data.get(in_logic_key, [])
+
+            picture_path = f"../Pictures/{goal.replace(' ', '_')}.png"
+
+            # Set background color based on logic status
+            if goal in in_logic_goals:
+                button.setStyleSheet("background-color: #58adb8; border: none;")  # In logic (teal)
+            else:
+                button.setStyleSheet("background-color: #b85858; border: none;")  # Not in logic (red)
+
+            if os.path.exists(picture_path):
+                pixmap = QPixmap(picture_path).scaled(ICON_SIZE, ICON_SIZE, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+            else:
+                pixmap = QPixmap(ICON_SIZE, ICON_SIZE)  # Placeholder if image doesn't exist
+
+            # Apply grayscale if the goal is in logic
+            if goal not in in_logic_goals:
+                gray_pixmap = QPixmap(pixmap.size())
+                gray_pixmap.fill(Qt.transparent)
+
+                painter = QPainter(gray_pixmap)
+                painter.setOpacity(0.5)  # Reduce opacity (grayscale effect)
+                painter.drawPixmap(0, 0, pixmap)
+                painter.end()
+
+                pixmap = gray_pixmap  # Replace with grayed-out version
+
+            # If goal is checked, overlay the checkmark
+            if goal in checked_goals and os.path.exists(checkmark_path):
+                checkmark = QPixmap(checkmark_path).scaled(CHECKMARK_SIZE, CHECKMARK_SIZE, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+
+                # Overlay the checkmark onto the image
+                combined_pixmap = QPixmap(ICON_SIZE, ICON_SIZE)
+                combined_pixmap.fill(Qt.transparent)
+
+                painter = QPainter(combined_pixmap)
+                painter.drawPixmap(0, 0, pixmap)  # Draw main image
+                painter.drawPixmap(ICON_SIZE - CHECKMARK_SIZE, ICON_SIZE - CHECKMARK_SIZE, checkmark)  # Position bottom-right
+                painter.end()
+
+                button.setIcon(QIcon(combined_pixmap))
+            else:
+                button.setIcon(QIcon(pixmap))
+
+            button.setIconSize(QSize(ICON_SIZE, ICON_SIZE))
+
+        # Iterate through all items in all tabs
+        for tab_name, item_widgets in self.all_item_widgets.items():
+            for item in item_widgets:
+                if not isinstance(item, dict):
+                    continue  # Skip invalid items
+
+                item_name = item["checkbox_text"].text()
+
+                # Ensure the item exists in bundle_items.json and has a picture layout
+                if item_name in bundle_data and "picture_layout" in item:
+                    picture_layout = item["picture_layout"]
+
+                    # Remove existing buttons
+                    while picture_layout.count():
+                        widget = picture_layout.takeAt(0).widget()
+                        if widget:
+                            widget.deleteLater()
+
+                    # Get updated picture paths
+                    bundle_pictures = [(goal, f"../Pictures/{goal.replace(' ', '_')}.png") for goal in bundle_data.get(item_name, [])]
+
+                    # Create buttons for each picture
+                    for goal, picture_path in bundle_pictures:
+                        button = QPushButton()
+                        button.setFixedSize(BUTTON_SIZE, BUTTON_SIZE)  # Ensure button matches icon size
+
+                        update_button_icon(button, goal, item_name)  # Set initial icon
+
+                        button.clicked.connect(lambda _, i=item_name, g=goal, b=button: toggle_goal(i, g, b))  # Bind click event
+                        picture_layout.addWidget(button)
+
+                    # Force UI update
+                    picture_layout.update()
+
+                with open(requirements_file_path, "r", encoding="utf-8") as req_file:
+                    requirements_data = json.load(req_file)
+                    
+                TEXT_FONT_SIZE = 14  # User can change this value to adjust the text size
+                TEXT_FONT_FAMILY = "Stardew Valley Stonks"  # Pixelated font choice
+                TEXT_BACKGROUND_IMAGE = "../Pictures/label_background.png"  # Path to the background image
+                BACKGROUND_IMAGE_WIDTH = 56  # Editable width of the background image
+                BACKGROUND_IMAGE_HEIGHT = 100  # Editable height of the background image
+                
+                item_name = item["checkbox_text"].text()
+                if item_name in bundle_data and "picture_layout" in item:
+                    picture_layout = item["picture_layout"]
+
+                    checked_items = len(bundle_data.get(f"{item_name} | CHECKED", []))
+
+                    goals_to_complete = 0
+                    for category, items in requirements_data.items():
+                        for entry in items:
+                            if entry[0] == item_name:
+                                # Iterate through ALL conditions in entry[1], not just the first one
+                                for condition in entry[1]:
+                                    extra_info = condition.get("extra_info", [])
+                                    
+                                    # Find the first 'Bundle' type and get its 'goals_to_complete'
+                                    for info in extra_info:
+                                        if isinstance(info, dict) and info.get("type") == "Bundle" and "goals_to_complete" in info:
+                                            goals_to_complete = info["goals_to_complete"]
+                                            break  # Stop once we find the correct 'Bundle' entry
+
+
+                    # Create a QLabel with a background pixmap
+                    label = QLabel()
+                    pixmap = QPixmap(TEXT_BACKGROUND_IMAGE).scaled(BACKGROUND_IMAGE_WIDTH, BACKGROUND_IMAGE_HEIGHT, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+
+                    painter = QPainter(pixmap)
+                    painter.setFont(QFont(TEXT_FONT_FAMILY, TEXT_FONT_SIZE, QFont.Bold))
+                    painter.setPen(QColor(0, 0, 0))
+
+                    rect = pixmap.rect()
+                    rect.moveTop(rect.top() + 1)  # Move text down by offset
+                    painter.drawText(rect, Qt.AlignCenter, f"{checked_items}/{goals_to_complete}")
+                    painter.end()
+
+                    label.setPixmap(pixmap)
+                    picture_layout.addWidget(label)
+
+        self.update()
+    
+    def get_extra_info_for_item(self, file_path, item_name, word):
+        """Searches the JSON file for the given item_name and returns all extra_info fields."""
+        try:
+            with open(file_path, 'r', encoding="utf-8") as file:
+                data = json.load(file)
+
+            extra_info_list = []  # List to store all extra_info entries
+
+            # Iterate through all categories
+            for category, entries in data.items():
+                for entry in entries:
+                    if entry[0] == item_name:  # Check if the item_name matches
+                        for condition in entry[1]:  # Iterate through conditions
+                            if word in condition:
+                                extra_info_list.extend(condition[word])  # Collect all extra_info
+
+            return extra_info_list
+
+        except Exception as e:
+            print(f"Error reading JSON: {e}")
+            return []
+    
+    def open_new_window(self, item_name):
+        """Create a new BundleItem window for the given item_name."""
+        # Keep track of multiple windows
+        if not hasattr(self, "bundle_windows"):
+            self.bundle_windows = []
+
+        new_window = BundleItem(self, item_name)
+        self.bundle_windows.append(new_window)
+        new_window.show()
+        new_window.raise_()
+
+
+    
     def print_modified_checkbox(self, checkbox_text):
         """
         Print the checkbox text of the modified hint_input.
         Args:
             checkbox_text: The text of the associated checkbox.
         """
-        print(f"Modified checkbox_text: {checkbox_text}")
         return checkbox_text
 
     
@@ -1865,7 +2851,6 @@ class MainWindow(QWidget):
         # Check the background color of the current checkbox_text
         forbidden_colors = ["background-color: #b85858;", "background-color: black;"]
         if current_checkbox_text and any(color in current_checkbox_text.styleSheet() for color in forbidden_colors):
-            print(f"Skipping scroll adjustment for: {current_checkbox_text.text()} (background-color matches forbidden colors)")
             return
 
         # Find all widgets in the scroll area
@@ -1883,17 +2868,6 @@ class MainWindow(QWidget):
 
         # Adjust the scroll position
         self.scroll_to_top_adjusted(scroll_area, pink_widgets_count)
-
-    def count_in_logic_and_incomplete(self, tab_name):
-        """Count the items that are in logic and not yet completed."""
-        in_logic_count = 0
-        items = all_major_data.get(tab_name, [])
-        for item in items:
-            item_state = item[4]  # Check the completed state
-            item_in_logic = has_requirements(item[0], item[2])  # Check if in logic
-            if item_in_logic != "Red" and item_in_logic != "Pink" and item_state == 0:  # In logic and not completed
-                in_logic_count += 1
-        return in_logic_count
 
     def count_hinted_items(self, tab_name):
         try:
@@ -1926,18 +2900,15 @@ class MainWindow(QWidget):
             print(f"An error occurred: {e}")
             return 0
 
+    from PyQt5.QtCore import QTimer
 
     def update_tab_names(self):
-        """Update the tab names with the count of in-logic items and dynamically map the new names."""
+        """Update the tab names with the count of in-logic items in a non-blocking manner."""
         global tab_name_mapping
         tab_name_mapping = {}  # Clear the mapping
 
-        # Extract the current tab names and strip any counts (e.g., "Crops (5)" -> "Crops")
-        current_tab_names = [
-            self.main_tabs.tabText(i).split("\n(")[0] for i in range(self.main_tabs.count())
-        ]
+        current_tab_names = [self.main_tabs.tabText(i).split("\n")[0] for i in range(self.main_tabs.count())]
 
-        # Match stripped names to tab_display_names to determine the correct internal order
         ordered_internal_names = [
             internal_name
             for display_name in current_tab_names
@@ -1945,29 +2916,60 @@ class MainWindow(QWidget):
             if mapped_name == display_name
         ]
 
-        # Iterate through the tabs and update their names
-        for i, internal_tab_name in enumerate(ordered_internal_names):
-            # Get the widget for the tab
-            tab_widget_page = self.main_tabs.widget(i)
-            if not tab_widget_page:
-                continue  # Skip if no tab widget is found
+        self._tab_update_queue = list(enumerate(ordered_internal_names))  # Store tabs in a queue
+        self._update_timer = QTimer()
+        self._update_timer.setInterval(50)  # Adjust delay (e.g., 50ms per tab)
+        self._update_timer.timeout.connect(self._update_next_tab)
+        self._update_timer.start()
 
-            # Fetch the display name from tab_display_names
-            display_name = tab_display_names.get(internal_tab_name, internal_tab_name)
+    def _update_next_tab(self):
+        """Process one tab per timer cycle to avoid UI lag."""
+        if not self._tab_update_queue:
+            self._update_timer.stop()
+            self.update_all_background_colors()
+            return  # Stop timer when all tabs are updated
 
-            # Count in-logic items for the tab
-            in_logic_count = self.count_in_logic_and_incomplete(internal_tab_name)
-            hinted_count = self.count_hinted_items(internal_tab_name)
+        i, internal_tab_name = self._tab_update_queue.pop(0)  # Get next tab to update
 
-            # Create the new display name with the count
-            new_display_name = f"{display_name}\n({in_logic_count}|{hinted_count})"
+        tab_widget_page = self.main_tabs.widget(i)
+        if not tab_widget_page:
+            return
 
-            # Update the tab text
-            self.main_tabs.setTabText(i, new_display_name)        
-            self.main_tabs.tabBar().setTabButton(i, QTabBar.RightSide, QLabel(f"\n"))  # Use RightSide for proper layout
+        display_name = tab_display_names.get(internal_tab_name, internal_tab_name)
 
-            # Update the mapping
-            tab_name_mapping[new_display_name] = internal_tab_name
+        # Fetch counts once per tab
+        """Count the items that are in logic and not yet completed."""
+        in_logic_count = 0
+        items = all_major_data.get(internal_tab_name, [])
+
+        all_completed = True
+        for item in items:
+            item_state = item[4]  # Check the completed state
+            item_name = item[0]  # Get Item Name
+
+            if item_state == 0:
+                all_completed = False
+
+            #item_in_logic = self.cached_get_requirements(item_name)
+            item_in_logic = get_requirements(item_name, "color")
+            if item_in_logic not in {"Red", "Pink"} and item_state == 0:
+                in_logic_count += 1
+            
+            self._update_timer.setInterval(50)
+
+        hinted_count = self.count_hinted_items(internal_tab_name)
+        new_display_name = f"{display_name}\n({in_logic_count}|{hinted_count})"
+
+        if all_completed == True:
+            new_display_name = f"{display_name}\nDONE"
+
+        # Only update if the name has changed
+        if self.main_tabs.tabText(i) != new_display_name:
+            self.main_tabs.setTabText(i, new_display_name)
+            self.main_tabs.tabBar().setTabButton(i, QTabBar.RightSide, QLabel(f"\n"))
+
+        tab_name_mapping[new_display_name] = internal_tab_name
+
 
     def load_hint_my_location(self):
         """Load hints from hint_my_location_file.json or return an empty list if the file doesn't exist."""
@@ -1992,24 +2994,19 @@ class MainWindow(QWidget):
         with open(notes_file_path, "w") as file:
             json.dump(notes_array, file, indent=4)
 
-    def update_notes_array(self, checkbox_text, hint_text):
+    def update_notes_array(self, checkbox_text, hint_text, explicit_tab_name=None):
         """Update or add an entry in notes.json based on checkbox_text."""
         notes_array = self.load_hint_my_location()
 
-        # Get the current tab index and name
-        current_tab_index = self.main_tabs.currentIndex()
-        current_tab_name = self.main_tabs.tabText(current_tab_index)
-
-        # Map the tab name to its internal data key
-        data_key = tab_name_mapping.get(current_tab_name, "Unknown")
+        check_found = self.is_found(checkbox_text)
 
         # Check if the note already exists, and update it if so
         for note in notes_array:
             if note["checkbox_text"] == checkbox_text:
                 note["hint_input"] = hint_text
                 note["class"] = "Unknown"
-                note["state"] = "Unknown"
-                note["tab"] = data_key  # Dynamically set the tab
+                note["state"] = check_found
+                note["tab"] = explicit_tab_name  # Use the explicitly passed tab
                 break
         else:
             # Add new entry if no match is found
@@ -2017,13 +3014,31 @@ class MainWindow(QWidget):
                 "checkbox_text": checkbox_text,
                 "hint_input": hint_text,
                 "class": "Unknown",
-                "state": "Unknown",
-                "tab": data_key  # Dynamically set the tab
+                "state": check_found,
+                "tab": explicit_tab_name  # Use the explicitly passed tab
             })
 
         # Save the updated notes array
         self.save_hint_my_location_to_file(notes_array)
 
+
+    def is_found(self, checkbox_text):
+        """Check if the checkbox_text exists in the file and return 'found' or 'not found'."""
+        # Load data from file
+        with open(data_file_path, "r", encoding="utf-8") as file:
+            data = json.load(file)
+
+        # Iterate through all sections of the data
+        for category, entries in data.items():
+            for entry in entries:
+                # The first field (entry[0]) is the name we are searching for
+                if entry[0] == checkbox_text:
+                    # Check the fifth field (index 4)
+                    return "found" if entry[4] == 1 else "not found"
+
+        # If not found, return "not found"
+        return "not found"
+         
 
     def update_note_tab(self, state):
         """Update the hint_text field of every widget to match the hint_input field in note.json and set text color based on class."""
@@ -2045,7 +3060,6 @@ class MainWindow(QWidget):
                     # Update the hint_input field with the note's hint_input value
                     print_a = matching_note["checkbox_text"]
                     if state == "t":
-                        print(f"State Test for {print_a}")
                         widget['hint_input'].setText(matching_note["hint_input"])
 
                     # Determine the background color based on the "class" field
@@ -2123,9 +3137,7 @@ class MainWindow(QWidget):
                     self.mines_tabs.removeTab(0)
                     self.mines_tabs.addTab(self.create_mines_tab("Elevatorsanity"), "Mines")
                 elif array_name == "Friendsanity":
-                    # Remove and recreate the Friends tab
-                    self.friends_tabs.removeTab(0)
-                    self.friends_tabs.addTab(self.create_friends_tab("Friendsanity"), "Friends")
+                    self.update_friends()
                 elif array_name in self.all_item_widgets:
                     # For other tabs, proceed as before
                     for item in self.all_item_widgets[array_name]:
@@ -2136,6 +3148,37 @@ class MainWindow(QWidget):
                             # Force UI to refresh to show the change
                             item['checkbox'].repaint()
                             break
+
+    def update_friends(self):
+                # Store the currently selected tab index and scroll positions
+        current_tab_index = self.friends_tabs.currentIndex()
+        tab_names = ["Bachelor(ette)s", "Villagers", "Completed"]
+        scroll_positions = {
+            tab_names[i]: self.friends_tabs.widget(i).findChild(QScrollArea).verticalScrollBar().value()
+            for i in range(self.friends_tabs.count())
+        }
+
+        # Remove and recreate the Friends tabs
+        self.friends_tabs.clear()  # Clear all tabs to reset
+        for tab_type, tab_name in zip(["b", "v", "c"], tab_names):
+            # Create the tab content
+            new_tab_content = self.create_friends_tab("Friendsanity", tab_type)
+
+            # Check if the tab is blank (no children or items)
+            if new_tab_content is None:
+                continue
+
+            # Add non-blank tabs
+            self.friends_tabs.addTab(new_tab_content, tab_name)
+
+        # Restore the previously selected tab and scroll positions if the tab still exists
+        if current_tab_index < self.friends_tabs.count():
+            self.friends_tabs.setCurrentIndex(current_tab_index)
+        for i in range(self.friends_tabs.count()):
+            tab_name = tab_names[i]
+            new_scroll_area = self.friends_tabs.widget(i).findChild(QScrollArea)
+            if new_scroll_area and tab_name in scroll_positions:
+                new_scroll_area.verticalScrollBar().setValue(scroll_positions[tab_name])
 
 
     def eventFilter(self, obj, event):
@@ -2157,7 +3200,8 @@ class MainWindow(QWidget):
 
                 # Extract the item name and generate tooltip for this specific widget
                 item_name = obj.text()
-                tooltip_text = get_requirements_text(item_name, [relevant_widget])
+                
+                tooltip_text = get_requirements(item_name, "text")
                 self.show_tooltip(event, obj, tooltip_text)
             elif event.type() == QEvent.Leave:
                 self.tooltip.hide_tooltip()
@@ -2237,7 +3281,8 @@ class MainWindow(QWidget):
         Update the background color of the text inputs based on the checkbox state.
         If the checkbox is checked, set the background color to black; otherwise, adjust based on logic and other conditions.
         """
-        not_in_logic = has_requirements(checkbox_text.text(), text_input.text())
+
+        not_in_logic = get_requirements(checkbox_text.text(), "color")
         # Apply color logic based on state and logic
         if state == Qt.Checked:
             #priority 6
@@ -2290,8 +3335,9 @@ class MainWindow(QWidget):
         tab_name = self.main_tabs.tabText(current_tab_index)  # Get the current tab's display name
         data_key = tab_name_mapping.get(tab_name, "")  # Map display name to internal data key
 
-        if data_key in self.all_item_widgets:  # Check if tab data exists in widgets dictionary
+        if data_key in self.all_item_widgets:
             for item in self.all_item_widgets[data_key]:
+
                 checkbox = item['checkbox']
                 checkbox_text = item['checkbox_text']
                 read_only_input = item['read_only_input']
@@ -2299,8 +3345,10 @@ class MainWindow(QWidget):
                 hint_input = item['hint_input']
                 season_text = read_only_input.text()
 
-                # Call update_background_color with the current state of each checkbox in the current tab
-                self.update_background_color(checkbox.checkState(), checkbox_text, read_only_input, text_input, hint_input, season_text)
+                self.update_background_color(
+                    checkbox.checkState(), checkbox_text, read_only_input, text_input, hint_input, season_text
+                )
+
 
     def apply_filters(self, item_widgets, search_text=""):
         """
@@ -2347,7 +3395,6 @@ class MainWindow(QWidget):
         notes_array = self.load_hint_my_location()
 
         # Check if the note already exists, and update it if so
-        print(f"Passed Go: {item_id}")
         for note in notes_array:
             if note["checkbox_text"] == item_id:
                 note["hint_input"]
@@ -2368,12 +3415,16 @@ class MainWindow(QWidget):
 
     def reset_all_checkboxes(self):
         # Friends whose states should remain checked at level 8
-        friends_to_keep_checked = ["Alex", "Elliott", "Harvey", "Sam", "Sebastian", "Shane"]
         new_all_major_data = load_data(data_file_path)
 
             # Step 1: Define the reset structure for data.json
         reset_data_structure = {
-            "Bundles": [],
+            "Crafts Room": [],
+            "Pantry": [],
+            "Fish Tank": [],
+            "Bulletin Board": [],
+            "Vault": [],
+            "Boiler Room": [],
             "Cropsanity": [],
             "Skillsanity": [],
             "Elevatorsanity": [],
@@ -2410,34 +3461,16 @@ class MainWindow(QWidget):
             for item in items:
                 item[4] = 0  # Set every item's 'state' to 0 initially
 
-        # Step 2: Set specific friends' state to 1
-        for item in new_all_major_data.get("Friendsanity", []):
-            if any(friend in item[3] for friend in friends_to_keep_checked):
-                item[4] = 1
-
-        # Reset notes in note.json
-        self.save_hint_my_location_to_file([])  # Clear notes by saving an empty list to note.json
-
-        # Reset notes in note.json
-        self.save_hint_my_item_to_file([])  # Clear notes by saving an empty list to note.json
-
-        # Reset notes in note.json
-        self.save_extra_info_to_file([])  # Clear notes by saving an empty list to note.json
-
-        # Reset notes in note.json
-        self.save_notes_to_file("")  # Clear notes by saving an empty list to note.json
-        # Update the notes_tab in the ServerWindow
-        if self.server_window:  # Ensure the server_window exists
-            notes_tab_text = self.server_window.load_notes()  # Call load_notes from ServerWindow
-            self.server_window.notes_tab.setPlainText(notes_tab_text)  # Set the text
-
-        # Reset current_items.json
-        with open(current_items_file_path, "w") as f:
-            json.dump({"current_items": []}, f, indent=4)  # Save an empty "current_items" list
-
-        # Reset current_items.json
-        with open(checked_location_file_path, "w") as f:
-            json.dump({"checked_locations": []}, f, indent=4)  # Save an empty "current_items" list
+        self.write_to_file(all_locations_file_path, "{\"all_locations\": [],\"missing_locations\": []}")
+        self.write_to_file(bundle_items_file_path, "{}")
+        self.write_to_file(checked_location_file_path, "{\"checked_locations\": []}")
+        self.write_to_file(checked_location_detailed_file_path, "{\"checked_locations\": []}")
+        self.write_to_file(current_items_file_path, "{\"current_items\": []}")
+        self.write_to_file(extra_info_file_path, "[]")
+        self.write_to_file(hint_my_item_file_path, "[]")
+        self.write_to_file(hint_my_location_file_path, "[]")
+        self.write_to_file(notes_file_path, "\"\"")
+        self.write_to_file(player_table_file_path, "{\"players\": []}")
 
         # Step 3: Update UI checkboxes to match JSON data for each tab
         for i in range(self.main_tabs.count()):
@@ -2514,20 +3547,11 @@ class MainWindow(QWidget):
             
             for friend_widget in friend_widgets:
                 friend_name = friend_widget.objectName()  # Get the friend's name from the widget
-
-                # Set friends in the keep_checked list to 8, others to 0
-                if friend_name in friends_to_keep_checked:
-                    friend_widget.setCurrentText("8")  # Set ComboBox to 8
-                    for level in range(2, 9, 2):
-                        for item in friend_items:
-                            if f"{friend_name} {level} <3" in item[0]:
-                                item[4] = 1 if level == 8 else 0
-                else:
-                    friend_widget.setCurrentIndex(0)  # Reset ComboBox to 0
-                    for level in range(2, 9, 2):
-                        for item in friend_items:
-                            if f"{friend_name} {level} <3" in item[0]:
-                                item[4] = 0
+                friend_widget.setCurrentIndex(0)  # Reset ComboBox to 0
+                for level in range(2, 9, 2):
+                    for item in friend_items:
+                        if f"{friend_name} {level} <3" in item[0]:
+                            item[4] = 0
 
                 friend_widget.repaint()  # Force immediate UI update
 
@@ -2556,6 +3580,11 @@ class MainWindow(QWidget):
         # Step 8: Update the global counter
         self.total_checked = sum(1 for tab in new_all_major_data.values() for item in tab if item[4] == 1)
         self.update_global_counter()
+
+        
+    def write_to_file(self, file_path: str, content: str) -> None:
+        with open(file_path, 'w', encoding='utf-8') as file:
+            file.write(content)
 
 
     def update_counter(self, checkboxes, tab_name):

@@ -1,0 +1,84 @@
+{
+    "Tapper": [
+        {
+            "or_items": [
+                {
+                    "item": "Tapper",
+                    "count": 1
+                },
+                {
+                    "item": "Heavy Tapper",
+                    "count": 1
+                },
+                {
+                    "item": "Foraging Level",
+                    "count": 4
+                }
+            ]
+        }
+    ],
+    "Keg": [
+        {
+            "or_items": [
+                {
+                    "item": "Keg",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Crab Pot": [
+        {
+            "and_items": [
+                {
+                    "item": "Fishing Level",
+                    "count": 3
+                }
+            ]
+        }
+    ],
+    "Cookout Kit": [
+        {
+            "and_items": [
+                {
+                    "item": "Foraging Level",
+                    "count": 3
+                }
+            ]
+        }
+    ],
+    "Dehydrator": [
+        {}
+    ],
+    "Smoker": [
+        {
+            "and_items": [
+                {
+                    "goal": "Hardwood"
+                },
+                {
+                    "goal": "Can Fish"
+                }
+            ]
+        }
+    ],
+    "Bait Maker": [
+        {
+            "and_items": [
+                {
+                    "item": "Fishing Level",
+                    "count": 6
+                },
+                {
+                    "goal": "Iron"
+                },
+                {
+                    "goal": "Coral"
+                },
+                {
+                    "goal": "Sea Urchin"
+                }
+            ]
+        }
+    ]
+}

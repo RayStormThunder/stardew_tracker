@@ -1,0 +1,838 @@
+{
+    "Jelly": [
+        {
+            "and_items": [
+                {
+                    "item": "Preserves Jar",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Juice": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                }
+            ]
+        }
+    ],
+    "Coffee": [
+        {}
+    ],
+    "Mead": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Honey"
+                }
+            ]
+        }
+    ],
+    "Quality Mead": [
+        {
+            "and_items": [
+                {
+                    "goal": "Mead"
+                },
+                {
+                    "goal": "Has Cellar"
+                }
+            ]
+        }
+    ],
+    "Green Tea": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Tea Leaves"
+                }
+            ]
+        }
+    ],
+    "Aged Roe": [
+        {
+            "and_items": [
+                {
+                    "goal": "Roe"
+                },
+                {
+                    "item": "Preserves Jar",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Pickles": [
+        {
+            "and_items": [
+                {
+                    "item": "Preserves Jar",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Pale Ale": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Hops"
+                }
+            ]
+        }
+    ],
+    "Quality Pale Ale": [
+        {
+            "and_items": [
+                {
+                    "goal": "Pale Ale"
+                },
+                {
+                    "goal": "Has Cellar"
+                }
+            ]
+        }
+    ],
+    "Wine": [
+        {
+            "or_items": [
+                {
+                    "goal": "Keg"
+                }
+            ]
+        }
+    ],
+    "Quality Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Wine"
+                },
+                {
+                    "goal": "Has Cellar"
+                }
+            ]
+        }
+    ],
+    "Beer": [
+        {}
+    ],
+    "Quality Beer": [
+        {
+            "and_items": [
+                {
+                    "goal": "Beer"
+                },
+                {
+                    "goal": "Has Cellar"
+                }
+            ]
+        }
+    ],
+    "Truffle Oil": [
+        {
+            "and_items": [
+                {
+                    "item": "Oil Maker",
+                    "count": 1
+                },
+                {
+                    "goal": "Truffle"
+                }
+            ]
+        }
+    ],
+    "Dried Ancient Fruit": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Ancient Fruit"
+                }
+            ]
+        }
+    ],
+    "Ancient Fruit Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Ancient Fruit"
+                }
+            ]
+        }
+    ],
+    "Dried Apple": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Apple Sapling"
+                }
+            ]
+        }
+    ],
+    "Apple Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Apple Sapling"
+                }
+            ]
+        }
+    ],
+    "Dried Apricot": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Apricot Sapling"
+                }
+            ]
+        }
+    ],
+    "Apricot Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Apricot Sapling"
+                }
+            ]
+        }
+    ],
+    "Dried Blackberry": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Fall"
+                }
+            ]
+        }
+    ],
+    "Blackberry Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Fall"
+                }
+            ]
+        }
+    ],
+    "Dried Spice Berry": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Spice Berry"
+                }
+            ]
+        }
+    ],
+    "Spice Berry Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "spice berry"
+                }
+            ]
+        }
+    ],
+    "Dried Blueberry": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Blueberry"
+                }
+            ]
+        }
+    ],
+    "Blueberry Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Blueberry"
+                }
+            ]
+        }
+    ],
+    "Dried Cactus Fruit": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "and_items": [
+                        {
+                            "goal": "Desert Access"
+                        },
+                        {
+                            "goal": "Cactus Fruit"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "Cactus Fruit Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "and_items": [
+                        {
+                            "goal": "Desert Access"
+                        },
+                        {
+                            "goal": "Cactus Fruit"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "Dinosaur Mayonnaise": [
+        {
+            "and_items": [
+                {
+                    "item": "Mayonnaise Machine",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Big Coop"
+                },
+                {
+                    "goal": "Skull Cavern Access"
+                }
+            ]
+        }
+    ],
+    "Cheese": [
+        {
+            "and_items": [
+                {
+                    "item": "Cheese Press",
+                    "count": 1
+                },
+                {
+                    "goal": "Barn"
+                }
+            ]
+        }
+    ],
+    "Quality Cheese": [
+        {
+            "and_items": [
+                {
+                    "goal": "Cheese"
+                },
+                {
+                    "goal": "Has Cellar"
+                }
+            ]
+        }
+    ],
+    "Goat Cheese": [
+        {
+            "and_items": [
+                {
+                    "item": "Cheese Press",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Big Barn"
+                }
+            ]
+        }
+    ],
+    "Quality Goat Cheese": [
+        {
+            "and_items": [
+                {
+                    "goal": "Goat Cheese"
+                },
+                {
+                    "goal": "Has Cellar"
+                }
+            ]
+        }
+    ],
+    "Dried Cherry": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Cherry Sapling"
+                }
+            ]
+        }
+    ],
+    "Cherry Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Cherry Sapling"
+                }
+            ]
+        }
+    ],
+    "Dried Coconut": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "and_items": [
+                        {
+                            "goal": "Desert Access"
+                        },
+                        {
+                            "goal": "Coconut"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "Coconut Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "and_items": [
+                        {
+                            "goal": "Desert Access"
+                        },
+                        {
+                            "goal": "Coconut"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "Coconut": [
+        {
+            "and_items": [
+                {
+                    "goal": "Desert Access"
+                }
+            ]
+        }
+    ],
+    "Dried Cranberries": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Cranberries"
+                }
+            ]
+        }
+    ],
+    "Cranberries Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Cranberries"
+                }
+            ]
+        }
+    ],
+    "Raisins": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Grape"
+                }
+            ]
+        }
+    ],
+    "Grape Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Grape"
+                }
+            ]
+        }
+    ],
+    "Dried Hot Pepper": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Hot Pepper"
+                }
+            ]
+        }
+    ],
+    "Hot Pepper Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Hot Pepper"
+                }
+            ]
+        }
+    ],
+    "Dried Melon": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Melon"
+                }
+            ]
+        }
+    ],
+    "Melon Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Melon"
+                }
+            ]
+        }
+    ],
+    "Dried Orange": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Orange Sapling"
+                }
+            ]
+        }
+    ],
+    "Orange Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Orange Sapling"
+                }
+            ]
+        }
+    ],
+    "Dried Peach": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Peach Sapling"
+                }
+            ]
+        }
+    ],
+    "Peach Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Peach Sapling"
+                }
+            ]
+        }
+    ],
+    "Dried Pomegranate": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Pomegranate Sapling"
+                }
+            ]
+        }
+    ],
+    "Pomegranate Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Pomegranate Sapling"
+                }
+            ]
+        }
+    ],
+    "Dried Powdermelon": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Powdermelon"
+                }
+            ]
+        }
+    ],
+    "Powdermelon Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Powdermelon"
+                }
+            ]
+        }
+    ],
+    "Dried Rhubarb": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Rhubarb"
+                }
+            ]
+        }
+    ],
+    "Rhubarb Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Rhubarb"
+                }
+            ]
+        }
+    ],
+    "Dried Starfruit": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Starfruit"
+                }
+            ]
+        }
+    ],
+    "Starfruit Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Starfruit"
+                }
+            ]
+        }
+    ],
+    "Dried Strawberry": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Strawberry"
+                }
+            ]
+        }
+    ],
+    "Strawberry Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Strawberry"
+                }
+            ]
+        }
+    ],
+    "Dried Sweet Gem Berry": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Sweet Gem Berry"
+                }
+            ]
+        }
+    ],
+    "Sweet Gem Berry Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Keg"
+                },
+                {
+                    "goal": "Sweet Gem Berry"
+                }
+            ]
+        }
+    ],
+    "Dried Purple Mushroom": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Purple Mushroom"
+                }
+            ]
+        }
+    ],
+    "Dried Common Mushroom": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Common Mushroom"
+                }
+            ]
+        }
+    ],
+    "Dried Morel": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Morel"
+                }
+            ]
+        }
+    ],
+    "Dried Chanterelle": [
+        {
+            "and_items": [
+                {
+                    "goal": "Dehydrator"
+                },
+                {
+                    "goal": "Chanterelle"
+                }
+            ]
+        }
+    ],
+    "Maple Syrup": [
+        {
+            "and_items": [
+                {
+                    "goal": "Tapper"
+                }
+            ]
+        }
+    ],
+    "Oak Resin": [
+        {
+            "or_items": [
+                {
+                    "goal": "Tapper"
+                }
+            ]
+        }
+    ],
+    "Pine Tar": [
+        {
+            "or_items": [
+                {
+                    "goal": "Tapper"
+                }
+            ]
+        }
+    ]
+}

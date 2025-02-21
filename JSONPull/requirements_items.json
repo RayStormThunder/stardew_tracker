@@ -1,0 +1,3388 @@
+{
+    "Albacore": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Intermediate Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Amaranth": [
+        {
+            "and_items": [
+                {
+                    "item": "Amaranth Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Amethyst": [
+        {}
+    ],
+    "Anchovy": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Ancient Fruit": [
+        {
+            "and_items": [
+                {
+                    "item": "Ancient Seeds",
+                    "count": 1
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Apple": [
+        {
+            "or_items": [
+                {
+                    "goal": "Apple Sapling"
+                },
+                {
+                    "item": "Fruit Bats",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Apple Sapling": [
+        {
+            "and_items": [
+                {
+                    "item": "Apple Sapling",
+                    "count": 1
+                }
+            ],
+            "or_items": [
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Apricot": [
+        {
+            "or_items": [
+                {
+                    "goal": "Apricot Sapling"
+                },
+                {
+                    "item": "Fruit Bats",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Apricot Sapling": [
+        {
+            "and_items": [
+                {
+                    "item": "Apricot Sapling",
+                    "count": 1
+                }
+            ],
+            "or_items": [
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Spring"
+                }
+            ]
+        }
+    ],
+    "Aquamarine": [
+        {}
+    ],
+    "Artichoke": [
+        {
+            "and_items": [
+                {
+                    "item": "Artichoke Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Bat Wing": [
+        {}
+    ],
+    "Battery Pack": [
+        {
+            "or_items": [
+                {
+                    "item": "Solar Panel",
+                    "count": 1
+                },
+                {
+                    "item": "Lightning Rod",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Beet": [
+        {
+            "and_items": [
+                {
+                    "item": "Beet Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Beer": [
+        {}
+    ],
+    "Blackberry": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "item": "Fruit Bats",
+                    "count": 1
+                },
+                {
+                    "goal": "Fall Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Blobfish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Difficult Fish"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Blue Jazz": [
+        {
+            "and_items": [
+                {
+                    "item": "Jazz Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Blueberry": [
+        {
+            "and_items": [
+                {
+                    "item": "Blueberry Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Juice": [
+        {
+            "and_items": [
+                {
+                    "item": "Keg",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Mead": [
+        {
+            "and_items": [
+                {
+                    "item": "Keg",
+                    "count": 1
+                },
+                {
+                    "goal": "Honey"
+                }
+            ]
+        }
+    ],
+    "Bok Choy": [
+        {
+            "and_items": [
+                {
+                    "item": "Bok Choy Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Bream": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ]
+        }
+    ],
+    "Broccoli": [
+        {
+            "and_items": [
+                {
+                    "item": "Broccoli Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Bullhead": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ]
+        }
+    ],
+    "Cactus Fruit": [
+        {
+            "and_items": [
+                {
+                    "goal": "Desert Access"
+                }
+            ]
+        }
+    ],
+    "Carp": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ]
+        }
+    ],
+    "Carrot": [
+        {
+            "and_items": [
+                {
+                    "item": "Carrot Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Catfish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Difficult Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Cauliflower": [
+        {
+            "and_items": [
+                {
+                    "item": "Cauliflower Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Cave Carrot": [
+        {}
+    ],
+    "Caviar": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Fish Pond"
+                },
+                {
+                    "goal": "Sturgeon"
+                }
+            ]
+        }
+    ],
+    "Cheese": [
+        {
+            "and_items": [
+                {
+                    "item": "Cheese Press",
+                    "count": 1
+                },
+                {
+                    "goal": "Barn"
+                }
+            ]
+        }
+    ],
+    "Chanterelle": [
+        {
+            "or_items": [
+                {
+                    "item": "Mushroom Boxes",
+                    "count": 1
+                },
+                {
+                    "goal": "Summer"
+                }
+            ]
+        }
+    ],
+    "Cherry": [
+        {
+            "or_items": [
+                {
+                    "goal": "Cherry Sapling"
+                },
+                {
+                    "item": "Fruit Bats",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Cherry Sapling": [
+        {
+            "and_items": [
+                {
+                    "item": "Cherry Sapling",
+                    "count": 1
+                }
+            ],
+            "or_items": [
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Spring"
+                }
+            ]
+        }
+    ],
+    "Chub": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ]
+        }
+    ],
+    "Clam": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Clay": [
+        {}
+    ],
+    "Cloth": [
+        {
+            "and_items": [
+                {
+                    "item": "Loom",
+                    "count": 1
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Deluxe Coop"
+                },
+                {
+                    "goal": "Has Deluxe Barn"
+                }
+            ]
+        }
+    ],
+    "Cockle": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Coconut": [
+        {
+            "and_items": [
+                {
+                    "goal": "Desert Access"
+                }
+            ]
+        }
+    ],
+    "Coffee Bean": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Plant Spring Crops"
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Basic Fertilizer": [
+        {}
+    ],
+    "Quality Fertilizer": [
+        {}
+    ],
+    "Basic Retaining Soil": [
+        {}
+    ],
+    "Quality Retaining Soil": [
+        {}
+    ],
+    "Speed-Gro": [
+        {}
+    ],
+    "Deluxe Speed-Gro": [
+        {}
+    ],
+    "Tree Fertilizer": [
+        {
+            "or_items": [
+                {
+                    "goal": "Can Craft Tree Fertilizer"
+                }
+            ]
+        }
+    ],
+    "Tea Leaves": [
+        {}
+    ],
+    "Green Tea": [
+        {
+            "or_items": [
+                {
+                    "goal": "Tea Leaves"
+                }
+            ]
+        }
+    ],
+    "Common Mushroom": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "item": "Mushroom Boxes",
+                    "count": 1
+                },
+                {
+                    "goal": "Fall Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Copper Ore": [
+        {}
+    ],
+    "Copper Bar": [
+        {
+            "and_items": [
+                {
+                    "goal": "Copper Ore"
+                }
+            ]
+        }
+    ],
+    "Corn": [
+        {
+            "and_items": [
+                {
+                    "item": "Corn Seeds",
+                    "count": 1
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Can Plant Summer Crops"
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Coral": [
+        {
+            "and_items": [
+                {
+                    "goal": "Tide Pool Access"
+                }
+            ]
+        }
+    ],
+    "Crab": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Cranberries": [
+        {
+            "item": "Cranberry Seeds",
+            "count": 1
+        },
+        {
+            "or_items": [
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                },
+                {
+                    "item": "Garden Pot",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Crayfish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Crocus": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Winter"
+                },
+                {
+                    "goal": "Winter Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Crystal Fruit": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Winter"
+                },
+                {
+                    "goal": "Winter Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Daffodil": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Spring Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Dandelion": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Spring Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Dinosaur Egg": [
+        {
+            "and_items": [
+                {
+                    "goal": "Skull Cavern Access"
+                }
+            ]
+        }
+    ],
+    "Dinosaur Mayonnaise": [
+        {
+            "and_items": [
+                {
+                    "item": "Mayonnaise Machine",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Big Coop"
+                },
+                {
+                    "goal": "Skull Cavern Access"
+                }
+            ]
+        }
+    ],
+    "Dorado": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Difficult Fish"
+                },
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Duck Egg": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Big Coop"
+                }
+            ]
+        }
+    ],
+    "Duck Feather": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Big Coop"
+                }
+            ]
+        }
+    ],
+    "Earth Crystal": [
+        {}
+    ],
+    "Eel": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Difficult Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Eggplant": [
+        {
+            "and_items": [
+                {
+                    "item": "Eggplant Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Fairy Rose": [
+        {
+            "and_items": [
+                {
+                    "item": "Fairy Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Fall Foraging Seeds": [
+        {
+            "or_items": [
+                {
+                    "item": "Resource Pack: 10 Fall Seeds",
+                    "count": 2
+                },
+                {
+                    "item": "Resource Pack: 20 Fall Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 30 Fall Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 40 Fall Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 50 Fall Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 60 Fall Seeds",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Fiddlehead Fern": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Fire Quartz": [
+        {}
+    ],
+    "Fiber": [
+        {}
+    ],
+    "Flounder": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Fried Egg": [
+        {
+            "and_items": [
+                {
+                    "item": "Fried Egg Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Coop"
+                },
+                {
+                    "goal": "Cooking Access"
+                }
+            ]
+        }
+    ],
+    "Frozen Geode": [
+        {}
+    ],
+    "Frozen Tear": [
+        {}
+    ],
+    "Garlic": [
+        {
+            "and_items": [
+                {
+                    "item": "Garlic Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Ghostfish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                }
+            ]
+        }
+    ],
+    "Goat Cheese": [
+        {
+            "and_items": [
+                {
+                    "item": "Cheese Press",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Big Barn"
+                }
+            ]
+        }
+    ],
+    "Goby": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                }
+            ]
+        }
+    ],
+    "Gold Ore": [
+        {}
+    ],
+    "Gold Bar": [
+        {
+            "and_items": [
+                {
+                    "goal": "Gold Ore"
+                }
+            ]
+        }
+    ],
+    "Grape": [
+        {
+            "and_items": [
+                {
+                    "item": "Grape Starter",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Green Algae": [
+        {}
+    ],
+    "White Algae": [
+        {}
+    ],
+    "Green Bean": [
+        {
+            "and_items": [
+                {
+                    "item": "Bean Starter",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Halibut": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Hardwood": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Break Strong Stumps"
+                }
+            ]
+        }
+    ],
+    "Hay": [
+        {}
+    ],
+    "Hazelnut": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "goal": "Fall Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Herring": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Honey": [
+        {
+            "and_items": [
+                {
+                    "item": "Bee House",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Hops": [
+        {
+            "and_items": [
+                {
+                    "item": "Hops Starter",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Holly": [
+        {
+            "and_items": [
+                {
+                    "goal": "Winter"
+                }
+            ]
+        }
+    ],
+    "Hot Pepper": [
+        {
+            "and_items": [
+                {
+                    "item": "Pepper Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Ice Pip": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Extreme Fish"
+                }
+            ]
+        }
+    ],
+    "Emerald": [
+        {}
+    ],
+    "Ruby": [
+        {}
+    ],
+    "Topaz": [
+        {}
+    ],
+    "Jade": [
+        {}
+    ],
+    "Iridium Ore": [
+        {
+            "and_items": [
+                {
+                    "goal": "Skull Cavern Access"
+                }
+            ]
+        }
+    ],
+    "Iridium Bar": [
+        {
+            "and_items": [
+                {
+                    "goal": "Iridium Ore"
+                }
+            ]
+        }
+    ],
+    "Iron Ore": [
+        {}
+    ],
+    "Iron Bar": [
+        {
+            "and_items": [
+                {
+                    "goal": "Iron Ore"
+                }
+            ]
+        }
+    ],
+    "Jelly": [
+        {
+            "and_items": [
+                {
+                    "item": "Preserves Jar",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Pickles": [
+        {
+            "and_items": [
+                {
+                    "item": "Preserves Jar",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Kale": [
+        {
+            "and_items": [
+                {
+                    "item": "Kale Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Large Egg (Brown)": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Coop"
+                }
+            ]
+        }
+    ],
+    "Large Egg (White)": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Coop"
+                }
+            ]
+        }
+    ],
+    "Egg (Brown)": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Coop"
+                }
+            ]
+        }
+    ],
+    "Egg (White)": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Coop"
+                }
+            ]
+        }
+    ],
+    "Goat Milk": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Big Barn"
+                }
+            ]
+        }
+    ],
+    "Large Goat Milk": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Big Barn"
+                }
+            ]
+        }
+    ],
+    "Milk": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Barn"
+                }
+            ]
+        }
+    ],
+    "Large Milk": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Barn"
+                }
+            ]
+        }
+    ],
+    "Largemouth Bass": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                }
+            ]
+        }
+    ],
+    "Lava Eel": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Impossible Fish"
+                }
+            ]
+        }
+    ],
+    "Leek": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Spring Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Lingcod": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Extreme Fish"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Lobster": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Maki Roll": [
+        {
+            "and_items": [
+                {
+                    "item": "Maki Roll Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Fish"
+                },
+                {
+                    "goal": "Cooking Access"
+                }
+            ]
+        }
+    ],
+    "Maple Syrup": [
+        {
+            "and_items": [
+                {
+                    "goal": "Tapper"
+                }
+            ]
+        }
+    ],
+    "Melon": [
+        {
+            "and_items": [
+                {
+                    "item": "Melon Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Mixed Seeds": [
+        {}
+    ],
+    "Acorn": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Get Tree Seeds"
+                }
+            ]
+        }
+    ],
+    "Maple Seeds": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Get Tree Seeds"
+                }
+            ]
+        }
+    ],
+    "Pine Cone": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Get Tree Seeds"
+                }
+            ]
+        }
+    ],
+    "Mahogany Seed": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Break Strong Stumps"
+                }
+            ]
+        }
+    ],
+    "Mystic Tree Seed": [
+        {
+            "and_items": [
+                {
+                    "goal": "Acorn"
+                },
+                {
+                    "goal": "Maple Seeds"
+                },
+                {
+                    "goal": "Pine Cone"
+                },
+                {
+                    "goal": "Has Foraging Mastery"
+                }
+            ]
+        }
+    ],
+    "Mossy Seed": [
+        {
+            "and_items": [
+                {
+                    "goal": "Summer"
+                }
+            ]
+        }
+    ],
+    "Midnight Carp": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Midnight Squid": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Morel": [
+        {
+            "or_items": [
+                {
+                    "item": "Mushroom Boxes",
+                    "count": 1
+                },
+                {
+                    "goal": "Secret Woods Access"
+                }
+            ]
+        }
+    ],
+    "Moss": [
+        {}
+    ],
+    "Mussel": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Nautilus Shell": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Oak Resin": [
+        {
+            "or_items": [
+                {
+                    "goal": "Tapper"
+                }
+            ]
+        }
+    ],
+    "Octopus": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Impossible Fish"
+                },
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Orange": [
+        {
+            "or_items": [
+                {
+                    "goal": "Orange Sapling"
+                },
+                {
+                    "item": "Fruit Bats",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Orange Sapling": [
+        {
+            "and_items": [
+                {
+                    "item": "Orange Sapling",
+                    "count": 1
+                }
+            ],
+            "or_items": [
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Oyster": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Pale Ale": [
+        {
+            "and_items": [
+                {
+                    "item": "Keg",
+                    "count": 1
+                },
+                {
+                    "goal": "Hops"
+                }
+            ]
+        }
+    ],
+    "Parsnip": [
+        {
+            "and_items": [
+                {
+                    "item": "Parsnip Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Peach": [
+        {
+            "or_items": [
+                {
+                    "goal": "Peach Sapling"
+                },
+                {
+                    "item": "Fruit Bats",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Peach Sapling": [
+        {
+            "and_items": [
+                {
+                    "item": "Peach Sapling",
+                    "count": 1
+                }
+            ],
+            "or_items": [
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Perch": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Periwinkle": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Pike": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Intermediate Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Pine Tar": [
+        {
+            "or_items": [
+                {
+                    "goal": "Tapper"
+                }
+            ]
+        }
+    ],
+    "Oil": [
+        {}
+    ],
+    "Wheat Flour": [
+        {}
+    ],
+    "Rice": [
+        {}
+    ],
+    "Vinegar": [
+        {}
+    ],
+    "Sugar": [
+        {}
+    ],
+    "Omelet": [
+        {
+            "and_items": [
+                {
+                    "goal": "Milk"
+                },
+                {
+                    "goal": "Egg (White)"
+                },
+                {
+                    "item": "Omelet Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Hashbrowns": [
+        {
+            "and_items": [
+                {
+                    "goal": "Potato"
+                },
+                {
+                    "goal": "Oil"
+                },
+                {
+                    "item": "Hashbrowns Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Pancakes": [
+        {
+            "and_items": [
+                {
+                    "goal": "Egg (White)"
+                },
+                {
+                    "goal": "Wheat Flour"
+                },
+                {
+                    "item": "Pancakes Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Tortilla": [
+        {
+            "and_items": [
+                {
+                    "goal": "Egg (White)"
+                },
+                {
+                    "goal": "Wheat Flour"
+                },
+                {
+                    "item": "Tortilla Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Triple Shot Espresso": [
+        {
+            "and_items": [
+                {
+                    "goal": "Coffe"
+                },
+                {
+                    "item": "Tortilla Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Farmer's Lunch": [
+        {
+            "and_items": [
+                {
+                    "goal": "Omelet"
+                },
+                {
+                    "goal": "Parsnip"
+                },
+                {
+                    "item": "Farmer's Lunch Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Survival Burger": [
+        {
+            "and_items": [
+                {
+                    "goal": "Bread"
+                },
+                {
+                    "goal": "Cave Carrot"
+                },
+                {
+                    "goal": "Eggplant"
+                },
+                {
+                    "item": "Survival Burger Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Miner's Treat": [
+        {
+            "and_items": [
+                {
+                    "goal": "Cave Carrot"
+                },
+                {
+                    "goal": "Sugar"
+                },
+                {
+                    "goal": "Milk"
+                },
+                {
+                    "item": "Miner's Treat Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Roots Platter": [
+        {
+            "and_items": [
+                {
+                    "goal": "Cave Carrot"
+                },
+                {
+                    "goal": "Winter Root"
+                },
+                {
+                    "item": "Roots Platter Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Cheese Cauliflower": [
+        {
+            "and_items": [
+                {
+                    "goal": "Cauliflower"
+                },
+                {
+                    "goal": "Cheese"
+                },
+                {
+                    "item": "Cheese Cauliflower Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Parsnip Soup": [
+        {
+            "and_items": [
+                {
+                    "goal": "Parsnip"
+                },
+                {
+                    "goal": "Milk"
+                },
+                {
+                    "goal": "Vinegar"
+                },
+                {
+                    "item": "Parsnip Soup Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Fried Mushroom": [
+        {
+            "and_items": [
+                {
+                    "goal": "Common Mushroom"
+                },
+                {
+                    "goal": "Morel"
+                },
+                {
+                    "goal": "Oil"
+                },
+                {
+                    "item": "Fried Mushroom Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Salmon Dinner": [
+        {
+            "and_items": [
+                {
+                    "goal": "Salmon"
+                },
+                {
+                    "goal": "Amaranth"
+                },
+                {
+                    "goal": "Kale"
+                },
+                {
+                    "item": "Salmon Dinner Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Pepper Poppers": [
+        {
+            "and_items": [
+                {
+                    "goal": "Hot Pepper"
+                },
+                {
+                    "goal": "Cheese"
+                },
+                {
+                    "item": "Pepper Poppers Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Blueberry Tart": [
+        {
+            "and_items": [
+                {
+                    "goal": "Blueberry"
+                },
+                {
+                    "goal": "Wheat Flour"
+                },
+                {
+                    "goal": "Sugar"
+                },
+                {
+                    "goal": "Egg (White)"
+                },
+                {
+                    "item": "Blueberry Tart Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Algae Soup": [
+        {
+            "and_items": [
+                {
+                    "goal": "Green Algae"
+                },
+                {
+                    "item": "Algae Soup Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Pale Broth": [
+        {
+            "and_items": [
+                {
+                    "goal": "White Algae"
+                },
+                {
+                    "item": "Algae Soup Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Chowder": [
+        {
+            "and_items": [
+                {
+                    "goal": "Clam"
+                },
+                {
+                    "goal": "Milk"
+                },
+                {
+                    "item": "Chowder Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Cookie": [
+        {
+            "and_items": [
+                {
+                    "goal": "Wheat Flour"
+                },
+                {
+                    "goal": "Sugar"
+                },
+                {
+                    "goal": "Egg"
+                },
+                {
+                    "item": "Cookie Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Ice Cream": [
+        {
+            "or_items": [
+                {
+                    "and_items": [
+                        {
+                            "goal": "Milk"
+                        },
+                        {
+                            "goal": "Sugar"
+                        },
+                        {
+                            "item": "Ice Cream Recipe",
+                            "count": 1
+                        },
+                        {
+                            "goal": "Can Cook"
+                        }
+                    ]
+                },
+                {
+                    "goal": "Summer"
+                }
+            ]
+        }
+    ],
+    "Cranberry Candy": [
+        {
+            "and_items": [
+                {
+                    "goal": "Cranberries"
+                },
+                {
+                    "goal": "Apple"
+                },
+                {
+                    "goal": "Sugar"
+                },
+                {
+                    "item": "Cranberry Candy Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Pink Cake": [
+        {
+            "and_items": [
+                {
+                    "goal": "Melon"
+                },
+                {
+                    "goal": "Wheat Flour"
+                },
+                {
+                    "goal": "Sugar"
+                },
+                {
+                    "goal": "Egg (White)"
+                },
+                {
+                    "item": "Pink Cake Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Plum Pudding": [
+        {
+            "and_items": [
+                {
+                    "goal": "Wild Plum"
+                },
+                {
+                    "goal": "Wheat Flour"
+                },
+                {
+                    "goal": "Sugar"
+                },
+                {
+                    "item": "Plum Pudding Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Chocolate Cake": [
+        {
+            "and_items": [
+                {
+                    "goal": "Wild Plum"
+                },
+                {
+                    "goal": "Wheat Flour"
+                },
+                {
+                    "goal": "Sugar"
+                },
+                {
+                    "item": "Plum Pudding Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Cook"
+                }
+            ]
+        }
+    ],
+    "Ancient Doll": [
+        {}
+    ],
+    "Salad": [
+        {}
+    ],
+    "Bread": [
+        {}
+    ],
+    "Spaghetti": [
+        {}
+    ],
+    "Pizza": [
+        {}
+    ],
+    "Pomegranate": [
+        {
+            "or_items": [
+                {
+                    "goal": "Pomegranate Sapling"
+                },
+                {
+                    "item": "Fruit Bats",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Pomegranate Sapling": [
+        {
+            "and_items": [
+                {
+                    "item": "Pomegranate Sapling",
+                    "count": 1
+                }
+            ],
+            "or_items": [
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Poppy": [
+        {
+            "and_items": [
+                {
+                    "item": "Poppy Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Potato": [
+        {
+            "and_items": [
+                {
+                    "item": "Potato Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Powdermelon": [
+        {
+            "and_items": [
+                {
+                    "item": "Powdermelon Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Winter Crops"
+                }
+            ]
+        }
+    ],
+    "Prismatic Shard": [
+        {
+            "and_items": [
+                {
+                    "goal": "Skull Cavern Access"
+                }
+            ]
+        }
+    ],
+    "Pufferfish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Extreme Fish"
+                },
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Pumpkin": [
+        {
+            "and_items": [
+                {
+                    "item": "Pumpkin Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Purple Mushroom": [
+        {}
+    ],
+    "Quality Wine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Wine"
+                },
+                {
+                    "goal": "Has Cellar"
+                }
+            ]
+        }
+    ],
+    "Quartz": [
+        {}
+    ],
+    "Rabbit's Foot": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Deluxe Coop"
+                }
+            ]
+        }
+    ],
+    "Radish": [
+        {
+            "and_items": [
+                {
+                    "item": "Radish Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Rainbow Shell": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Rainbow Trout": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                },
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Roe": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Fish Pond"
+                }
+            ]
+        }
+    ],
+    "Aged Roe": [
+        {
+            "and_items": [
+                {
+                    "goal": "Roe"
+                },
+                {
+                    "item": "Preserves Jar",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Red Cabbage": [
+        {
+            "and_items": [
+                {
+                    "item": "Red Cabbage Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Red Mullet": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Red Mushroom": [
+        {}
+    ],
+    "Red Snapper": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Refined Quartz": [
+        {
+            "or_items": [
+                {
+                    "goal": "Quartz"
+                },
+                {
+                    "goal": "Fire Quartz"
+                }
+            ]
+        }
+    ],
+    "Rhubarb": [
+        {
+            "and_items": [
+                {
+                    "item": "Rhubarb Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Salmon": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Salmonberry": [
+        {
+            "and_items": [
+                {
+                    "goal": "Spring"
+                }
+            ]
+        }
+    ],
+    "Spring Onion": [
+        {
+            "and_items": [
+                {
+                    "goal": "Spring"
+                }
+            ]
+        }
+    ],
+    "Sandfish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Intermediate Fish"
+                },
+                {
+                    "goal": "Desert Access"
+                }
+            ]
+        }
+    ],
+    "Sardine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Sashimi": [
+        {
+            "and_items": [
+                {
+                    "item": "Sashimi Recipe",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Fish"
+                },
+                {
+                    "goal": "Cooking Access"
+                }
+            ]
+        }
+    ],
+    "Scorpion Carp": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Impossible Fish"
+                },
+                {
+                    "goal": "Desert Access"
+                }
+            ]
+        }
+    ],
+    "Sea Cucumber": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Sea Urchin": [
+        {
+            "and_items": [
+                {
+                    "goal": "Tide Pool Access"
+                }
+            ]
+        }
+    ],
+    "Seaweed": [
+        {
+            "or_items": [
+                {
+                    "goal": "Can Fish"
+                },
+                {
+                    "goal": "Tide Pool Access"
+                },
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Shad": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Shrimp": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Slime": [
+        {}
+    ],
+    "Bug Meat": [
+        {}
+    ],
+    "Slimejack": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                },
+                {
+                    "goal": "Mutant Bug Lair Access"
+                }
+            ]
+        }
+    ],
+    "Smallmouth Bass": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Snail": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Snow Yam": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Winter"
+                },
+                {
+                    "goal": "Winter Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Solar Essence": [
+        {}
+    ],
+    "Cherry Bomb": [
+        {
+            "or_items": [
+                {
+                    "goal": "Dwarf Access"
+                },
+                {
+                    "goal": "Can Craft Cherry Bomb"
+                }
+            ]
+        }
+    ],
+    "Bomb": [
+        {
+            "or_items": [
+                {
+                    "goal": "Dwarf Access"
+                },
+                {
+                    "goal": "Can Craft Bomb"
+                }
+            ]
+        }
+    ],
+    "Mega Bomb": [
+        {
+            "or_items": [
+                {
+                    "goal": "Dwarf Access"
+                },
+                {
+                    "goal": "Can Craft Mega Bomb"
+                }
+            ]
+        }
+    ],
+    "Explosive Ammo": [
+        {
+            "or_items": [
+                {
+                    "goal": "Can Craft Explosive Ammo"
+                }
+            ]
+        }
+    ],
+    "Petrified Slime": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Slime Hutch"
+                }
+            ]
+        }
+    ],
+    "Green Slime Egg": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Slime Hutch"
+                }
+            ]
+        }
+    ],
+    "Blue Slime Egg": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Slime Hutch"
+                }
+            ]
+        }
+    ],
+    "Red Slime Egg": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Slime Hutch"
+                }
+            ]
+        }
+    ],
+    "Purple Slime Egg": [
+        {
+            "and_items": [
+                {
+                    "goal": "Skull Cavern Access"
+                },
+                {
+                    "goal": "Has Slime Hutch"
+                }
+            ]
+        }
+    ],
+    "Spice Berry": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "item": "Fruit Bats",
+                    "count": 1
+                },
+                {
+                    "goal": "Summer Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Spring Foraging Seeds": [
+        {
+            "or_items": [
+                {
+                    "item": "Resource Pack: 10 Spring Seeds",
+                    "count": 2
+                },
+                {
+                    "item": "Resource Pack: 20 Spring Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 30 Spring Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 40 Spring Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 50 Spring Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 60 Spring Seeds",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Spook Fish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Intermediate Fish"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Squid": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Difficult Fish"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Squid Ink": [
+        {}
+    ],
+    "Starfruit": [
+        {
+            "and_items": [
+                {
+                    "item": "Starfruit",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Stone": [
+        {}
+    ],
+    "Coal": [
+        {}
+    ],
+    "Boquet": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Date"
+                }
+            ]
+        }
+    ],
+    "Wilted Boquet": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Date"
+                }
+            ]
+        }
+    ],
+    "Trash": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Fish"
+                }
+            ]
+        }
+    ],
+    "Driftwood": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Fish"
+                }
+            ]
+        }
+    ],
+    "Soggy Newspaper": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Fish"
+                }
+            ]
+        }
+    ],
+    "Broken CD": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Fish"
+                }
+            ]
+        }
+    ],
+    "Broken Glass": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Fish"
+                }
+            ]
+        }
+    ],
+    "Stonefish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Intermediate Fish"
+                }
+            ]
+        }
+    ],
+    "Strawberry": [
+        {
+            "and_items": [
+                {
+                    "item": "Strawberry Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Sturgeon": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Difficult Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Summer Foraging Seeds": [
+        {
+            "or_items": [
+                {
+                    "item": "Resource Pack: 10 Summer Seeds",
+                    "count": 2
+                },
+                {
+                    "item": "Resource Pack: 20 Summer Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 30 Summer Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 40 Summer Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 50 Summer Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 60 Summer Seeds",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Summer Spangle": [
+        {
+            "and_items": [
+                {
+                    "item": "Spangle Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Summer Squash": [
+        {
+            "and_items": [
+                {
+                    "item": "Summer Squash Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Sunfish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Sunflower": [
+        {
+            "and_items": [
+                {
+                    "item": "Sunflower Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Super Cucumber": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Extreme Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Sweet Gem Berry": [
+        {
+            "and_items": [
+                {
+                    "item": "Rare Seed",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Sweet Pea": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Summer Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Tiger Trout": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Intermediate Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Tilapia": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Tomato": [
+        {
+            "and_items": [
+                {
+                    "item": "Tomato Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                }
+            ]
+        }
+    ],
+    "Truffle": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Deluxe Barn"
+                }
+            ]
+        }
+    ],
+    "Truffle Oil": [
+        {
+            "and_items": [
+                {
+                    "item": "Oil Maker",
+                    "count": 1
+                },
+                {
+                    "goal": "Truffle"
+                }
+            ]
+        }
+    ],
+    "Tulip": [
+        {
+            "and_items": [
+                {
+                    "item": "Tulip Bulbs",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Tuna": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Difficult Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Unmilled Rice": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Plant Spring Crops"
+                }
+            ]
+        }
+    ],
+    "Void Essence": [
+        {}
+    ],
+    "Void Mayonnaise": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Fish"
+                }
+            ]
+        }
+    ],
+    "Void Egg": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Big Coop"
+                }
+            ]
+        }
+    ],
+    "Void Salmon": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Extreme Fish"
+                },
+                {
+                    "goal": "Mutant Bug Lair Access"
+                }
+            ]
+        }
+    ],
+    "Walleye": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Wheat": [
+        {
+            "and_items": [
+                {
+                    "item": "Wheat Seeds",
+                    "count": 1
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Can Plant Summer Crops"
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Wild Horseradish": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Spring Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Wild Plum": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "item": "Fruit Bats",
+                    "count": 1
+                },
+                {
+                    "goal": "Fall Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Wine": [
+        {
+            "or_items": [
+                {
+                    "item": "Keg",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Winter Foraging Seeds": [
+        {
+            "or_items": [
+                {
+                    "item": "Resource Pack: 10 Winter Seeds",
+                    "count": 2
+                },
+                {
+                    "item": "Resource Pack: 20 Winter Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 30 Winter Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 40 Winter Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 50 Winter Seeds",
+                    "count": 1
+                },
+                {
+                    "item": "Resource Pack: 60 Winter Seeds",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Winter Root": [
+        {
+            "or_items": [
+                {
+                    "goal": "Has Winter"
+                },
+                {
+                    "goal": "Winter Foraging Seeds"
+                },
+                {
+                    "item": "Greenhouse",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Wood": [
+        {}
+    ],
+    "Woodskip": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                },
+                {
+                    "goal": "Deep Woods Access"
+                }
+            ]
+        }
+    ],
+    "Wool": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Deluxe Barn"
+                }
+            ]
+        }
+    ],
+    "Yam": [
+        {
+            "and_items": [
+                {
+                    "item": "Yam Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ]
+}

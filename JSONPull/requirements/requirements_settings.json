@@ -1,0 +1,14 @@
+{
+    "Other Farm": [
+        {
+            "and_items": [
+                {
+                    "goal": "Parsnip"
+                }
+            ]
+        }
+    ],
+    "Meadow Farm": [
+        {}
+    ]
+}

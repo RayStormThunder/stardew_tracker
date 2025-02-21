@@ -1,0 +1,205 @@
+{
+    "Desert Access": [
+        {
+            "or_items": [
+                {
+                    "item": "Bus Repair",
+                    "count": 1
+                },
+                {
+                    "item": "Desert Obelisk",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Villager Desert Access": [
+        {
+            "and_items": [
+                {
+                    "item": "Bus Repair",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Goblin Access": [
+        {
+            "and_items": [
+                {
+                    "item": "Dark Talisman",
+                    "count": 1
+                },
+                {
+                    "goal": "Railroad Access"
+                }
+            ]
+        }
+    ],
+    "Dwarf Access": [
+        {
+            "and_items": [
+                {
+                    "item": "Dwarvish Translation Guide",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Break Strong Rocks"
+                }
+            ]
+        }
+    ],
+    "Movie Theater Access": [
+        {
+            "and_items": [
+                {
+                    "item": "Progressive Movie Theater",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Mutant Bug Lair Access": [
+        {
+            "and_items": [
+                {
+                    "goal": "Railroad Access"
+                },
+                {
+                    "goal": "Sewers Access"
+                }
+            ]
+        }
+    ],
+    "Railroad Access": [
+        {
+            "and_items": [
+                {
+                    "item": "Railroad Boulder Removed",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Club Access": [
+        {
+            "and_items": [
+                {
+                    "item": "Club Card",
+                    "count": 1
+                },
+                {
+                    "goal": "Desert Access"
+                }
+            ]
+        }
+    ],
+    "Raccoon Shop Access": [
+        {
+            "and_items": [
+                {
+                    "goal": "Progress Raccoon Home 1"
+                },
+                {
+                    "item": "Summer",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Deep Woods Access": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Break Strong Stumps"
+                }
+            ]
+        }
+    ],
+    "Tide Pool Access": [
+        {
+            "and_items": [
+                {
+                    "item": "Beach Bridge",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Quarry Access": [
+        {
+            "and_items": [
+                {
+                    "item": "Bridge Repair",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Secret Woods Access": [
+        {
+            "and_items": [
+                {
+                    "item": "Spring",
+                    "count": 1
+                },
+                {
+                    "item": "Progressive Axe",
+                    "count": 2
+                }
+            ]
+        }
+    ],
+    "Sewers Access": [
+        {
+            "and_items": [
+                {
+                    "item": "Rusty Key",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Skull Cavern Access": [
+        {
+            "or_items": [
+                {
+                    "and_items": [
+                        {
+                            "item": "Skull Key",
+                            "count": 1
+                        },
+                        {
+                            "item": "Bus Repair",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "and_items": [
+                        {
+                            "item": "Skull Key",
+                            "count": 1
+                        },
+                        {
+                            "item": "Desert Obelisk",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "and_items": [
+                        {
+                            "item": "Spring",
+                            "count": 1
+                        },
+                        {
+                            "item": "Bus Repair",
+                            "count": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

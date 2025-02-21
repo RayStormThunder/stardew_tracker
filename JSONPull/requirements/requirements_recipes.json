@@ -1,0 +1,233 @@
+{
+    "Fried Egg Recipe": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Kitchen"
+                }
+            ]
+        }
+    ],
+    "Hashbrowns Recipe": [
+        {}
+    ],
+    "Omelet Recipe": [
+        {}
+    ],
+    "Pancakes Recipe": [
+        {}
+    ],
+    "Bread Recipe": [
+        {}
+    ],
+    "Tortilla Recipe": [
+        {}
+    ],
+    "Pizza Recipe": [
+        {}
+    ],
+    "Maki Roll Recipe": [
+        {}
+    ],
+    "Triple Shot Espresso Recipe": [
+        {}
+    ],
+    "Cookie Recipe": [
+        {}
+    ],
+    "Farmer's Lunch Recipe": [
+        {
+            "and_items": [
+                {
+                    "item": "Farming Level",
+                    "count": 3
+                }
+            ]
+        }
+    ],
+    "Survival Burger Recipe": [
+        {
+            "and_items": [
+                {
+                    "item": "Foraging Level",
+                    "count": 8
+                }
+            ]
+        }
+    ],
+    "Miner's Treat Recipe": [
+        {
+            "and_items": [
+                {
+                    "item": "Mining Level",
+                    "count": 3
+                }
+            ]
+        }
+    ],
+    "Roots Platter Recipe": [
+        {
+            "and_items": [
+                {
+                    "item": "Combat Level",
+                    "count": 3
+                }
+            ]
+        }
+    ],
+    "Cheese Cauliflower Recipe": [
+        {}
+    ],
+    "Parsnip Soup Recipe": [
+        {}
+    ],
+    "Fried Mushroom Recipe": [
+        {}
+    ],
+    "Salmon Dinner Recipe": [
+        {}
+    ],
+    "Pepper Poppers Recipe": [
+        {}
+    ],
+    "Blueberry Tart Recipe": [
+        {}
+    ],
+    "Algae Soup Recipe": [
+        {}
+    ],
+    "Pale Broth Recipe": [
+        {}
+    ],
+    "Chowder Recipe": [
+        {}
+    ],
+    "Ice Cream Recipe": [
+        {}
+    ],
+    "Cranberry Candy Recipe": [
+        {
+            "and_items": [
+                {
+                    "item": "The Queen of Sauce",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Pink Cake Recipe": [
+        {
+            "and_items": [
+                {
+                    "item": "The Queen of Sauce",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Plum Pudding Recipe": [
+        {
+            "and_items": [
+                {
+                    "item": "The Queen of Sauce",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Chocolate Cake Recipe": [
+        {
+            "and_items": [
+                {
+                    "item": "The Queen of Sauce",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Rhubarb Pie Recipe": [
+        {}
+    ],
+    "Dish O' The Sea": [
+        {
+            "and_items": [
+                {
+                    "item": "Fishing Level",
+                    "count": 3
+                }
+            ]
+        }
+    ],
+    "Shrimp Cocktail Recipe": [
+        {
+            "and_items": [
+                {
+                    "item": "The Queen of Sauce",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Stuffing Recipe": [
+        {}
+    ],
+    "Spicy Eel Recipe": [
+        {}
+    ],
+    "Crab Cakes Recipe": [
+        {
+            "and_items": [
+                {
+                    "item": "The Queen of Sauce",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Eggplant Parmesan Recipe": [
+        {}
+    ],
+    "Pumpkin Soup Recipe": [
+        {}
+    ],
+    "Lucky Lunch Recipe": [
+        {
+            "and_items": [
+                {
+                    "item": "The Queen of Sauce",
+                    "count": 1
+                },
+                {
+                    "goal": "Has Spring"
+                }
+            ]
+        }
+    ],
+    "Salad Recipe": [
+        {}
+    ],
+    "Spaghetti Recipe": [
+        {}
+    ],
+    "Sashimi Recipe": [
+        {}
+    ]
+}

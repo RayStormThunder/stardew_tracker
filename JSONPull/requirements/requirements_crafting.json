@@ -1,0 +1,72 @@
+{
+    "Can Craft Scarecrow": [
+        {
+            "and_items": [
+                {
+                    "item": "Farming Level",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Can Craft Cherry Bomb": [
+        {
+            "and_items": [
+                {
+                    "item": "Mining Level",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Can Craft Bomb": [
+        {
+            "and_items": [
+                {
+                    "item": "Mining Level",
+                    "count": 6
+                }
+            ]
+        }
+    ],
+    "Can Craft Mega Bomb": [
+        {
+            "and_items": [
+                {
+                    "item": "Mining Level",
+                    "count": 8
+                }
+            ]
+        }
+    ],
+    "Can Craft Explosive Ammo": [
+        {
+            "and_items": [
+                {
+                    "item": "Combat Level",
+                    "count": 8
+                }
+            ]
+        }
+    ],
+    "Can Craft Tree Fertilizer": [
+        {
+            "and_items": [
+                {
+                    "item": "Farming Level",
+                    "count": 7
+                }
+            ]
+        }
+    ],
+    "Can Craft Jack-O-Lantern": [
+        {
+            "and_items": [
+                {
+                    "item": "Jack-O-Lantern Recipe",
+                    "count": 1
+                }
+            ]
+        }
+    ]
+}

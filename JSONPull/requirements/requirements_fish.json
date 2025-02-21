@@ -1,0 +1,1398 @@
+{
+    "Albacore": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Intermediate Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Anchovy": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Blobfish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Difficult Fish"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Bream": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ]
+        }
+    ],
+    "Bream Bait": [
+        {
+            "and_items": [
+                {
+                    "goal": "Bream"
+                },
+                {
+                    "goal": "Bait Maker"
+                }
+            ]
+        }
+    ],
+    "Smoked Bream": [
+        {
+            "and_items": [
+                {
+                    "goal": "Bream"
+                },
+                {
+                    "goal": "Smoker"
+                }
+            ]
+        }
+    ],
+    "Bullhead": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ]
+        }
+    ],
+    "Smoked Bullhead": [
+        {
+            "and_items": [
+                {
+                    "goal": "Bullhead"
+                },
+                {
+                    "goal": "Smoker"
+                }
+            ]
+        }
+    ],
+    "Carp": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ]
+        }
+    ],
+    "Catfish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Difficult Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Catfish Bait": [
+        {
+            "and_items": [
+                {
+                    "goal": "Catfish"
+                },
+                {
+                    "goal": "Bait Maker"
+                }
+            ]
+        }
+    ],
+    "Chub": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ]
+        }
+    ],
+    "Smoked Chub": [
+        {
+            "and_items": [
+                {
+                    "goal": "Chub"
+                },
+                {
+                    "goal": "Smoker"
+                }
+            ]
+        }
+    ],
+    "Clam": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Cockle": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Coral": [
+        {
+            "and_items": [
+                {
+                    "goal": "Tide Pool Access"
+                }
+            ]
+        }
+    ],
+    "Crab": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Crayfish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Dorado": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Difficult Fish"
+                },
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Eel": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Difficult Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Flounder": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Smoked Flounder": [
+        {
+            "and_items": [
+                {
+                    "goal": "Flounder"
+                },
+                {
+                    "goal": "Smoker"
+                }
+            ]
+        }
+    ],
+    "Ghostfish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                }
+            ]
+        }
+    ],
+    "Smoked Ghostfish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Ghostfish"
+                },
+                {
+                    "goal": "Smoker"
+                }
+            ]
+        }
+    ],
+    "Goby": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                }
+            ]
+        }
+    ],
+    "Halibut": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Herring": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Ice Pip": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Extreme Fish"
+                }
+            ]
+        }
+    ],
+    "Largemouth Bass": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                }
+            ]
+        }
+    ],
+    "Smoked Largemouth Bass": [
+        {
+            "and_items": [
+                {
+                    "goal": "Largemouth Bass"
+                },
+                {
+                    "goal": "Smoker"
+                }
+            ]
+        }
+    ],
+    "Lava Eel": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Impossible Fish"
+                }
+            ]
+        }
+    ],
+    "Lingcod": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Extreme Fish"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Lingcod Bait": [
+        {
+            "and_items": [
+                {
+                    "goal": "Lingcod"
+                },
+                {
+                    "goal": "Bait Maker"
+                }
+            ]
+        }
+    ],
+    "Lobster": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Midnight Carp": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Smoked Midnight Carp": [
+        {
+            "and_items": [
+                {
+                    "goal": "Midnight Carp"
+                },
+                {
+                    "goal": "Smoker"
+                }
+            ]
+        }
+    ],
+    "Midnight Squid": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Mussel": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Nautilus Shell": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Octopus": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Impossible Fish"
+                },
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Oyster": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Perch": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Perch Bait": [
+        {
+            "and_items": [
+                {
+                    "goal": "Perch"
+                },
+                {
+                    "goal": "Bait Maker"
+                }
+            ]
+        }
+    ],
+    "Smoked Perch": [
+        {
+            "and_items": [
+                {
+                    "goal": "Perch"
+                },
+                {
+                    "goal": "Smoker"
+                }
+            ]
+        }
+    ],
+    "Periwinkle": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Pike": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Intermediate Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Pike Bait": [
+        {
+            "and_items": [
+                {
+                    "goal": "Pike"
+                },
+                {
+                    "goal": "Bait Maker"
+                }
+            ]
+        }
+    ],
+    "Pufferfish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Extreme Fish"
+                },
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Rainbow Shell": [
+        {
+            "and_items": [
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Green Algae": [
+        {}
+    ],
+    "White Algae": [
+        {}
+    ],
+    "Rainbow Trout": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                },
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Rainbow Trout Bait": [
+        {
+            "and_items": [
+                {
+                    "goal": "Rainbow Trout"
+                },
+                {
+                    "goal": "Bait Maker"
+                }
+            ]
+        }
+    ],
+    "Smoked Rainbow Trout": [
+        {
+            "and_items": [
+                {
+                    "goal": "Rainbow Trout"
+                },
+                {
+                    "goal": "Smoker"
+                }
+            ]
+        }
+    ],
+    "Red Mullet": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Smoked Red Mullet": [
+        {
+            "and_items": [
+                {
+                    "goal": "Red Mullet"
+                },
+                {
+                    "goal": "Smoker"
+                }
+            ]
+        }
+    ],
+    "Red Snapper": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Salmon": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Salmon Bait": [
+        {
+            "and_items": [
+                {
+                    "goal": "Salmon"
+                },
+                {
+                    "goal": "Bait Maker"
+                }
+            ]
+        }
+    ],
+    "Smoked Salmon": [
+        {
+            "and_items": [
+                {
+                    "goal": "Salmon"
+                },
+                {
+                    "goal": "Smoker"
+                }
+            ]
+        }
+    ],
+    "Sandfish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Intermediate Fish"
+                },
+                {
+                    "goal": "Desert Access"
+                }
+            ]
+        }
+    ],
+    "Sardine": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Scorpion Carp": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Impossible Fish"
+                },
+                {
+                    "goal": "Desert Access"
+                }
+            ]
+        }
+    ],
+    "Sea Cucumber": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Sea Urchin": [
+        {
+            "and_items": [
+                {
+                    "goal": "Tide Pool Access"
+                }
+            ]
+        }
+    ],
+    "Seaweed": [
+        {
+            "or_items": [
+                {
+                    "goal": "Can Fish"
+                },
+                {
+                    "goal": "Tide Pool Access"
+                },
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Shad": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Shad Bait": [
+        {
+            "and_items": [
+                {
+                    "goal": "Shad"
+                },
+                {
+                    "goal": "Bait Maker"
+                }
+            ]
+        }
+    ],
+    "Smoked Shad": [
+        {
+            "and_items": [
+                {
+                    "goal": "Shad"
+                },
+                {
+                    "goal": "Smoker"
+                }
+            ]
+        }
+    ],
+    "Shrimp": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Slimejack": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                },
+                {
+                    "goal": "Mutant Bug Lair Access"
+                }
+            ]
+        }
+    ],
+    "Smallmouth Bass": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Smallmouth Bait": [
+        {
+            "and_items": [
+                {
+                    "goal": "Smallmouth"
+                },
+                {
+                    "goal": "Bait Maker"
+                }
+            ]
+        }
+    ],
+    "Snail": [
+        {
+            "and_items": [
+                {
+                    "goal": "Crab Pot"
+                }
+            ]
+        }
+    ],
+    "Spook Fish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Intermediate Fish"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Squid": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Difficult Fish"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Trash": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Fish"
+                }
+            ]
+        }
+    ],
+    "Driftwood": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Fish"
+                }
+            ]
+        }
+    ],
+    "Soggy Newspaper": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Fish"
+                }
+            ]
+        }
+    ],
+    "Broken CD": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Fish"
+                }
+            ]
+        }
+    ],
+    "Broken Glasses": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Fish"
+                }
+            ]
+        }
+    ],
+    "Stonefish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Intermediate Fish"
+                }
+            ]
+        }
+    ],
+    "Sturgeon": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Difficult Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Sunfish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Spring"
+                },
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Sunfish Bait": [
+        {
+            "and_items": [
+                {
+                    "goal": "Sunfish"
+                },
+                {
+                    "goal": "Bait Maker"
+                }
+            ]
+        }
+    ],
+    "Sunflower": [
+        {
+            "and_items": [
+                {
+                    "item": "Sunflower Seeds",
+                    "count": 1
+                },
+                {
+                    "goal": "Can Plant Summer Crops"
+                },
+                {
+                    "goal": "Can Plant Fall Crops"
+                }
+            ]
+        }
+    ],
+    "Super Cucumber": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Extreme Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Tiger Trout": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Intermediate Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Fall"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Tiger Trout Bait": [
+        {
+            "and_items": [
+                {
+                    "goal": "Tiger Trout"
+                },
+                {
+                    "goal": "Bait Maker"
+                }
+            ]
+        }
+    ],
+    "Tilapia": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Smoked Tilapia": [
+        {
+            "and_items": [
+                {
+                    "goal": "Tilapia"
+                },
+                {
+                    "goal": "Smoker"
+                }
+            ]
+        }
+    ],
+    "Tuna": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Difficult Fish"
+                }
+            ],
+            "or_items": [
+                {
+                    "goal": "Has Summer"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Smoked Tuna": [
+        {
+            "and_items": [
+                {
+                    "goal": "Tuna"
+                },
+                {
+                    "goal": "Smoker"
+                }
+            ]
+        }
+    ],
+    "Void Salmon": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Extreme Fish"
+                },
+                {
+                    "goal": "Goblin Access"
+                }
+            ]
+        }
+    ],
+    "Walleye": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Basic Fish"
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Walleye Bait": [
+        {
+            "and_items": [
+                {
+                    "goal": "Walleye"
+                },
+                {
+                    "goal": "Bait Maker"
+                }
+            ]
+        }
+    ],
+    "Woodskip": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Moderate Fish"
+                },
+                {
+                    "goal": "Deep Woods Access"
+                }
+            ]
+        }
+    ],
+    "Angler": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Extreme Fish"
+                },
+                {
+                    "goal": "Has Fall"
+                }
+            ]
+        }
+    ],
+    "Crimsonfish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Impossible Fish"
+                },
+                {
+                    "goal": "Tide Pool Access"
+                },
+                {
+                    "goal": "Has Summer"
+                }
+            ]
+        }
+    ],
+    "Mutant Carp": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Extreme Fish"
+                },
+                {
+                    "goal": "Sewers Access"
+                }
+            ]
+        }
+    ],
+    "Glacierfish": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Impossible Fish"
+                },
+                {
+                    "goal": "Has Winter"
+                }
+            ]
+        }
+    ],
+    "Legend": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Catch Impossible Fish"
+                },
+                {
+                    "goal": "Has Spring"
+                }
+            ]
+        }
+    ],
+    "Spinner": [
+        {
+            "and_items": [
+                {
+                    "item": "Fishing Level",
+                    "count": 6
+                }
+            ]
+        }
+    ],
+    "Dressed Spinner": [
+        {
+            "and_items": [
+                {
+                    "item": "Fishing Level",
+                    "count": 8
+                }
+            ]
+        }
+    ],
+    "Trap Bobber": [
+        {
+            "and_items": [
+                {
+                    "item": "Fishing Level",
+                    "count": 6
+                }
+            ]
+        }
+    ],
+    "Sonar Bobber": [
+        {
+            "and_items": [
+                {
+                    "item": "Fishing Level",
+                    "count": 6
+                }
+            ]
+        }
+    ],
+    "Cork Bobber": [
+        {
+            "and_items": [
+                {
+                    "item": "Fishing Level",
+                    "count": 7
+                }
+            ]
+        }
+    ],
+    "Quality Bobber": [
+        {
+            "and_items": [
+                {
+                    "item": "Quality Bobber",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Lead Bobber": [
+        {}
+    ],
+    "Treasure Hunter": [
+        {
+            "and_items": [
+                {
+                    "item": "Fishing Level",
+                    "count": 7
+                }
+            ]
+        }
+    ],
+    "Barbed Hook": [
+        {
+            "and_items": [
+                {
+                    "item": "Fishing Level",
+                    "count": 8
+                }
+            ]
+        }
+    ],
+    "Bait": [
+        {
+            "and_items": [
+                {
+                    "item": "Fishing Level",
+                    "count": 2
+                }
+            ]
+        }
+    ],
+    "Magnet": [
+        {
+            "and_items": [
+                {
+                    "item": "Fishing Level",
+                    "count": 9
+                }
+            ]
+        }
+    ],
+    "Wild Bait": [
+        {}
+    ],
+    "Deluxe Bait": [
+        {
+            "and_items": [
+                {
+                    "item": "Fishing Level",
+                    "count": 4
+                }
+            ]
+        }
+    ],
+    "Challenge Bait": [
+        {
+            "and_items": [
+                {
+                    "item": "Fishing Mastery",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "Targeted Bait": [
+        {
+            "and_items": [
+                {
+                    "goal": "Can Fish"
+                },
+                {
+                    "goal": "Bait Maker"
+                }
+            ]
+        }
+    ],
+    "Curiosity Lure": [
+        {
+            "or_items": [
+                {
+                    "goal": "Skull Cavern Access"
+                }
+            ]
+        }
+    ]
+}

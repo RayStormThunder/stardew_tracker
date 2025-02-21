@@ -1,0 +1,175 @@
+{
+    "P - Quality Crops": [
+        "Parsnip",
+        "Melon",
+        "Pumpkin",
+        "Corn"
+    ],
+    "BB - Chef's Bundle": [
+        "Maple Syrup",
+        "Fiddlehead Fern",
+        "Truffle",
+        "Poppy",
+        "Maki Roll",
+        "Fried Egg"
+    ],
+    "P - Artisan Bundle": [
+        "Truffle Oil",
+        "Cloth",
+        "Goat Cheese",
+        "Cheese",
+        "Honey",
+        "Jelly",
+        "Cherry",
+        "Pomegranate",
+        "Peach",
+        "Orange",
+        "Apricot",
+        "Apple"
+    ],
+    "BB - Fodder Bundle": [
+        "Wheat",
+        "Hay",
+        "Apple"
+    ],
+    "BB - Dye Bundle": [
+        "Red Mushroom",
+        "Sea Urchin",
+        "Sunflower",
+        "Duck Feather",
+        "Aquamarine",
+        "Red Cabbage"
+    ],
+    "BB - Field Research Bundle": [
+        "Purple Mushroom",
+        "Nautilus Shell",
+        "Chub",
+        "Frozen Geode"
+    ],
+    "BB - Enchanter's Bundle": [
+        "Oak Resin",
+        "Wine",
+        "Rabbit's Foot",
+        "Pomegranate"
+    ],
+    "CR - Exotic Foraging": [
+        "Oak Resin",
+        "Pine Tar",
+        "Morel",
+        "Cave Carrot",
+        "Cactus Fruit",
+        "Coconut",
+        "Red Mushroom",
+        "Purple Mushroom",
+        "Maple Syrup"
+    ],
+    "FT - River Fish": [
+        "Sunfish",
+        "Catfish",
+        "Shad",
+        "Tiger Trout"
+    ],
+    "FT - Lake Fish": [
+        "Largemouth Bass",
+        "Carp",
+        "Bullhead",
+        "Sturgeon"
+    ],
+    "FT - Ocean Fish": [
+        "Sardine",
+        "Tuna",
+        "Red Snapper",
+        "Tilapia"
+    ],
+    "FT - Night Fishing": [
+        "Walleye",
+        "Bream",
+        "Eel"
+    ],
+    "FT - Specialty Fish": [
+        "Pufferfish",
+        "Ghostfish",
+        "Sandfish",
+        "Woodskip"
+    ],
+    "P - Spring Crops": [
+        "Parsnip",
+        "Green Bean",
+        "Cauliflower",
+        "Potato"
+    ],
+    "P - Summer Crops": [
+        "Tomato",
+        "Hot Pepper",
+        "Blueberry",
+        "Melon"
+    ],
+    "P - Fall Crops": [
+        "Eggplant",
+        "Corn",
+        "Pumpkin",
+        "Yam"
+    ],
+    "P - Animal Bundle": [
+        "Large Milk",
+        "Large Egg (Brown)",
+        "Large Egg (White)",
+        "Large Goat Milk",
+        "Duck Egg",
+        "Wool"
+    ],
+    "The Missing Bundle": [
+        "Ancient Fruit",
+        "Caviar",
+        "Quality Wine",
+        "Dinosaur Mayonnaise",
+        "Prismatic Shard",
+        "Void Salmon"
+    ],
+    "CR - Winter Foraging": [
+        "Winter Root",
+        "Snow Yam",
+        "Crystal Fruit",
+        "Crocus"
+    ],
+    "BR - Blacksmith's Bundle": [
+        "Copper Bar",
+        "Iron Bar",
+        "Gold Bar"
+    ],
+    "BR - Geologist's Bundle": [
+        "Quartz",
+        "Earth Crystal",
+        "Fire Quartz",
+        "Frozen Tear"
+    ],
+    "BR - Adventurer's Bundle": [
+        "Slime",
+        "Bat Wing",
+        "Solar Essence",
+        "Void Essence"
+    ],
+    "CR - Spring Foraging": [
+        "Wild Horseradish",
+        "Daffodil",
+        "Leek",
+        "Dandelion"
+    ],
+    "CR - Summer Foraging": [
+        "Grape",
+        "Spice Berry",
+        "Sweet Pea"
+    ],
+    "CR - Fall Foraging": [
+        "Common Mushroom",
+        "Wild Plum",
+        "Hazelnut",
+        "Blackberry"
+    ],
+    "CR - Construction Bundle": [
+        "Wood",
+        "Wood",
+        "Stone",
+        "Hardwood"
+    ]
+}

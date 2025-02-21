@@ -2,6 +2,8 @@
 
 import asyncio
 import bisect
+from glob import glob
+import yaml
 import os
 import re
 import threading
@@ -12,6 +14,7 @@ import socket
 from PyQt5.QtCore import QThread, pyqtSignal, QObject
 from NetUtils import encode
 import Utils
+from functools import lru_cache
 
 # Paths for item and location tables in JSONPull
 item_file_path = "../JSONPull/item_name_to_id.json"
@@ -21,10 +24,49 @@ checked_location_path = "../JSONStore/checked_location.json"
 all_locations_path = "../JSONStore/all_locations.json"
 current_items_path = "../JSONStore/current_items.json"
 hint_my_location_file_path = "../JSONStore/hint_my_location.json"
+requirements_goals_file_path = "../JSONPull/requirements"
 hint_my_item_file_path = "../JSONStore/hint_my_item.json"
 all_data_path = "../JSONPull/all_data.json"
 data_path = "../JSONStore/data.json"
-log_file_path = "../serverlog.txt"
+config_path = "../JSONStore/config.json"
+log_file_path = "../Logs/serverlog.txt"
+
+# Dictionary to track file modification times
+file_timestamps = {}
+
+
+@lru_cache(maxsize=None)
+def extract_items_from_json(folder_path):
+    """Extracts unique items from all JSON files in a given folder."""
+    
+    if not os.path.isdir(folder_path):
+        print(f"Error: {folder_path} is not a valid directory.")
+        return []
+    
+    items_set = set()
+    
+    def extract_items(data):
+        if isinstance(data, dict):
+            if "item" in data:
+                items_set.add(data["item"])  # Add to set to ensure uniqueness
+            for value in data.values():
+                extract_items(value)
+        elif isinstance(data, list):
+            for item in data:
+                extract_items(item)
+    
+    for filename in os.listdir(folder_path):
+        if filename.endswith(".json"):
+            file_path = os.path.join(folder_path, filename)
+            try:
+                with open(file_path, "r", encoding="utf-8") as file:
+                    data = json.load(file)
+                    extract_items(data)
+            except (FileNotFoundError, json.JSONDecodeError) as e:
+                print(f"Error reading JSON file {file_path}: {e}")
+    
+    return sorted(items_set)  # Return a sorted list for consistency
+
 
 # Load the JSON files into lists
 with open(item_file_path, 'r') as item_file:
@@ -61,7 +103,8 @@ global_player_name = None
 
 
 class MessageEmitter(QObject):
-    message_signal = pyqtSignal(str)  # Emit both text and state
+    message_signal = pyqtSignal(str)  # For messages
+    connection_signal = pyqtSignal(bool)  # For connection status
 
 
 # Instantiate a global emitter object
@@ -69,19 +112,38 @@ message_emitter = MessageEmitter()
 
 async def connect_to_server(server_address, player_slot):
     """Establish WebSocket connection and start listening."""
-    global global_websocket  # Use global variable to store the websocket instance
+    global global_websocket, global_connection_status  # Use global variables
     try:
         async with websockets.connect(server_address) as websocket:
             global_websocket = websocket  # Assign the websocket instance
+            global_connection_status = True  # Mark as connected
             print(f"Connected to server at {server_address}")
+            
+            # Start the connection status checker in the background
+            asyncio.create_task(check_connection_status())
+
             await send_initial_connect(global_websocket, player_slot)
 
             # Listen for server messages and process them
             await listen_to_server(global_websocket)
 
     except Exception as e:
+        global_connection_status = False  # Mark as disconnected
         print_to_server_console(f"The server address: {server_address} is unresponsive. Try refreshing the Archipelago Page and try again.")
         print("An error occurred:", e)
+
+async def check_connection_status():
+    """Continuously check if the WebSocket is still connected."""
+
+    while True:
+        # If connection is still active
+        if global_connection_status:
+            print("Status: Connected to server.")  # Debugging
+            message_emitter.connection_signal.emit(True)  # Emit connected status
+        else:
+            print("Status: Not Connected to the server.")  # Debugging
+            message_emitter.connection_signal.emit(False)  # Emit disconnected status
+        await asyncio.sleep(1)  # Check every second
 
 async def handle_server_message(message, send_to_main_program):
     """Extracts and processes text from server messages, sending it to the main program."""
@@ -95,39 +157,25 @@ async def handle_server_message(message, send_to_main_program):
 
 async def listen_to_server(websocket):
     """Constantly listen to the server and emit each message."""
+    global global_connection_status
     try:
         while True:
             response = await websocket.recv()
-            await log_to_file(response)  # Log each message to the log file
-
-            # Parse the response and handle the parsed data
+            await log_to_file(response)
             parse_server_response(response)
 
     except websockets.exceptions.ConnectionClosed as e:
+        global_connection_status = False  # Mark as disconnected
+        message_emitter.connection_signal.emit(False)  # Emit disconnection status
         print(f"Connection closed: {e}")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-    return None, None
 
-if os.path.exists(player_table_path):
-    with open(player_table_path, 'r') as player_file:
-        try:
-            data = json.load(player_file)
-        except json.JSONDecodeError:
-            print("Error: Could not decode JSON in player_table.json.")
 
-if os.path.exists(checked_location_path):
-    with open(checked_location_path, 'r') as checked_file:
-        try:
-            data = json.load(checked_file)
-        except json.JSONDecodeError:
-            print("Error: Could not decode JSON in checked_location.json.")
 
 # Load player data from player_table.json
 def load_player_data():
     try:
         with open(player_table_path, 'r') as player_file:
-            data = json.load(player_file)
+            data = json.load(player_file) 
             return data.get("players", [])
     except (FileNotFoundError, json.JSONDecodeError):
         print("Error: player_table.json file not found or could not be decoded.")
@@ -183,38 +231,43 @@ async def handle_ReceivedItems(entry):
     received_items = entry.get("items", [])
     index = entry.get("index", 0)  # Default to 0 if index is not provided
     item_names = []
+    items = extract_items_from_json(requirements_goals_file_path)
 
     # Retrieve names for each received item based on item code
     for item in received_items:
         item_id = item.get("item")
         item_name = get_item_name(item_id)
+        
         if item_name:
-            item_names.append(item_name)
-            print(f"Found item: {item_name} (ID: {item_id})")  # Log successful lookup
+            if (item_name in items) or (item_name == "Progressive Mine Elevator") or (item_name == "Combat Level")  or (item_name == "Farming Level") or (item_name == "Fishing Level") or (item_name == "Foraging Level") or (item_name == "Mining Level"):
+                item_names.append(item_name)
+                print(f"Found item: {item_name} (ID: {item_id})")  # Log successful lookup
+
+                # Load existing items from current_items.json
+                try:
+                    with open(current_items_path, 'r') as current_items_file:
+                        current_items_data = json.load(current_items_file)
+                        current_items = current_items_data.get("current_items", [])
+                except (FileNotFoundError, json.JSONDecodeError):
+                    # If the file doesn't exist or has errors, start with an empty list
+                    current_items = []
+
+                # Decide whether to replace or add based on the index value
+                if index == 0:
+                    # Replace the entire list
+                    current_items = item_names
+                elif index > 0:
+                    # Add items to the existing list
+                    current_items.extend(item_names)
+
+                # Update current_items.json with the modified list
+                with open(current_items_path, 'w') as current_items_file:
+                    json.dump({"current_items": current_items}, current_items_file, indent=4)
+        
         else:
-            item_names.append("Unknown Item")
             print(f"Warning: Item ID {item_id} not found in item table.")  # Log missing item
 
-    # Load existing items from current_items.json
-    try:
-        with open(current_items_path, 'r') as current_items_file:
-            current_items_data = json.load(current_items_file)
-            current_items = current_items_data.get("current_items", [])
-    except (FileNotFoundError, json.JSONDecodeError):
-        # If the file doesn't exist or has errors, start with an empty list
-        current_items = []
 
-    # Decide whether to replace or add based on the index value
-    if index == 0:
-        # Replace the entire list
-        current_items = item_names
-    elif index > 0:
-        # Add items to the existing list
-        current_items.extend(item_names)
-
-    # Update current_items.json with the modified list
-    with open(current_items_path, 'w') as current_items_file:
-        json.dump({"current_items": current_items}, current_items_file, indent=4)
 
 def handle_print_json(entry):
     """Process 'PrintJSON' command to interpret and display text fields."""
@@ -530,6 +583,7 @@ def update_data_with_all_locations():
         if location not in all_data_locations:
             missing_locations_from_locations.append(location)
             print(f"Location '{location}' is in all_locations.json but missing from all_data.json.")
+    respect_excluded(data)
 
     # Write the updated data.json safely
     try:
@@ -538,19 +592,89 @@ def update_data_with_all_locations():
     except Exception as e:
         print(f"Error occurred while saving data.json: {e}")
         return
+    
 
     print("Updated data.json successfully.")
-        
+
+def respect_excluded(data):
+    print("Starting respect_excluded function...")
+
+    # Log current working directory
+    print(f"Current working directory: {os.getcwd()}")
+
+    # Locate the first YAML file in ../Settings
+    yaml_path = glob("../Settings/*.yaml")
+    print(f"Searching for YAML files in: {os.path.abspath('../Settings')}")
+
+    if not yaml_path:
+        print("Error: No YAML file found in ../Settings.")
+        return
+
+    yaml_path = yaml_path[0]  # Use the first YAML file found
+    print(f"Using YAML file: {yaml_path}")
+
+    try:
+        with open(yaml_path, 'r') as yaml_file:
+            yaml_data = yaml.safe_load(yaml_file)
+            print(f"YAML data loaded successfully: {yaml_data.keys()}")
+
+            # Navigate to the nested 'Stardew Valley' section
+            stardew_valley_data = yaml_data.get("Stardew Valley", {})
+            print(f"'Stardew Valley' section loaded: {stardew_valley_data.keys()}")
+
+            # Extract the exclude_locations list
+            excluded_locations = stardew_valley_data.get("exclude_locations", [])
+            print(f"Excluded locations extracted: {excluded_locations}")
+    except FileNotFoundError:
+        print(f"Error: File {yaml_path} not found.")
+        return
+    except yaml.YAMLError as e:
+        print(f"Error reading YAML file {yaml_path}: {e}")
+        return
+
+    if not excluded_locations:
+        print("Warning: No excluded locations found in the YAML file.")
+        return
+
+    # Process excluded locations
+    print("Processing excluded locations...")
+    for section, entries in data.items():
+        print(f"Checking section: {section} with {len(entries)} entries.")
+        for entry in entries:
+            location_name = entry[3]  # The 4th field is the location name
+            if location_name.strip("'") in excluded_locations:
+                print(f"Match found: {location_name} in section {section}. Updating entry.")
+                entry[4] = 1  # Update the 5th field
+            else:
+                print(f"No match for: {location_name} in excluded locations.")
+
+    print("Completed processing excluded locations.")
+
 
 def print_to_server_console(text):
     """Emit the parsed text to the server console output in Tracker.py."""
     # Emit the text to the connected GUI console in Tracker.py
     message_emitter.message_signal.emit(text)
 
+def get_server_address_suffix():
+    """Retrieve the server address from config.json and extract the last 5 characters."""
+    try:
+        with open("../JSONStore/config.json", "r") as config_file:
+            config = json.load(config_file)
+            server_address = config.get("server_address", "")
+            return server_address[-5:]
+    except (FileNotFoundError, json.JSONDecodeError):
+        print("Error: Unable to read server address from config.json.")
+        return "error"
+
 async def log_to_file(message):
-    """Append a message to the log file."""
+    """Append a message to the log file with a unique filename based on the server address."""
+    address_suffix = get_server_address_suffix()
+    log_file_path = f"../Logs/serverlog_{address_suffix}.txt"
+
     with open(log_file_path, "a") as log_file:
         log_file.write(message + "\n")
+
 
 async def send_initial_connect(websocket, player_name):
     """Send the initial Connect packet to the server."""
